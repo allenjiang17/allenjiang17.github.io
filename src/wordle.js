@@ -18,15 +18,16 @@ function updateValue() {
   let guess_word = document.getElementById("guess_word");
 
   div_row = document.getElementById("row" + (round+1).toString());
-  div_row.children
-
   let div_letter;
 
   for (let i = 0; i < 5; i++) {
 
-    div_letter = div_row.children[i]
+    div_letter = div_row.children[i];
 
     //div_letter = document.getElementById(("letter" + (i+1).toString()));
+    //let test = document.getElementById("test");
+    //test.innerHTML = target_word[i] + guess_word.value[i];
+
     div_letter.innerHTML = guess_word.value[i].toUpperCase();
 
     if (target_word[i] == guess_word.value[i]) {
