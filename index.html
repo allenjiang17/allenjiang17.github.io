@@ -5,7 +5,15 @@
 </head>
 <body>
 
-<div class="app_body">
+<div class="dialog" id="end_game">
+    <p id="winlose"></p>
+    <p id="wordreveal"></p>
+    <button id="playagain"> Play Again?  </button>
+
+</div>
+
+
+<div class="text_body">
 <div class="title">
     WARDLE
 </div>
@@ -125,13 +133,100 @@
 </div>
 </div>
 
+<div class="input_body">
 
-<p>Guess: </p>
-<input type="text" id="guess_word">
-<button id="submit">Enter </button>
+    <h1>Guess: </h1>
+    <input type="text" id="guess_word">
+    <button id="submit">Enter </button>
+    <p id="invalid_guess"></p>
+    <p id="test"></p>
 
-<p id="word_reveal"></p>
-<p id="test"></p>
+    <div class="keyboard_body">
+        <div class="key_letter" id="a">
+            a
+        </div>
+        <div class="key_letter" id="b">
+            b
+        </div>
+        <div class="key_letter" id="c">
+            c
+        </div>
+        <div class="key_letter" id="d">
+            d
+        </div>
+        <div class="key_letter" id="e">
+            e
+        </div>
+        <div class="key_letter" id="f">
+            f
+        </div>
+        <div class="key_letter" id="g">
+            g
+        </div>
+        <div class="key_letter" id="h">
+            h
+        </div>
+        <div class="key_letter" id="i">
+            i
+        </div>
+        <div class="key_letter" id="j">
+            j
+        </div>
+        <div class="key_letter" id="k">
+            k
+        </div>
+        <div class="key_letter" id="l">
+            l
+        </div>
+        <div class="key_letter" id="m">
+            m
+        </div>
+        <div class="key_letter" id="n">
+            n
+        </div>
+        <div class="key_letter" id="o">
+            o
+        </div>
+        <div class="key_letter" id="p">
+            p
+        </div>
+        <div class="key_letter" id="q">
+            q
+        </div>
+        <div class="key_letter" id="r">
+            r
+        </div>
+        <div class="key_letter" id="s">
+            s
+        </div>
+        <div class="key_letter" id="t">
+            t
+        </div>
+        <div class="key_letter" id="u">
+            u
+        </div>
+        <div class="key_letter" id="v">
+            v
+        </div>
+        <div class="key_letter" id="w">
+            w
+        </div>
+        <div class="key_letter" id="x">
+            x
+        </div>
+        <div class="key_letter" id="y">
+            y
+        </div>
+        <div class="key_letter" id="z">
+            z
+        </div>
+
+
+    </div>
+
+</div>
+
+
 
 <script src="src/wordle.js"></script>
 

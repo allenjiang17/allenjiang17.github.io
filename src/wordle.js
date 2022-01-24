@@ -5,28 +5,49 @@ const Ta=["aahed","aalii","aargh","aarti","abaca","abaci","abacs","abaft","abaka
 let round = 0;
 let target_word;
 
+document.getElementById("end_game").style.visibility = "hidden";
+
+
 window.addEventListener("load", initializeGame);
 document.getElementById("submit").addEventListener("click", updateValue);
+document.getElementById("playagain").addEventListener("click", refreshPage);
+
 
 function initializeGame(){
     let seed = Math.floor(Math.random()*La.length);
     target_word = La[seed];
+    //target_word = "enter";
 }
 
 function updateValue() {
 
   let guess_word = document.getElementById("guess_word").value.toLowerCase();
 
+  /*
+  if (!Ta.includes(guess_word)) {
+        document.getElementById("invalid_guess").innerHTML = "Invalid Guess! Has to be a word";
+        return;
+  }
+
+  */
+
   div_row = document.getElementById("row" + (round+1).toString());
   let div_letter;
+
 
   for (let i = 0; i < 5; i++) {
 
     div_letter = div_row.children[i];
 
     //div_letter = document.getElementById(("letter" + (i+1).toString()));
-    //let test = document.getElementById("test");
-    //test.innerHTML = target_word[i] + guess_word[i];
+
+    if (target_word == guess_word) {
+      document.getElementById("end_game").style.visibility = "visible";
+
+      document.getElementById("winlose").innerHTML = "YOU WON!";
+      document.getElementById("wordreveal").innerHTML = "The word was: " + target_word;
+
+    }
 
     div_letter.innerHTML = guess_word[i].toUpperCase();
 
@@ -34,13 +55,24 @@ function updateValue() {
         div_letter.style.border = "2px solid ForestGreen";
         div_letter.style.backgroundColor = "ForestGreen";
         div_letter.style.color = "White";
+
+        document.getElementById(guess_word[i]).style.backgroundColor = "ForestGreen";
+
     } else if (target_word.includes(guess_word[i])) {
         div_letter.style.border = "2px solid Gold";
         div_letter.style.backgroundColor = "Gold";
         div_letter.style.color = "White";
+
+        if (document.getElementById(guess_word[i]).style.backgroundColor != "forestgreen") {
+            document.getElementById(guess_word[i]).style.backgroundColor = "Gold";
+        }
+
     } else {
         div_letter.style.backgroundColor = "Silver";
         div_letter.style.color = "White";
+
+        document.getElementById(guess_word[i]).style.backgroundColor = "DimGray";
+
     }
 
   }
@@ -48,6 +80,14 @@ function updateValue() {
   round++;
 
   if (round > 5) {
-      document.getElementById("word_reveal").innerHTML = "The Word was: " + target_word;
+      document.getElementById("end_game").style.visibility = "visible";
+
+      document.getElementById("winlose").innerHTML = "YOU LOST!";
+      document.getElementById("wordreveal").innerHTML = "The word was: " + target_word;
   }
+}
+
+function refreshPage() {
+    location.reload();
+
 }

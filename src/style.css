@@ -1,17 +1,85 @@
-.app_body{
+body{
+    width:670px;
+    margin: auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
 
-width: 500px;
-
+    font-family:Helvetica;
 }
+
+
+.text_body{
+width: 470px;
+margin:10px;
+}
+
+.input_body{
+width:160px;
+margin:10px;
+}
+
 .title{
-    font-family: Helvetica;
     font-weight: bold;
     font-size: 45px;
     text-align:center;
 }
+
+h1{
+    font-size: 20px;
+    text-align:center;
+}
+
+
+input {
+    width:150px;
+
+}
+
+button {
+    margin:5px;
+
+}
+
+.dialog{
+    position:fixed;
+    top:30%;
+    left:30%;
+
+    border-radius:4px;
+    padding:15px;
+    background-color: Silver;
+
+    color:white;
+    font-size: 40px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.keyboard_body{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+}
+
+.key_letter{
+    height: 16px;
+    line-height:16px;
+    width:16px;
+
+    border-radius:4px;
+    padding:4px;
+    margin:3px;
+    background-color: LightGray;
+
+    color:white;
+    font-size:16px;
+    text-align:center;
+
+}
+
 .word_row {
     display:grid;
-    width:200px;
+    width:470px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
@@ -23,9 +91,9 @@ line-height:40px;
 width: 40px;
 height: 40px;
 
-font-family:Helvetica;
 font-weight: bold;
 color: DimGray;
 font-size:35px;
 text-align:center;
 }
+
