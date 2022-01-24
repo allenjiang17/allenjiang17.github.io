@@ -1,0 +1,105 @@
+body{
+    width:100vh;
+    margin: auto;
+    display:grid;
+    grid-template-columns:75vh 25vh;
+
+    font-family:Helvetica;
+}
+
+
+.text_body{
+width:73vh;
+margin:1vh;
+}
+
+.input_body{
+width:23vh;
+margin:1vh;
+}
+
+.title{
+    font-weight: bold;
+    font-size: 7vh;
+    text-align:center;
+}
+
+h1{
+    font-size: 4vh;
+    text-align:left;
+}
+
+
+input {
+    margin:1vh;
+    width:21vh;
+}
+
+button {
+    margin:1vh;
+    width:10vh;
+    font-size:2vh;
+}
+
+.dialog{
+    position:fixed;
+    top:30%;
+    left:30%;
+
+    border-radius:4px;
+    padding:15px;
+    background-color: Silver;
+
+    color:white;
+    font-size: 40px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.keyboard_body{
+
+    display:grid;
+    justify-content:center;
+    top-margin:1vh;
+    bottom-margin:1vh;
+    grid-template-columns:4.2vh 4.2vh 4.2vh 4.2vh 4.2vh;
+
+}
+
+.key_letter{
+    height: 3vh;
+    line-height:3vh;
+    width: 3vh;
+
+    border-radius:0.5vh;
+    padding:0.4vh;
+    margin:0.2vh;
+    background-color: LightGray;
+
+    color:white;
+    font-size:2vh;
+    text-align:center;
+
+}
+
+.word_row {
+    display:grid;
+    justify-content:center;
+    grid-template-columns: 14vh 14vh 14vh 14vh 14vh;
+
+    padding-top:0.6vh;
+    padding-bottom:0.6vh;
+}
+
+.letterbox {
+border: 0.25vh solid silver;
+padding: 2.5vh;
+width: 7vh;
+height: 7vh;
+
+font-weight: bold;
+color: DimGray;
+font-size:7vh;
+text-align:center;
+}
+

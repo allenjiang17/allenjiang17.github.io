@@ -39,15 +39,6 @@ function updateValue() {
     div_letter = div_row.children[i];
 
     //div_letter = document.getElementById(("letter" + (i+1).toString()));
-
-    if (target_word == guess_word) {
-      document.getElementById("end_game").style.visibility = "visible";
-
-      document.getElementById("winlose").innerHTML = "YOU WON!";
-      document.getElementById("wordreveal").innerHTML = "The word was: " + target_word;
-
-    }
-
     div_letter.innerHTML = guess_word[i].toUpperCase();
 
     if (target_word[i] == guess_word[i]) {
@@ -78,12 +69,19 @@ function updateValue() {
 
   round++;
 
-  if (round > 5) {
+   if (target_word == guess_word) {
+      document.getElementById("end_game").style.visibility = "visible";
+
+      document.getElementById("winlose").innerHTML = "YOU WON!";
+      document.getElementById("wordreveal").innerHTML = "The word was: " + target_word;
+
+    } else if (round > 5) {
       document.getElementById("end_game").style.visibility = "visible";
 
       document.getElementById("winlose").innerHTML = "YOU LOST!";
       document.getElementById("wordreveal").innerHTML = "The word was: " + target_word;
-  }
+    }
+
 }
 
 function refreshPage() {
