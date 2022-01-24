@@ -1,15 +1,171 @@
 <!DOCTYPE html>
 <html>
+<head>
+<style>
+.app_body{
+
+width: 500px;
+
+
+}
+.title{
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 45px;
+    text-align:center;
+}
+.word_row {
+    display:grid;
+    width:200px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.letterbox {
+border: 2px solid silver;
+margin: 5px;
+padding: 20px;
+line-height:40px;
+width: 40px;
+height: 40px;
+
+font-family:Helvetica;
+font-weight: bold;
+color: DimGray;
+font-size:35px;
+text-align:center;
+}
+</style>
+</head>
 <body>
-<script> src="src/wordle.js"</script>
+
+<div class="app_body">
+<div class="title">
+    WARDLE
+</div>
+
+<div class="word_row" id="row1">
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+
+</div>
+
+<div class="word_row" id="row2">
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+
+</div>
+
+<div class="word_row" id="row3">
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+
+</div>
+
+<div class="word_row" id="row4">
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+
+</div>
+
+<div class="word_row" id="row5">
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+
+</div>
+
+<div class="word_row" id="row6">
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+    <div class="letterbox">
+        <br>
+    </div>
+
+</div>
+</div>
 
 
-<form id="form1">
-    Guess: <input type="text" name="guess_name">
-    <input type="button" onclick = "guess_func" value="Enter">
+<p>Guess: </p>
+<input type="text" id="guess_word">
+<button id="submit">Enter </button>
 
+<p id="word_reveal"></p>
 
-</form>
+<script src="src/wordle.js"></script>
 
 </body>
 </html>
