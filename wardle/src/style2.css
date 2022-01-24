@@ -1,21 +1,20 @@
 body{
-    width:100vh;
+    height:100vh;
+    width:56vh;
     margin: auto;
-    display:grid;
-    grid-template-columns:75vh 25vh;
+    /*display:grid;*/
+    /*grid-template-rows:75vh 25vh;*/
 
     font-family:Helvetica;
 }
 
 
 .text_body{
-width:73vh;
-margin:1vh;
+padding:1vh;
 }
 
 .input_body{
-width:23vh;
-margin:1vh;
+padding:1vh;
 }
 
 .title{
@@ -29,22 +28,21 @@ h1{
     text-align:left;
 }
 
-
+.input_box{
+    text-align:center;
+}
 input {
     margin:1vh;
-    width:21vh;
 }
 
 button {
     margin:1vh;
-    width:10vh;
     font-size:2vh;
 }
 
 .dialog{
     position:fixed;
     top:30%;
-    left:30%;
 
     border-radius:4px;
     padding:15px;
@@ -60,9 +58,7 @@ button {
 
     display:grid;
     justify-content:center;
-    top-margin:1vh;
-    bottom-margin:1vh;
-    grid-template-columns:4.2vh 4.2vh 4.2vh 4.2vh 4.2vh;
+    grid-template-columns:4.2vh 4.2vh 4.2vh 4.2vh 4.2vh 4.2vh 4.2vh 4.2vh 4.2vh;
 
 }
 
@@ -85,21 +81,21 @@ button {
 .word_row {
     display:grid;
     justify-content:center;
-    grid-template-columns: 14vh 14vh 14vh 14vh 14vh;
+    grid-template-columns: 11vh 11vh 11vh 11vh 11vh;
+    margin-top:0.4vh;
+    margin-bottom:0.4vh;
 
-    padding-top:0.6vh;
-    padding-bottom:0.6vh;
 }
 
 .letterbox {
 border: 0.25vh solid silver;
 padding: 2.5vh;
-width: 7vh;
-height: 7vh;
+width: 5vh;
+height: 5vh;
 
 font-weight: bold;
 color: DimGray;
-font-size:7vh;
+font-size:5vh;
 text-align:center;
 }
 
