@@ -1,0 +1,31 @@
+.app_body{
+
+width: 500px;
+
+}
+.title{
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 45px;
+    text-align:center;
+}
+.word_row {
+    display:grid;
+    width:200px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.letterbox {
+border: 2px solid silver;
+margin: 5px;
+padding: 20px;
+line-height:40px;
+width: 40px;
+height: 40px;
+
+font-family:Helvetica;
+font-weight: bold;
+color: DimGray;
+font-size:35px;
+text-align:center;
+}
