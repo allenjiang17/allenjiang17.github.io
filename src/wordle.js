@@ -22,7 +22,6 @@ function initializeGame(){
 function updateValue() {
 
   let guess_word = document.getElementById("guess_word").value.toLowerCase();
-
   /*
   if (!Ta.includes(guess_word)) {
         document.getElementById("invalid_guess").innerHTML = "Invalid Guess! Has to be a word";
