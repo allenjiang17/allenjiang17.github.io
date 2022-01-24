@@ -15,7 +15,7 @@ function initializeGame(){
 
 function updateValue() {
 
-  let guess_word = document.getElementById("guess_word");
+  let guess_word = document.getElementById("guess_word").value.toLowerCase();
 
   div_row = document.getElementById("row" + (round+1).toString());
   let div_letter;
@@ -26,15 +26,15 @@ function updateValue() {
 
     //div_letter = document.getElementById(("letter" + (i+1).toString()));
     //let test = document.getElementById("test");
-    //test.innerHTML = target_word[i] + guess_word.value[i];
+    //test.innerHTML = target_word[i] + guess_word[i];
 
-    div_letter.innerHTML = guess_word.value[i].toUpperCase();
+    div_letter.innerHTML = guess_word[i].toUpperCase();
 
-    if (target_word[i] == guess_word.value[i]) {
+    if (target_word[i] == guess_word[i]) {
         div_letter.style.border = "2px solid ForestGreen";
         div_letter.style.backgroundColor = "ForestGreen";
         div_letter.style.color = "White";
-    } else if (target_word.includes(guess_word.value[i])) {
+    } else if (target_word.includes(guess_word[i])) {
         div_letter.style.border = "2px solid Gold";
         div_letter.style.backgroundColor = "Gold";
         div_letter.style.color = "White";
