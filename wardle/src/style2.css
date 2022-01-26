@@ -25,19 +25,16 @@ margin:1vh;
     text-align:center;
 }
 
-.input_box{
-    text-align:center;
-}
 input {
     margin:1vh;
     font-size:3.5vh;
-    width:30vh;
+    width:50%;
 }
 
 button {
     margin:1vh;
-    font-size:3vh;
-    width:17vh;
+    font-size:3.5vh;
+    width:30%;
 }
 
 .dialog{
