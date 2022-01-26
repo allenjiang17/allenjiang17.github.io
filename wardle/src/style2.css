@@ -27,14 +27,14 @@ margin:1vh;
 
 input {
     margin:1vh;
-    font-size:3.5vh;
+    font-size:3.25vh;
     width:50%;
 }
 
 button {
     margin:1vh;
-    font-size:3.5vh;
-    width:30%;
+    font-size:2vh;
+    width:15%;
 }
 
 .dialog{
