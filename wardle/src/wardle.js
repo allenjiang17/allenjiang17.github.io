@@ -109,6 +109,10 @@ function updateValue() {
       document.getElementById("wordreveal").innerHTML = "The word was: " + target_word;
     }
 
+
+   document.getElementById("guess_word").value = "";
+
+
 }
 
 function refreshPage() {
