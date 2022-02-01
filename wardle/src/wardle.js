@@ -9,7 +9,17 @@ document.getElementById("end_game").style.visibility = "hidden";
 
 
 window.addEventListener("load", initializeGame);
+document.getElementById("puzzle_id").addEventListener("keyup", changePuzzle);
 document.getElementById("submit").addEventListener("click", updateValue);
+document.getElementById("guess_word").addEventListener("keyup", function(event){
+
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("submit").click();
+
+    }
+
+});
 document.getElementById("playagain").addEventListener("click", refreshPage);
 
 
@@ -17,16 +27,33 @@ function initializeGame(){
     let seed = Math.floor(Math.random()*La.length);
     target_word = La[seed];
     //target_word = "enter";
+
+    document.getElementById("puzzle_id").placeholder= "#" + seed;
+
 }
+
+function changePuzzle(){
+  event.preventDefault();
+  if (event.keyCode === 13) {
+        change_seed = document.getElementById("puzzle_id").value;
+
+        if (change_seed > 0 && change_seed < La.length) {
+            target_word = La[change_seed];
+            document.getElementById("puzzle_id").placeholder="#" + change_seed;
+            document.getElementById("puzzle_id").value = "";
+         }
+    }
+}
+
 
 function updateValue() {
 
   let guess_word = document.getElementById("guess_word").value.toLowerCase();
-  document.getElementById("invalid_guess").innerHTML = ""; //erase the invalid statement at new guess
+  //document.getElementById("invalid_guess").innerHTML = ""; //erase the invalid statement at new guess
 
 
   if (!(Ta.includes(guess_word) || La.includes(guess_word))) {
-        document.getElementById("invalid_guess").innerHTML = "Invalid Guess! Has to be a word";
+        //document.getElementById("invalid_guess").innerHTML = "Invalid Guess! Has to be a word";
         return;
   }
 

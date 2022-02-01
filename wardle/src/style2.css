@@ -3,14 +3,27 @@ body{
     width:56vh;
     margin: auto;
     display:grid;
-    grid-template-rows:73vh 8vh 16vh;
+    grid-template-rows:7vh 65vh 8vh 16vh;
 
     font-family:Helvetica;
 }
 
+.title_body{
+height:7vh;
+display:grid;
+grid-template-columns:40vh 16vh;
+}
 
+.id_input{
+height:3vh;
+width:5.5vh;
+margin-top:2vh;
+margin-left:0.5vh;
+}
+
+}
 .text_body{
-height:72vh;
+height:65vh;
 margin:1vh;
 }
 
@@ -20,12 +33,13 @@ margin:1vh;
 }
 
 .title{
+    width:40vh;
     font-weight: bold;
     font-size: 7vh;
-    text-align:center;
+    text-align:right;
 }
 
-input {
+.word_input {
     margin:1vh;
     font-size:3.25vh;
     width:50%;
