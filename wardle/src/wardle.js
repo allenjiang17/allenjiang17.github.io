@@ -54,6 +54,7 @@ function updateValue() {
 
   if (!(Ta.includes(guess_word) || La.includes(guess_word))) {
         //document.getElementById("invalid_guess").innerHTML = "Invalid Guess! Has to be a word";
+        alert("Silly, that's not a word.");
         return;
   }
 
