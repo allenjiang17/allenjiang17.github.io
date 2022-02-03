@@ -1,7 +1,7 @@
 import Component from '../lib/component.js';
 import store from '../store/index.js';
 
-export default class List extends Component {
+export default class SongList extends Component {
 
     constructor() {
         super({store, element: document.querySelector('.songlist')}); 
@@ -31,9 +31,9 @@ export default class List extends Component {
         self.element.innerHTML = `
             ${store.state.songs.map((song, index) => {
                 if (index != store.state.currsong)
-                    return `<div class="songitem">${song}</div>`
+                    return `<div class="songitem">${song.title}</div>`
                 else 
-                    return `<div class="songitem selsongitem">${song}</div>`
+                    return `<div class="songitem selsongitem">${song.title}</div>`
             }).join('')}
         `;
 

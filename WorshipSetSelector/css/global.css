@@ -58,6 +58,13 @@ body {
     width:100%;
     flex-grow:3;
     background-color:rgba(200, 90, 120, 0.1);
+    overflow-x:scroll;
+    overflow-y:scroll;
+    display:flex;
+    flex-direction:column;
+}
+.previewlyricsitem {
+    width:100%;
 }
 .previewdisplay {
     width:100%;

@@ -1,7 +1,10 @@
 import store from './store/index.js';
 
-import List from './components/list.js';
+import SongList from './components/songlist.js';
+import PreviewLyrics from './components/prevlyrics.js';
 
-const listInstance = new List();
+const slInstance = new SongList();
+const plInstance = new PreviewLyrics();
 
-listInstance.render();
+slInstance.render();
+plInstance.render();
