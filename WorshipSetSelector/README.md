@@ -19,3 +19,4 @@
 
 * run `npx http-server` in this directory
 * You can't directly open index.html because of CORS
+* To visit the production version of this website go (here)[https://allenjiang17.github.io/WorshipSetSelector/]
