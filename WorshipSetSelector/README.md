@@ -17,6 +17,8 @@
 
 ## How to Start
 
-* run `npx http-server` in this directory
-* You can't directly open index.html because of CORS
+* Local Testing
+ * run `npx http-server` in this directory
+ * You can't directly open index.html because of CORS
+ * Sometimes you need to use `cmd + shift + r` to hard refresh the page for the changes to go through.
 * To visit the production version of this website go [here](https://allenjiang17.github.io/WorshipSetSelector/)
