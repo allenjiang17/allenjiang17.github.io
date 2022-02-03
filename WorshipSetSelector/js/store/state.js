@@ -1,7 +1,7 @@
 export default {
-    items: [
-        'hello',
-        'another'
+    songs: [
+        'Set a Fire',
+        'Not in a Hurry'
     ]
 }
 

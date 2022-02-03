@@ -4,7 +4,7 @@ import store from '../store/index.js';
 export default class List extends Component {
 
     constructor() {
-        super({store, element: document.querySelector('.js-items')}); 
+        super({store, element: document.querySelector('.songlist')}); 
         // Initialize the function with a store
         // The element: document.querySelector essentially finds all objects
         //   with class .js-items and replaces html/adds event listeners etc.
@@ -14,10 +14,10 @@ export default class List extends Component {
     render() {
         let self = this;
 
-        if(store.state.items.length === 0) {
+        if(store.state.songs.length === 0) {
             self.element.innerHTML = `
               <p class="no-items">
-                You've done nothing yet &#x1f622;
+                No songs added yet;
               </p>`;
             return;
         }
@@ -29,18 +29,17 @@ export default class List extends Component {
         // variables using ${} within the backticks.
 
         self.element.innerHTML = `
-            <ul class="app__items">
-            ${store.state.items.map(item => {
+            ${store.state.songs.map(song => {
                 return `
-                    <li>${item}<button aria-label="Delete this item">×</button></li>
+                    <div class="songitem">${song}</div>
                 `
             }).join('')}
-            </ul>
         `;
 
-        self.element.querySelectorAll('button').forEach((button, index) => {
+        self.element.querySelectorAll('.songitem').forEach((button, index) => {
             button.addEventListener('click', () => {
-                store.dispatch('clearItem', { index }); 
+                console.log(index);
+                // store.dispatch('clearItem', { index }); 
                 // callback function taking in a single param index
             });
         });
