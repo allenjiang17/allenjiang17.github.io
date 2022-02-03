@@ -1,0 +1,81 @@
+html {
+    margin:0;
+    height:100%;
+}
+body {
+    padding:0;
+    margin:0;
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    height:100%;
+}
+
+.leftwindow{
+    height:100%;
+    flex-grow: 5;
+    display:flex;
+    flex-direction:column;
+}
+
+.rightwindow{
+    height:100%;
+    flex-grow: 6;
+    display:flex;
+    flex-direction:column;
+}
+.midwindow {
+    height:100%;
+    flex-grow: 6;
+    display:flex;
+    flex-direction:column;
+}
+
+.songselector {
+    width:100%;
+    flex-grow:1;
+    background-color:rgba(255, 99, 71, 0.1);
+}
+.songdatabase {
+    width:100%;
+    flex-grow:1;
+    background-color:rgba(22, 19, 71, 0.1);
+}
+.previewlyrics {
+    width:100%;
+    flex-grow:3;
+    background-color:rgba(200, 90, 120, 0.1);
+}
+.previewdisplay {
+    width:100%;
+    flex-grow:2;
+    background-color:rgba(0, 164, 167, 0.1);
+}
+.currentlyrics {
+    width:100%;
+    flex-grow:3;
+    background-color:rgba(3, 204, 174, 0.1);
+}
+.currentdisplay {
+    width:100%;
+    flex-grow:2;
+    background-color:rgba(162, 130, 162, 0.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.resizeable {
+    resize:both;
+    overflow:scroll;
+} 
+/* We can allow some of the windows to be resizeable via this css feature
+and we can then use flex-grow to find the rest? */

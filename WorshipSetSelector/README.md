@@ -11,3 +11,8 @@
   * decide actions/mutations + their keys (so we can begin to work on different parts of UI and subscribe, etc.)
 * Resizeable windows
 * Presentation Window
+* License?
+
+# How to Start
+
+* open index.html
