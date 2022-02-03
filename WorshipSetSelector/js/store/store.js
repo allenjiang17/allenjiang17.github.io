@@ -27,9 +27,9 @@ export default class Store {
 
                 if(self.status !== 'mutation') {
                     console.warn(`You should use a mutation to set ${key}`);
+                    console.log(self.status)
+                    self.status = 'resting';
                 }
-
-                self.status = 'resting';
 
                 return true
             }
@@ -65,9 +65,15 @@ export default class Store {
         self.status = 'mutation';
 
         let newState = self.mutations[mutationKey](self.state, payload);
+        // This code assumes that javascript passes by value, but in practice,
+        // it seems that it's currently passing by reference, which is leading
+        // to the console.warn('You should use a mutation to set ...')
 
         self.state = Object.assign(self.state, newState);
+        // Also, Object.assign seems to invoke set multiple times.
 
+
+        self.status = 'resting';
         return true;
     }
 }

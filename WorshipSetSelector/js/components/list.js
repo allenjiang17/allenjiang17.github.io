@@ -29,17 +29,18 @@ export default class List extends Component {
         // variables using ${} within the backticks.
 
         self.element.innerHTML = `
-            ${store.state.songs.map(song => {
-                return `
-                    <div class="songitem">${song}</div>
-                `
+            ${store.state.songs.map((song, index) => {
+                if (index != store.state.currsong)
+                    return `<div class="songitem">${song}</div>`
+                else 
+                    return `<div class="songitem selsongitem">${song}</div>`
             }).join('')}
         `;
 
         self.element.querySelectorAll('.songitem').forEach((button, index) => {
             button.addEventListener('click', () => {
                 console.log(index);
-                // store.dispatch('clearItem', { index }); 
+                store.dispatch('selectSong', index); 
                 // callback function taking in a single param index
             });
         });

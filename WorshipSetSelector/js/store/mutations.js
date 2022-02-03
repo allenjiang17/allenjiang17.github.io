@@ -1,15 +1,13 @@
 export default {
-    addItem(state, payload) {
-        state.items.push(payload);
-        return state;
-    },
-    clearItem(state, payload) {
-        state.items.splice(payload.index, 1);
-        return state;
+    selectSong(state, payload) {
+        let newstate = {} //create a newstate and assign the new value
+        newstate.currsong = payload;
+        return newstate;
     }
 };
 
-// This file is a list of functions which specifically are allowed to act
-// directly upon the state object.
+// This file is a list of functions which specifically are allowed to change
+// the state.
 //
-// The functions defined here should always return the new state.
+// The functions defined here should always declare and then return a new
+// state.

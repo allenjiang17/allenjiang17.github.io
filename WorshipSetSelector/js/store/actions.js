@@ -1,6 +1,6 @@
 export default {
-    addItem(context, payload) {
-        context.commit('addItem', payload)
+    selectSong(context, payload) {
+        context.commit('selectSong', payload)
     },
     clearItem(context, payload) {
         context.commit('clearItem', payload)
