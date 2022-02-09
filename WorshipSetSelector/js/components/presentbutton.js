@@ -25,7 +25,11 @@ export default class PresentButton extends Component {
         document.querySelector('.pb').addEventListener('click', () => {
             console.log('presenting!')
             window.open("", "worshippresentationwindow", 
-                "menubar=no,toolbar=no,location=no,status=no,resizeable=no")
+                "menubar=no,toolbar=no,location=no,status=no,resizeable")
+            // On firefox, you need to set some stuff in about:config for these
+            // to work perfectly;
+            //
+            // https://stackoverflow.com/questions/2909645/open-new-popup-window-without-address-bars-in-firefox-ie
         });
     }
 };
