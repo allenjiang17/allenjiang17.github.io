@@ -4,7 +4,7 @@ export default {
     },
     clearItem(context, payload) {
         context.commit('clearItem', payload)
-    }
+    },
 }
 
 // Here, each context is a specific instance of store.

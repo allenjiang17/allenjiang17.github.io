@@ -25,6 +25,7 @@ export default {
             `}
     ],
     currsong: 0,
+    presentwindow: null,
 }
 
 // Here we define the default state.
