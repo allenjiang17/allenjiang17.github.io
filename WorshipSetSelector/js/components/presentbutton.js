@@ -24,8 +24,10 @@ export default class PresentButton extends Component {
 
         document.querySelector('.pb').addEventListener('click', () => {
             console.log('presenting!')
-            window.open("", "worshippresentationwindow", 
-                "menubar=no,toolbar=no,location=no,status=no,resizeable")
+            let windowobj = window.open("", "worshippresentationwindow", 
+                "popup");
+            windowobj.document.documentElement.requestFullscreen();
+            //  "menubar=no,toolbar=no,location=no,status=no,resizeable")
             // On firefox, you need to set some stuff in about:config for these
             // to work perfectly;
             //
