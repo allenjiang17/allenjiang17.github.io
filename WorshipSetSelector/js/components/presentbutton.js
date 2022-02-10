@@ -26,12 +26,15 @@ export default class PresentButton extends Component {
             console.log('presenting!')
             let windowobj = window.open("", "worshippresentationwindow", 
                 "popup");
-            windowobj.document.documentElement.requestFullscreen();
+            // windowobj.document.documentElement.requestFullscreen();
             //  "menubar=no,toolbar=no,location=no,status=no,resizeable")
             // On firefox, you need to set some stuff in about:config for these
             // to work perfectly;
             //
             // https://stackoverflow.com/questions/2909645/open-new-popup-window-without-address-bars-in-firefox-ie
+            // browser.fullscreen.autohide
+            // premissions.fullscreen.allowed
+            store.dispatch('present', windowobj);
         });
     }
 };

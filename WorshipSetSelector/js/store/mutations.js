@@ -3,6 +3,11 @@ export default {
         let newstate = {} //create a newstate and assign the new value
         newstate.currsong = payload;
         return newstate;
+    },
+    present(state, payload) {
+        let newstate = {}
+        newstate.presentwindow = payload;
+        return newstate;
     }
 };
 
