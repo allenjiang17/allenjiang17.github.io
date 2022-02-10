@@ -34,6 +34,9 @@ export default class PresentButton extends Component {
             // https://stackoverflow.com/questions/2909645/open-new-popup-window-without-address-bars-in-firefox-ie
             // browser.fullscreen.autohide
             // premissions.fullscreen.allowed
+            windowobj.onbeforeunload = function() {
+                store.dispatch('stoppresent', null);
+            };
             store.dispatch('present', windowobj);
         });
     }

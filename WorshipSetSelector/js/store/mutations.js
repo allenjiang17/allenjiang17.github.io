@@ -1,12 +1,17 @@
 export default {
     selectSong(state, payload) {
-        let newstate = {} //create a newstate and assign the new value
+        let newstate = {}; //create a newstate and assign the new value
         newstate.currsong = payload;
         return newstate;
     },
     present(state, payload) {
-        let newstate = {}
+        let newstate = {};
         newstate.presentwindow = payload;
+        return newstate;
+    },
+    stoppresent(state) {
+        let newstate = {};
+        newstate.presentwindow = null;
         return newstate;
     }
 };

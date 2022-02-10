@@ -8,6 +8,9 @@ export default {
     present(context, payload) {
         context.commit('present', payload)
     },
+    stoppresent(context) {
+        context.commit('stoppresent', null)
+    },
 }
 
 // Here, each context is a specific instance of store.
