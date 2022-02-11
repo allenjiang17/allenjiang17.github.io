@@ -1,19 +1,25 @@
 export default {
     selectSong(context, payload) {
-        context.commit('selectSong', payload)
+        context.commit('selectSong', payload);
     },
     previewSong(context, payload) {
-        context.commit('previewSong', payload)
+        if(payload !== context.state.previewsong) {
+            context.commit('setPreviewLyric', null);
+        }
+        context.commit('previewSong', payload);
     },
     clearItem(context, payload) {
-        context.commit('clearItem', payload)
+        context.commit('clearItem', payload);
     },
     present(context, payload) {
-        context.commit('present', payload)
+        context.commit('present', payload);
     },
     stoppresent(context) {
-        context.commit('stoppresent', null)
+        context.commit('stoppresent', null);
     },
+    setPreviewLyric(context, payload) {
+        context.commit('setPreviewLyric', payload);
+    }
 }
 
 // Here, each context is a specific instance of store.

@@ -18,6 +18,11 @@ export default {
         let newstate = {};
         newstate.presentwindow = null;
         return newstate;
+    },
+    setPreviewLyric(state, payload) {
+        let newstate = {};
+        newstate.prevlyric = payload;
+        return newstate;
     }
 };
 

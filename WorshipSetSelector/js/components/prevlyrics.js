@@ -21,17 +21,26 @@ export default class PreviewLyrics extends Component {
             self.element.innerHTML = `<p> </p>`; //empty object for a lack of lyrics
             return;
         }
-        
-        lyrics = lyrics.replaceAll('\n', '<br>');
+       
+        let lyricsArray = lyrics.replaceAll(/\n\s+\n/g, '\n\n').replaceAll('\n', '<br>').split("<br><br>");
 
         self.element.innerHTML = `
-            <div class="previewlyricsitem">${lyrics}</div>
+            <div class="list-group list-group-flush">
+            ${lyricsArray.map((lyric, index) => {
+                if (index != store.state.prevlyric)
+                    return `<button class="list-group-item previewlyricsitem">
+                        ${lyric}</li>`
+                else 
+                    return `<button class="list-group-item previewlyricsitem active">
+                        ${lyric}</li>`
+            }).join('')}
+            </div>
         `;
 
         self.element.querySelectorAll('.previewlyricsitem').forEach((button, index) => {
             button.addEventListener('click', () => {
                 console.log(index);
-                //store.dispatch('selectPreviewLyric', index); 
+                store.dispatch('setPreviewLyric', index); 
             });
         });
     }
