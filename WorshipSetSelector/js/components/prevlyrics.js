@@ -9,7 +9,13 @@ export default class PreviewLyrics extends Component {
 
     render() {
         let self = this;
-        let lyrics = store.state.songs[store.state.currsong].lyrics;
+
+        if(store.state.previewsong === null) {
+            self.element.innerHTML = `<p> </p>`; //empty object for a lack of lyrics
+            return;
+        }
+
+        let lyrics = store.state.songs[store.state.previewsong].lyrics;
 
         if(!(lyrics)) {
             self.element.innerHTML = `<p> </p>`; //empty object for a lack of lyrics

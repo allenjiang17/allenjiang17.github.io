@@ -24,7 +24,8 @@ export default {
                 You are speaking
             `}
     ],
-    currsong: 0,
+    previewsong: null,
+    currsong: null,
     presentwindow: null,
 }
 

@@ -30,17 +30,24 @@ export default class SongList extends Component {
 
         self.element.innerHTML = `
             ${store.state.songs.map((song, index) => {
-                if (index != store.state.currsong)
+                if (index != store.state.previewsong)
                     return `<div class="songitem">${song.title}</div>`
                 else 
                     return `<div class="songitem selsongitem">${song.title}</div>`
             }).join('')}
         `;
 
+        let timer = null;
         self.element.querySelectorAll('.songitem').forEach((button, index) => {
-            button.addEventListener('click', () => {
-                console.log(index);
-                store.dispatch('selectSong', index); 
+            button.addEventListener('click', (e) => {
+                if (e.detail === 1) {
+                    timer = setTimeout(() => {
+                        store.dispatch('previewSong', index);},
+                    200);
+                } else {
+                    clearTimeout(timer);
+                    store.dispatch('selectSong', index); 
+                }
                 // callback function taking in a single param index
             });
         });
