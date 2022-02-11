@@ -10,7 +10,7 @@ export default class CurrLyrics extends Component {
     render() {
         let self = this;
 
-        if(store.state.previewsong === null) {
+        if(store.state.currsong === null) {
             self.element.innerHTML = `<p> </p>`; //empty object for a lack of lyrics
             return;
         }
