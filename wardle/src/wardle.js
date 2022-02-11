@@ -24,11 +24,16 @@ document.getElementById("playagain").addEventListener("click", refreshPage);
 
 
 function initializeGame(){
-    let seed = Math.floor(Math.random()*La.length);
-    target_word = La[seed];
+    //let seed = Math.floor(Math.random()*La.length);
+
+    const d1 = new Date('June 19, 2021 00:00:00');
+    const d2 = new Date();
+
+    day_index = Math.floor((d2.getTime() - d1.getTime())/(1000*60*60*24));
+    target_word = La[day_index + 1];
     //target_word = "enter";
 
-    document.getElementById("puzzle_id").placeholder= "#" + seed;
+    document.getElementById("puzzle_id").placeholder= "#" + day_index;
 
 }
 
@@ -38,7 +43,7 @@ function changePuzzle(){
         change_seed = document.getElementById("puzzle_id").value;
 
         if (change_seed > 0 && change_seed < La.length) {
-            target_word = La[change_seed];
+            target_word = La[parseInt(change_seed) + 1];
             document.getElementById("puzzle_id").placeholder="#" + change_seed;
             document.getElementById("puzzle_id").value = "";
          }
