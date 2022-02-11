@@ -1,5 +1,8 @@
 export default {
     selectSong(context, payload) {
+        if(payload !== context.state.currsong) {
+            context.commit('setCurrLyric', null);
+        }
         context.commit('selectSong', payload);
     },
     previewSong(context, payload) {
@@ -19,6 +22,9 @@ export default {
     },
     setPreviewLyric(context, payload) {
         context.commit('setPreviewLyric', payload);
+    },
+    setCurrLyric(context, payload) {
+        context.commit('setCurrLyric', payload);
     }
 }
 

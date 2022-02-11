@@ -43,7 +43,7 @@ export default class SongList extends Component {
                 if (e.detail === 1) {
                     timer = setTimeout(() => {
                         store.dispatch('previewSong', index);},
-                    200);
+                    300);
                 } else {
                     clearTimeout(timer);
                     store.dispatch('selectSong', index); 

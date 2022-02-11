@@ -23,6 +23,11 @@ export default {
         let newstate = {};
         newstate.prevlyric = payload;
         return newstate;
+    },
+    setCurrLyric(state, payload) {
+        let newstate = {};
+        newstate.currlyric = payload;
+        return newstate;
     }
 };
 
