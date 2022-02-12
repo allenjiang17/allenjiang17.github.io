@@ -17,7 +17,7 @@ export default class SongList extends Component {
         if(store.state.songs.length === 0) {
             self.element.innerHTML = `
               <p class="no-items">
-                No songs added yet;
+                No songs added yet
               </p>`;
             return;
         }

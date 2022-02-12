@@ -27,7 +27,7 @@ export default class CurrLyrics extends Component {
         self.element.innerHTML = `
             <div class="list-group list-group-flush">
             ${lyricsArray.map((lyric, index) => {
-                if (index != store.state.currlyric)
+                if (index != store.state.currlyricIndex)
                     return `<button class="list-group-item currlyricsitem">
                         ${lyric}</li>`
                 else 
@@ -40,7 +40,10 @@ export default class CurrLyrics extends Component {
         self.element.querySelectorAll('.currlyricsitem').forEach((button, index) => {
             button.addEventListener('click', () => {
                 console.log(index);
-                store.dispatch('setCurrLyric', index); 
+                store.dispatch('setCurrLyric', {
+                    index: index, 
+                    lyric: lyricsArray[index], 
+                }); 
             });
         });
     }

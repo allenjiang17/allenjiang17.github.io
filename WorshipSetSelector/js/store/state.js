@@ -27,6 +27,10 @@ export default {
     previewsong: null,
     currsong: null,
     presentwindow: null,
+    currlyric: null,
+    prevlyric: null,
+    currlyricIndex: null,
+    prevlyricIndex: null
 }
 
 // Here we define the default state.

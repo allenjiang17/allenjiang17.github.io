@@ -27,7 +27,7 @@ export default class PreviewLyrics extends Component {
         self.element.innerHTML = `
             <div class="list-group list-group-flush">
             ${lyricsArray.map((lyric, index) => {
-                if (index != store.state.prevlyric)
+                if (index != store.state.prevlyricIndex)
                     return `<button class="list-group-item previewlyricsitem">
                         ${lyric}</li>`
                 else 
@@ -39,8 +39,10 @@ export default class PreviewLyrics extends Component {
 
         self.element.querySelectorAll('.previewlyricsitem').forEach((button, index) => {
             button.addEventListener('click', () => {
-                console.log(index);
-                store.dispatch('setPreviewLyric', index); 
+                store.dispatch('setPreviewLyric', {
+                    index: index, 
+                    lyric: lyricsArray[index], 
+                }); 
             });
         });
     }

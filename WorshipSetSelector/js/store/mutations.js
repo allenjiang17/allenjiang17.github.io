@@ -19,6 +19,16 @@ export default {
         newstate.presentwindow = null;
         return newstate;
     },
+    setPreviewLyricIndex(state, payload) {
+        let newstate = {};
+        newstate.prevlyricIndex = payload;
+        return newstate;
+    },
+    setCurrLyricIndex(state, payload) {
+        let newstate = {};
+        newstate.currlyricIndex = payload;
+        return newstate;
+    },
     setPreviewLyric(state, payload) {
         let newstate = {};
         newstate.prevlyric = payload;
