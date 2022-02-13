@@ -1,6 +1,8 @@
 export default {
-    songs: [
-        {title: 'Set a Fire',
+    songs: [],
+    globalSongs: [
+        {
+            title: 'Set a Fire',
             lyrics: `No place I would rather be
                 No place I would rather be
                 No place I would rather be
@@ -8,9 +10,10 @@ export default {
                 \nSet a fire down in my soul
                 That I can't contain and I can't control
                 I want more of You God
-                I want more of You God
-            `},
-        {title: 'Not in a Hurry',
+                I want more of You God`
+        },
+        {
+            title: 'Not in a Hurry',
             lyrics: `Lord I don't want to rush on ahead
                 In my own strength
                 When You're right here
@@ -21,8 +24,8 @@ export default {
                 \nI'm learning to listen
                 Just to rest in Your nearness
                 I'm starting to notice
-                You are speaking
-            `}
+                You are speaking`
+        }
     ],
     currsong: 0,
 }

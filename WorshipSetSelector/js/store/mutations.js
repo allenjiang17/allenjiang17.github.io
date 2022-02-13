@@ -3,6 +3,12 @@ export default {
         let newstate = {} //create a newstate and assign the new value
         newstate.currsong = payload;
         return newstate;
+    },
+    deleteSong(state, payload) {
+        let newstate = {} //create a newstate and assign the new value
+        newstate.songs = payload;
+        newstate.currsong = 0;
+        return newstate;
     }
 };
 

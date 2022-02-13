@@ -2,6 +2,9 @@ export default {
     selectSong(context, payload) {
         context.commit('selectSong', payload)
     },
+    deleteSong(context, payload) {
+        context.commit('deleteSong', payload)
+    },
     clearItem(context, payload) {
         context.commit('clearItem', payload)
     }

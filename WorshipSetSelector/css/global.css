@@ -47,8 +47,13 @@ body {
     padding-top:10px;
 }
 .selsongitem {
-    background-color:blue;
+    background-color: blue;
 }
+
+.songTitle {
+    display: inline-block;
+}
+
 .songdatabase {
     width:100%;
     flex-grow:1;
