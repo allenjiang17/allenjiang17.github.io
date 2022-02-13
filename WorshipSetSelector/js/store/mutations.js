@@ -1,13 +1,49 @@
 export default {
     selectSong(state, payload) {
-        let newstate = {} //create a newstate and assign the new value
+        let newstate = {}; //create a newstate and assign the new value
         newstate.currsong = payload;
+        return newstate;
+    },
+    previewSong(state, payload) {
+        let newstate = {}; //create a newstate and assign the new value
+        newstate.previewsong = payload;
+        return newstate;
+    },
+    present(state, payload) {
+        let newstate = {};
+        newstate.presentwindow = payload;
+        return newstate;
+    },
+    stoppresent(state) {
+        let newstate = {};
+        newstate.presentwindow = null;
+        return newstate;
+    },
+    setPreviewLyricIndex(state, payload) {
+        let newstate = {};
+        newstate.prevlyricIndex = payload;
+        return newstate;
+    },
+    setCurrLyricIndex(state, payload) {
+        let newstate = {};
+        newstate.currlyricIndex = payload;
+        return newstate;
+    },
+    setPreviewLyric(state, payload) {
+        let newstate = {};
+        newstate.prevlyric = payload;
+        return newstate;
+    },
+    setCurrLyric(state, payload) {
+        let newstate = {};
+        newstate.currlyric = payload;
         return newstate;
     },
     deleteSong(state, payload) {
         let newstate = {} //create a newstate and assign the new value
         newstate.songs = payload;
-        newstate.currsong = 0;
+        newstate.currsong = null;
+        newstate.previewsong = null;
         return newstate;
     }
 };

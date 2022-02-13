@@ -1,12 +1,37 @@
 export default {
     selectSong(context, payload) {
-        context.commit('selectSong', payload)
+        if(payload !== context.state.currsong) {
+            context.commit('setCurrLyric', null);
+            context.commit('setCurrLyricIndex', null);
+        }
+        context.commit('selectSong', payload);
+    },
+    previewSong(context, payload) {
+        if(payload !== context.state.previewsong) {
+            context.commit('setPreviewLyric', null);
+            context.commit('setPreviewLyricIndex', null);
+        }
+        context.commit('previewSong', payload);
     },
     deleteSong(context, payload) {
         context.commit('deleteSong', payload)
     },
     clearItem(context, payload) {
-        context.commit('clearItem', payload)
+        context.commit('clearItem', payload);
+    },
+    present(context, payload) {
+        context.commit('present', payload);
+    },
+    stoppresent(context) {
+        context.commit('stoppresent', null);
+    },
+    setPreviewLyric(context, payload) {
+        context.commit('setPreviewLyricIndex', payload['index']);
+        context.commit('setPreviewLyric', payload['lyric']);
+    },
+    setCurrLyric(context, payload) {
+        context.commit('setCurrLyricIndex', payload['index']);
+        context.commit('setCurrLyric', payload['lyric']);
     }
 }
 

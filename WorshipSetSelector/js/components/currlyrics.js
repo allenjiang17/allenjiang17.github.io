@@ -1,51 +1,49 @@
 import Component from '../lib/component.js';
 import store from '../store/index.js';
 
-export default class PreviewLyrics extends Component {
+export default class CurrLyrics extends Component {
 
     constructor() {
-        super({store, element: document.querySelector('.previewlyrics')}); 
+        super({store, element: document.querySelector('.currentlyrics')}); 
     }
 
     render() {
         let self = this;
 
-        if(store.state.previewsong === null) {
+        if(store.state.currsong === null) {
             self.element.innerHTML = `<p> </p>`; //empty object for a lack of lyrics
             return;
         }
 
-        //let lyrics = store.state.songs[store.state.].lyrics;
-
 
         let lyrics = "";
-        if (store.state.previewsong >= 0 && store.state.previewsong < store.state.songs.length) {
+        if (store.state.currsong >= 0 && store.state.currsong < store.state.songs.length) {
             lyrics = store.state.songs[store.state.previewsong].lyrics;
         }
         else {
             self.element.innerHTML = `<p> </p>`; //empty object for a lack of lyrics
             return;
         }
-       
+
         let lyricsArray = lyrics.replaceAll(/\n\s+\n/g, '\n\n').replaceAll('\n', '<br>').split("<br><br>");
 
         self.element.innerHTML = `
             <div class="list-group list-group-flush">
             ${lyricsArray.map((lyric, index) => {
-                if (index != store.state.prevlyricIndex)
-                    return `<button class="list-group-item previewlyricsitem">
+                if (index != store.state.currlyricIndex)
+                    return `<button class="list-group-item currlyricsitem">
                         ${lyric}</li>`
                 else 
-                    return `<button class="list-group-item previewlyricsitem active">
+                    return `<button class="list-group-item currlyricsitem active">
                         ${lyric}</li>`
             }).join('')}
             </div>
         `;
-        console.log(self.element.innerHTML);
 
-        self.element.querySelectorAll('.previewlyricsitem').forEach((button, index) => {
+        self.element.querySelectorAll('.currlyricsitem').forEach((button, index) => {
             button.addEventListener('click', () => {
-                store.dispatch('setPreviewLyric', {
+                console.log(index);
+                store.dispatch('setCurrLyric', {
                     index: index, 
                     lyric: lyricsArray[index], 
                 }); 

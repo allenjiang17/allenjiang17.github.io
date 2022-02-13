@@ -17,7 +17,7 @@ export default class SongList extends Component {
         if(store.state.songs.length === 0) {
             self.element.innerHTML = `
               <p class="no-items">
-                No songs added yet;
+                No songs added yet
               </p>`;
             return;
         }
@@ -43,10 +43,17 @@ export default class SongList extends Component {
             }).join('')}
         `;
 
+        let timer = null;
         self.element.querySelectorAll('.songTitle').forEach((button, index) => {
-            button.addEventListener('click', () => {
-                console.log(index);
-                store.dispatch('selectSong', index); 
+            button.addEventListener('click', (e) => {
+                if (e.detail === 1) {
+                    timer = setTimeout(() => {
+                        store.dispatch('previewSong', index);},
+                    300);
+                } else {
+                    clearTimeout(timer);
+                    store.dispatch('selectSong', index); 
+                }
                 // callback function taking in a single param index
             });
         });
