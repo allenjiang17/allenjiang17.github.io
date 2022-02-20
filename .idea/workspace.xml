@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46795f4f-c6c1-44d1-8fdc-31e7d38bc32f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wardle/src/wardle.js" beforeDir="false" afterPath="$PROJECT_DIR$/wardle/src/wardle.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
