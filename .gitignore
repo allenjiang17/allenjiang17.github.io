@@ -1,3 +1,4 @@
 wardle/*
 _config.yml
 *.un~
+.vs/*

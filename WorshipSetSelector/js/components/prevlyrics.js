@@ -15,9 +15,14 @@ export default class PreviewLyrics extends Component {
             return;
         }
 
-        let lyrics = store.state.songs[store.state.previewsong].lyrics;
+        //let lyrics = store.state.songs[store.state.].lyrics;
 
-        if(!(lyrics)) {
+
+        let lyrics = "";
+        if (store.state.previewsong >= 0 && store.state.previewsong < store.state.songs.length) {
+            lyrics = store.state.songs[store.state.previewsong].lyrics;
+        }
+        else {
             self.element.innerHTML = `<p> </p>`; //empty object for a lack of lyrics
             return;
         }
@@ -27,7 +32,7 @@ export default class PreviewLyrics extends Component {
         self.element.innerHTML = `
             <div class="list-group list-group-flush">
             ${lyricsArray.map((lyric, index) => {
-                if (index != store.state.prevlyric)
+                if (index != store.state.prevlyricIndex)
                     return `<button class="list-group-item previewlyricsitem">
                         ${lyric}</li>`
                 else 
@@ -36,11 +41,14 @@ export default class PreviewLyrics extends Component {
             }).join('')}
             </div>
         `;
+        console.log(self.element.innerHTML);
 
         self.element.querySelectorAll('.previewlyricsitem').forEach((button, index) => {
             button.addEventListener('click', () => {
-                console.log(index);
-                store.dispatch('setPreviewLyric', index); 
+                store.dispatch('setPreviewLyric', {
+                    index: index, 
+                    lyric: lyricsArray[index], 
+                }); 
             });
         });
     }

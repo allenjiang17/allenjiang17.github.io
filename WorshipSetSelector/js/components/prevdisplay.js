@@ -1,17 +1,17 @@
 import Component from '../lib/component.js';
 import store from '../store/index.js';
 
-export default class CurrentDisplay extends Component {
+export default class PreviewDisplay extends Component {
 
     constructor() {
-        super({store, element: document.querySelector('.currentdisplay')}); 
+        super({store, element: document.querySelector('.previewdisplay')}); 
     }
 
     render() {
         let self = this;
 
         self.element.innerHTML = `
-            <p>${store.state.currlyric}</p>
+            <p>${store.state.prevlyric}</p>
         `;
     }
 };

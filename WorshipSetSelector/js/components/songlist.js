@@ -17,7 +17,7 @@ export default class SongList extends Component {
         if(store.state.songs.length === 0) {
             self.element.innerHTML = `
               <p class="no-items">
-                No songs added yet;
+                No songs added yet
               </p>`;
             return;
         }
@@ -30,15 +30,21 @@ export default class SongList extends Component {
 
         self.element.innerHTML = `
             ${store.state.songs.map((song, index) => {
-                if (index != store.state.previewsong)
-                    return `<div class="songitem">${song.title}</div>`
+                if (index != store.state.currsong)
+                    return `<div class="songitem">
+                                <div class="songTitle">${song.title}</div>
+                            </div>`
                 else 
-                    return `<div class="songitem selsongitem">${song.title}</div>`
+                    // Added Delete Button
+                    return `<div class="songitem selsongitem">
+                                <div class="songTitle">${song.title}</div>
+                                <button class="deleteButton">Delete Song from Set</p>
+                            </div>`
             }).join('')}
         `;
 
         let timer = null;
-        self.element.querySelectorAll('.songitem').forEach((button, index) => {
+        self.element.querySelectorAll('.songTitle').forEach((button, index) => {
             button.addEventListener('click', (e) => {
                 if (e.detail === 1) {
                     timer = setTimeout(() => {
@@ -49,6 +55,19 @@ export default class SongList extends Component {
                     store.dispatch('selectSong', index); 
                 }
                 // callback function taking in a single param index
+            });
+        });
+
+        // Delete Functionality
+        self.element.querySelectorAll('.deleteButton').forEach((deleteButton, index) => {
+            deleteButton.addEventListener('click', () => {
+                var songTitle = deleteButton.parentNode.querySelector(".songTitle").textContent;
+                var newSongList = store.state.songs.filter(
+                    function (value, index, arr) {
+                        return value.title != songTitle;
+                    }
+                )
+                store.dispatch('deleteSong', newSongList);
             });
         });
     }

@@ -19,6 +19,16 @@ export default {
         newstate.presentwindow = null;
         return newstate;
     },
+    setPreviewLyricIndex(state, payload) {
+        let newstate = {};
+        newstate.prevlyricIndex = payload;
+        return newstate;
+    },
+    setCurrLyricIndex(state, payload) {
+        let newstate = {};
+        newstate.currlyricIndex = payload;
+        return newstate;
+    },
     setPreviewLyric(state, payload) {
         let newstate = {};
         newstate.prevlyric = payload;
@@ -27,6 +37,13 @@ export default {
     setCurrLyric(state, payload) {
         let newstate = {};
         newstate.currlyric = payload;
+        return newstate;
+    },
+    deleteSong(state, payload) {
+        let newstate = {} //create a newstate and assign the new value
+        newstate.songs = payload;
+        newstate.currsong = null;
+        newstate.previewsong = null;
         return newstate;
     }
 };
