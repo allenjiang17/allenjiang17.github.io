@@ -26,7 +26,7 @@ export default class SongDatabase extends Component {
             ${store.state.globalSongs.map((song, index) => {
                 return `<div class="songInDatabase">
                             <p class="songTitle">${song.title}</p>
-                            <button class="addSongToSetButton">Add Song</button>
+                            <i class="bi-file-earmark-plus addSongToSetButton"></i>
                         </div>`
             }).join('')}
         `;

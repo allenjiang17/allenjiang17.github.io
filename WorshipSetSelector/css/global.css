@@ -47,7 +47,7 @@ body {
     padding-top:10px;
 }
 .selsongitem {
-    background-color: blue;
+    background-color: rgba(42, 106, 235, 0.3);
 }
 
 .songTitle {

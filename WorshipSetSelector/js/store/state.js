@@ -6,7 +6,7 @@ export default {
             lyrics: `No place I would rather be
                 No place I would rather be
                 No place I would rather be
-                Then here in Your love, here in Your love\n
+                Than here in Your love, here in Your love\n
                 Set a fire down in my soul
                 That I can't contain and I can't control
                 I want more of You God
