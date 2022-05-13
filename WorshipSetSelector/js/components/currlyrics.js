@@ -15,10 +15,10 @@ export default class CurrLyrics extends Component {
             return;
         }
 
-
         let lyrics = "";
+
         if (store.state.currsong >= 0 && store.state.currsong < store.state.songs.length) {
-            lyrics = store.state.songs[store.state.previewsong].lyrics;
+            lyrics = store.state.songs[store.state.currsong].lyrics;
         }
         else {
             self.element.innerHTML = `<p> </p>`; //empty object for a lack of lyrics
