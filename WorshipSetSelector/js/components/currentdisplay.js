@@ -11,7 +11,11 @@ export default class CurrentDisplay extends Component {
         let self = this;
 
         self.element.innerHTML = `
-            <p>${store.state.currlyric}</p>
+            <div style="width:100%;padding-top:2.5%;height:100%;display:table;background:#000000;color:white; overflow:hidden">
+            <p style="text-align:center;display:table-cell;padding-top:5%;font-size:3vmin;line-height:1.6">
+                ${store.state.currlyric}
+            </p>
+            </div>
         `;
     }
 };
