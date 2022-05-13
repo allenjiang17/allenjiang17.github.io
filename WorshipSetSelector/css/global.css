@@ -1,90 +1,90 @@
 html {
-    margin:0;
-    height:100%;
+  margin:0;
+  height:100%;
 }
 body {
-    padding:0;
-    margin:0;
-    display:flex;
-    flex-direction:row;
-    width:100%;
-    height:100%;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:row;
+  width:100%;
+  height:100%;
 }
 
 .leftwindow{
-    height:100%;
-    flex-grow: 5;
-    display:flex;
-    flex-direction:column;
+  height:100%;
+  flex-grow: 5;
+  display:flex;
+  flex-direction:column;
 }
 
 .rightwindow{
-    height:100%;
-    flex-grow: 6;
-    display:flex;
-    flex-direction:column;
+  height:100%;
+  flex-grow: 6;
+  display:flex;
+  flex-direction:column;
 }
 .midwindow {
-    height:100%;
-    flex-grow: 6;
-    display:flex;
-    flex-direction:column;
+  height:100%;
+  flex-grow: 6;
+  display:flex;
+  flex-direction:column;
 }
 
 .songlist {
-    width:100%;
-    flex-grow:1;
-    background-color:rgba(255, 99, 71, 0.1);
-    overflow-y:scroll;
-    overflow-x:hidden;
-    display:flex;
-    flex-direction:column;
+  width:100%;
+  flex-grow:1;
+  background-color:rgba(255, 99, 71, 0.1);
+  overflow-y:scroll;
+  overflow-x:hidden;
+  display:flex;
+  flex-direction:column;
 }
 .songitem {
-    width:calc(100% - 20px);
-    padding-left:10px;
-    padding-right:10px;
-    padding-top:10px;
+  width:calc(100% - 20px);
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:10px;
 }
 .selsongitem {
-    background-color: rgba(42, 106, 235, 0.3);
+  background-color: rgba(42, 106, 235, 0.3);
 }
 
 .songTitle {
-    display: inline-block;
+  display: inline-block;
 }
 
 .songdatabase {
-    width:100%;
-    flex-grow:1;
-    background-color:rgba(22, 19, 71, 0.1);
+  width:100%;
+  flex-grow:1;
+  background-color:rgba(22, 19, 71, 0.1);
 }
 .previewlyrics {
-    width:100%;
-    flex-grow:3;
-    background-color:rgba(200, 90, 120, 0.1);
-    overflow-x:scroll;
-    overflow-y:scroll;
-    display:flex;
-    flex-direction:column;
+  width:100%;
+  flex-grow:3;
+  background-color:rgba(200, 90, 120, 0.1);
+  overflow-x:scroll;
+  overflow-y:scroll;
+  display:flex;
+  flex-direction:column;
 }
 .previewlyricsitem {
-    width:100%;
+  width:100%;
 }
 .previewdisplay {
-    width:100%;
-    flex-grow:2;
-    background-color:rgba(0, 164, 167, 0.1);
+  width:100%;
+  flex-grow:2;
+  background-color:rgba(0, 164, 167, 0.1);
 }
 .currentlyrics {
-    width:100%;
-    flex-grow:3;
-    background-color:rgba(3, 204, 174, 0.1);
+  width:100%;
+  flex-grow:3;
+  background-color:rgba(3, 204, 174, 0.1);
 }
 .currentdisplay {
-    width:100%;
-    flex-grow:2;
-    background-color:rgba(162, 130, 162, 0.1);
+  width:100%;
+  flex-grow:2;
+  background-color:rgba(162, 130, 162, 0.1);
 }
 
 
@@ -99,8 +99,8 @@ body {
 
 
 .resizeable {
-    resize:both;
-    overflow:scroll;
+  resize:both;
+  overflow:scroll;
 } 
 /* We can allow some of the windows to be resizeable via this css feature
 and we can then use flex-grow to find the rest? */
