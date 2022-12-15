@@ -10,13 +10,17 @@
         <h1> Chord Sheet Transposer</h1>
         <div id="section_body" class="section_body">
         <div id="dashboard" class="dashboard">
-            <p>Current Key: </p><p id="key_display">A</p>
-            <button id="plus">+</button>
-            <button id="minus">-</button>
+            <div id="key_label" class="key_label">Current Key: </div>
+            <div id="key_display" class="key_display">?</div>
+            <div id="key_label" class="key_label">Transpose: </div>
+            <button id="button_plus">+</button>
+            <button id="button_minus">-</button>
         </div>
-
-        <textarea id="text_entry" rows="30"> Paste your chord sheet here </textarea>
-        </div>
+        <form>
+        <textarea id="text_entry" rows="30">Paste chord sheet here</textarea>
+        </form>    
+         </div>
+        <script src="transposer.js"></script>
 
         
 
