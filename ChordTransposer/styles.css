@@ -1,6 +1,7 @@
 body{
     background-image:url(https://allenjiang17.github.io/ChordTransposer/background_board.jpeg);
     font-family: 'Poppins', sans-serif;
+    color: white;
 
 }
 
@@ -10,22 +11,37 @@ h1{
     text-align: center;
 }
 
-p{
-    font-size: 14px;
+.key_label{
+    font-size: 18px;
     font-weight: 400;
-    display: inline;
-    margin: 0;
-    padding: 0;
+    display: inline-block;
+    margin: 0 1em;
+    padding: 0.3em;
+
 }
 
 button{
     margin: 0;
     padding: 0.5em;
+    font-size: 18px;
 }
 
 .dashboard{
     margin: 1em auto;
-    width: 20%;
+    padding: 1px;
+    width: 50%;
+
+}
+
+.key_display{
+    width:3em;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 1000;
+    margin: 0 1em;
+    padding: 0.3em;
+    background-color: black;
 
 }
 
@@ -35,6 +51,8 @@ textarea{
     max-width: 700px;
     height: 80%;
     margin: 1em auto;
+    font-family: 'Verdana', sans-serif;
+
 
 }
 
