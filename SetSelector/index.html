@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="header">
+    <h1>SSM Worship Set Selector</h1>
+</div>  
+<div id="wrapper">
+    <div id="side_bar">
+        <div id="search_bar_content" class="search_bar_content">
+            <input type="text" placeholder="Search.." id="search_bar" onkeyup="filterFunction()">
+            <ul id="search_results"></ul>
+        </div>
+        <p id="set_list_label" class = "label">Set List</p>
+        <div id="set_list">
+            <ul id="set_list_items"></ul>
+        </div>
+    </div>          
+
+    <div id="main_display">
+        <div id="dashboard">
+            <button id="addToSet" onclick="addSongToSet()">Add to Set</button>
+            <div id="transpose_dashboard">
+                <div id="key_label" class="key_label"> Current Key: </div>
+                <div id="key_display" class="key_display">?</div>
+                <button id="button_plus" class="transpose_button">+</button>
+                <button id="button_minus" class="transpose_button">-</button>
+            </div>
+        </div>
+        <textarea id="text_entry" placeholder="Chord Sheets Here"></textarea>
+    </div>
+</div>
+
+<script src="database.js"></script>
+<script src="searchbar.js"></script>
+<script src="setlist.js"></script>
+<script src="transposer.js"></script>
+
+
+
+</body>
+</html>
+
