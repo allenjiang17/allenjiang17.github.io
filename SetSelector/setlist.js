@@ -28,7 +28,7 @@ function addSongToSet() {
 
     newEntry.appendChild(newTitle);
     newEntry.appendChild(newButton);
-     set_list.append(newEntry);
+    set_list.append(newEntry);
 }
 
 function refreshCurrentSong() {
@@ -83,9 +83,9 @@ function refreshCurrentSongFromArrowKeys(set_item_id) {
     currElement.firstChild.style.color = "white";
     currElement.firstChild.style.fontWeight = "bold";
 }
-
+    
 function deleteSetSong() {
-    currElement.parentElement.remove();
+    this.parentElement.remove();
 }
 
 //from https://robkendal.co.uk/blog/2020-04-17-saving-text-to-client-side-file-using-vanilla-js

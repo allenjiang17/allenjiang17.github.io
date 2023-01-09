@@ -1,12 +1,48 @@
 body{
     /*background-image:url(background_board.jpeg);*/
     font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    margin:0;
+}
+
+
+#header{
+  box-sizing: border-box;
+  height:8%;
+  padding:1.5%;
 }
 
 h1{
   text-align:center;
-  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  font-size: 1.9rem;
+  font-weight: 400;
   color: black;
+}
+
+#wrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 90%;
+  height: 92%;
+
+}
+
+#main_display{
+  box-sizing: border-box;
+  margin: 0 0.2em;
+  padding: 0.5em;
+  width: 80%;
+}
+
+#side_bar{
+  box-sizing: border-box;
+  margin: 0 0.2em;
+  padding: 0.5em;
+  width: 20%;
 }
 
 #search_bar {
@@ -39,54 +75,34 @@ h1{
 }
 
 .label{
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 450;
   color: black;
 }
 
-#main_display{
-  box-sizing: border-box;
-  margin: 0 0.2em;
+#dashboard{
+  box-sizing:border-box;
   padding: 0.5em;
-  width: 80%;
+  height: 7%;
+  background-color: rgb(52, 86, 139);
 }
-
-#side_bar{
-  box-sizing: border-box;
-  margin: 0 0.2em;
-  padding: 0.5em;
-  width: 20%;
-}
-
 textarea{
-  box-sizing: border-box;
-    margin: 0;
+    box-sizing: border-box;
+    margin: 0.1em;
     padding: 0.5em;
     width: 100%;
-    height: 100%;
+    height: 93%;
     font-family: 'Verdana', sans-serif;
 
 }
 
-#wrapper {
-    display: flex;
-    flex-direction: row;
-    margin: 0.5em auto;
-    width: 90%;
-    height: 100vh;
 
-}
-
-#dashboard{
-  padding: 0.5em;
-  background-color: rgb(52, 86, 139);
-}
 
 #addToSet {
   width:15%;
   margin:0;
   padding: 0.4em;
-  font-size: 15px;
+  font-size: 0.8rem;
 }
 
 #transpose_dashboard {
@@ -100,7 +116,7 @@ textarea{
 
 
 .key_label{
-  font-size: 18px;
+  font-size: 1.1rem;
   color: white;
   font-weight: 300;
   display: inline-block;
@@ -111,7 +127,7 @@ textarea{
 
 .key_display{
   display: inline-block;
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: bold;
   margin: 0.1em;
   padding: 0.2em;
@@ -122,7 +138,7 @@ textarea{
 .transpose_button{
   margin: 0;
   padding: 0.3em;
-  font-size: 18px;
+  font-size: 1rem;
 }
 
 
@@ -143,13 +159,16 @@ textarea{
 .search_list_title{
   width:100%;
   display:inline-block;
-  font-size: 13px;
+  font-size: 0.8rem;
   font-weight:400px;
   color:black;
 }
 
 .search_list:hover {
   background-color: gray;
+}
+.search_list:hover > .search_list_title{
+  color:white;
 }
 
 
@@ -177,7 +196,7 @@ textarea{
 .set_title{
   width: 85%;
   display:inline-block;
-  font-size: 13px;
+  font-size: 0.8rem;
   /*font-weight:400px;*/
   color:black;
 }
@@ -185,6 +204,10 @@ textarea{
 
 .set_list_item:hover {
   background-color: gray;
+}
+
+.set_list_item:hover > .set_title{
+  color: white;
 }
 
 .set_delete{
