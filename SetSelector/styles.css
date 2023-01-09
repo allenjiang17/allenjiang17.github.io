@@ -5,19 +5,31 @@ body{
     margin:0;
 }
 
+#ssm_icon{
+  box-sizing: border-box;
+  display: inline-block;
+  height: 1.9rem;
+  margin-right: 1.2rem;
+}
 
 #header{
   box-sizing: border-box;
-  height:8%;
-  padding:1.5%;
+  display: flex;
+  align-items: center;
+  height: 3.5rem;
+  padding-left: 0.6%;
+  padding-right:0.6%;
+  padding-top:2.5rem;
+  padding-bottom:2rem;
+  margin-left: 5%;
 }
 
 h1{
-  text-align:center;
+  display: inline-block;
   margin: 0;
   padding: 0;
   font-size: 1.9rem;
-  font-weight: 400;
+  font-weight: 2000;
   color: black;
 }
 
@@ -27,27 +39,28 @@ h1{
   flex-direction: row;
   margin: 0 auto;
   width: 90%;
-  height: 92%;
+  /*height: 92%;*/
 
 }
 
 #main_display{
   box-sizing: border-box;
-  margin: 0 0.2em;
-  padding: 0.5em;
+  margin: 0;
+  padding: 0.6%;
   width: 80%;
 }
 
 #side_bar{
   box-sizing: border-box;
-  margin: 0 0.2em;
-  padding: 0.5em;
+  margin: 0;
+  padding: 0.6%;
   width: 20%;
 }
 
 #search_bar {
   box-sizing: border-box;
   width: 100%;
+  font-size:1rem;
   padding: 0.5em;
   border: none;
   border-bottom: 1px solid #ddd;
@@ -82,8 +95,9 @@ h1{
 
 #dashboard{
   box-sizing:border-box;
-  padding: 0.5em;
-  height: 7%;
+  display: flex;
+  padding: 0.3em;
+  /*height: 7%;*/
   background-color: rgb(52, 86, 139);
 }
 textarea{
@@ -91,17 +105,16 @@ textarea{
     margin: 0.1em;
     padding: 0.5em;
     width: 100%;
-    height: 93%;
+    height: calc(100vh - 120px); /*110px is the size of the header*/
     font-family: 'Verdana', sans-serif;
 
 }
 
 
-
 #addToSet {
   width:15%;
   margin:0;
-  padding: 0.4em;
+  padding: 0.3rem;
   font-size: 0.8rem;
 }
 
@@ -116,7 +129,7 @@ textarea{
 
 
 .key_label{
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: white;
   font-weight: 300;
   display: inline-block;
@@ -127,7 +140,7 @@ textarea{
 
 .key_display{
   display: inline-block;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
   margin: 0.1em;
   padding: 0.2em;
@@ -203,17 +216,36 @@ textarea{
 
 
 .set_list_item:hover {
-  background-color: gray;
+  background-color:lightgray;
 }
 
 .set_list_item:hover > .set_title{
+  /*color: white;*/
+}
+
+.set_list_item.selected {
+  background: rgb(52, 86, 139);
+
+}
+
+.set_list_item.selected > .set_title {
   color: white;
+  font-weight: bold;
 }
 
 .set_delete{
   width: 10%;
   display:inline-block;
   padding:0.3em;
+}
+
+.set_list_item.hint {
+  /*border: 1px solid #ffc49a;*/
+}
+.set_list_item.active {
+  /*border: 2px solid black;
+  background: gray;
+  */
 }
 
 
