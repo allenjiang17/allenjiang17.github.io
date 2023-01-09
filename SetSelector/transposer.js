@@ -130,6 +130,15 @@ function transpose(raw_text, num_steps) {
             }
 
             //corrections
+            new_line = new_line.replaceAll("a","A");
+            new_line = new_line.replaceAll(/(?<![A-Za-z])b/gm,"B");
+            new_line = new_line.replaceAll("c","C");
+            new_line = new_line.replaceAll("d","D");
+            new_line = new_line.replaceAll("e","E");
+            new_line = new_line.replaceAll("f","F");
+            new_line = new_line.replaceAll("g","G");
+
+            /*
             new_line = new_line.toUpperCase();
             new_line = new_line.replaceAll("M","m");
             new_line = new_line.replaceAll("AB","Ab");
@@ -137,6 +146,7 @@ function transpose(raw_text, num_steps) {
             new_line = new_line.replaceAll("DB","Db");
             new_line = new_line.replaceAll("EB","Eb");
             new_line = new_line.replaceAll("GB","Gb");
+            */
 
             new_text = new_text + new_line + "\n";
 
@@ -235,7 +245,7 @@ function chord_to_val(chord) {
     //if no chord match, error
     if (max_chord_length == 0) {
         console.log("An error occurred. Chord could not be matched:", chord);
-        return null, chord;
+        return [null, chord];
     }
     return [val, chord_match]
 }
@@ -276,7 +286,9 @@ function transpose_chord(input_chord, num_steps) {
     var chord_match = chord_match_array[1]; 
 
     if (val == null) {
-        return chord_match;
+        console.log("Chord replaced with ?")
+        return "?".repeat(chord_match.length);
+        //return chord_match;
     }
         
     var new_val = val_transpose(val, num_steps);

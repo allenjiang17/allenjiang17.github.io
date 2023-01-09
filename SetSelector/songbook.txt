@@ -124,7 +124,7 @@ C | Dm | F | Am |
 C | Dm | F | Am | 
 Am G | C | / | / | / |
 
-OUT:
+Out:
                F                        C 
 Now all I have I count it all as loss
            F                         Am 
@@ -1426,7 +1426,8 @@ C                    Em7   D/F#     C
 Clothe us with power from on high
 Em7            D/F#     G
 Now set the captives free
-C              Em7        D/F#    CLeave us abandoned to Your praise
+C              Em7        D/F#    
+Leave us abandoned to Your praise
 Am7              G/B  D/F#
 Lord, let Your glory fall (x2)
 
@@ -2237,19 +2238,26 @@ The night is lighter than it's hueC         G             F
 Would lead me to believeC         G               F
 Which leads me to believe
 Chorus 1:
-C              G              FYou make everything gloriousYou make everything gloriousYou make everything gloriousAnd I am YoursWhat does that make me?
+C              G              F
+You make everything gloriousYou make everything gloriousYou make everything gloriousAnd I am YoursWhat does that make me?
 
 Verse 2:
-C   G           FMy eyes are small but they have seenthe beauty of enormous thingsWhich leads me to believethere's light enough to see that
+C   G           F
+My eyes are small but they have seenthe beauty of enormous thingsWhich leads me to believethere's light enough to see that
 Chorus 2:
 You make everything gloriousYou make everything gloriousYou make everything gloriousAnd I am Yours
 
 Bridge:
-Am          G/BFrom glory to glory
-C                       GYou are glorious, You are glorious
-F              GFrom glory to glory
-C                       GYou are glorious, You are glorious
-FWhich leads me to believe
+Am          G/B
+From glory to glory
+C                       G
+You are glorious, You are glorious
+F              G
+From glory to glory
+C                       G
+You are glorious, You are glorious
+F
+Which leads me to believe
 F
 Why I can believe that
 
@@ -7953,7 +7961,10 @@ Show us, show us Your glory
 E
 Show us, show us Your power
 G#m       F#                              E
-Show us, show us Your glory, LordOUR GOD: Chris Tomlin
+Show us, show us Your glory, Lord
+
+OUR GOD
+Author: Chris Tomlin
 
 Verse 1: 
 Em/G          C/G          G      Em/G         C/G           G 
@@ -8264,7 +8275,6 @@ I raise a hallelujah
 
 RECKLESS LOVE
 Author: Cory Asbury, Ran Jackson, Caleb Culver
-CCLI: 7089641
 
 Verse 1:
 Em                 D                       C
@@ -10255,14 +10265,12 @@ And with all I am my soul will bless Your name
 
 TIS SO SWEET TO TRUST IN JESUS:
 Author:  Louisa M. R. Stead, Music: William J. Kirkpatrick (Public Domain)
-Arrangement by PageCXVI
 
 Verse 1:
 B/F#                 B/E                B
 ʼTis so sweet to trust in Jesus, And to take Him at His Word;
 B/D#          B/E                      B
 Just to rest upon His promise, And to know, “Thus says the Lord!”
-INST: B/G#-B/E-B (2x)
 
 Chorus: 
 B/G#            B/F#                  B/E

@@ -2,7 +2,7 @@
 //Runs using node.js
 var filename_read= "songbook.txt";
 var filename_write = "database.js";
-var count_no = 4;
+var count_no = 3;
 var song_database = [];
 
 const fs = require('fs');
@@ -36,7 +36,7 @@ for (let i=0; i<text.length; i++) {
     }
     
     //if there are enough upper case letters, consider it a title
-    if (max_upper_count > count_no) {
+    if (max_upper_count >= count_no) {
         //append old song object to array
         if (!first_song) {
             song_database.push(song);

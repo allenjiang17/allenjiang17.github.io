@@ -34,6 +34,10 @@ h1{
     background-color:  #f6f6f6;
 }
 
+#set_list:focus{
+  outline: 1.5px solid #ddd;
+}
+
 .label{
   font-size: 18px;
   font-weight: 450;
@@ -74,19 +78,21 @@ textarea{
 }
 
 #dashboard{
-  padding: 0.4em;
+  padding: 0.5em;
   background-color: rgb(52, 86, 139);
 }
 
 #addToSet {
+  width:15%;
+  margin:0;
   padding: 0.4em;
-  margin-left: 1em;
-  margin-right:1em;
   font-size: 15px;
 }
 
 #transpose_dashboard {
-  width: 85%;
+  width: 80%;
+  margin: 0;
+  padding: 0;
   display:inline-block;
   text-align: right;
 
