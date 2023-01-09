@@ -93,22 +93,34 @@ function downloadSet() {
 
 function checkKey(e) {
 
+    var set_list = document.getElementById("set_list_items");
+    var set_list_array = [];
+
     if (document.activeElement == document.getElementById("set_list")) {
 
-        console.log("focused");
+        let index = 0;
+        let target_index;
+
+        for (let set_item of set_list.childNodes) {          
+            set_list_array[index] = set_item;
+
+            if (set_item.classList.contains("selected")) {
+                target_index = index;
+            }
+            index++;
+        }
+
         //up arrow
-        if (e.keyCode == "38") {
-            var set_item_id = "set_item" + String(parseInt(CURRENT_SET_SONG_NO) - 1);
+        if (e.keyCode == "38" && target_index > 0) {
+            selectCurrentSong(set_list_array[target_index-1]);
             e.preventDefault();
             
         //down arrow
-        } else if (e.keyCode == "40") {
-            var set_item_id = "set_item" + String(parseInt(CURRENT_SET_SONG_NO) + 1);
+        } else if (e.keyCode == "40" && target_index < index) {
+            selectCurrentSong(set_list_array[target_index+1]);
             e.preventDefault();
 
         } 
-        selectCurrentSong(document.getElementById(set_item_id));
-
     }   
 }
 //from: https://code-boxx.com/drag-drop-sortable-list-javascript/
