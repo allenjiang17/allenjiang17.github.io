@@ -54,7 +54,12 @@ for (let i=0; i<text.length; i++) {
             song.sheet = song.sheet + "\n" + line;
         }
     }
-}   
 
+}
+
+song_database.push(song);
+
+
+            
 fs.writeFileSync(filename_write, "DATABASE = " + JSON.stringify(song_database));
 
