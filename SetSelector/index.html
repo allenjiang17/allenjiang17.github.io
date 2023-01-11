@@ -15,9 +15,23 @@
 </div>  
 <div id="wrapper">
     <div id="side_bar">
+        <p id="song_list_label" class = "top_label">Songs</p>
         <div id="search_bar_content" class="search_bar_content">
             <input type="text" placeholder="Search.." id="search_bar" onkeyup="filterFunction()">
             <ul id="search_results"></ul>
+        </div>
+        <div id="tempo_dashboard">
+            <label id="tempo_label" class="small_label">Tempo:
+            <select name="tempo_options" id="tempo_options" onchange="filterFunction()">
+                <option value="Any">Any</option>
+                <option value="Fast">Fast</option>
+                <option value="Medium">Medium</option>
+                <option value="Slow">Slow</option>
+                <option value="Intercessory">Intercessory</option>
+            </select>
+            </label>
+            <label class="small_label">Show All Songs<input type="checkbox" id="show_songs_box" checked="checked" onclick="filterFunction()"></label>
+
         </div>
         <p id="set_list_label" class = "label">Set List</p>
         <div id="set_list" tabindex="0">

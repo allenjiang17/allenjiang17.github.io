@@ -10,9 +10,11 @@ for (let i=0; i<DATABASE.length; i++) {
     var newTitle = document.createElement("div");
 
     newEntry.setAttribute("id", "song" + i);
-    newEntry.style.display = "none";
-    newEntry.className = "search_list"
+    //newEntry.style.display = "none";
+    newEntry.className = "search_list";
     newEntry.setAttribute("data-id", i);
+    newEntry.setAttribute("data-author", DATABASE[i].author);
+    newEntry.setAttribute("data-tempo", DATABASE[i].tempo);
     newEntry.addEventListener("click", addFromSearch);
 
     newTitle.setAttribute("id", "song-title" + i);
@@ -38,24 +40,53 @@ function filterFunction() {
     list = document.getElementById("search_results");
     a = list.getElementsByTagName("li");
 
-    for (i = 0; i < a.length; i++) {
-    
-      txtValue = a[i].firstChild.textContent || a[i].firstChild.innerText;
+    var tempo = document.getElementById("tempo_options").value;
 
-      if (filter.length == 0) {
+    //secret able to search the authors
+    if (filter.includes("A:")) {
+    
+      filter = filter.slice(2);
+      for (i = 0; i < a.length; i++) {
+        txtValue = a[i].getAttribute("data-author");
+
+        if (filter.length == 0) {
+              a[i].style.display = "none";
+    
+        } else {  
+          if (txtValue.toUpperCase().indexOf(filter) == 0){
+            a[i].style.display = "block";
+          } else {
             a[i].style.display = "none";
-  
-      } else if (filter.length == 1) {
-            if (txtValue.toUpperCase().indexOf(filter) == 0) {
-              a[i].style.display = "block";
+          }
+      }
+      }
+      
+    } else {
+    //search by title
+      for (i = 0; i < a.length; i++) {
+      
+        txtValue = a[i].firstChild.textContent || a[i].firstChild.innerText;
+
+          if (filter.length == 0  && !document.getElementById("show_songs_box").checked) {
+            a[i].style.display = "none";
+
+          } else if (filter.length == 1) {
+                  if (txtValue.toUpperCase().indexOf(filter) == 0 &&
+                  ((a[i].getAttribute("data-tempo").includes(tempo) || tempo == "Any") )) {
+                    a[i].style.display = "block";
+                  } else {
+                    a[i].style.display = "none";
+                  }
+          } else {  
+              if (txtValue.toUpperCase().indexOf(filter) > -1 &&
+              (a[i].getAttribute("data-tempo").includes(tempo) || tempo == "Any") ) {
+                a[i].style.display = "block";
+              } else {
+                a[i].style.display = "none";
+              }
             }
-      } else {  
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          a[i].style.display = "block";
-        } else {
-          a[i].style.display = "none";
-        }
-     }
+        
+      }
     }
 }
 
@@ -66,4 +97,24 @@ function addFromSearch() {
   document.getElementById("search_bar").value = "";
   filterFunction();
   updateKey();
+}
+
+function showSongs() {
+
+  var input, a, i;
+  input = document.getElementById("search_bar");
+  list = document.getElementById("search_results");
+  a = list.getElementsByTagName("li");
+
+  if (document.getElementById("show_songs_box").checked) {
+    for (i = 0; i < a.length; i++) {
+      a[i].style.display = "block";
+    }
+  } else {
+    for (i = 0; i < a.length; i++) {
+      a[i].style.display = "none";
+    }
+
+  }
+
 }

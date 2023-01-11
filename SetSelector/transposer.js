@@ -130,13 +130,13 @@ function transpose(raw_text, num_steps) {
             }
 
             //corrections
-            new_line = new_line.replaceAll("a","A");
+            new_line = new_line.replaceAll(/(?<![A-Za-z])a/gm,"A");
             new_line = new_line.replaceAll(/(?<![A-Za-z])b/gm,"B");
-            new_line = new_line.replaceAll("c","C");
-            new_line = new_line.replaceAll("d","D");
-            new_line = new_line.replaceAll("e","E");
-            new_line = new_line.replaceAll("f","F");
-            new_line = new_line.replaceAll("g","G");
+            new_line = new_line.replaceAll(/(?<![A-Za-z])c/gm,"C");
+            new_line = new_line.replaceAll(/(?<![A-Za-z])d/gm,"D");
+            new_line = new_line.replaceAll(/(?<![A-Za-z])e/gm,"E");
+            new_line = new_line.replaceAll(/(?<![A-Za-z])f/gm,"F");
+            new_line = new_line.replaceAll(/(?<![A-Za-z])g/gm,"G");
 
             /*
             new_line = new_line.toUpperCase();

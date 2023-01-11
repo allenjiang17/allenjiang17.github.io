@@ -72,6 +72,7 @@ h1{
   background-color: #f6f6f6;
   overflow: auto;
   border: 1px solid #ddd;
+  max-height: 35vh;
 }
 
 #set_list{
@@ -91,6 +92,30 @@ h1{
   font-size: 1.1rem;
   font-weight: 450;
   color: black;
+}
+
+.top_label{
+  margin-top: 0.3rem;
+  font-size: 1.1rem;
+  font-weight: 450;
+  color: black;
+}
+
+
+.small_label{
+  font-size: 0.7rem;
+  font-weight:300;
+}
+
+select{
+  font-size:0.7rem;
+  font-weight:300rem;
+  max-width: 4rem;
+  margin-right: 0.7rem;
+}
+
+#tempo_dashboard{
+  margin-top:0.5rem;
 }
 
 #dashboard{
