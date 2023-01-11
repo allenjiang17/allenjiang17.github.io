@@ -10,25 +10,29 @@ const fs = require('fs');
 
 fs.readdir(directory, (err, files) => {
     files.forEach(file => {
-      var song = new Object();
+      console.log(file);
+      if (file.includes("txt")) {
+        var song = new Object();
 
-      var splits = file.split("—");
-      song.author = splits[0].trim();
-      
-      var splits2 = splits[1].split("(");
-      song.title = splits2[0].trim();
+        var splits = file.split("—");
+        song.author = splits[0].trim();
+        
+        var splits2 = splits[1].split("(");
+        song.title = splits2[0].trim();
 
-      var file_text = fs.readFileSync((directory + file),'utf8');
-      var index_start = file_text.indexOf("TEMPO"); 
-      song.sheet = song.title.toUpperCase() + "\nAUTHOR: " + song.author + "\n" + file_text.slice(index_start);
+        var file_text = fs.readFileSync((directory + file),'utf8');
+        var index_start = file_text.indexOf("TEMPO"); 
 
-      console.log(song);
-      song_database.push(song);
-      
+        song.tempo = file_text.slice(index_start + 6, index_start + file_text.slice(index_start).indexOf("\n"));
+        song.tempo = song.tempo.trim();
+        song.sheet = song.title.toUpperCase() + "\nAUTHOR: " + song.author + "\n" + file_text.slice(index_start);
 
+        song_database.push(song);
+        console.log(song);
+
+      }
 
     });
-    console.log(song_database);
     fs.writeFileSync(filename_write, "DATABASE = " + JSON.stringify(song_database));
 
   });
