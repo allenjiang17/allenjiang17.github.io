@@ -1,5 +1,8 @@
 //For offline use, to update the database with songs from a Word doc. 
 //Runs using node.js
+
+//OLD VERSION -- NO LONGER USED
+
 var filename_read= "songbook.txt";
 var filename_write = "database.js";
 var count_no = 3;

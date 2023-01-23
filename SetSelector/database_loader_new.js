@@ -1,5 +1,5 @@
-//For offline use, to update the database with songs from a Word doc. 
-//Runs using node.js
+//Runs using Node.js, creates a database out of the txt files in the "Songs" Directory
+
 var directory ="./songs/"
 var filename_write = "database_UG.js";
 var count_no = 3;
@@ -17,7 +17,7 @@ fs.readdir(directory, (err, files) => {
         var splits = file.split("—");
         song.author = splits[0].trim();
         
-        var splits2 = splits[1].split("(");
+        var splits2 = splits[1].split(/[(.]/); //match first one, no global flag needed
         song.title = splits2[0].trim();
 
         var file_text = fs.readFileSync((directory + file),'utf8');
@@ -33,6 +33,10 @@ fs.readdir(directory, (err, files) => {
       }
 
     });
+
+    //alphabetize
+    song_database.sort((a,b) => a.title.localeCompare(b.title));
+
     fs.writeFileSync(filename_write, "DATABASE = " + JSON.stringify(song_database));
 
   });
