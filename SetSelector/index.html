@@ -15,7 +15,11 @@
 </div>  
 <div id="wrapper">
     <div id="side_bar">
-        <p id="song_list_label" class = "top_label">Songs</p>
+        <div id="songs_header">
+            <p id="song_list_label" class = "top_label">Songs</p>
+            <p id="minimize_button_top" class="minimize_button_top" onclick="changeSongsVisibility()">–</p>
+        </div>
+        <div id="songs_dashboard">
         <div id="search_bar_content" class="search_bar_content">
             <input type="text" placeholder="Search.." id="search_bar" onkeyup="filterFunction()">
             <ul id="search_results"></ul>
@@ -30,8 +34,8 @@
                 <option value="Intercessory">Intercessory</option>
             </select>
             </label>
-            <label class="small_label">Show All Songs<input type="checkbox" id="show_songs_box" checked="checked" onclick="filterFunction()"></label>
-
+            <!--label class="small_label">Show All Songs<input type="checkbox" id="show_songs_box" checked="checked" onclick="filterFunction()"></label>-->
+        </div>
         </div>
         <p id="set_list_label" class = "label">Set List</p>
         <div id="set_list" tabindex="0">

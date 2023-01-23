@@ -12,6 +12,7 @@ body{
   margin-right: 1rem;
 }
 
+
 #header{
   box-sizing: border-box;
   display: flex;
@@ -95,12 +96,33 @@ h1{
 }
 
 .top_label{
+  display:inline-block;
   margin-top: 0.3rem;
   font-size: 1.1rem;
   font-weight: 450;
   color: black;
 }
 
+.minimize_button_top{
+  display:inline-block;
+  margin-top:0.3rem;
+  color: gray;
+  font-weight:900;
+}
+
+.minimize_button_top:hover {
+  color:rgb(50,50,50);
+
+}
+
+#songs_header{
+  box-sizing:border-box;
+  display: flex;
+  width: 100%;
+  flex-direction:right;
+  justify-content: space-between;
+
+}
 
 .small_label{
   font-size: 0.7rem;
@@ -244,9 +266,6 @@ textarea{
   background-color:lightgray;
 }
 
-.set_list_item:hover > .set_title{
-  /*color: white;*/
-}
 
 .set_list_item.selected {
   background: rgb(52, 86, 139);
@@ -264,14 +283,6 @@ textarea{
   padding:0.3em;
 }
 
-.set_list_item.hint {
-  /*border: 1px solid #ffc49a;*/
-}
-.set_list_item.active {
-  /*border: 2px solid black;
-  background: gray;
-  */
-}
 
 
 
