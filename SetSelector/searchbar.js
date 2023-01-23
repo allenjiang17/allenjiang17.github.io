@@ -67,10 +67,7 @@ function filterFunction() {
       
         txtValue = a[i].firstChild.textContent || a[i].firstChild.innerText;
 
-          if (filter.length == 0  && !document.getElementById("show_songs_box").checked) {
-            a[i].style.display = "none";
-
-          } else if (filter.length == 1) {
+          if (filter.length == 1) {
                   if (txtValue.toUpperCase().indexOf(filter) == 0 &&
                   ((a[i].getAttribute("data-tempo").includes(tempo) || tempo == "Any") )) {
                     a[i].style.display = "block";
@@ -99,22 +96,17 @@ function addFromSearch() {
   updateKey();
 }
 
-function showSongs() {
+function changeSongsVisibility() {
+  
+  var songs_dashboard = document.getElementById("songs_dashboard");
 
-  var input, a, i;
-  input = document.getElementById("search_bar");
-  list = document.getElementById("search_results");
-  a = list.getElementsByTagName("li");
-
-  if (document.getElementById("show_songs_box").checked) {
-    for (i = 0; i < a.length; i++) {
-      a[i].style.display = "block";
-    }
+  if (songs_dashboard.style.display == "none") {
+    songs_dashboard.style.display = "block";
+    document.getElementById("minimize_button_top").innerText = "–"
   } else {
-    for (i = 0; i < a.length; i++) {
-      a[i].style.display = "none";
-    }
+    songs_dashboard.style.display= "none";
+    document.getElementById("minimize_button_top").innerText = "+"
+
 
   }
-
 }
