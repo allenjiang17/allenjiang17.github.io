@@ -13,6 +13,7 @@
     <img id="ssm_icon" src="ssm_icon.png">
     <h1>Worship Set Selector</h1>
 </div>  
+
 <div id="wrapper">
     <div id="side_bar">
         <div id="songs_header">
@@ -43,6 +44,7 @@
         </div>
         <p id="export_label" class = "label"> Export Set</p>
         <button id="export_button">Download as Text File</button>
+        <button id="pdf_button">Download as PDF</button>
     </div>          
 
     <div id="main_display">
@@ -64,7 +66,8 @@
 <script src="searchbar.js"></script>
 <script src="setlist.js"></script>
 <script src="transposer.js"></script>
-<script src="exportset.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script type="module" src="exportset.js"></script>
 
 </body>
 </html>
