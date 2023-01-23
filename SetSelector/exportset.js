@@ -1,6 +1,3 @@
-// TODO check if the song has too many lines; if so, split into two columns
-// Max lines per page using courier size 10 font: 68
-// After 68 lines, you should wrap into a new column
 // TODO check if there are lines with too many characters.
 
 
