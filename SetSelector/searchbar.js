@@ -1,38 +1,3 @@
-//global variables
-//var DATABASE imported from previous javascript, as a JSON hack
-var CURRENT_SONG_ID;
-
-//load database
-for (let i=0; i<DATABASE.length; i++) {    
-
-    var newEntry = document.createElement("li");
-    var newButton = document.createElement("button");
-    var newTitle = document.createElement("div");
-
-    newEntry.setAttribute("id", "song" + i);
-    //newEntry.style.display = "none";
-    newEntry.className = "search_list";
-    newEntry.setAttribute("data-id", i);
-    newEntry.setAttribute("data-author", DATABASE[i].author);
-    newEntry.setAttribute("data-tempo", DATABASE[i].tempo);
-    newEntry.addEventListener("click", addFromSearch);
-
-    newTitle.setAttribute("id", "song-title" + i);
-    newTitle.className = "search_list_title";
-    newTitle.innerText = DATABASE[i].title;
-
-    //newButton.setAttribute("id", "song-button" + i);
-    //newButton.className = "search_list_button";
-    //newButton.innerText = "+";
-
-    newEntry.appendChild(newTitle);
-    //newEntry.appendChild(newButton);
-    document.getElementById("search_results").appendChild(newEntry);
-
-
-
-}
-
 function filterFunction() {
     var input, filter, ul, li, a, i;
     input = document.getElementById("search_bar");
