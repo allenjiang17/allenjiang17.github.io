@@ -1,3 +1,6 @@
+// TODO check if the song has too many lines; if so, split into two columns
+// TODO check if there are lines with too many characters.
+
 
 var intro_string = "PREPARE YOUR SET USING THE FOLLOWING:\n 1. Use a monospaced font to ensure spacing is right (e.g Courier)\n 2. Select all the set and format into two columns\n 3. Add page breaks into between songs\n";
 
@@ -12,6 +15,7 @@ const downloadToTextFile = (content, filename, contentType) => {
   
       URL.revokeObjectURL(a.href);
 };
+
 
 function downloadSet() {
     var set_list = document.querySelector('#set_list_items');
@@ -33,3 +37,28 @@ function downloadSet() {
 
 
 document.getElementById("export_button").addEventListener("click", downloadSet);
+
+const downloadToPDF = (contentlist, filename) => {
+    var doc = new jspdf.jsPDF();
+    doc.setFont("courier", "normal");
+    doc.setFontSize(10);
+    for (let i=0; i<contentlist.length; i++) {
+        doc.text(contentlist[i], 20, 20);
+        if(i + 1 < contentlist.length) {
+            doc.addPage()
+        }
+    }
+    doc.save(filename)
+};
+
+function downloadPDF() {
+    var set_list = document.querySelector('#set_list_items');
+    var list_of_songs = set_list.getElementsByTagName("li");
+    var songstringlist = []
+    for(let i=0; i<list_of_songs.length; i++) {
+        songstringlist[i] = list_of_songs[i].getAttribute("data-sheet")
+    }
+    downloadToPDF(songstringlist, 'set.pdf')
+}
+
+document.getElementById("pdf_button").addEventListener("click", downloadPDF)
