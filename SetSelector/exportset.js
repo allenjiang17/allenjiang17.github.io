@@ -1,4 +1,6 @@
 // TODO check if the song has too many lines; if so, split into two columns
+// Max lines per page using courier size 10 font: 68
+// After 68 lines, you should wrap into a new column
 // TODO check if there are lines with too many characters.
 
 
@@ -13,7 +15,7 @@ const downloadToTextFile = (content, filename, contentType) => {
     a.download = filename;
     a.click();
   
-      URL.revokeObjectURL(a.href);
+    URL.revokeObjectURL(a.href);
 };
 
 
@@ -23,10 +25,7 @@ function downloadSet() {
     var export_string = "";
 
     for (let i=0; i<list_of_songs.length; i++) {
-        
         export_string = export_string + "\n" + list_of_songs[i].getAttribute("data-sheet");
-
-        
     }
 
     export_string = intro_string + export_string;
@@ -43,7 +42,23 @@ const downloadToPDF = (contentlist, filename) => {
     doc.setFont("courier", "normal");
     doc.setFontSize(10);
     for (let i=0; i<contentlist.length; i++) {
-        doc.text(contentlist[i], 20, 20);
+        var songstr = contentlist[i]
+        var songlines = songstr.split("\n")
+        if (songlines.length > 68) {
+            doc.text(songlines.slice(0, 67).join('\n'), 10, 20)
+            if (songlines.length >= 134) {
+                doc.text(songlines.slice(67, 134).join('\n'), 110, 20)
+                doc.addPage()
+                doc.text(songlines.slice(134).join('\n'), 10, 20)
+                // TODO make this modular for like 3+ page songs, rn I'm too lazy
+            }
+            else {
+                doc.text(songlines.slice(67).join('\n'), 110, 20)
+            }
+        }
+        else {
+            doc.text(songstr, 20, 20);
+        }
         if(i + 1 < contentlist.length) {
             doc.addPage()
         }
@@ -58,7 +73,10 @@ function downloadPDF() {
     for(let i=0; i<list_of_songs.length; i++) {
         songstringlist[i] = list_of_songs[i].getAttribute("data-sheet")
     }
-    downloadToPDF(songstringlist, 'set.pdf')
+    var today = new Date();
+    var date = String(today.getMonth() + 1).padStart(2, '0') + 
+        String(today.getDate()).padStart(2, '0') + String(today.getFullYear()).substring(2);
+    downloadToPDF(songstringlist, 'set' + date + '.pdf')
 }
 
 document.getElementById("pdf_button").addEventListener("click", downloadPDF)
