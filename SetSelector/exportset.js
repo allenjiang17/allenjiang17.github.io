@@ -58,7 +58,7 @@ const downloadToTextFile = (content, filename, contentType) => {
 
 const downloadToPDF = (contentlist, filename) => {
     var doc = new jspdf.jsPDF();
-    doc.setFont("courier", "normal");
+    doc.setFont("RobotoMono-Medium", "normal");
     doc.setFontSize(10);
     for (let i=0; i<contentlist.length; i++) {
         var songstr = contentlist[i]
