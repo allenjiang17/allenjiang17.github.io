@@ -87,11 +87,37 @@ const downloadToPDF = (contentlist, filename) => {
 
 const downloadToPPT = (content, filename) => {
     var pres = new PptxGenJS();
+
+    //for every song
     for (let i=0; i<content.length; i++) {
+        let text = content[i];
+        let stanza = "";
+
+        //for every stanza. stanzas follow the format [Verse/Chorus/Bridge], marked by an end bracket
+
+        for (let j=0; j<text.length;j++) {
+
+            if (text[j] == "]") {
+                //new stanza
+                stanza = "";
+                
+            } else if (text[j] == "[") {
+                //add stanza to slide
+                var slide = pres.addSlide();
+                slide.background = { color: "111111" }; 
+                slide.addText(stanza, {align: "center", color: "FFFFFF", valign: "middle"});
+
+            } else {
+                stanza = stanza + text[j];
+            }
+
+        }
+        //add last stanza
         var slide = pres.addSlide();
         slide.background = { color: "111111" }; 
-        slide.addText("hello world", {align: "center", color: "FFFFFF", y: 0.25});
+        slide.addText(stanza, {align: "center", color: "FFFFFF", valign: "middle"});
     }
+
     pres.writeFile({ fileName: filename });
 };
 
