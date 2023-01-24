@@ -1,6 +1,11 @@
 const downloadToPPT = (content, filename) => {
-    var pres = new pptxgen.pptxgen();
-    var slide = pres.addSlide();
+    var pres = new PptxGenJS();
+    for (let i=0; i<content.length; i++) {
+        var slide = pres.addSlide();
+        slide.background = { color: "111111" }; 
+        slide.addText("hello world", {align: "center", color: "FFFFFF", y: 0.25});
+    }
+    pres.writeFile({ fileName: filename });
 };
 
 
@@ -14,10 +19,10 @@ function downloadPPT() {
         export_songs[i] = list_of_songs[i].getAttribute("data-lyrics");
     }
 
-//    today = new Date();
-//    var date = String(today.getMonth() + 1).padStart(2, '0') + 
-//        String(today.getDate()).padStart(2, '0') + String(today.getFullYear()).substring(2);
-//    downloadToPPT(export_songs, 'set' + date + '.pptx');
+    var today = new Date();
+    var date = String(today.getMonth() + 1).padStart(2, '0') + 
+        String(today.getDate()).padStart(2, '0') + String(today.getFullYear()).substring(2);
+    downloadToPPT(export_songs, 'set' + date + '.pptx');
 }
 
 document.getElementById("ppt_button").addEventListener("click", downloadPPT)
