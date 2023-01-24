@@ -87,39 +87,58 @@ const downloadToPDF = (contentlist, filename) => {
 
 const downloadToPPT = (content, filename) => {
     var pres = new PptxGenJS();
-
-    //for every song
     for (let i=0; i<content.length; i++) {
-        let text = content[i];
-        let stanza = "";
-
-        //for every stanza. stanzas follow the format [Verse/Chorus/Bridge], marked by an end bracket
-
-        for (let j=0; j<text.length;j++) {
-
-            if (text[j] == "]") {
-                //new stanza
-                stanza = "";
-                
-            } else if (text[j] == "[") {
-                //add stanza to slide
-                var slide = pres.addSlide();
-                slide.background = { color: "111111" }; 
-                slide.addText(stanza, {align: "center", color: "FFFFFF", valign: "middle"});
-
-            } else {
-                stanza = stanza + text[j];
-            }
-
+        var lyrics = splitLyrics(content[i])
+        for (let j=0; j<lyrics.length; j++) {
+            var slide = pres.addSlide();
+            slide.background = { color: "111111" }; 
+            slide.addText(lyrics[j], {
+                align: "center", 
+                color: "FFFFFF", 
+                // Default 16x9 size is 10 x 5.625 in
+                x: 1, // slide width minus text width divided by 2
+                y: 1,
+                h: 3.625,
+                w: 8,
+            });
         }
-        //add last stanza
-        var slide = pres.addSlide();
-        slide.background = { color: "111111" }; 
-        slide.addText(stanza, {align: "center", color: "FFFFFF", valign: "middle"});
     }
-
     pres.writeFile({ fileName: filename });
 };
+
+/* Splits lyrics string into multiple chunks based on newlines
+ *
+ * @return list of strings
+ */
+function splitLyrics(lyrics) {
+    lyrics = lyrics.split('\n')
+    lyrics.push('') // add empty string so no need for ending statement
+    var nlyrics = new Array();
+    var currlyric = "";
+    var empty = true
+    for (let i=0; i < lyrics.length; i++) {
+        var l = lyrics[i].trim()
+        const regex = new RegExp(/^\[.*\]$/);
+        const regex2 = new RegExp('^TEMPO:')
+        if(regex.test(l) | regex2.test(l)) {
+            console.log(l)
+            l = ""
+        }
+        if(l) {
+            if(empty) {
+                currlyric = l
+            } else {
+                currlyric = currlyric + '\n' + l
+            }
+            empty = false
+        } else if(!empty){
+            nlyrics.push(currlyric)
+            currlyric = "";
+            empty = true
+        }
+    }
+    return nlyrics;
+}
 
 document.getElementById("export_button").addEventListener("click", downloadSet);
 
