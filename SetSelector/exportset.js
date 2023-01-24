@@ -58,7 +58,7 @@ const downloadToTextFile = (content, filename, contentType) => {
 
 const downloadToPDF = (contentlist, filename) => {
     var doc = new jspdf.jsPDF();
-    doc.setFont("RobotoMono-Medium", "normal");
+    doc.setFont("SourceCodePro-Regular", "normal");
     doc.setFontSize(10);
     for (let i=0; i<contentlist.length; i++) {
         var songstr = contentlist[i]
@@ -95,6 +95,9 @@ const downloadToPPT = (content, filename) => {
             slide.addText(lyrics[j], {
                 align: "center", 
                 color: "FFFFFF", 
+                fontFace: "Georgia",
+                fontSize: 30,
+                lineSpacing: 50,
                 // Default 16x9 size is 10 x 5.625 in
                 x: 1, // slide width minus text width divided by 2
                 y: 1,
@@ -115,7 +118,7 @@ function splitLyrics(lyrics) {
     lyrics.push('') // add empty string so no need for ending statement
     var nlyrics = new Array();
     var currlyric = "";
-    var empty = true
+    var empty = true;
     for (let i=0; i < lyrics.length; i++) {
         var l = lyrics[i].trim()
         const regex = new RegExp(/^\[.*\]$/);
