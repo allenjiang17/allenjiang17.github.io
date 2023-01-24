@@ -14,6 +14,7 @@ function addSongToSet() {
     newEntry.setAttribute("data-id", CURRENT_SONG_ID);
     newEntry.setAttribute("data-key", KEY);
     newEntry.setAttribute("data-sheet", document.getElementById("text_entry").value);
+    newEntry.setAttribute("data-lyrics", document.querySelector("#search_results > li[data-id='" +  String(CURRENT_SONG_ID) + "']").getAttribute("data-lyrics"));
     newEntry.className = "set_list_item";
     newEntry.addEventListener("click", selectCurrentSongFromClick);
 

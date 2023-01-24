@@ -54,12 +54,41 @@ function filterFunction() {
 
 function addFromSearch() {
   CURRENT_SONG_ID = this.getAttribute("data-id");
-  document.getElementById("text_entry").value = DATABASE[CURRENT_SONG_ID].sheet;
+  document.getElementById("text_entry").value = this.getAttribute("data-sheet");
+  //DATABASE[CURRENT_SONG_ID].sheet;
 
   document.getElementById("search_bar").value = "";
   filterFunction();
   updateKey();
 }
+
+/*
+function hideChords() {
+
+  var button = document.getElementById("hideChords");
+  var song = document.querySelector("#search_results > li[data-id='" +  String(CURRENT_SONG_ID) + "']"); 
+
+  console.log(button.getAttribute("data-show"));
+
+
+  if (button.getAttribute("data-show") == "yes") {
+    
+    document.getElementById("text_entry").value = song.getAttribute("data-lyrics");
+
+    button.setAttribute("data-show", "no");
+    button.innerHTML = 'Show Chords';
+    
+  } else {
+
+    document.getElementById("text_entry").value = song.getAttribute("data-sheet");
+
+    button.setAttribute("data-show", "yes");
+    button.innerHTML = 'Hide Chords';
+
+  }
+
+}
+*/
 
 function changeSongsVisibility() {
   

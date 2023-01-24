@@ -129,7 +129,7 @@ h1{
   font-weight:300;
 }
 
-select{
+#tempo_options{
   font-size:0.7rem;
   font-weight:300rem;
   max-width: 4rem;
@@ -283,6 +283,21 @@ textarea{
   padding:0.3em;
 }
 
+
+#export_select{
+  display:block;
+  font-size:0.7rem;
+  font-weight:300rem;
+  max-width: 10rem;
+}
+
+#export_button{
+  display:block;
+  margin-top:0.5rem;
+  padding:0.2rem;
+  font-size:0.7rem;
+  font-weight:300rem;
+}
 
 
 

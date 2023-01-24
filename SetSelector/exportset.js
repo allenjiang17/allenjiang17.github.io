@@ -1,8 +1,49 @@
 // TODO check if there are lines with too many characters.
 
+function downloadSet() {
 
-var intro_string = "PREPARE YOUR SET USING THE FOLLOWING:\n 1. Use a monospaced font to ensure spacing is right (e.g Courier)\n 2. Select all the set and format into two columns\n 3. Add page breaks into between songs\n";
+    var set_list = document.querySelector('#set_list_items');
+    var list_of_songs = set_list.getElementsByTagName("li");
+    var today = new Date();
+    var date = String(today.getMonth() + 1).padStart(2, '0') + String(today.getDate()).padStart(2, '0') + String(today.getFullYear()).substring(2);
+    var write_name = 'set' + date;
 
+    //download as pdf
+    if (document.getElementById("export_select").value == "pdf") {
+
+        let songstringlist = [];
+        for(let i=0; i<list_of_songs.length; i++) {
+            songstringlist[i] = list_of_songs[i].getAttribute("data-sheet")
+        }
+        downloadToPDF(songstringlist, write_name + '.pdf')
+
+
+    //download as ppt
+    } else if (document.getElementById("export_select").value == "ppt") {
+        let export_songs = []
+
+        for (let i=0; i<list_of_songs.length; i++) {
+            export_songs[i] = list_of_songs[i].getAttribute("data-lyrics");
+        }
+    
+        downloadToPPT(export_songs, write_name +'.pptx');
+
+    //download as plain text file
+    } else {
+        var intro_string = "PREPARE YOUR SET USING THE FOLLOWING:\n 1. Use a monospaced font to ensure spacing is right (e.g Courier)\n 2. Select all the set and format into two columns\n 3. Add page breaks into between songs\n";
+        var export_string = "";
+
+        for (let i=0; i<list_of_songs.length; i++) {
+            export_string = export_string + "\n" + list_of_songs[i].getAttribute("data-sheet");
+        }
+    
+        export_string = intro_string + export_string;
+        downloadToTextFile(export_string, write_name + '.txt', 'text/plain');
+
+    }
+
+
+}
 //from https://robkendal.co.uk/blog/2020-04-17-saving-text-to-client-side-file-using-vanilla-js
 const downloadToTextFile = (content, filename, contentType) => {
     const a = document.createElement('a');
@@ -14,25 +55,6 @@ const downloadToTextFile = (content, filename, contentType) => {
   
     URL.revokeObjectURL(a.href);
 };
-
-
-function downloadSet() {
-    var set_list = document.querySelector('#set_list_items');
-    var list_of_songs = set_list.getElementsByTagName("li");
-    var export_string = "";
-
-    for (let i=0; i<list_of_songs.length; i++) {
-        export_string = export_string + "\n" + list_of_songs[i].getAttribute("data-sheet");
-    }
-
-    export_string = intro_string + export_string;
-    today = new Date();
-    var date = String(today.getMonth() + 1).padStart(2, '0') + String(today.getDate()).padStart(2, '0') + String(today.getFullYear()).substring(2);
-    downloadToTextFile(export_string, 'set' + date + '.txt', 'text/plain');
-}
-
-
-document.getElementById("export_button").addEventListener("click", downloadSet);
 
 const downloadToPDF = (contentlist, filename) => {
     var doc = new jspdf.jsPDF();
@@ -63,6 +85,46 @@ const downloadToPDF = (contentlist, filename) => {
     doc.save(filename)
 };
 
+const downloadToPPT = (content, filename) => {
+    var pres = new PptxGenJS();
+
+    //for every song
+    for (let i=0; i<content.length; i++) {
+        let text = content[i];
+        let stanza = "";
+
+        //for every stanza. stanzas follow the format [Verse/Chorus/Bridge], marked by an end bracket
+
+        for (let j=0; j<text.length;j++) {
+
+            if (text[j] == "]") {
+                //new stanza
+                stanza = "";
+                
+            } else if (text[j] == "[") {
+                //add stanza to slide
+                var slide = pres.addSlide();
+                slide.background = { color: "111111" }; 
+                slide.addText(stanza, {align: "center", color: "FFFFFF", valign: "middle"});
+
+            } else {
+                stanza = stanza + text[j];
+            }
+
+        }
+        //add last stanza
+        var slide = pres.addSlide();
+        slide.background = { color: "111111" }; 
+        slide.addText(stanza, {align: "center", color: "FFFFFF", valign: "middle"});
+    }
+
+    pres.writeFile({ fileName: filename });
+};
+
+document.getElementById("export_button").addEventListener("click", downloadSet);
+
+
+/*
 function downloadPDF() {
     var set_list = document.querySelector('#set_list_items');
     var list_of_songs = set_list.getElementsByTagName("li");
@@ -76,4 +138,25 @@ function downloadPDF() {
     downloadToPDF(songstringlist, 'set' + date + '.pdf')
 }
 
-document.getElementById("pdf_button").addEventListener("click", downloadPDF)
+function downloadText() {
+    var intro_string = "PREPARE YOUR SET USING THE FOLLOWING:\n 1. Use a monospaced font to ensure spacing is right (e.g Courier)\n 2. Select all the set and format into two columns\n 3. Add page breaks into between songs\n";
+
+    var set_list = document.querySelector('#set_list_items');
+    var list_of_songs = set_list.getElementsByTagName("li");
+    var export_string = "";
+
+    for (let i=0; i<list_of_songs.length; i++) {
+        export_string = export_string + "\n" + list_of_songs[i].getAttribute("data-sheet");
+    }
+
+    export_string = intro_string + export_string;
+    today = new Date();
+    var date = String(today.getMonth() + 1).padStart(2, '0') + String(today.getDate()).padStart(2, '0') + String(today.getFullYear()).substring(2);
+    downloadToTextFile(export_string, 'set' + date + '.txt', 'text/plain');
+}
+
+
+//document.getElementById("export_button").addEventListener("click", downloadText);
+//document.getElementById("pdf_button").addEventListener("click", downloadPDF)
+
+*/

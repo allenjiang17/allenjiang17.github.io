@@ -35,7 +35,6 @@ function downloadPPT() {
     downloadToPPT(export_songs, 'set' + date + '.pptx');
 }
 
-
 /* Splits lyrics string into multiple chunks based on newlines
  *
  * @return list of strings

@@ -43,14 +43,19 @@
             <ul id="set_list_items"></ul>
         </div>
         <p id="export_label" class = "label"> Export Set</p>
-        <button id="export_button">Download as Text File</button>
-        <button id="pdf_button">Download as PDF</button>
-        <button id="ppt_button">Download as Powerpoint</button>
+
+        <select name="export_select" id="export_select">
+            <option value="pdf">PDF</option>
+            <option value="ppt">Powerpoint (Media Slides)</option>
+            <option value="text">Plain Text</option>
+        </select>
+        <button id="export_button">Download</button>
     </div>          
 
     <div id="main_display">
         <div id="dashboard">
             <button id="addToSet" onclick="addSongToSet()">Add to Set</button>
+            <!--<button id="hideChords" onclick="hideChords()" data-show="yes">Hide Chords</button>-->
             <div id="transpose_dashboard">
                 <div id="key_label" class="key_label"> Current Key: </div>
                 <div id="key_display" class="key_display">?</div>

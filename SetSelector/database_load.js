@@ -15,6 +15,7 @@ for (let i=0; i<DATABASE.length; i++) {
     newEntry.setAttribute("data-id", i);
     newEntry.setAttribute("data-author", DATABASE[i].author);
     newEntry.setAttribute("data-tempo", DATABASE[i].tempo);
+    newEntry.setAttribute("data-sheet", DATABASE[i].sheet);
     newEntry.setAttribute("data-lyrics", remove_chord_lines(DATABASE[i].sheet));
     newEntry.addEventListener("click", addFromSearch);
 
