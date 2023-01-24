@@ -25,7 +25,7 @@ function downloadPPT() {
     downloadToPPT(export_songs, 'set' + date + '.pptx');
 }
 
-document.getElementById("ppt_button").addEventListener("click", downloadPPT)
+//document.getElementById("ppt_button").addEventListener("click", downloadPPT)
 
 
 
