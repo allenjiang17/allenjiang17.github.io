@@ -12,6 +12,15 @@ body{
   margin-right: 1rem;
 }
 
+#nightmode{
+  box-sizing: border-box;
+  height: 1.5rem;
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  cursor: pointer;
+}
+
 
 #header{
   box-sizing: border-box;
