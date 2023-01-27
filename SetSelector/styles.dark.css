@@ -2,16 +2,13 @@ body{
     background-color: #212121;
 }
 
-#nightmode{
-  filter: invert(98%) sepia(6%) saturate(443%) hue-rotate(272deg) brightness(117%) contrast(87%);
-  /* svg color change to white(?) */
-}
-
+#nightmode,
 #addToDatabase {
   filter: invert(90%) sepia(9%) saturate(494%) hue-rotate(173deg) brightness(90%) contrast(90%); 
   /* svg color change to #BCCCDC */
 }
 
+#nightmode:hover,
 #addToDatabase:hover {
   filter: invert(98%) sepia(6%) saturate(443%) hue-rotate(272deg) brightness(117%) contrast(87%);
   /* svg color change to white(?) */
@@ -161,6 +158,7 @@ h1{
   cursor:pointer;
 }
 
+.section_label_top,
 .section_label{
   color: #EFEFEF;
 }

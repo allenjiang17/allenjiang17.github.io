@@ -358,8 +358,6 @@ h1{
 #song_sheet_input {
   width: 100%;
   height: calc(70vh - 300px);
-
-
 }
 
 .popup_input{
@@ -375,9 +373,45 @@ h1{
 }
 
 #popup_close {
- background-color: rgb(52, 86, 139);
- color: white;
- border:none;
- text-align: center;
+  background-color: rgb(52, 86, 139);
+  color: white;
+  border:none;
+  text-align: center;
 }
 
+/* TOOLTIP STUFF */ 
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  border-radius: 5px;
+  visibility: hidden;
+  min-width: 120px;
+  font-size: 0.8rem;
+  background-color: #121212;
+  color: #EFEFEF;
+  text-align: center;
+  padding: 0.3rem 0;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 150%;
+  overflow: auto;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%; /* To the left of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #121212 transparent transparent;
+}
+/* END TOOLTIP STUFF */
