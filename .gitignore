@@ -2,3 +2,4 @@ wardle/*
 _config.yml
 *.un~
 .vs/*
+.DS_Store
