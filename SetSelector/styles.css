@@ -156,16 +156,15 @@ h1{
   /*height: 7%;*/
   background-color: rgb(52, 86, 139);
 }
-textarea{
-    box-sizing: border-box;
-    margin: 0.1em;
-    padding: 0.5em;
-    width: 100%;
-    height: calc(100vh - 120px); /*110px is the size of the header*/
-    font-family: 'Source Code Pro', monospace;
 
+#text_entry{
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(100vh - 120px); /*110px is the size of the header*/
+  font-family: 'Source Code Pro', monospace;
+  margin: 0;
+  padding: 2em;
 }
-
 
 #addToSet {
   width:15%;
@@ -292,12 +291,11 @@ textarea{
   padding:0.3em;
 }
 
-
 #export_select{
   display:block;
   font-size:0.7rem;
-  font-weight:300rem;
   max-width: 10rem;
+  line-height:0.7rem;
 }
 
 #export_button{
