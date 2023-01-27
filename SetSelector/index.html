@@ -8,16 +8,34 @@
 </style>
 </head>
 <body>
+<div id="popup-addsong">
+    <p id="popup-title" class="section_label"> Add Song to Local Library</p>
+    <button id="popup_close" onclick="closePopUp()"> x </button>
+        <label for="song_title_input" class="form_label">Title</label>
+        <input type="text" id="song_title_input" name="song_title_input" class="popup_input" required>
+        <label for="song_author_input" class="form_label">Author</label>
+        <input type="text" id="song_author_input" name="song_author_input" class="popup_input" required>
+        <label for="song_tempo_input" class="form_label">Tempo</label>
+        <select id="song_tempo_input" class="popup_input" required>
+            <option value="Fast">Fast</option>
+            <option value="Medium">Medium</option>
+            <option value="Slow">Slow</option>
+            <option value="Intercessory">Intercessory</option>
+        </select>
+        <label for="song_sheet_input" class="form_label" required>Chord Sheet</label>
+        <textarea id="song_sheet_input" class="popup_input"></textarea>
+        <button id="song_input_submit" class="popup_input" onclick="addSongSubmit()">Submit Song Button</button>
+</div>
+<div id="popup-background"></div>
 
 <div id="header">
     <img id="ssm_icon" src="ssm_icon.png">
     <h1>Worship Set Selector</h1>
 </div>  
-
 <div id="wrapper">
     <div id="side_bar">
         <div id="songs_header">
-            <p id="song_list_label" class = "top_label">Songs</p>
+            <p id="song_list_label" class = "section_label_top">Songs</p>
             <p id="minimize_button_top" class="minimize_button_top" onclick="changeSongsVisibility()">–</p>
         </div>
         <div id="songs_dashboard">
@@ -35,14 +53,13 @@
                 <option value="Intercessory">Intercessory</option>
             </select>
             </label>
-            <!--label class="small_label">Show All Songs<input type="checkbox" id="show_songs_box" checked="checked" onclick="filterFunction()"></label>-->
         </div>
         </div>
-        <p id="set_list_label" class = "label">Set List</p>
+        <p id="set_list_label" class = "section_label">Set List</p>
         <div id="set_list" tabindex="0">
             <ul id="set_list_items"></ul>
         </div>
-        <p id="export_label" class = "label"> Export Set</p>
+        <p id="export_label" class = "section_label"> Export Set</p>
 
         <select name="export_select" id="export_select">
             <option value="pdf">PDF</option>
@@ -55,6 +72,7 @@
     <div id="main_display">
         <div id="dashboard">
             <button id="addToSet" onclick="addSongToSet()">Add to Set</button>
+            <button id="addToDatabase" onclick="addSongPopUp()">Add to Library</button>
             <!--<button id="hideChords" onclick="hideChords()" data-show="yes">Hide Chords</button>-->
             <div id="transpose_dashboard">
                 <div id="key_label" class="key_label"> Current Key: </div>
@@ -67,6 +85,7 @@
 
     </div>
 </div>
+
 <script src="transposer.js"></script>
 <script src="searchbar.js"></script>
 <script src="setlist.js"></script>
