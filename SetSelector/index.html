@@ -2,7 +2,9 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css" id="themedefault">
+<link rel="stylesheet" media="(prefers-color-scheme: dark)" href="styles.dark.css" id="themeos">
+<link rel="stylesheet" href="" id="themetoggle">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 </style>
@@ -32,6 +34,9 @@
     <img id="ssm_icon" src="ssm_icon.png">
     <h1>Worship Set Selector</h1>
 </div>  
+
+<img id="nightmode" src="sun.svg">
+
 <div id="wrapper">
     <div id="side_bar">
         <div id="songs_header">
@@ -89,6 +94,7 @@
 <script src="transposer.js"></script>
 <script src="searchbar.js"></script>
 <script src="setlist.js"></script>
+<script src="nightmode.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script type="module" src="SourceCodePro-Regular-normal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.11.0/dist/pptxgen.bundle.js"></script>
@@ -96,7 +102,6 @@
 <script src="database_UG.js"></script>
 <script src="database_load.js"></script>
 <script type="module" src="exportset.js"></script>
-<script type="module" src="exportppt.js"></script>
 
 </body>
 </html>
