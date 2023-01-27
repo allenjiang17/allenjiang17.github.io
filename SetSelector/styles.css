@@ -366,18 +366,18 @@ h1{
   margin-bottom:0.6rem;
 }
 
-#popup_close{
+#popup_close {
   position: absolute;
   top:1rem;
   right:1rem;
+  cursor: pointer;
+  height: 1.5rem;
+  margin-right: 1rem;
+  filter: invert(28%) sepia(66%) saturate(562%) hue-rotate(177deg) brightness(90%) contrast(85%);
+  /* This color matches the top bar #34568B */
+  transition: all 0.3s ease-in-out 0s;
 }
-
-#popup_close {
-  background-color: rgb(52, 86, 139);
-  color: white;
-  border:none;
-  text-align: center;
-}
+#popup_close:hover { transform: rotate(360deg); }
 
 /* TOOLTIP STUFF */ 
 
@@ -415,3 +415,4 @@ h1{
   border-color: transparent #121212 transparent transparent;
 }
 /* END TOOLTIP STUFF */
+

@@ -10,9 +10,12 @@
 </style>
 </head>
 <body>
+<!-- 
+=== POPUP STUFF ===============================================================
+-->
 <div id="popup-addsong">
     <p id="popup-title" class="section_label"> Add Song to Local Library</p>
-    <button id="popup_close" onclick="closePopUp()"> x </button>
+    <img id="popup_close" src="x-circle-fill.svg" onclick="closePopUp()">
         <label for="song_title_input" class="form_label">Title</label>
         <input type="text" id="song_title_input" name="song_title_input" class="popup_input" required>
         <label for="song_author_input" class="form_label">Author</label>
@@ -29,6 +32,11 @@
         <button id="song_input_submit" class="popup_input" onclick="addSongSubmit()">Submit</button>
 </div>
 <div id="popup-background" onclick="closePopUp()"></div>
+
+<!-- 
+=== END POPUP STUFF ===========================================================
+-->
+
 
 <div id="header">
     <img id="ssm_icon" src="ssm_icon.png">
