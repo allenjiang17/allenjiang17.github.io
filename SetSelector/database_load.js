@@ -33,6 +33,34 @@ for (let i=0; i<DATABASE.length; i++) {
 
 }
 
+//access user's personal song storage
+if (localStorage.getItem("song_database") != null) {
+    let song_database = JSON.parse(localStorage.getItem("song_database"));
+
+    for (let i = 0; i<song_database.length; i++ ){
+        var newEntry = document.createElement("li");
+        var newTitle = document.createElement("div");
+
+        newEntry.setAttribute("id", "song" + i + DATABASE.length);
+        newEntry.className = "search_list";
+        newEntry.setAttribute("data-id", i + DATABASE.length);
+        newEntry.setAttribute("data-author", song_database[i].author);
+        newEntry.setAttribute("data-tempo", song_database[i].tempo);
+        newEntry.setAttribute("data-sheet", song_database[i].sheet);
+        newEntry.setAttribute("data-lyrics", remove_chord_lines(song_database[i].sheet));
+        newEntry.addEventListener("click", addFromSearch);
+
+        newTitle.setAttribute("id", "song-title" + i + DATABASE.length);
+        newTitle.className = "search_list_title";
+        newTitle.innerText = song_database[i].title;
+
+        newEntry.appendChild(newTitle);
+        document.getElementById("search_results").appendChild(newEntry);
+
+    }
+
+}
+
 
 function remove_chord_lines(raw_text) {
     var text = raw_text.split("\n");

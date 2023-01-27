@@ -98,13 +98,13 @@ h1{
   outline: 1.5px solid #ddd;
 }
 
-.label{
+.section_label{
   font-size: 1.1rem;
   font-weight: 450;
   color: black;
 }
 
-.top_label{
+.section_label_top{
   display:inline-block;
   margin-top: 0.3rem;
   font-size: 1.1rem;
@@ -307,4 +307,60 @@ h1{
 }
 
 
+#popup-addsong{
+  display:none;
+  box-sizing: border-box;
+   background-color: white;
+   width: 50vw;
+   height:70vh;
+   top: 15vh;
+   left:25vw;
+   position: fixed;
+   padding-left: 3vw;
+   padding-right: 3vw;
+   padding-top: 1vh;
+   padding-bottom:1vh;
+   z-index:2;
+   border-radius: 1vw;
+}
+
+#popup-background{
+  display:none;
+  position:fixed;
+  width:100vw;
+  height:100vh;
+  background-color:rgba(50, 50, 50, 0.5);
+  z-index:1;
+}
+
+.form_label{
+  font-size: 0.8rem;
+  font-weight:300rem;
+}
+
+#song_sheet_input {
+  width: 100%;
+  height: calc(70vh - 300px);
+
+
+}
+
+.popup_input{
+  display: block;
+  margin-top:0.3rem;
+  margin-bottom:0.6rem;
+}
+
+#popup_close{
+  position: absolute;
+  top:1rem;
+  right:1rem;
+}
+
+#popup_close {
+ background-color: rgb(52, 86, 139);
+ color: white;
+ border:none;
+ text-align: center;
+}
 
