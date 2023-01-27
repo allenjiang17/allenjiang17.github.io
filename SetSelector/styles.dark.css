@@ -4,6 +4,17 @@ body{
 
 #nightmode{
   filter: invert(98%) sepia(6%) saturate(443%) hue-rotate(272deg) brightness(117%) contrast(87%);
+  /* svg color change to white(?) */
+}
+
+#addToDatabase {
+  filter: invert(90%) sepia(9%) saturate(494%) hue-rotate(173deg) brightness(90%) contrast(90%); 
+  /* svg color change to #BCCCDC */
+}
+
+#addToDatabase:hover {
+  filter: invert(98%) sepia(6%) saturate(443%) hue-rotate(272deg) brightness(117%) contrast(87%);
+  /* svg color change to white(?) */
 }
 
 h1{
@@ -120,8 +131,7 @@ h1{
 #addToSet:hover,
 .transpose_button:hover {
   color: #EFEFEF;
-}
-
+} 
 
 .key_display,
 .key_label{
@@ -149,6 +159,10 @@ h1{
   border: 0;
   background-color: #121212;
   cursor:pointer;
+}
+
+.section_label{
+  color: #EFEFEF;
 }
 
 #export_button,

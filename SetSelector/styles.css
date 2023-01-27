@@ -147,6 +147,12 @@ h1{
 
 #tempo_dashboard{
   margin-top:0.5rem;
+  display: flex;
+  flex-direction:right;
+  justify-content: space-between;
+  padding:0;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
 }
 
 #dashboard{
@@ -164,6 +170,17 @@ h1{
   font-family: 'Source Code Pro', monospace;
   margin: 0;
   padding: 2em;
+}
+
+#addToDatabase {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 1.2rem;
+  cursor: pointer;
+}
+#addToDatabase:hover {
+  filter: invert(73%) sepia(0%) saturate(0%) hue-rotate(259deg) brightness(93%) contrast(93%);
+  /* svg color to #AAAAAA */
 }
 
 #addToSet {
