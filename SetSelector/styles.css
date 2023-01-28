@@ -71,6 +71,12 @@ h1{
   display: block;
 }
 
+/*
+ * ===========================================================================
+ * SIDE BAR
+ * ===========================================================================
+*/
+
 #side_bar{
   box-sizing: border-box;
   margin: 0;
@@ -108,134 +114,6 @@ h1{
 
 #set_list:focus{
   outline: 1.5px solid #ddd;
-}
-
-.section_label{
-  font-size: 1.1rem;
-  font-weight: 450;
-  color: black;
-}
-
-.section_label_top{
-  display:inline-block;
-  margin-top: 0.3rem;
-  font-size: 1.1rem;
-  font-weight: 450;
-  color: black;
-}
-
-.minimize_button_top{
-  display:inline-block;
-  margin-top:0.3rem;
-  color: gray;
-  font-weight:900;
-}
-
-.minimize_button_top:hover {
-  color:rgb(50,50,50);
-
-}
-
-#songs_header{
-  box-sizing:border-box;
-  display: flex;
-  width: 100%;
-  flex-direction:right;
-  justify-content: space-between;
-
-}
-
-.small_label{
-  font-size: 0.7rem;
-  font-weight:300;
-}
-
-#tempo_options{
-  font-size:0.7rem;
-  font-weight:300rem;
-  max-width: 4rem;
-  margin-right: 0.7rem;
-}
-
-#tempo_dashboard{
-  margin-top:0.5rem;
-  display: flex;
-  flex-direction:right;
-  justify-content: space-between;
-  padding:0;
-  padding-top: 0.3em;
-  padding-bottom: 0.3em;
-}
-
-.dashboard{
-  box-sizing:border-box;
-  display: flex;
-  padding: 0.3em;
-  /*height: 7%;*/
-  background-color: rgb(52, 86, 139);
-  width: 100%;
-  justify-content: space-between;
-}
-
-#text_entry{
-  box-sizing: border-box;
-  width: 100%;
-  height: calc(100vh - 120px); /*110px is the size of the header*/
-  font-family: 'Source Code Pro', monospace;
-  margin: 0;
-  padding: 2em;
-}
-
-#addToDatabase {
-  box-sizing: border-box;
-  display: inline-block;
-  height: 1.2rem;
-  cursor: pointer;
-}
-#addToDatabase:hover {
-  filter: invert(73%) sepia(0%) saturate(0%) hue-rotate(259deg) brightness(93%) contrast(93%);
-  /* svg color to #AAAAAA */
-}
-
-.addToSet {
-  width:15%;
-  margin:0;
-  padding: 0.3rem;
-  font-size: 0.8rem;
-}
-
-#transpose_dashboard {
-  margin: 0;
-  padding: 0;
-  display:inline-block;
-  text-align: right;
-  margin-right: 5%;
-}
-
-.key_label{
-  font-size: 1rem;
-  color: white;
-  font-weight: 300;
-  display: inline-block;
-  margin: 0.1em;
-  padding: 0.2em;
-
-}
-
-.key_display{
-  display: inline-block;
-  font-size: 1rem;
-  font-weight: bold;
-  margin: 0.1em;
-  padding: 0.2em;
-  color: white;
-
-}
-
-.transpose_button{
-  margin: 0;
-  padding: 0.3em;
-  font-size: 1rem;
 }
 
 
@@ -328,6 +206,63 @@ h1{
 
 }
 
+.section_label{
+  font-size: 1.1rem;
+  font-weight: 450;
+  color: black;
+}
+
+.section_label_top{
+  display:inline-block;
+  margin-top: 0.3rem;
+  font-size: 1.1rem;
+  font-weight: 450;
+  color: black;
+}
+
+.minimize_button_top{
+  display:inline-block;
+  margin-top:0.3rem;
+  color: gray;
+  font-weight:900;
+}
+
+.minimize_button_top:hover {
+  color:rgb(50,50,50);
+
+}
+
+#songs_header{
+  box-sizing:border-box;
+  display: flex;
+  width: 100%;
+  flex-direction:right;
+  justify-content: space-between;
+
+}
+
+.small_label{
+  font-size: 0.7rem;
+  font-weight:300;
+}
+
+#tempo_options{
+  font-size:0.7rem;
+  font-weight:300rem;
+  max-width: 4rem;
+  margin-right: 0.7rem;
+}
+
+#tempo_dashboard{
+  margin-top:0.5rem;
+  display: flex;
+  flex-direction:right;
+  justify-content: space-between;
+  padding:0;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+
 #export_select{
   display:block;
   font-size:0.7rem;
@@ -342,6 +277,86 @@ h1{
   font-size:0.7rem;
   font-weight:300rem;
 }
+
+
+/*
+ * ===========================================================================
+ * CHORD DISPLAY
+ * ===========================================================================
+*/
+
+
+.dashboard{
+  box-sizing:border-box;
+  display: flex;
+  padding: 0.3em;
+  /*height: 7%;*/
+  background-color: rgb(52, 86, 139);
+  width: 100%;
+  justify-content: space-between;
+}
+
+#text_entry{
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(100vh - 120px); /*110px is the size of the header*/
+  font-family: 'Source Code Pro', monospace;
+  margin: 0;
+  padding: 2em;
+}
+
+#addToDatabase {
+  box-sizing: border-box;
+  display: inline-block;
+  height: 1.2rem;
+  cursor: pointer;
+}
+#addToDatabase:hover {
+  filter: invert(73%) sepia(0%) saturate(0%) hue-rotate(259deg) brightness(93%) contrast(93%);
+  /* svg color to #AAAAAA */
+}
+
+.addToSet {
+  width:15%;
+  margin:0;
+  padding: 0.3rem;
+  font-size: 0.8rem;
+}
+
+#transpose_dashboard {
+  margin: 0;
+  padding: 0;
+  display:inline-block;
+  text-align: right;
+  margin-right: 5%;
+}
+
+.key_label{
+  font-size: 1rem;
+  color: white;
+  font-weight: 300;
+  display: inline-block;
+  margin: 0.1em;
+  padding: 0.2em;
+
+}
+
+.key_display{
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0.1em;
+  padding: 0.2em;
+  color: white;
+
+}
+
+.transpose_button{
+  margin: 0;
+  padding: 0.3em;
+  font-size: 1rem;
+}
+
 
 /* ===========================================================================
  * BEGIN POPUP STUFF
@@ -439,6 +454,7 @@ h1{
   top: -5px;
   left: 150%;
 }
+
 .tttbottom {
   top: 100%;
   left: -100%;
