@@ -79,3 +79,28 @@ function addSongPopUp() {
         }
   }
   }
+
+  function readJSONDatabase() {
+    var db = document.getElementById("database_reader").files[0].text();
+    db.then(db=>localStorage.setItem("song_database", db));
+    location.reload();
+  }
+
+  function downloadPersonalLibrary(){
+
+    if (localStorage.getItem("song_database") != null) {
+
+      var today = new Date();
+      var date = String(today.getMonth() + 1).padStart(2, '0') + String(today.getDate()).padStart(2, '0') + String(today.getFullYear()).substring(2);
+      var write_name = 'db_' + date;
+
+      const a = document.createElement('a');
+      const file = new Blob([localStorage.getItem("song_database")], {type: "application/json"});
+      
+      a.href= URL.createObjectURL(file);
+      a.download = write_name;
+      a.click();
+    
+      URL.revokeObjectURL(a.href);
+    }
+  }

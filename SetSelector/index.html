@@ -25,16 +25,18 @@
         <input id="show_personal_songs" type="checkbox" checked="checked"> <br>
         </label>
     <div class="tooltip">
-      <p class="section_label">Uploading/Exporting Your Personal Library (in progress) </p>
+      <p class="section_label" style="margin-top:2rem">Uploading/Exporting Your Personal Library</p>
       <span class="tooltiptext" id="media_button_text"> Your personal library is stored as local history on your browser, which is cleared when your browser history/cache is cleared. <br>
         If you would like to save your personal library, you can download it as JSON file, or upload one.</span>
     </div><br>
-    <label class="form_label"> Upload a Personal Library Database File (JSON)
-        <input type="file" style="font-size:0.7rem" class="popup_input">
-    </label> 
     <label class="form_label" > Save Personal Library as a JSON File </label>
-        <button class="popup_input" style="font-size:0.7rem">Download</button>
-    </label>
+    <button class="popup_input" style="font-size:0.7rem" onclick="downloadPersonalLibrary()">Download</button>
+  </label>
+    <label class="form_label"> Upload a Personal Library Database File (JSON)
+      <p class="small_label" style="margin:0.1rem">This will replace your current library with the uploaded database</p>
+        <input id="database_reader" type="file" style="font-size:0.7rem" class="popup_input" accept=".json">
+        <button class="popup_input"  style="font-size:0.7rem" onclick="readJSONDatabase()">Upload</button>
+    </label> 
 </div>
 <div id="popup-addsong" class="popup">
     <p id="popup-title" class="section_label"> Add Song to Local Library</p>
