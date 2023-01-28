@@ -246,7 +246,7 @@ h1{
 }
 
 
-#search_results{
+.search_results{
   padding: 0.1em;
   margin: 0em;
 }
@@ -288,6 +288,10 @@ h1{
 
 .set_list_item {
   box-sizing: border-box;
+  display:flex;
+  align-items:center;
+  flex-direction:right;
+  justify-content: space-between;
   width:100%;
   padding-top: 0.6em;
   padding-left: 0.4em;
@@ -298,7 +302,6 @@ h1{
 }
 
 .set_title{
-  width: 85%;
   display:inline-block;
   font-size: 0.8rem;
   /*font-weight:400px;*/
@@ -322,15 +325,20 @@ h1{
 }
 
 .set_delete{
-  width: 10%;
   display:inline-block;
-  padding:0.3em;
+  padding:0.2em;
+
+}
+
+.set_delete:hover{
+  filter: invert(73%) sepia(0%) saturate(0%) hue-rotate(259deg) brightness(93%) contrast(93%);
+
 }
 
 #export_select{
   display:block;
   font-size:0.7rem;
-  max-width: 10rem;
+  max-width: 5rem;
   line-height:0.7rem;
 }
 
@@ -342,22 +350,30 @@ h1{
   font-weight:300rem;
 }
 
-
-#popup-addsong{
+.popup{
   display:none;
   box-sizing: border-box;
-   background-color: white;
-   width: 50vw;
-   height:70vh;
-   top: 15vh;
-   left:25vw;
-   position: fixed;
+  background-color: white;
+  position: fixed;
    padding-left: 3vw;
    padding-right: 3vw;
    padding-top: 1vh;
-   padding-bottom:1vh;
-   z-index:2;
+   padding-bottom:3vh;
    border-radius: 1vw;
+}
+
+#popup-addsong{
+   width: 50vw;
+   top: 15vh;
+   left:25vw;
+   z-index:4;
+}
+
+#popup-editlibrary{
+  width: 50vw;
+  top: 15vh;
+  left:25vw;
+  z-index:2;
 }
 
 #popup-background{

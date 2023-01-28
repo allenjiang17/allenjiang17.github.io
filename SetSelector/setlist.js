@@ -7,7 +7,7 @@ function addSongToSet() {
 
     var newEntry = document.createElement("li");
     var newTitle = document.createElement("div");
-    var newButton = document.createElement("button");
+    var newButton = document.createElement("img");
 
     newEntry.setAttribute("id", "set_item" + current_list.length);
     newEntry.setAttribute("data-song-no", current_list.length);
@@ -23,8 +23,8 @@ function addSongToSet() {
     newTitle.innerText = DATABASE[CURRENT_SONG_ID].title + " (" + KEY + ")";
 
     newButton.setAttribute("id", "set_button" + current_list.length);
+    newButton.setAttribute("src", "x-lg.svg");
     newButton.className = "set_delete";
-    newButton.innerText = "-";
     newButton.addEventListener("click", deleteSetSong);
 
     newEntry.appendChild(newTitle);

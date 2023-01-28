@@ -2,12 +2,12 @@
 //var DATABASE imported from previous javascript, as a JSON hack
 var CURRENT_SONG_ID;
 
-//load database
+//load core database
 for (let i=0; i<DATABASE.length; i++) {    
 
-    var newEntry = document.createElement("li");
-    var newButton = document.createElement("button");
-    var newTitle = document.createElement("div");
+    let newEntry = document.createElement("li");
+    let newButton = document.createElement("button");
+    let newTitle = document.createElement("div");
 
     newEntry.setAttribute("id", "song" + i);
     //newEntry.style.display = "none";
@@ -33,13 +33,18 @@ for (let i=0; i<DATABASE.length; i++) {
 
 }
 
+loadPersonalDatabase();
+
+
+function loadPersonalDatabase() {
+
 //access user's personal song storage
 if (localStorage.getItem("song_database") != null) {
     let song_database = JSON.parse(localStorage.getItem("song_database"));
 
     for (let i = 0; i<song_database.length; i++ ){
-        var newEntry = document.createElement("li");
-        var newTitle = document.createElement("div");
+        let newEntry = document.createElement("li");
+        let newTitle = document.createElement("div");
 
         newEntry.setAttribute("id", "song" + i + DATABASE.length);
         newEntry.className = "search_list";
@@ -57,7 +62,27 @@ if (localStorage.getItem("song_database") != null) {
         newEntry.appendChild(newTitle);
         document.getElementById("search_results").appendChild(newEntry);
 
+        //add to personal library results
+
+        let newEntry_personal= document.createElement("li");
+        let newTitle_personal = document.createElement("div");
+        newEntry_personal.className = "set_list_item";
+        newTitle_personal.className = "set_title";
+        newTitle_personal.innerText = innerText = song_database[i].title;
+
+        let newButton_personal = document.createElement("img");
+        newButton_personal.className = "set_delete";
+        newButton_personal.setAttribute("src", "trash-fill.svg");
+        newButton_personal.addEventListener("click", removePersonalSong);
+
+        newEntry_personal.appendChild(newTitle_personal);
+        newEntry_personal.appendChild(newButton_personal);
+
+        document.getElementById("popup-personal_search_results").appendChild(newEntry_personal);
+
     }
+
+}
 
 }
 

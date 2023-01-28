@@ -13,9 +13,30 @@
 <!-- 
 === POPUP STUFF ===============================================================
 -->
-<div id="popup-addsong">
+
+<div id="popup-editlibrary" class="popup">
+    <p class="section_label"> Personal Song Library</p>
+    <img id="popup_close" src="x-circle-fill.svg" onclick="closeEditSongLibraryPopUp()">
+    <div id="popup-personal_search_content" class="search_bar_content">
+    <ul id="popup-personal_search_results" class="search_results"></ul>
+    </div>
+    <button class="popup_input" onclick="addSongPopUp()"> Add Song</button>
+    <label for="show_personal_songs" class="form_label"> Show Personal Songs in Search
+        <input id="show_personal_songs" type="checkbox" checked="checked"> <br>
+        </label>
+    <p class="section_label">Uploading/Exporting Your Personal Library (in progress) </p>
+    <p style="font-size: 0.7rem">Note: Your personal library is stored as local history on your browser, which is cleared when your browser history/cache is cleared. <br>
+    If you would like to retain your personal library, you can download as a JSON file, or upload one.</p>
+    <label class="form_label"> Upload a Personal Library Database File (JSON) <br>
+        <input type="file" style="font-size:0.7rem">
+    </label> <br>
+    <label class="form_label" > Save Personal Library as a JSON File </label>
+        <button class="popup_input" style="font-size:0.7rem">Download</button>
+    </label>
+</div>
+<div id="popup-addsong" class="popup">
     <p id="popup-title" class="section_label"> Add Song to Local Library</p>
-    <img id="popup_close" src="x-circle-fill.svg" onclick="closePopUp()">
+    <img id="popup_close" src="x-circle-fill.svg" onclick="closeAddSongPopUp()">
         <label for="song_title_input" class="form_label">Title</label>
         <input type="text" id="song_title_input" name="song_title_input" class="popup_input" required>
         <label for="song_author_input" class="form_label">Author</label>
@@ -31,7 +52,7 @@
         <textarea id="song_sheet_input" class="popup_input" placeholder="Use two blank lines to separate verse/chorus/etc."></textarea>
         <button id="song_input_submit" class="popup_input" onclick="addSongSubmit()">Add Song</button>
 </div>
-<div id="popup-background" onclick="closePopUp()"></div>
+<div id="popup-background" class="popup-background" onclick="closePopUp()"></div>
 
 <!-- 
 === END POPUP STUFF ===========================================================
@@ -60,7 +81,7 @@
         <div id="songs_dashboard">
         <div id="search_bar_content" class="search_bar_content">
             <input type="text" placeholder="Search.." id="search_bar" onkeyup="filterFunction()">
-            <ul id="search_results"></ul>
+            <ul id="search_results" class="search_results"></ul>
         </div>
         <div id="tempo_dashboard">
             <label id="tempo_label" class="small_label">Tempo:
@@ -73,9 +94,9 @@
             </select>
             </label>
             <div class="tooltip">
-                <img id="addToDatabase" src="database-add.svg" onclick="addSongPopUp()">
+                <img id="addToDatabase" src="database-add.svg" onclick="editSongLibraryPopUp()">
                 <span class="tooltiptext tttright">
-                    Add or remove songs from your personal database which is saved to your browser
+                    Add/remove songs from your personal library
                 </span>
             </div>
         </div>
@@ -114,6 +135,7 @@
 <script src="transposer.js"></script>
 <script src="searchbar.js"></script>
 <script src="setlist.js"></script>
+<script src="personal_library.js"></script>
 <script src="nightmode.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script type="module" src="SourceCodePro-Regular-normal.js"></script>
