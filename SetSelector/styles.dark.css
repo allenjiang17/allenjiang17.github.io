@@ -204,7 +204,7 @@ h1{
 }
 
 /* POPUP STYLING */
-#popup-addsong {
+.popup {
   background: #102A43;
   color: #E0E0E0;
 }
