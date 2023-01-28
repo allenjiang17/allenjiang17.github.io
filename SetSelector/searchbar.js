@@ -138,13 +138,15 @@ function changeSongsVisibility() {
 
   if (tempo.style.display == 'none') {
     songs_dashboard.style.maxHeight = '35vh';
+    songs_dashboard.style.borderStyle = 'solid'
+    tempo.style.display = "block"
     window.setTimeout(function () {
-        tempo.style.display = "block"
         document.getElementById("minimize_button_top").innerText = "–"
     }, 700);
   } else {
     songs_dashboard.style.maxHeight = '0';
     window.setTimeout(function () {
+        songs_dashboard.style.borderStyle = 'none'
         tempo.style.display = "none"
         document.getElementById("minimize_button_top").innerText = "+"
     }, 700);
