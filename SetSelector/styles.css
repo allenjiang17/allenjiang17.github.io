@@ -31,6 +31,7 @@ body{
 
 
 #header{
+  justify-content: space-between;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -40,6 +41,7 @@ body{
   padding-top:2.5rem;
   padding-bottom:2rem;
   margin-left: 5%;
+  margin-right: 6%;
 }
 
 h1{
@@ -411,12 +413,18 @@ h1{
   background-color: #121212;
   color: #EFEFEF;
   text-align: center;
-  padding: 0.3rem 0;
+  padding: 0.4rem;
   position: absolute;
   z-index: 1;
+  overflow: auto;
+}
+.tttright {
   top: -5px;
   left: 150%;
-  overflow: auto;
+}
+.tttbottom {
+  top: 100%;
+  left: -100%;
 }
 .tooltip:hover .tooltiptext {
   visibility: visible;

@@ -39,9 +39,14 @@
 
 
 <div id="header">
+  <div>
     <img id="ssm_icon" src="ssm_icon.png">
     <h1>Worship Set Selector</h1>
-    <img id="media_button" src="projector-fill.svg" onclick="switchMedia()">
+  </div>
+  <div class="tooltip">
+  <img id="media_button" src="projector-fill.svg" onclick="switchMedia()">
+  <span class="tooltiptext tttbottom">Switch to media mode</span>
+  </div>
 </div>  
 
 <img id="nightmode" src="sun.svg">
@@ -69,7 +74,7 @@
             </label>
             <div class="tooltip">
                 <img id="addToDatabase" src="database-add.svg" onclick="addSongPopUp()">
-                <span class="tooltiptext">
+                <span class="tooltiptext tttright">
                     Add or remove songs from your personal database which is saved to your browser
                 </span>
             </div>
