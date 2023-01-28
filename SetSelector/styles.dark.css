@@ -66,6 +66,14 @@ h1{
   border-width: 0 0 0 0;
 }
 
+.search_bar_content,
+#tempo_options,
+#export_select,
+#export_button {
+  box-shadow: rgba(60, 60, 60, 0.2) 0px 7px 15px 0px;
+}
+
+
 .search_list_title{
   background-color: var(--layer1);
   color: var(--texthigh);
@@ -84,6 +92,7 @@ h1{
 #set_list{
     background-color: var(--layer1);
     padding: 0;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 #set_list:focus{
@@ -138,7 +147,7 @@ h1{
 .transpose_button {
   background: none;
   border: 0;
-  color: var(--c5);
+  color: var(--texthigh);
   cursor: pointer;
   font-weight: bold;
   font-size: 1rem;
