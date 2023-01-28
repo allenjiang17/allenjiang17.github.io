@@ -81,15 +81,17 @@ h1{
 
 #presentation_wrapper{
   margin-left: 1%;
-  margin-right: 1%;
-  width: 73%;
+  margin-right: 10%;
+  width: 64%;
 }
 #presentation_header{
   width: 100%
 }
 
-#presentation{
+#currpresentation{
   width: 100%;
+}
+.presentation{
   position: relative;
   box-sizing: border-box;
   height: max-content;
@@ -98,12 +100,12 @@ h1{
   text-align: center;
   display: table;
 }
-#presentation > span{
+.presentation > span{
   color: white;
   display: table-cell;
   vertical-align: middle;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1.5vw;
+  line-height: 2.5vw;
 }
 
 #side_bar{
