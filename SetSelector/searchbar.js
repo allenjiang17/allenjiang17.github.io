@@ -133,15 +133,20 @@ function hideChords() {
 
 function changeSongsVisibility() {
   
-  var songs_dashboard = document.getElementById("songs_dashboard");
+  var tempo = document.getElementById("tempo_dashboard");
+  var songs_dashboard = document.getElementById('search_bar_content');
 
-  if (songs_dashboard.style.display == "none") {
-    songs_dashboard.style.display = "block";
-    document.getElementById("minimize_button_top").innerText = "–"
+  if (tempo.style.display == 'none') {
+    songs_dashboard.style.maxHeight = '35vh';
+    window.setTimeout(function () {
+        tempo.style.display = "block"
+        document.getElementById("minimize_button_top").innerText = "–"
+    }, 700);
   } else {
-    songs_dashboard.style.display= "none";
-    document.getElementById("minimize_button_top").innerText = "+"
-
-
+    songs_dashboard.style.maxHeight = '0';
+    window.setTimeout(function () {
+        tempo.style.display = "none"
+        document.getElementById("minimize_button_top").innerText = "+"
+    }, 700);
   }
 }

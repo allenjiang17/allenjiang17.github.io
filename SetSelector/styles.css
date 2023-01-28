@@ -71,43 +71,6 @@ h1{
   display: block;
 }
 
-#media_display{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0.6%;
-  width: 80%;
-  display: none;
-}
-
-#presentation_wrapper{
-  margin-left: 1%;
-  margin-right: 10%;
-  width: 64%;
-}
-#presentation_header{
-  width: 100%
-}
-
-#currpresentation{
-  width: 100%;
-}
-.presentation{
-  position: relative;
-  box-sizing: border-box;
-  height: max-content;
-  aspect-ratio: 16 / 9;
-  background: black;
-  text-align: center;
-  display: table;
-}
-.presentation > span{
-  color: white;
-  display: table-cell;
-  vertical-align: middle;
-  font-size: 1.5vw;
-  line-height: 2.5vw;
-}
-
 #side_bar{
   box-sizing: border-box;
   margin: 0;
@@ -131,6 +94,7 @@ h1{
   overflow: auto;
   border: 1px solid #ddd;
   max-height: 35vh;
+  transition: all 0.7s ease-in-out 0s;
 }
 
 #set_list{
@@ -283,10 +247,10 @@ h1{
 
 .search_list {
   width:100%;
-  margin-top:0.3em;
-  margin-bottom:0.3em;
+  margin: 0;
   padding: 0.4em;
-
+  padding-top:0.7em;
+  padding-bottom:0.7em;
 }
 
 .search_list_title{
@@ -371,6 +335,10 @@ h1{
   font-weight:300rem;
 }
 
+/* ===========================================================================
+ * BEGIN POPUP STUFF
+ * ===========================================================================
+*/
 
 #popup-addsong{
   display:none;
@@ -427,7 +395,11 @@ h1{
 }
 #popup_close:hover { transform: rotate(360deg); }
 
-/* TOOLTIP STUFF */ 
+/* ===========================================================================
+ * END POPUP STUFF
+ * BEGIN TOOLTIP STUFF
+ * ===========================================================================
+*/
 
 .tooltip {
   position: relative;
@@ -468,5 +440,55 @@ h1{
   border-style: solid;
   border-color: transparent #121212 transparent transparent;
 }
-/* END TOOLTIP STUFF */
+/*
+ * ===========================================================================
+ * END TOOLTIP STUFF
+ * BEGIN MEDIA STUFF
+ * ===========================================================================
+*/
+#media_display{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.6%;
+  width: 80%;
+  display: none;
+}
 
+#presentation_wrapper{
+  margin-left: 1%;
+  margin-right: 1%;
+  width: 73%;
+  display: block;
+}
+#presentation_header{
+  width: 100%
+}
+
+#currpresentation{
+  width: 100%;
+  position: relative;
+}
+.presentation{
+  box-sizing: border-box;
+  height: max-content;
+  aspect-ratio: 16 / 9;
+  background: black;
+  text-align: center;
+  display: table;
+}
+.presentation > span{
+  color: white;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 1.5vw;
+  line-height: 2.5vw;
+}
+#nextpresentation {
+  position: absolute;
+  width: 30%;
+  right: 0;
+  bottom: 0;
+  border-color: var(--textlow);
+  border-width: 1px;
+  border-style: solid;
+}

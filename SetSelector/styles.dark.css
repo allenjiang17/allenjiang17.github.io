@@ -1,14 +1,20 @@
+/* https://uxplanet.org/8-tips-for-dark-theme-design-8dfc2f8f7ab6 */
 :root {
   --c1: #242424; /* bg1 */
   --c2: #102A43; /* primary - dark blue*/ 
   --c3: #BCCCDC; /* secondary - lighter blue*/
-  --c4: #A1CDA8; /* accent 1 */
   --c5: #95BF74; /* accent 2 */
+  --bg: #121212; /* dark grey */
+  --layer05: #1F1F1F; /* dark grey */
+  --layer1: #212121; /* dark grey */
+  --texthigh: rgba(255, 255, 255, 0.87);
+  --textmedium: rgba(255, 255, 255, 0.60);
+  --textlow: rgba(255, 255, 255, 0.38);
 }
 
 
 body{
-    background-color: #212121;
+    background-color: var(--bg);
 }
 
 #nightmode,
@@ -46,22 +52,23 @@ h1{
 }
 
 #search_bar {
-  background-color: #121212;
-  color: #E0E0E0;
-  border-width: 0 0 0 0;
+  background-color: var(--layer05);
+  color: var(--texthigh);
+  border-width: 0 0 1 0;
+  border-color: var(--textlow)
 }
 
 #search_bar:focus {outline: 3px solid #BCCCDC;}
 
 .search_bar_content {
-  background-color: #121212;
-  color: #E0E0E0;
+  background-color: var(--layer1);
+  color: var(--texthigh);
   border-width: 0 0 0 0;
 }
 
 .search_list_title{
-  background-color: #121212;
-  color: #E0E0E0;
+  background-color: var(--layer1);
+  color: var(--texthigh);
   border-width: 0 0 0 0;
 }
 
@@ -70,11 +77,12 @@ h1{
 }
 
 .search_list:hover > .search_list_title{
+  color: var(--texthigh);
   background: #334E68;
 }
 
 #set_list{
-    background-color: #121212;
+    background-color: var(--layer1);
     padding: 0;
 }
 
@@ -119,8 +127,8 @@ h1{
 
 #text_entry{
   margin: 0;
-  background: black;
-  color: #E1E1E1;
+  background: var(--layer1);
+  color: var(--texthigh);
   border: 0;
   padding: 2em;
 }
@@ -165,13 +173,13 @@ h1{
 .set_delete{
   color: #BCCCDC;
   border: 0;
-  background-color: #121212;
+  background-color: var(--layer1);
   cursor:pointer;
 }
 
 .section_label_top,
 .section_label{
-  color: #EFEFEF;
+  color: var(--textmedium);
 }
 
 #export_button,
