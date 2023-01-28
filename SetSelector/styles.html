@@ -356,18 +356,21 @@ display: none;
 font-family: ‘Poppins’, sans-serif; height: 100vh; margin:0; }</p>
 <p>#ssm_icon{ box-sizing: border-box; display: inline-block; height:
 1.9rem; margin-right: 1rem; }</p>
+<p>#media_button{ box-sizing: border-box; display: inline-block; height:
+1.5rem; margin-left: 1rem; cursor: pointer; }</p>
 <p>#nightmode{ box-sizing: border-box; height: 1.5rem; position: fixed;
 bottom: 1rem; left: 1rem; cursor: pointer; }</p>
-<p>#header{ box-sizing: border-box; display: flex; align-items: center;
-height: 3.5rem; padding-left: 0.6%; padding-right:0.6%;
-padding-top:2.5rem; padding-bottom:2rem; margin-left: 5%; }</p>
+<p>#header{ justify-content: space-between; box-sizing: border-box;
+display: flex; align-items: center; height: 3.5rem; padding-left: 0.6%;
+padding-right:0.6%; padding-top:2.5rem; padding-bottom:2rem;
+margin-left: 5%; margin-right: 6%; }</p>
 <p>h1{ display: inline-block; margin: 0; padding: 0; font-size: 1.9rem;
 font-weight: 2000; color: rgb(50, 50, 50); }</p>
 <p>#wrapper { box-sizing: border-box; display: flex; flex-direction:
 row; margin: 0 auto; width: 90%; /<em>height: 92%;</em>/</p>
 <p>}</p>
 <p>#chord_display{ box-sizing: border-box; margin: 0; padding: 0.6%;
-width: 80%; }</p>
+width: 80%; display: block; }</p>
 <p>#side_bar{ box-sizing: border-box; margin: 0; padding: 0.6%; width:
 20%; }</p>
 <p>#search_bar { box-sizing: border-box; width: 100%; font-size:1rem;
@@ -395,8 +398,9 @@ flex-direction:right; justify-content: space-between;</p>
 <p>#tempo_dashboard{ margin-top:0.5rem; display: flex;
 flex-direction:right; justify-content: space-between; padding:0;
 padding-top: 0.3em; padding-bottom: 0.3em; }</p>
-<p>#dashboard{ box-sizing:border-box; display: flex; padding: 0.3em;
-/<em>height: 7%;</em>/ background-color: rgb(52, 86, 139); }</p>
+<p>.dashboard{ box-sizing:border-box; display: flex; padding: 0.3em;
+/<em>height: 7%;</em>/ background-color: rgb(52, 86, 139); width: 100%;
+justify-content: space-between; }</p>
 <p>#text_entry{ box-sizing: border-box; width: 100%; height: calc(100vh
 - 120px); /<em>110px is the size of the header</em>/ font-family:
 ‘Source Code Pro’, monospace; margin: 0; padding: 2em; }</p>
@@ -404,11 +408,10 @@ padding-top: 0.3em; padding-bottom: 0.3em; }</p>
 height: 1.2rem; cursor: pointer; } #addToDatabase:hover { filter:
 invert(73%) sepia(0%) saturate(0%) hue-rotate(259deg) brightness(93%)
 contrast(93%); /* svg color to #AAAAAA */ }</p>
-<p>#addToSet { width:15%; margin:0; padding: 0.3rem; font-size: 0.8rem;
+<p>.addToSet { width:15%; margin:0; padding: 0.3rem; font-size: 0.8rem;
 }</p>
-<p>#transpose_dashboard { width: 80%; margin: 0; padding: 0;
-display:inline-block; text-align: right;</p>
-<p>}</p>
+<p>#transpose_dashboard { margin: 0; padding: 0; display:inline-block;
+text-align: right; margin-right: 5%; }</p>
 <p>.key_label{ font-size: 1rem; color: white; font-weight: 300; display:
 inline-block; margin: 0.1em; padding: 0.2em;</p>
 <p>}</p>
@@ -417,9 +420,8 @@ bold; margin: 0.1em; padding: 0.2em; color: white;</p>
 <p>}</p>
 <p>.transpose_button{ margin: 0; padding: 0.3em; font-size: 1rem; }</p>
 <p>#search_results{ padding: 0.1em; margin: 0em; }</p>
-<p>.search_list { width:100%; margin-top:0.3em; margin-bottom:0.3em;
-padding: 0.4em;</p>
-<p>}</p>
+<p>.search_list { width:100%; margin: 0; padding: 0.4em;
+padding-top:0.7em; padding-bottom:0.7em; }</p>
 <p>.search_list_title{ width:100%; display:inline-block; font-size:
 0.8rem; font-weight:400px; color:black; }</p>
 <p>.search_list:hover { background-color: gray; } .search_list:hover
@@ -442,6 +444,11 @@ bold; }</p>
 line-height:0.7rem; }</p>
 <p>#export_button{ display:block; margin-top:0.5rem; padding:0.2rem;
 font-size:0.7rem; font-weight:300rem; }</p>
+<p>/*
+===========================================================================
+* BEGIN POPUP STUFF *
+===========================================================================
+*/</p>
 <p>#popup-addsong{ display:none; box-sizing: border-box;
 background-color: white; width: 50vw; height:70vh; top: 15vh; left:25vw;
 position: fixed; padding-left: 3vw; padding-right: 3vw; padding-top:
@@ -452,16 +459,41 @@ height:100vh; background-color:rgba(50, 50, 50, 0.5); z-index:1; }</p>
 <p>#song_sheet_input { width: 100%; height: calc(70vh - 300px); }</p>
 <p>.popup_input{ display: block; margin-top:0.3rem;
 margin-bottom:0.6rem; }</p>
-<p>#popup_close{ position: absolute; top:1rem; right:1rem; }</p>
-<p>#popup_close { background-color: rgb(52, 86, 139); color: white;
-border:none; text-align: center; }</p>
-<p>/* TOOLTIP STUFF */</p>
+<p>#popup_close { position: absolute; top:1rem; right:1rem; cursor:
+pointer; height: 1.5rem; margin-right: 1rem; filter: invert(28%)
+sepia(66%) saturate(562%) hue-rotate(177deg) brightness(90%)
+contrast(85%); /* This color matches the top bar #34568B */ transition:
+all 0.3s ease-in-out 0s; } #popup_close:hover { transform:
+rotate(360deg); }</p>
+<p>/*
+===========================================================================
+* END POPUP STUFF * BEGIN TOOLTIP STUFF *
+===========================================================================
+*/</p>
 <p>.tooltip { position: relative; display: inline-block; }</p>
-<p>.tooltip .tooltiptext { visibility: hidden; min-width: 120px;
-min-height: 200px; font-size: 0.7rem; background-color: #121212; color:
-#EFEFEF; text-align: center; padding: 0.3rem 0; position: absolute;
-z-index: 1; top: -5px; left: 120%; overflow: auto; } .tooltip:hover
-.tooltiptext { visibility: visible; } /* END TOOLTIP STUFF */</p>
+<p>.tooltip .tooltiptext { border-radius: 5px; visibility: hidden;
+min-width: 120px; font-size: 0.8rem; background-color: #121212; color:
+#EFEFEF; text-align: center; padding: 0.4rem; position: absolute;
+z-index: 1; overflow: auto; } .tttright { top: -5px; left: 150%; }
+.tttbottom { top: 100%; left: -100%; } .tooltip:hover .tooltiptext {
+visibility: visible; } .tooltip .tooltiptext::after { content: ” “;
+position: absolute; top: 50%; right: 100%; /* To the left of the tooltip
+<em>/ margin-top: -5px; border-width: 5px; border-style: solid;
+border-color: transparent #121212 transparent transparent; } /</em> *
+===========================================================================
+* END TOOLTIP STUFF * BEGIN MEDIA STUFF *
+===========================================================================
+*/ #media_display{ box-sizing: border-box; margin: 0; padding: 0.6%;
+width: 80%; display: none; }</p>
+<p>#presentation_wrapper{ margin-left: 1%; margin-right: 1%; width: 73%;
+display: block; } #presentation_header{ width: 100% }</p>
+<p>#currpresentation{ width: 100%; position: relative; } .presentation{
+box-sizing: border-box; height: max-content; aspect-ratio: 16 / 9;
+background: black; text-align: center; display: table; } .presentation
+&gt; span{ color: white; display: table-cell; vertical-align: middle;
+font-size: 1.5vw; line-height: 2.5vw; } #nextpresentation { position:
+absolute; width: 30%; right: 0; bottom: 0; border-color: var(–textlow);
+border-width: 1px; border-style: solid; }</p>
 
 
 
