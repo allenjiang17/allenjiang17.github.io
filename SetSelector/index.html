@@ -28,8 +28,8 @@
             <option value="Intercessory">Intercessory</option>
         </select>
         <label for="song_sheet_input" class="form_label" required>Chord Sheet</label>
-        <textarea id="song_sheet_input" class="popup_input"></textarea>
-        <button id="song_input_submit" class="popup_input" onclick="addSongSubmit()">Submit</button>
+        <textarea id="song_sheet_input" class="popup_input" placeholder="Use two blank lines to separate verse/chorus/etc."></textarea>
+        <button id="song_input_submit" class="popup_input" onclick="addSongSubmit()">Add Song</button>
 </div>
 <div id="popup-background" onclick="closePopUp()"></div>
 
@@ -41,6 +41,7 @@
 <div id="header">
     <img id="ssm_icon" src="ssm_icon.png">
     <h1>Worship Set Selector</h1>
+    <img id="media_button" src="projector-fill.svg" onclick="switchMedia()">
 </div>  
 
 <img id="nightmode" src="sun.svg">
@@ -88,10 +89,9 @@
         <button id="export_button">Download</button>
     </div>          
 
-    <div id="main_display">
+    <div id="chord_display" style="display:block">
         <div id="dashboard">
             <button id="addToSet" onclick="addSongToSet()">Add to Set</button>
-            <!--<button id="hideChords" onclick="hideChords()" data-show="yes">Hide Chords</button>-->
             <div id="transpose_dashboard">
                 <div id="key_label" class="key_label"> Current Key: </div>
                 <div id="key_display" class="key_display">?</div>
@@ -100,7 +100,9 @@
             </div>
         </div>
         <textarea id="text_entry" placeholder="Chord Sheets Here"></textarea>
+    </div>
 
+    <div id="media_display" style="display:none">
     </div>
 </div>
 
@@ -111,6 +113,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script type="module" src="SourceCodePro-Regular-normal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.11.0/dist/pptxgen.bundle.js"></script>
+<script src="media.js"></script>
 
 <script src="database_UG.js"></script>
 <script src="database_load.js"></script>

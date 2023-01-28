@@ -12,6 +12,14 @@ body{
   margin-right: 1rem;
 }
 
+#media_button{
+  box-sizing: border-box;
+  display: inline-block;
+  height: 1.5rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
 #nightmode{
   box-sizing: border-box;
   height: 1.5rem;
@@ -53,11 +61,20 @@ h1{
 
 }
 
-#main_display{
+#chord_display{
   box-sizing: border-box;
   margin: 0;
   padding: 0.6%;
   width: 80%;
+  display: block;
+}
+
+#media_display{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.6%;
+  width: 60%;
+  display: none;
 }
 
 #side_bar{

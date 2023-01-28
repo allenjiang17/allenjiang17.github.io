@@ -72,8 +72,6 @@ function addSongPopUp() {
 function closePopUp() {
   document.getElementById("popup-addsong").style.display = "none";
   document.getElementById("popup-background").style.display = "none";
-
-
 }
 
 function addSongSubmit() {
