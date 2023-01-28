@@ -15,7 +15,7 @@
 -->
 
 <div id="popup-editlibrary" class="popup">
-    <p class="section_label"> Personal Song Library</p>
+    <p class="section_label" style="font-size: 1.3rem"> Personal Song Library</p>
     <img id="popup_close" src="x-circle-fill.svg" onclick="closeEditSongLibraryPopUp()">
     <div id="popup-personal_search_content" class="search_bar_content">
     <ul id="popup-personal_search_results" class="search_results"></ul>
@@ -24,12 +24,14 @@
     <label for="show_personal_songs" class="form_label"> Show Personal Songs in Search
         <input id="show_personal_songs" type="checkbox" checked="checked"> <br>
         </label>
-    <p class="section_label">Uploading/Exporting Your Personal Library (in progress) </p>
-    <p style="font-size: 0.7rem">Note: Your personal library is stored as local history on your browser, which is cleared when your browser history/cache is cleared. <br>
-    If you would like to retain your personal library, you can download as a JSON file, or upload one.</p>
-    <label class="form_label"> Upload a Personal Library Database File (JSON) <br>
-        <input type="file" style="font-size:0.7rem">
-    </label> <br>
+    <div class="tooltip">
+      <p class="section_label">Uploading/Exporting Your Personal Library (in progress) </p>
+      <span class="tooltiptext" id="media_button_text"> Your personal library is stored as local history on your browser, which is cleared when your browser history/cache is cleared. <br>
+        If you would like to save your personal library, you can download it as JSON file, or upload one.</span>
+    </div><br>
+    <label class="form_label"> Upload a Personal Library Database File (JSON)
+        <input type="file" style="font-size:0.7rem" class="popup_input">
+    </label> 
     <label class="form_label" > Save Personal Library as a JSON File </label>
         <button class="popup_input" style="font-size:0.7rem">Download</button>
     </label>
