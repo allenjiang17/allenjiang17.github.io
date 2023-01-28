@@ -4,8 +4,10 @@ function switchMedia() {
   if (media.style.display == "block") {
     chords.style.display = "block"
     media.style.display = "none"
+    document.getElementById("media_button_text").innerHTML = "Switch to media mode"
   } else {
     chords.style.display = "none"
     media.style.display = "block"
+    document.getElementById("media_button_text").innerHTML = "Switch to chord mode"
   }
 }

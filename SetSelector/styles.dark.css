@@ -12,12 +12,14 @@ body{
 }
 
 #nightmode,
+#media_button,
 #addToDatabase {
   filter: invert(90%) sepia(9%) saturate(494%) hue-rotate(173deg) brightness(90%) contrast(90%); 
   /* svg color change to #BCCCDC */
 }
 
 #nightmode:hover,
+#media_button:hover,
 #addToDatabase:hover {
   filter: invert(98%) sepia(6%) saturate(443%) hue-rotate(272deg) brightness(117%) contrast(87%);
   /* svg color change to white(?) */
@@ -111,7 +113,7 @@ h1{
   margin-left: 2em;
 }
 
-#dashboard{
+.dashboard{
   background-color: #102A43;
 }
 
@@ -124,7 +126,7 @@ h1{
 }
 #text_entry:focus{ outline:none; }
 
-#addToSet,
+.addToSet,
 .transpose_button {
   background: none;
   border: 0;
@@ -134,7 +136,7 @@ h1{
   font-size: 1rem;
 }
 
-#addToSet:hover,
+.addToSet:hover,
 .transpose_button:hover {
   color: #EFEFEF;
 } 

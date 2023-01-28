@@ -45,7 +45,7 @@
   </div>
   <div class="tooltip">
   <img id="media_button" src="projector-fill.svg" onclick="switchMedia()">
-  <span class="tooltiptext tttbottom">Switch to media mode</span>
+  <span class="tooltiptext tttbottom" id="media_button_text">Switch to media mode</span>
   </div>
 </div>  
 
@@ -95,8 +95,8 @@
     </div>          
 
     <div id="chord_display" style="display:block">
-        <div id="dashboard">
-            <button id="addToSet" onclick="addSongToSet()">Add to Set</button>
+        <div class="dashboard">
+            <button class="addToSet" onclick="addSongToSet()">Add to Set</button>
             <div id="transpose_dashboard">
                 <div id="key_label" class="key_label"> Current Key: </div>
                 <div id="key_display" class="key_display">?</div>
@@ -108,6 +108,15 @@
     </div>
 
     <div id="media_display" style="display:none">
+      <div id="presentation_wrapper">
+        <div class="dashboard">
+          <button class="addToSet" onclick="addSongToSet()">Add to Set</button>
+          <button class="addToSet" onclick="">Fullscreen</button>
+        </div>
+        <div id="presentation">
+          <span id="presentation_text">Choose a song on <br> the left to begin</span>
+        </div>
+      </div>
     </div>
 </div>
 
