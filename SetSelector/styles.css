@@ -311,8 +311,9 @@ h1{
   height: 1.2rem;
   cursor: pointer;
 }
-#addToDatabase:hover {
-  filter: invert(73%) sepia(0%) saturate(0%) hue-rotate(259deg) brightness(93%) contrast(93%);
+
+.icon_button:hover {
+  filter: invert(75%) sepia(0%) saturate(100%) hue-rotate(259deg) brightness(50%) contrast(93%);
   /* svg color to #AAAAAA */
 }
 

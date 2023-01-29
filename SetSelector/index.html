@@ -16,7 +16,7 @@
 
 <div id="popup-editlibrary" class="popup">
     <p class="section_label" style="font-size: 1.3rem"> Personal Song Library</p>
-    <img id="popup_close" src="x-circle-fill.svg" onclick="closeEditSongLibraryPopUp()">
+    <img id="popup_close" src="icons/x-circle-fill.svg" onclick="closeEditSongLibraryPopUp()">
     <div id="popup-personal_search_content" class="search_bar_content">
     <ul id="popup-personal_search_results" class="search_results"></ul>
     </div>
@@ -29,18 +29,23 @@
       <span class="tooltiptext" id="media_button_text"> Your personal library is stored as local history on your browser, which is cleared when your browser history/cache is cleared. <br>
         If you would like to save your personal library, you can download it as JSON file, or upload one.</span>
     </div><br>
-    <label class="form_label" > Save Personal Library as a JSON File </label>
-    <button class="popup_input" style="font-size:0.7rem" onclick="downloadPersonalLibrary()">Download</button>
-  </label>
-    <label class="form_label"> Upload a Personal Library Database File (JSON)
+    <div onclick="downloadPersonalLibrary()" style="margin:0"> 
+      <img class="icon_button" src="icons/database-down.svg" onclick="downloadPersonalLibrary()" style="display:inline">
+      Save Personal Library as a JSON File
+    </div>
+    <br>
+    <div onclick="readJSONDatabase()" style="margin:0"> 
+      <img class="icon_button" src="icons/database-up.svg" onclick="readJSONDatabase()" style="display:inline">
+      <div style="display:inline">
+      Upload a Personal Library Database File (JSON)
       <p class="small_label" style="margin:0.1rem">This will replace your current library with the uploaded database</p>
         <input id="database_reader" type="file" style="font-size:0.7rem" class="popup_input" accept=".json">
-        <button class="popup_input"  style="font-size:0.7rem" onclick="readJSONDatabase()">Upload</button>
-    </label> 
+      </div>
+    </div> 
 </div>
 <div id="popup-addsong" class="popup">
     <p id="popup-title" class="section_label"> Add Song to Local Library</p>
-    <img id="popup_close" src="x-circle-fill.svg" onclick="closeAddSongPopUp()">
+    <img id="popup_close" src="icons/x-circle-fill.svg" onclick="closeAddSongPopUp()">
         <label for="song_title_input" class="form_label">Title</label>
         <input type="text" id="song_title_input" name="song_title_input" class="popup_input" required>
         <label for="song_author_input" class="form_label">Author</label>
@@ -65,16 +70,16 @@
 
 <div id="header">
   <div>
-    <img id="ssm_icon" src="ssm_icon.png">
+    <img id="ssm_icon" src="icons/ssm_icon.png">
     <h1>Worship Set Selector</h1>
   </div>
   <div class="tooltip">
-    <img id="media_button" src="projector-fill.svg" onclick="switchMedia()">
+    <img class="icon_button" id="media_button" src="icons/projector-fill.svg" onclick="switchMedia()">
     <span class="tooltiptext tttbottom" id="media_button_text">Switch to media mode</span>
   </div>
 </div>  
 
-<img id="nightmode" src="sun.svg">
+<img id="nightmode" src="icons/sun.svg">
 
 <div id="wrapper">
     <div id="side_bar">
@@ -98,7 +103,7 @@
             </select>
             </label>
             <div class="tooltip">
-                <img id="addToDatabase" src="database-add.svg" onclick="editSongLibraryPopUp()">
+                <img class="icon_button" id="addToDatabase" src="icons/database-add.svg" onclick="editSongLibraryPopUp()">
                 <span class="tooltiptext tttright">
                     Add/remove songs from your personal library
                 </span>

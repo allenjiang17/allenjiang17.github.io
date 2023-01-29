@@ -72,7 +72,7 @@ if (localStorage.getItem("song_database") != null) {
 
         let newButton_personal = document.createElement("img");
         newButton_personal.className = "set_delete";
-        newButton_personal.setAttribute("src", "trash-fill.svg");
+        newButton_personal.setAttribute("src", "icons/trash-fill.svg");
         newButton_personal.addEventListener("click", removePersonalSong);
 
         newEntry_personal.appendChild(newTitle_personal);

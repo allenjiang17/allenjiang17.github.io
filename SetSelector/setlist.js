@@ -23,7 +23,7 @@ function addSongToSet() {
     newTitle.innerText = DATABASE[CURRENT_SONG_ID].title + " (" + KEY + ")";
 
     newButton.setAttribute("id", "set_button" + current_list.length);
-    newButton.setAttribute("src", "x-lg.svg");
+    newButton.setAttribute("src", "icons/x-lg.svg");
     newButton.className = "set_delete";
     newButton.addEventListener("click", deleteSetSong);
 
