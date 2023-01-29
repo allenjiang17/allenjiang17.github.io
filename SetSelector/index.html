@@ -29,18 +29,18 @@
       <span class="tooltiptext" id="media_button_text"> Your personal library is stored as local history on your browser, which is cleared when your browser history/cache is cleared. <br>
         If you would like to save your personal library, you can download it as JSON file, or upload one.</span>
     </div><br>
-    <div onclick="downloadPersonalLibrary()" style="margin:0"> 
+    <div class="clickable_link" onclick="downloadPersonalLibrary()" style="margin:0"> 
       <img class="icon_button" src="icons/database-down.svg" onclick="downloadPersonalLibrary()" style="display:inline">
       Save Personal Library as a JSON File
     </div>
     <br>
-    <div onclick="readJSONDatabase()" style="margin:0"> 
-      <img class="icon_button" src="icons/database-up.svg" onclick="readJSONDatabase()" style="display:inline">
-      <div style="display:inline">
-      Upload a Personal Library Database File (JSON)
-      <p class="small_label" style="margin:0.1rem">This will replace your current library with the uploaded database</p>
-        <input id="database_reader" type="file" style="font-size:0.7rem" class="popup_input" accept=".json">
+    <div style="margin:0"> 
+      <div class="clickable_link" onclick="readJSONDatabase()" style="display:inline-block"> 
+        <img class="icon_button" src="icons/database-up.svg" onclick="readJSONDatabase()" style="display:inline-block">
+        Upload a Personal Library Database File (JSON) 
       </div>
+        <p class="small_label" style="margin:0.1rem">This will replace your current library with the uploaded database</p>
+        <input id="database_reader" type="file" style="font-size:0.7rem" class="popup_input" accept=".json">
     </div> 
 </div>
 <div id="popup-addsong" class="popup">

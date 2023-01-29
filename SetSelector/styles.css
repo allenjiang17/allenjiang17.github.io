@@ -71,6 +71,10 @@ h1{
   display: block;
 }
 
+.clickable_link:hover{
+  color:rgb(52, 86, 139);
+  text-decoration: underline
+}x
 /*
  * ===========================================================================
  * SIDE BAR
