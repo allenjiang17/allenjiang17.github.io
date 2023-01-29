@@ -69,6 +69,8 @@ h1{
   padding: 0.6%;
   width: 80%;
   display: block;
+  position:relative;
+  z-index: 2;
 }
 
 .clickable_link:hover{
@@ -489,6 +491,8 @@ h1{
   padding: 0.6%;
   width: 80%;
   display: none;
+  position:relative;
+  z-index: 2;
 }
 
 #presentation_wrapper{
@@ -542,6 +546,7 @@ h1{
   opacity: 0;
   width: 78.8%;
   left: 20%;
+  z-index: 1;
 }
 #fakepresentation {
   transition: all 0.7s ease-in-out 0s, opacity 0s ease-in-out 0s;
