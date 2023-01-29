@@ -309,6 +309,7 @@ h1{
   font-family: 'Source Code Pro', monospace;
   margin: 0;
   padding: 2em;
+  border-radius: 0;
 }
 
 #addToDatabase {
@@ -521,8 +522,8 @@ h1{
   color: white;
   display: table-cell;
   vertical-align: middle;
-  font-size: 1.5vw;
-  line-height: 2.5vw;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
 }
 #nextpresentation {
   position: absolute;
@@ -532,10 +533,12 @@ h1{
   border-color: rgba(255, 255, 255, 0.38);
   border-width: 1px;
   border-style: solid;
+  font-size: 0.36rem;
+  line-height: 0.54rem;
 }
 
 /* ===========================================================================
- * Begin Media Transition
+ * Begin Media Transition Box
  * ===========================================================================
  */
 #transition_display {
