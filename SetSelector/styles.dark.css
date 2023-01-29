@@ -39,11 +39,6 @@ h1{
   color: #F5F5F5;
 }
 
-#side_bar {
-  padding-left: 0;
-  margin-right: 0.6%;
-}
-
 #search_results {
   padding-left: 0;
   padding-right: 0;
@@ -212,4 +207,12 @@ h1{
 #popup-addsong textarea {
   color: #E0E0E0;
   background-color: #242424;
+}
+
+
+#fakepresentation {
+  background: var(--layer1);
+}
+#fakepresentation.media {
+  background: black;
 }

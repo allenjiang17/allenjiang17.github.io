@@ -60,7 +60,7 @@ h1{
   margin: 0 auto;
   width: 90%;
   /*height: 92%;*/
-
+  position: relative;
 }
 
 #chord_display{
@@ -74,7 +74,7 @@ h1{
 .clickable_link:hover{
   color:rgb(52, 86, 139);
   text-decoration: underline
-}x
+}
 /*
  * ===========================================================================
  * SIDE BAR
@@ -525,7 +525,34 @@ h1{
   width: 30%;
   right: 0;
   bottom: 0;
-  border-color: var(--textlow);
+  border-color: rgba(255, 255, 255, 0.38);
   border-width: 1px;
   border-style: solid;
+}
+
+/* ===========================================================================
+ * Begin Media Transition
+ * ===========================================================================
+ */
+#transition_display {
+  transition: all 0.7s ease-in-out 0s, opacity 0s ease-in-out 0s;
+  margin: 0;
+  padding: 0.6%;
+  position: absolute;
+  opacity: 0;
+  width: 78.8%;
+  left: 20%;
+}
+#fakepresentation {
+  transition: all 0.7s ease-in-out 0s, opacity 0s ease-in-out 0s;
+  height: calc(100vh - 120px);
+}
+#transition_display.media {
+  width: 58.4%;
+  left: 20.8%;
+}
+#fakepresentation.media {
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: black;
 }

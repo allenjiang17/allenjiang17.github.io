@@ -26,8 +26,9 @@
         </label>
     <div class="tooltip">
       <p class="section_label" style="margin-top:2rem">Uploading/Exporting Your Personal Library</p>
-      <span class="tooltiptext" id="media_button_text"> Your personal library is stored as local history on your browser, which is cleared when your browser history/cache is cleared. <br>
-        If you would like to save your personal library, you can download it as JSON file, or upload one.</span>
+        <span class="tooltiptext" id="personal_library_text"> Your personal library is stored as local history on your browser, which is cleared when your browser history/cache is cleared. <br>
+          If you would like to save your personal library, you can download it as JSON file, or upload one.
+        </span>
     </div><br>
     <div class="clickable_link" onclick="downloadPersonalLibrary()" style="margin:0"> 
       <img class="icon_button" src="icons/database-down.svg" onclick="downloadPersonalLibrary()" style="display:inline">
@@ -135,6 +136,13 @@
             </div>
         </div>
         <textarea id="text_entry" placeholder="Chord Sheets Here"></textarea>
+    </div>
+    
+    <div id="transition_display">
+        <div class="dashboard">
+          <button class="addToSet" onclick="">Add to Set</button>
+        </div>
+        <div id='fakepresentation'></div>
     </div>
 
     <div id="media_display" style="display:none">
