@@ -50,6 +50,8 @@ function selectCurrentLyric() {
   unselectLyricList()
   const pres1 = document.getElementById('currpresentation_text');
   pres1.innerText = this.getAttribute("lyric");
+  setPresLyric(this.getAttribute('lyric'));
   this.classList.add("selected");
-  //TODO set global variable values to keep track of current lyric and next lyric
+  //TODO set global variable values to keep track of current lyric and next 
+  // lyric should be index + value for current and index for next
 }

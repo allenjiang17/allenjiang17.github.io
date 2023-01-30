@@ -1,3 +1,5 @@
+var presentwindow = null;
+
 function switchMedia() {
   const chords = document.getElementById("chord_display")
   const media = document.getElementById("media_display")
@@ -27,4 +29,40 @@ function switchMedia() {
       document.getElementById("media_button_text").innerHTML = "Switch to chord mode"
     }, 700);
   }
+}
+
+function presentMedia() {
+  console.log('presenting!')
+  let windowobj = window.open("", "worshipwindow", 
+      "popup");
+  windowobj.document.head.innerHTML = `
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="presentation.css">
+  `
+  windowobj.document.getElementsByTagName("body")[0].style = 
+      "padding:0;margin:0;"
+
+  windowobj.document.body.innerHTML = `
+    <div id="displaypresentation" class='presentation' style="font-family:Times New Roman, Times, serif;height:100vh;width:100vw;background:black;text-align:center;display:table">
+      <span id="displaypresentation_text" style="color:white;display:table-cell;vertical-align:middle;font-size:4vh;line-height:6vh;">
+      </span>
+    </div>
+  `
+  // windowobj.document.documentElement.requestFullscreen();
+  //  "menubar=no,toolbar=no,location=no,status=no,resizeable")
+  // On firefox, you need to set some stuff in about:config for these
+  // to work perfectly;
+  //
+  // https://stackoverflow.com/questions/2909645/open-new-popup-window-without-address-bars-in-firefox-ie
+  // browser.fullscreen.autohide
+  // premissions.fullscreen.allowed
+  presentwindow = windowobj;
+  windowobj.onbeforeunload = function() {
+      //store.dispatch('stoppresent', null);
+  };
+}
+
+function setPresLyric(lyric) {
+  presentwindow.document.getElementById('displaypresentation_text')
+      .innerText = lyric;
 }
