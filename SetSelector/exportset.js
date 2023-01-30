@@ -109,39 +109,6 @@ const downloadToPPT = (content, filename) => {
     pres.writeFile({ fileName: filename });
 };
 
-/* Splits lyrics string into multiple chunks based on newlines
- *
- * @return list of strings
- */
-function splitLyrics(lyrics) {
-    lyrics = lyrics.split('\n')
-    lyrics.push('') // add empty string so no need for ending statement
-    var nlyrics = new Array();
-    var currlyric = "";
-    var empty = true;
-    for (let i=0; i < lyrics.length; i++) {
-        var l = lyrics[i].trim()
-        const regex = new RegExp(/^\[.*\]$/);
-        const regex2 = new RegExp('^TEMPO:')
-        if(regex.test(l) | regex2.test(l)) {
-            console.log(l)
-            l = ""
-        }
-        if(l) {
-            if(empty) {
-                currlyric = l
-            } else {
-                currlyric = currlyric + '\n' + l
-            }
-            empty = false
-        } else if(!empty){
-            nlyrics.push(currlyric)
-            currlyric = "";
-            empty = true
-        }
-    }
-    return nlyrics;
-}
 
 document.getElementById("export_button").addEventListener("click", downloadSet);
 

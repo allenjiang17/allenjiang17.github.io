@@ -147,6 +147,7 @@
     
 
     <div id="media_display" style="display:none">
+
       <div id="presentation_wrapper">
         <div class="dashboard">
           <button class="addToSet" onclick="addSongToSet()">Add to Set</button>
@@ -165,6 +166,16 @@
           </div>
         </div>
       </div>
+
+      <div id="right_side_bar">
+        <div id="lyrics_header">
+          <p id="lyric_list_label" class="section_label_top">Lyrics</p>
+        </div>
+        <div id="lyrics_dashboard">
+          <ul id="lyric_results" class="search_results"></ul>
+        </div>
+      </div>
+
     </div>
 </div>
 
@@ -177,6 +188,8 @@
 <script type="module" src="SourceCodePro-Regular-normal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.11.0/dist/pptxgen.bundle.js"></script>
 <script src="media.js"></script>
+<script src="functions.js"></script>
+<script src="lyriclist.js"></script>
 
 <script src="database_UG.js"></script>
 <script src="database_load.js"></script>

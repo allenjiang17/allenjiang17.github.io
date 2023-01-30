@@ -1,6 +1,6 @@
 //global variables
 //var DATABASE imported from previous javascript, as a JSON hack
-var CURRENT_SONG_ID;
+var CURRENT_SONG_ID = -1;
 
 //load core database
 for (let i=0; i<DATABASE.length; i++) {    

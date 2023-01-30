@@ -7,7 +7,7 @@ Capo: 1st fret
 
 TEMPO: Slow
 
-Verse 1:
+[Verse 1]
 C/E               F                  C
    Who else would rocks cry out to worship
 C/E            F                     C
@@ -17,7 +17,7 @@ F             G              Am         G        F
 F           G       C
    But this joy is mine
 
-Chorus:
+[Chorus]
 F                   C           G            Am
    With a thousand hallelujahs we magnify Your name
 F               C                   G           Am
@@ -28,7 +28,7 @@ F            G                 C    Em   Am
 A thousand hallelujahs and a thousand more
 
 
-Verse 2:
+[Verse 2]
 C/E               F              C
    Who else would die for our redemption
 C/E            F                 C
@@ -38,7 +38,7 @@ F              G              Am      G          F
 F              G         C
    But I have eternity to try
 
-Bridge:
+[Bridge]
 C           Dm7
 Praise to the Lord
      C/E

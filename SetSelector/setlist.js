@@ -1,7 +1,7 @@
-var CURRENT_SET_SONG_NO;
+var CURRENT_SET_SONG_NO=-1;
+
 
 function addSongToSet() {
-
     var set_list = document.getElementById("set_list_items");
     var current_list = set_list.getElementsByTagName("li");
 
@@ -34,22 +34,31 @@ function addSongToSet() {
     makeDraggableList();
 }
 
-function selectCurrentSong(targetElement) {
-
-    //remove highlights from other songs
-    var list_of_songs = targetElement.parentElement.getElementsByTagName("li");
-    
+function unselectSetList() {
+    var list_of_songs = document.getElementById("set_list_items")
+        .getElementsByTagName("li");
     for (let i=0; i<list_of_songs.length; i++) {
         list_of_songs[i].classList.remove("selected");
     }
+}
 
-    //TODO: if button is clicked, don't do the following for redundancy
-    CURRENT_SONG_ID = targetElement.getAttribute("data-id");
-    CURRENT_SET_SONG_NO = targetElement.getAttribute("data-song-no");
-    document.getElementById("text_entry").value = targetElement.getAttribute("data-sheet");
-    updateKey();
+function selectCurrentSong(targetElement) {
+    unselectSetList();
 
-    //change style to indicate selected song
+    if (CURRENT_SET_SONG_NO != targetElement.getAttribute('data-song-no')) {
+        CURRENT_SONG_ID = targetElement.getAttribute("data-id");
+        CURRENT_SET_SONG_NO = targetElement.getAttribute("data-song-no");
+        document.getElementById("text_entry").value = targetElement
+            .getAttribute("data-sheet");
+        updateKey();
+
+        clearLyrics();
+        const lyrics = splitLyrics(targetElement.getAttribute("data-lyrics"));
+        for (let j=0; j<lyrics.length; j++) {
+            addLyricToList(lyrics[j]);
+        }
+    }
+
     targetElement.classList.add("selected");
 }
 
@@ -62,43 +71,36 @@ function deleteSetSong() {
     this.parentElement.remove();
 }
 
-function checkKey(e) {
-
+function checkKeySetList(e) {
     var set_list = document.getElementById("set_list_items");
     var set_list_array = [];
-
     if (document.activeElement == document.getElementById("set_list")) {
-
         let index = 0;
         let target_index;
-
         for (let set_item of set_list.childNodes) {          
             set_list_array[index] = set_item;
-
             if (set_item.classList.contains("selected")) {
                 target_index = index;
             }
             index++;
         }
-
         //up arrow
         if (e.keyCode == "38" && target_index > 0) {
             selectCurrentSong(set_list_array[target_index-1]);
             e.preventDefault();
-            
         //down arrow
         } else if (e.keyCode == "40" && target_index < index) {
             selectCurrentSong(set_list_array[target_index+1]);
             e.preventDefault();
-
         } 
     }   
 }
+
 //from: https://code-boxx.com/drag-drop-sortable-list-javascript/
-function makeDraggableList () {
+function makeDraggableList(set_list=document.getElementById('set_list_items')) {
     
     // (A) SET CSS + GET ALL LIST ITEMS
-    var set_list = document.getElementById("set_list_items")
+    // var set_list = document.getElementById("set_list_items")
     let set_list_items = set_list.getElementsByTagName("li")
     let current = null;
   
@@ -154,5 +156,5 @@ function makeDraggableList () {
 }
 
 
-document.onkeydown = checkKey;
+document.onkeydown = checkKeySetList;
 

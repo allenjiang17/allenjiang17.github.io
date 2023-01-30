@@ -4,7 +4,7 @@ function switchMedia() {
   const transition = document.getElementById('transition_display')
   const transition2 = document.getElementById('fakepresentation')
 
-  if (media.style.display == "block") {
+  if (media.style.display == "flex") {
     media.style.display = "none"
     transition.style.opacity = "1"
     transition.classList.toggle('media')
@@ -22,7 +22,7 @@ function switchMedia() {
     transition2.classList.toggle('media')
     window.setTimeout(function () {
       transition.style.opacity = "0"
-      media.style.display = "block"
+      media.style.display = "flex"
       document.getElementById('media_button').src = "icons/music-note-list.svg"
       document.getElementById("media_button_text").innerHTML = "Switch to chord mode"
     }, 700);

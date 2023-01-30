@@ -55,12 +55,14 @@ h1{
 
 #search_bar:focus {outline: 3px solid #BCCCDC;}
 
+#lyric_results,
 .search_bar_content {
   background-color: var(--layer1);
   color: var(--texthigh);
   border-width: 0 0 0 0;
 }
 
+#lyric_results,
 .search_bar_content,
 #tempo_options,
 #export_select,
@@ -69,17 +71,20 @@ h1{
 }
 
 
+.lyric_title,
 .search_list_title{
   background-color: var(--layer1);
   color: var(--texthigh);
   border-width: 0 0 0 0;
 }
 
+.lyric_list:hover,
 .search_list:hover {
   background: #334E68;
 }
 
-.search_list:hover > .search_list_title{
+.lyric_list:hover > .lyric_title,
+.search_list:hover > .search_list_title {
   color: var(--texthigh);
   background: #334E68;
 }
@@ -162,13 +167,12 @@ h1{
   color: #E0E0E0;
 }
 
-.set_list_item.selected > .set_title {
-  font-weight: normal;
-}
 .set_list_item:hover,
 .set_list_item:hover > .set_delete {
   background: #334E68;
 }
+.lyric_list.selected,
+.lyric_list.selected > .lyric_title,
 .set_list_item.selected > .set_delete,
 .set_list_item.selected {
   background: #102A43;
