@@ -1,13 +1,13 @@
 
 function addSongPopUp() {
     document.getElementById("popup-addsong").style.display = "block";
-    document.getElementById("popup-background").style.zIndex = 3;
+    document.getElementById("popup-background").style.zIndex = 12;
     document.getElementById("song_sheet_input").value = document.getElementById("text_entry").value;
   }
 
   function closeAddSongPopUp() {
     document.getElementById("popup-addsong").style.display = "none";
-    document.getElementById("popup-background").style.zIndex = 1;
+    document.getElementById("popup-background").style.zIndex = 10;
   }
   
   function editSongLibraryPopUp(){
