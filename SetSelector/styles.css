@@ -391,14 +391,14 @@ h1{
    width: 50vw;
    top: 15vh;
    left:25vw;
-   z-index:4;
+   z-index:13;
 }
 
 #popup-editlibrary{
   width: 50vw;
   top: 15vh;
   left:25vw;
-  z-index:2;
+  z-index:11;
 }
 
 #popup-background{
@@ -407,7 +407,7 @@ h1{
   width:100vw;
   height:100vh;
   background-color:rgba(50, 50, 50, 0.5);
-  z-index:1;
+  z-index:10;
 }
 
 .form_label{
