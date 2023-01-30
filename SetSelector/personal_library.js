@@ -22,7 +22,7 @@ function addSongPopUp() {
 
   function closePopUp() {
     document.getElementById("popup-addsong").style.display = "none";
-    document.getElementById("popup-background").style.zIndex = 1;
+    document.getElementById("popup-background").style.zIndex = 10;
     document.getElementById("popup-editlibrary").style.display = "none";
     document.getElementById("popup-background").style.display = "none";
   }
