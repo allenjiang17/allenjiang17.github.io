@@ -448,6 +448,7 @@ h1{
 .tooltip {
   position: relative;
   display: inline-block;
+  z-index: 3;
 }
 
 .tooltip .tooltiptext {
@@ -460,7 +461,6 @@ h1{
   text-align: center;
   padding: 0.4rem;
   position: absolute;
-  z-index: 1;
   overflow: auto;
 }
 .tttright {

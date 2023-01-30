@@ -33,12 +33,13 @@ function filterFunction() {
         txtValue = a[i].firstChild.textContent || a[i].firstChild.innerText;
 
           if (filter.length == 1) {
-                  if (txtValue.toUpperCase().indexOf(filter) == 0 &&
-                  ((a[i].getAttribute("data-tempo").includes(tempo) || tempo == "Any") )) {
-                    a[i].style.display = "block";
-                  } else {
-                    a[i].style.display = "none";
-                  }
+              if (txtValue.toUpperCase().indexOf(filter) == 0 &&
+                ((a[i].getAttribute("data-tempo").includes(tempo) || 
+                tempo == "Any") )) {
+                a[i].style.display = "block";
+              } else {
+                a[i].style.display = "none";
+              }
           } else {  
               if (txtValue.toUpperCase().indexOf(filter) > -1 &&
               (a[i].getAttribute("data-tempo").includes(tempo) || tempo == "Any") ) {

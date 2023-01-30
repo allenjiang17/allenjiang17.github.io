@@ -63,6 +63,8 @@ function presentMedia() {
 }
 
 function setPresLyric(lyric) {
-  presentwindow.document.getElementById('displaypresentation_text')
-      .innerText = lyric;
+  if(presentwindow !== null) {
+    presentwindow.document.getElementById('displaypresentation_text')
+        .innerText = lyric;
+  }
 }
