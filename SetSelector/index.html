@@ -16,7 +16,7 @@
 
 <div id="popup-editlibrary" class="popup">
     <p class="section_label" style="font-size: 1.3rem"> Personal Song Library</p>
-    <img id="popup_close" src="icons/x-circle-fill.svg" onclick="closeEditSongLibraryPopUp()">
+    <img class="popup_close" src="icons/x-circle-fill.svg" onclick="closeEditSongLibraryPopUp()">
     <div id="popup-personal_search_content" class="search_bar_content">
     <ul id="popup-personal_search_results" class="search_results"></ul>
     </div>
@@ -46,7 +46,7 @@
 </div>
 <div id="popup-addsong" class="popup">
     <p id="popup-title" class="section_label"> Add Song to Local Library</p>
-    <img id="popup_close" src="icons/x-circle-fill.svg" onclick="closeAddSongPopUp()">
+    <img class="popup_close" src="icons/x-circle-fill.svg" onclick="closeAddSongPopUp()">
         <label for="song_title_input" class="form_label">Title</label>
         <input type="text" id="song_title_input" name="song_title_input" class="popup_input" required>
         <label for="song_author_input" class="form_label">Author</label>
@@ -61,6 +61,12 @@
         <label for="song_sheet_input" class="form_label" required>Chord Sheet</label>
         <textarea id="song_sheet_input" class="popup_input" placeholder="Use two blank lines to separate verse/chorus/etc."></textarea>
         <button id="song_input_submit" class="popup_input" onclick="addSongSubmit()">Add Song</button>
+</div>
+<div id="popup-editlyrics" class="popup">
+  <p class="section_label"> Edit Lyrics</p>
+  <img class="popup_close" src="icons/x-circle-fill.svg" onclick="closeEditLyricsPopUp()">
+  <textarea id="edit_lyrics_input" class="popup_input" placeholder="Use two blank lines to separate verse/chorus/etc."></textarea>
+  <button id="edit_lyrics_submit" clsas="popup_input"> Submit Changes (Saved Locally Only)</button>
 </div>
 <div id="popup-background" class="popup-background" onclick="closePopUp()"></div>
 
@@ -175,6 +181,7 @@
         </div>
         <div id="lyrics_dashboard" tabindex="0">
           <ul id="lyric_results" class="search_results"></ul>
+          <button class="dashboard_button" onclick="editLyricsPopUp()">Edit Lyrics</button>
         </div>
       </div>
 

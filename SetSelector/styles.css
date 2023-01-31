@@ -410,6 +410,13 @@ h1{
   z-index:11;
 }
 
+#popup-editlyrics {
+  width: 50vw;
+  top: 15vh;
+  left:25vw;
+  z-index:13;
+}
+
 #popup-background{
   display:none;
   position:fixed;
@@ -429,13 +436,20 @@ h1{
   height: calc(70vh - 300px);
 }
 
+#edit_lyrics_input{
+  width: 100%;
+  height: calc(70vh - 100px);
+
+
+}
+
 .popup_input{
   display: block;
   margin-top:0.3rem;
   margin-bottom:0.6rem;
 }
 
-#popup_close {
+.popup_close {
   position: absolute;
   top:1rem;
   right:1rem;

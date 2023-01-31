@@ -77,3 +77,19 @@ function blackScreen() {
   pres1.innerText = "";
   setPresLyric("");
 }
+
+
+function editLyricsPopUp() {
+  document.getElementById("popup-editlyrics").style.display = "block";
+  document.getElementById("popup-background").style.display = "block";
+  document.getElementById("popup-background").style.zIndex = 12;
+  document.getElementById("edit_lyrics_input").value = 
+  document.querySelector("#set_list_items > li[data-song-no='" +  String(CURRENT_SET_SONG_NO) + "']").getAttribute("data-lyrics");
+
+}
+
+function closeEditLyricsPopUp() {
+  document.getElementById("popup-editlyrics").style.display = "none";
+  document.getElementById("popup-background").style.display = "none";
+  document.getElementById("popup-background").style.zIndex = 10;
+}
