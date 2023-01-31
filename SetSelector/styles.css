@@ -118,7 +118,7 @@ h1{
     background-color:  #f6f6f6;
 }
 
-#set_list:focus{
+#set_list:focus, #lyrics_dashboard:focus{
   outline: 1.5px solid #ddd;
 }
 
@@ -329,10 +329,10 @@ h1{
   /* svg color to #AAAAAA */
 }
 
-.addToSet {
-  width:15%;
+.dashboard_button {
+  width:fit-content;
   margin:0;
-  padding: 0.3rem;
+  padding: 0.5em;
   font-size: 0.8rem;
 }
 

@@ -14,10 +14,6 @@ Index code:
 11 = G#/Ab  - Ab preferred
 */
 
-//Global Variables
-var KEY_INDEX;
-var KEY;
-
 const chord_vals = [["A","A#","B","C","C#","D","D#","E","F","F#","G","G#"],
               ["A","Bb","B","C","Db","D","Eb","E","F","Gb","G","Ab"]];
 

@@ -1,6 +1,4 @@
-//global variables
 //var DATABASE imported from previous javascript, as a JSON hack
-var CURRENT_SONG_ID = -1;
 
 //load core database
 for (let i=0; i<DATABASE.length; i++) {    
@@ -18,6 +16,7 @@ for (let i=0; i<DATABASE.length; i++) {
     newEntry.setAttribute("data-sheet", DATABASE[i].sheet);
     newEntry.setAttribute("data-lyrics", remove_chord_lines(DATABASE[i].sheet));
     newEntry.addEventListener("click", addFromSearch);
+    newEntry.addEventListener("dblclick", addSongToSetDblClick);
 
     newTitle.setAttribute("id", "song-title" + i);
     newTitle.className = "search_list_title";

@@ -55,3 +55,20 @@ function selectCurrentLyric() {
   //TODO set global variable values to keep track of current lyric and next 
   // lyric should be index + value for current and index for next
 }
+
+
+//same function, but with the li node passed in as an argument
+function selectCurrentLyricFromKeys(targetElement){
+   
+  unselectLyricList()
+  const pres1 = document.getElementById('currpresentation_text');
+  pres1.innerText = targetElement.getAttribute("lyric");
+  setPresLyric(targetElement.getAttribute('lyric'));
+  targetElement.classList.add("selected");
+}
+
+function blackScreen() {
+  const pres1 = document.getElementById('currpresentation_text');
+  pres1.innerText = "";
+  setPresLyric("");
+}

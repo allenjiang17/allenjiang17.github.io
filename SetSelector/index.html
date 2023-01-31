@@ -127,14 +127,14 @@
 
     <div id="transition_display">
         <div class="dashboard">
-          <button class="addToSet" onclick="">Add to Set</button>
+          <button class="dashboard_button" onclick="">Add to Set</button>
         </div>
         <div id='fakepresentation'></div>
     </div>
 
     <div id="chord_display" style="display:block">
         <div class="dashboard">
-            <button class="addToSet" onclick="addSongToSet()">Add to Set</button>
+            <button class="dashboard_button" onclick="addSongToSet()">Add to Set</button>
             <div id="transpose_dashboard">
                 <div id="key_label" class="key_label"> Current Key: </div>
                 <div id="key_display" class="key_display">?</div>
@@ -150,12 +150,14 @@
 
       <div id="presentation_wrapper">
         <div class="dashboard">
-          <button class="addToSet" onclick="addSongToSet()">Add to Set</button>
-          <button class="addToSet" onclick="presentMedia()">Fullscreen</button>
+          <button class="dashboard_button" onclick="addSongToSet()">Add to Set</button>
+          <div style="display: inline-block">
+          <button class="dashboard_button" onclick="blackScreen()">Black Screen</button>
+          <button class="dashboard_button" onclick="presentMedia()">Fullscreen</button>
+          </div>
         </div>
         <div id="currpresentation" class="presentation">
           <span id="currpresentation_text">
-            In Progress <br> Coming Soon!
             <!--   Choose a song on <br> the left to begin -->
           </span>
           <div id="nextpresentation" class="presentation">
@@ -171,7 +173,7 @@
         <div id="lyrics_header">
           <p id="lyric_list_label" class="section_label_top">Lyrics</p>
         </div>
-        <div id="lyrics_dashboard">
+        <div id="lyrics_dashboard" tabindex="0">
           <ul id="lyric_results" class="search_results"></ul>
         </div>
       </div>
@@ -179,6 +181,7 @@
     </div>
 </div>
 
+<script src="global_variables.js"></script>
 <script src="transposer.js"></script>
 <script src="searchbar.js"></script>
 <script src="setlist.js"></script>
