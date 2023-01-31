@@ -60,11 +60,19 @@ function presentMedia() {
   windowobj.onbeforeunload = function() {
       //store.dispatch('stoppresent', null);
   };
+
+  presentwindow.document.getElementById('displaypresentation_text')
+  .innerText =
+  document.querySelector("#lyric_results > li[data-lyric-no='" +  String(CURRENT_LYRIC) + "']").getAttribute("lyric");
+  console.log(CURRENT_LYRIC);
 }
 
 function setPresLyric(lyric) {
-  if(presentwindow !== null) {
-    presentwindow.document.getElementById('displaypresentation_text')
-        .innerText = lyric;
-  }
+  
+try {
+
+  presentwindow.document.getElementById('displaypresentation_text') .innerText = lyric;
+} catch (error) {
+  console.error(error);
+}
 }

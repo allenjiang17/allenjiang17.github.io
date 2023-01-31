@@ -52,8 +52,10 @@ function selectCurrentLyric() {
   pres1.innerText = this.getAttribute("lyric");
   setPresLyric(this.getAttribute('lyric'));
   this.classList.add("selected");
+
   //TODO set global variable values to keep track of current lyric and next 
   // lyric should be index + value for current and index for next
+  CURRENT_LYRIC = this.getAttribute("data-lyric-no");
 }
 
 
@@ -65,6 +67,9 @@ function selectCurrentLyricFromKeys(targetElement){
   pres1.innerText = targetElement.getAttribute("lyric");
   setPresLyric(targetElement.getAttribute('lyric'));
   targetElement.classList.add("selected");
+
+  CURRENT_LYRIC = targetElement.getAttribute("data-lyric-no");
+
 }
 
 function blackScreen() {

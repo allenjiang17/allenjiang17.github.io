@@ -150,6 +150,8 @@ function transpose(raw_text, num_steps) {
             new_text = new_text + text[i] + "\n";
         }
     }
+
+    //TODO: remove last newline
     return new_text
 }
 
