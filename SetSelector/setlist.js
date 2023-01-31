@@ -53,8 +53,9 @@ function unselectSetList() {
 
 function selectCurrentSong(targetElement) {
     unselectSetList();
+    unselectSearchList();
 
-    if (CURRENT_SET_SONG_NO != targetElement.getAttribute('data-song-no')) {
+    //if (CURRENT_SET_SONG_NO != targetElement.getAttribute('data-song-no')) {
         CURRENT_SONG_ID = targetElement.getAttribute("data-id");
         CURRENT_SET_SONG_NO = targetElement.getAttribute("data-song-no");
         document.getElementById("text_entry").value = targetElement
@@ -66,7 +67,7 @@ function selectCurrentSong(targetElement) {
         for (let j=0; j<lyrics.length; j++) {
             addLyricToList(lyrics[j]);
         }
-    }
+    //}
 
     targetElement.classList.add("selected");
 }

@@ -149,13 +149,22 @@ h1{
 
 .lyric_list:hover,
 .search_list:hover {
+  background-color: Gainsboro;
+}
+
+.search_list.selected{
   background-color: gray;
 }
 
+.search_list.selected > .search_list_title{
+  color: white;
+}
+
+/*
 .lyric_list:hover > .lyric_title,
 .search_list:hover > .search_list_title{
-  color:white;
 }
+*/
 
 
 

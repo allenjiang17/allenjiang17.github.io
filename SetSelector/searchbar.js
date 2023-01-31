@@ -54,13 +54,33 @@ function filterFunction() {
 }
 
 function addFromSearch() {
-  CURRENT_SONG_ID = this.getAttribute("data-id");
-  document.getElementById("text_entry").value = this.getAttribute("data-sheet");
-  //DATABASE[CURRENT_SONG_ID].sheet;
+  //remove selected formatting from previous song
+  unselectSearchList();
+  unselectSetList();
 
+  //change current ID song
+  CURRENT_SONG_ID = this.getAttribute("data-id");
+
+  //change text entry to reflect new song sheets
+  document.getElementById("text_entry").value = this.getAttribute("data-sheet");
+
+  //empty searchbar
   document.getElementById("search_bar").value = "";
+
+  //add new selected formatting to selected song
+  this.classList.add("selected");
+
+  //update search, key
   filterFunction();
   updateKey();
+}
+
+function unselectSearchList() {
+  var list_of_songs = document.getElementById("search_results")
+  .getElementsByTagName("li");
+for (let i=0; i<list_of_songs.length; i++) {
+  list_of_songs[i].classList.remove("selected");
+}
 }
 
 function changeSongsVisibility() {
