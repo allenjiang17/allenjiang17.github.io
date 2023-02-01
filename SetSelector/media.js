@@ -68,11 +68,12 @@ function presentMedia() {
 }
 
 function setPresLyric(lyric) {
-  
-try {
-
-  presentwindow.document.getElementById('displaypresentation_text') .innerText = lyric;
-} catch (error) {
-  console.error(error);
+  try {
+    presentwindow.document.
+        getElementById('displaypresentation_text') .innerText = lyric;
+  } catch (error) {
+    console.error(error);
+  }
 }
+function setPresBlack() {
 }

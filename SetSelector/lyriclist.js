@@ -74,18 +74,20 @@ function selectCurrentLyricFromKeys(targetElement){
 
 function blackScreen() {
   const pres1 = document.getElementById('currpresentation_text');
-  pres1.innerText = "";
-  setPresLyric("");
+  if(pres1.opacity > 0) {
+    pres1.opacity = '0';
+  } else {
+    pres1.opacity = '1';
+  }
+  setPresBlack();
 }
-
 
 function editLyricsPopUp() {
   document.getElementById("popup-editlyrics").style.display = "block";
   document.getElementById("popup-background").style.display = "block";
   document.getElementById("popup-background").style.zIndex = 12;
   document.getElementById("edit_lyrics_input").value = 
-  document.querySelector("#set_list_items > li[data-song-no='" +  String(CURRENT_SET_SONG_NO) + "']").getAttribute("data-lyrics");
-
+    document.querySelector("#set_list_items > li[data-song-no='" +  String(CURRENT_SET_SONG_NO) + "']").getAttribute("data-lyrics");
 }
 
 function closeEditLyricsPopUp() {
