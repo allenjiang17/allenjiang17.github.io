@@ -5,6 +5,9 @@ body{
     margin:0;
 }
 
+.svg_icon {
+}
+
 #ssm_icon{
   box-sizing: border-box;
   display: inline-block;
