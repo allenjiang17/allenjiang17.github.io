@@ -64,14 +64,14 @@ function addFromSearch() {
   //change text entry to reflect new song sheets
   document.getElementById("text_entry").value = this.getAttribute("data-sheet");
 
-  //empty searchbar
-  document.getElementById("search_bar").value = "";
-
   //add new selected formatting to selected song
   this.classList.add("selected");
 
-  //update search, key
+  /*NOT USED ANYMORE: empty searchbar
+  document.getElementById("search_bar").value = "";
   filterFunction();
+  */
+ 
   updateKey();
 }
 

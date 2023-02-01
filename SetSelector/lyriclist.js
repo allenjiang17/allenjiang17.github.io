@@ -95,3 +95,15 @@ function closeEditLyricsPopUp() {
   document.getElementById("popup-background").style.display = "none";
   document.getElementById("popup-background").style.zIndex = 10;
 }
+
+function editLyrics() {
+
+  //TODO: make this persist longer in local storage, as refreshing the page will lose this 
+  var target_node = document.querySelector("#set_list_items > li[data-song-no='" +  String(CURRENT_SET_SONG_NO) + "']");
+  target_node.setAttribute("data-lyrics", document.getElementById("edit_lyrics_input").value);
+  clearLyrics();
+  selectCurrentSong(target_node);
+
+
+  closeEditLyricsPopUp();
+}
