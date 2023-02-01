@@ -18,6 +18,8 @@ body{
     background-color: var(--bg);
 }
 
+#blackscreen_button,
+#cast_button,
 #nightmode,
 #media_button,
 #addToDatabase {
@@ -25,6 +27,8 @@ body{
   /* svg color change to #BCCCDC */
 }
 
+#blackscreen_button:hover,
+#cast_button:hover,
 #nightmode:hover,
 #media_button:hover,
 #addToDatabase:hover {

@@ -92,16 +92,20 @@
     <div id="side_bar">
         <div id="songs_header">
             <p id="song_list_label" class = "section_label_top">Songs</p>
-            <p id="minimize_button_top" class="minimize_button_top" onclick="changeSongsVisibility()">–</p>
+            <p id="minimize_button_top" class="minimize_button_top" 
+              onclick="changeSongsVisibility()" title="Hide song database">
+              –</p>
         </div>
         <div id="songs_dashboard">
         <div id="search_bar_content" class="search_bar_content">
-            <input type="text" placeholder="Search.." id="search_bar" onkeyup="filterFunction()">
+            <input type="text" placeholder="Search.." id="search_bar" 
+              onkeyup="filterFunction()">
             <ul id="search_results" class="search_results"></ul>
         </div>
         <div id="tempo_dashboard">
             <label id="tempo_label" class="small_label">Tempo:
-            <select name="tempo_options" id="tempo_options" onchange="filterFunction()">
+            <select name="tempo_options" id="tempo_options" 
+              onchange="filterFunction()">
                 <option value="Any">Any</option>
                 <option value="Fast">Fast</option>
                 <option value="Medium">Medium</option>
@@ -110,7 +114,8 @@
             </select>
             </label>
             <div class="tooltip">
-                <img class="icon_button" id="addToDatabase" src="icons/database-add.svg" onclick="editSongLibraryPopUp()">
+                <img class="icon_button" id="addToDatabase" 
+                   src="icons/upload.svg" onclick="editSongLibraryPopUp()">
                 <span class="tooltiptext tttright">
                     Add/remove songs from your personal library
                 </span>
@@ -144,8 +149,10 @@
             <div id="transpose_dashboard">
                 <div id="key_label" class="key_label"> Current Key: </div>
                 <div id="key_display" class="key_display">?</div>
-                <button id="button_plus" class="transpose_button">+</button>
-                <button id="button_minus" class="transpose_button">-</button>
+                <button id="button_plus" class="transpose_button" 
+                  title="increase key">+</button>
+                <button id="button_minus" class="transpose_button" 
+                  title="decrease key">-</button>
             </div>
         </div>
         <textarea id="text_entry" placeholder="Chord Sheets Here"></textarea>
@@ -156,10 +163,15 @@
 
       <div id="presentation_wrapper">
         <div class="dashboard">
-          <button class="dashboard_button" onclick="addSongToSet()">Add to Set</button>
+          <button class="dashboard_button" onclick="addSongToSet()">
+            Add to Set
+          </button>
           <div style="display: inline-block">
-          <button class="dashboard_button" onclick="blackScreen()">Black Screen</button>
-          <button class="dashboard_button" onclick="presentMedia()">Fullscreen</button>
+            <img class="icon_button" id="blackscreen_button" 
+              src="icons/slash-square.svg" onclick="blackScreen()" 
+              title="Hide lyrics">
+            <img class="icon_button" id="cast_button" src="icons/cast.svg" 
+              onclick="presentMedia()" title="Fullscreen">
           </div>
         </div>
         <div id="currpresentation" class="presentation">
@@ -177,16 +189,21 @@
 
       <div id="right_side_bar">
         <div id="lyrics_header">
-          <p id="lyric_list_label" class="section_label_top">Lyrics</p>
+          <div></div>
+          <div id="lyric_list_label" class="section_label_top">Lyrics</div>
+          <img class="icon_button" id="edit_lyrics" 
+            src="icons/pencil-square.svg" onclick="editLyricsPopUp()">
         </div>
         <div id="lyrics_dashboard" tabindex="0">
           <ul id="lyric_results" class="search_results"></ul>
-          <button class="dashboard_button" onclick="editLyricsPopUp()">Edit Lyrics</button>
         </div>
       </div>
 
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.11.0/dist/pptxgen.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <script src="global_variables.js"></script>
 <script src="transposer.js"></script>
@@ -194,13 +211,11 @@
 <script src="setlist.js"></script>
 <script src="personal_library.js"></script>
 <script src="nightmode.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script type="module" src="SourceCodePro-Regular-normal.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.11.0/dist/pptxgen.bundle.js"></script>
 <script src="media.js"></script>
 <script src="functions.js"></script>
 <script src="lyriclist.js"></script>
-
+<script src="keystrokes.js"></script>
 <script src="database_UG.js"></script>
 <script src="database_load.js"></script>
 <script type="module" src="exportset.js"></script>

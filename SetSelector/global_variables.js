@@ -5,3 +5,6 @@ var CURRENT_LYRIC=-1;
 //transposer_related
 var KEY_INDEX;
 var KEY;
+
+//media
+var presentwindow = null;

@@ -1,4 +1,3 @@
-var presentwindow = null;
 
 function switchMedia() {
   const chords = document.getElementById("chord_display")

@@ -339,6 +339,7 @@ h1{
 .icon_button:hover {
   filter: invert(75%) sepia(0%) saturate(100%) hue-rotate(259deg) brightness(50%) contrast(93%);
   /* svg color to #AAAAAA */
+  cursor: pointer;
 }
 
 .dashboard_button {
@@ -582,7 +583,15 @@ h1{
   padding-right: 0.8%;
 }
 #lyrics_header {
-   text-align: center;
+  text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+#lyric_list_label {
+  margin-top:0.5rem; 
+  margin-bottom:0.5rem; 
 }
 #lyrics_dashboard {
 }
