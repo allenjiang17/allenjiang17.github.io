@@ -55,7 +55,7 @@ function presentMedia() {
 
   windowobj.document.body.innerHTML = `
     <div id="displaypresentation" class='presentation' 
-      style="font-family:Times New Roman, Times, serif;
+      style="font-family:Century Gothic, Helvetica, serif;
       height:100vh;width:100vw;background:black;
       text-align:center;padding-top:6vh;">
       <span id="displaypresentation_text" 
@@ -77,7 +77,7 @@ function presentMedia() {
   presentwindow.document.getElementById('displaypresentation_text')
   .innerText =
   document.querySelector("#lyric_results > li[data-lyric-no='" +  String(CURRENT_LYRIC) + "']").getAttribute("lyric");
-  console.log(CURRENT_LYRIC);
+  setPresBlack();
 }
 
 function presentWindowDestructor() {
@@ -86,27 +86,39 @@ function presentWindowDestructor() {
 }
 
 function setPresLyric(lyric) {
-  if(presentwindow == null) { return; }
+  if(presentwindow == null) { console.log("No Window"); return; }
   presentwindow.document.
       getElementById('displaypresentation_text').innerText = lyric;
 }
 
+//using global variable helps sync the two, making sure they never flip to be opposite each other
 function setPresBlack() {
-  if(presentwindow == null) { return; }
-  pres = presentwindow.document.getElementById('displaypresentation_text');
-  if(pres.style.opacity == "1") {
-    pres.style.opacity = "0"
+  if(presentwindow == null) { console.log("No Window"); return; }
+  let pres = presentwindow.document.getElementById('displaypresentation_text');
+
+  //pop window simply follows the global variable
+  if (screenBlack) {
+    pres.style.opacity = '0';
+
   } else {
-    pres.style.opacity = "1"
+    pres.style.opacity = '1';
   }
+
 }
 
 function blackScreen() {
-  const pres1 = document.getElementById('currpresentation_text');
-  if(pres1.style.opacity == '1') {
-    pres1.style.opacity = '0.1';
+  let pres = document.getElementById('currpresentation_text');
+
+  //toggle to visible or not depending on what it previously was
+  if (!screenBlack) {
+    pres.style.opacity = '0.1';
+    screenBlack = true;
+
   } else {
-    pres1.style.opacity = '1';
+    pres.style.opacity = '1';
+    screenBlack = false;
   }
+  
+  //toggle big screen to follow
   setPresBlack();
 }
