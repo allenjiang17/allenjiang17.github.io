@@ -33,6 +33,7 @@ body{
   padding:0.4rem; 
   text-align: center; 
   font-size:0.8rem; 
+  cursor:pointer;
 }
 
 #chord_toggle{
@@ -376,12 +377,6 @@ h1{
   cursor: pointer;
 }
 
-.dashboard_button {
-  width:fit-content;
-  margin:0;
-  padding: 0.5em;
-  font-size: 0.8rem;
-}
 
 .media_dashboard_button{
   filter: invert(100%);
@@ -391,12 +386,13 @@ h1{
   padding: 0.4em;
   background-color:rgb(214, 187, 143);
   border-radius:0.3rem;
-
+  width: 1.3rem;
+  cursor: pointer;
 }
 
 .media_dashboard_button:hover{
   background-color:rgb(224, 197, 153);
-
+  width: 1.3rem;
 }
 
 #transpose_dashboard {
@@ -430,6 +426,7 @@ h1{
 
 }
 
+.dashboard_button,
 .transpose_button{
   display:inline-block;
   vertical-align: middle;
@@ -439,12 +436,24 @@ h1{
   padding: 0.4em;
   background-color:rgb(214, 187, 143);
   border-radius:0.3rem;
+  color:white;
 }
 
+.dashboard_button:hover,
 .transpose_button:hover{
   background-color:rgb(224, 197, 153);
-
-
+}
+.dashboard_button {
+  border-width:0;
+  font-size: 0.9rem;
+  line-height: 0.9rem;
+  width:100px;
+  color:black;
+  text-align: center;
+  padding-top:0.6rem;
+  padding-bottom:0.6rem;
+  cursor:pointer;
+  font-weight:bold;
 }
 
 

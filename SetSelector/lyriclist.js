@@ -67,6 +67,7 @@ function selectLyric(e=this) {
   pres1.innerText = targetElement.getAttribute("lyric");
   setPresLyric(targetElement.getAttribute('lyric'));
   targetElement.classList.add("selected");
+  //targetElement.scrollIntoView();
 
   CURRENT_LYRIC = Number(targetElement.getAttribute("data-lyric-no"));
 }

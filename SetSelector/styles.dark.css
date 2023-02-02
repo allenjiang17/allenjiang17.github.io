@@ -143,7 +143,7 @@ h1{
 }
 
 .dashboard{
-  background-color: #102A43;
+  background-color: var(--c2);
 }
 
 #text_entry{
@@ -155,20 +155,16 @@ h1{
 }
 #text_entry:focus{ outline:none; }
 
-.addToSet,
+.dashboard_button,
 .transpose_button {
   background: none;
-  border: 0;
-  color: var(--texthigh);
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
 }
-
-.addToSet:hover,
-.transpose_button:hover {
-  color: #EFEFEF;
-} 
+.dashboard_button {
+  border: 1px rgb(140, 138, 138) solid;
+}
+.dashboard_button:hover {
+  border-color: rgb(160, 158, 158);
+}
 
 .key_display,
 .key_label{
@@ -222,4 +218,9 @@ h1{
 }
 #fakepresentation.media {
   background: black;
+}
+
+.toggle.selected{
+  background-color: var(--c2); 
+  border-color: var(--c2);
 }
