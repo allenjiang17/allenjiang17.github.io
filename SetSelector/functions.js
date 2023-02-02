@@ -22,6 +22,7 @@ function splitLyrics(lyrics) {
         var re = new RegExp(regex.join('|'), 'i')
         if(re.test(l)) { l = "" }
         if(l) {
+            l = l.replace(/AUTHOR:/i, '')
             if(empty) {
                 currlyric = l
             } else {
