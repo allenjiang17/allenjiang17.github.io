@@ -54,8 +54,12 @@ function presentMedia() {
       "padding:0;margin:0;"
 
   windowobj.document.body.innerHTML = `
-    <div id="displaypresentation" class='presentation' style="font-family:Times New Roman, Times, serif;height:100vh;width:100vw;background:black;text-align:center;display:table">
-      <span id="displaypresentation_text" style="color:white;display:table-cell;vertical-align:middle;font-size:4vh;line-height:6vh;opacity:1">
+    <div id="displaypresentation" class='presentation' 
+      style="font-family:Times New Roman, Times, serif;
+      height:100vh;width:100vw;background:black;
+      text-align:center;padding-top:6vh;">
+      <span id="displaypresentation_text" 
+        style="color:white;font-size:4vh;line-height:6vh;opacity:1;">
       </span>
     </div>
   `
