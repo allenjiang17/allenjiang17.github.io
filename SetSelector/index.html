@@ -82,11 +82,11 @@
   </div>
   <!-- <div class="tooltip"> -->
     <div id="chord_toggle" class="toggle selected" onclick="switchMedia()"
-      title="toggle chord/media media">
+      title="toggle chords mode">
       Chords 
     </div>
     <div id="media_toggle" class="toggle" onclick="switchMedia()"
-      title="toggle chord/media media">
+      title="toggle media mode">
       Media
     </div>
   
@@ -209,7 +209,9 @@
 
       <div id="right_side_bar">
         <div id="lyrics_header">
-          <div></div>
+          <img id="lyric_faq_button" class="icon_button" id="edit_lyrics" 
+            src="icons/question-circle.svg" onclick=""
+            title="Help">
           <div id="lyric_list_label" class="section_label_top">Lyrics</div>
           <img id="edit_lyrics_button" class="icon_button" id="edit_lyrics" 
             src="icons/pencil-square.svg" onclick="editLyricsPopUp()"
