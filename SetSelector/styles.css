@@ -23,6 +23,41 @@ body{
   cursor: pointer;
 }
 
+
+.toggle{
+  position:fixed; 
+  display: block; 
+  width:6vw; 
+  border:1px rgb(140, 138, 138) solid;
+  color:rgb(140, 138, 138);
+  padding:0.4rem; 
+  text-align: center; 
+  font-size:0.8rem; 
+}
+
+#chord_toggle{
+  top:4vh; 
+  right:13vw; 
+  border-top-left-radius:0.3rem; 
+  border-bottom-left-radius: 0.3rem; 
+  border-right:none;
+}
+
+#media_toggle{
+  top:4vh; 
+  right:6vw;
+  border-top-right-radius:0.3rem; 
+  border-bottom-right-radius: 0.3rem;
+  border-left:none;
+}
+
+.toggle.selected{
+  background-color: rgb(40, 90, 169); 
+  border-color:rgb(40, 90, 169); 
+  color: white;
+}
+
+
 #nightmode{
   box-sizing: border-box;
   height: 1.5rem;
@@ -219,6 +254,7 @@ h1{
 }
 
 .set_delete{
+  width:0.8rem;
   display:inline-block;
   padding:0.2em;
 }
@@ -311,7 +347,7 @@ h1{
 .dashboard{
   box-sizing:border-box;
   display: flex;
-  padding: 0.3em;
+  padding: 0.4em;
   /*height: 7%;*/
   background-color: rgb(52, 86, 139);
   width: 100%;
@@ -348,6 +384,22 @@ h1{
   font-size: 0.8rem;
 }
 
+.media_dashboard_button{
+  filter: invert(100%);
+  display:inline-block;
+  vertical-align: middle;
+  margin:0;
+  padding: 0.4em;
+  background-color:rgb(214, 187, 143);
+  border-radius:0.3rem;
+
+}
+
+.media_dashboard_button:hover{
+  background-color:rgb(224, 197, 153);
+
+}
+
 #transpose_dashboard {
   margin: 0;
   padding: 0;
@@ -358,28 +410,42 @@ h1{
 
 .key_label{
   font-size: 1rem;
+  vertical-align: middle;
   color: white;
   font-weight: 300;
   display: inline-block;
-  margin: 0.1em;
   padding: 0.2em;
 
 }
 
 .key_display{
   display: inline-block;
+  vertical-align: middle;
   font-size: 1rem;
   font-weight: bold;
-  margin: 0.1em;
+  width:1rem;
+  margin-right:0.1rem;
   padding: 0.2em;
   color: white;
+  text-align:left;
 
 }
 
 .transpose_button{
-  margin: 0;
-  padding: 0.3em;
-  font-size: 1rem;
+  display:inline-block;
+  vertical-align: middle;
+  width:1rem;
+  filter: invert(100%);
+  margin:0;
+  padding: 0.4em;
+  background-color:rgb(214, 187, 143);
+  border-radius:0.3rem;
+}
+
+.transpose_button:hover{
+  background-color:rgb(224, 197, 153);
+
+
 }
 
 

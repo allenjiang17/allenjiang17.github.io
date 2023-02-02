@@ -81,8 +81,12 @@
     <h1>Worship Set Selector</h1>
   </div>
   <!-- <div class="tooltip"> -->
-  <img class="icon_button" id="media_button" src="icons/projector-fill.svg" 
-    onclick="switchMedia()" title="Switch to media mode">
+    <div id="chord_toggle"  class="toggle selected" onclick="switchMedia()" >Chords </div>
+    <div id="media_toggle" class="toggle"  onclick="switchMedia()">Media</div>
+  
+  <!--<img class="icon_button" id="media_button" src="icons/projector-fill.svg" 
+    onclick="switchMedia()">-->
+
   <!--
     <span class="tooltiptext tttbottom" id="media_button_text">Switch to media mode</span>
   -->
@@ -117,7 +121,7 @@
             </select>
             </label>
             <!-- <div class="tooltip"> -->
-            <img class="icon_button" id="addToDatabase" 
+            <img class="icon_button" style="width:0.9rem" id="addToDatabase" 
                src="icons/upload.svg" onclick="editSongLibraryPopUp()"
                title="Add/remove songs from your personal library">
                 <!--
@@ -155,10 +159,8 @@
             <div id="transpose_dashboard">
                 <div id="key_label" class="key_label"> Current Key: </div>
                 <div id="key_display" class="key_display">?</div>
-                <button id="button_plus" class="transpose_button" 
-                  title="increase key">+</button>
-                <button id="button_minus" class="transpose_button" 
-                  title="decrease key">-</button>
+                <img id="button_plus" src="icons/caret-up-fill.svg" class="transpose_button">
+                <img id="button_minus" src="icons/caret-down-fill.svg" class="transpose_button">
             </div>
         </div>
         <textarea id="text_entry" placeholder="Chord Sheets Here"></textarea>
@@ -173,10 +175,10 @@
             Add to Set
           </button>
           <div style="display: inline-block">
-            <img class="icon_button" id="blackscreen_button" 
-              src="icons/slash-square.svg" onclick="blackScreen()" 
+            <img class="media_dashboard_button" style="width:1.5rem" id="blackscreen_button" 
+              src="icons/back.svg" onclick="blackScreen()" 
               title="Toggle black screen">
-            <img class="icon_button" id="cast_button" src="icons/cast.svg" 
+            <img class="media_dashboard_button" style="width:1.5rem" id="cast_button" src="icons/cast.svg" 
               onclick="presentMedia()" title="Fullscreen">
           </div>
         </div>
@@ -197,7 +199,7 @@
         <div id="lyrics_header">
           <div></div>
           <div id="lyric_list_label" class="section_label_top">Lyrics</div>
-          <img class="icon_button" id="edit_lyrics" 
+          <img id="edit_lyrics_button" class="icon_button" id="edit_lyrics" 
             src="icons/pencil-square.svg" onclick="editLyricsPopUp()">
         </div>
         <div id="lyrics_dashboard" tabindex="0">

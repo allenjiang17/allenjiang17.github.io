@@ -6,6 +6,9 @@ function switchMedia() {
   const transition2 = document.getElementById('fakepresentation')
 
   if (media.style.display == "flex") {
+    document.getElementById("chord_toggle").classList.add("selected");
+    document.getElementById("media_toggle").classList.remove("selected");
+
     media.style.display = "none"
     transition.style.opacity = "1"
     transition.classList.toggle('media')
@@ -13,10 +16,16 @@ function switchMedia() {
     window.setTimeout(function () {
       transition.style.opacity = "0"
       chords.style.display = "block"
-      document.getElementById('media_button').src = "icons/projector-fill.svg"
-      document.getElementById('media_button').title = "Switch to media mode"
+      //document.getElementById('media_button').src = "icons/projector-fill.svg"
+      //document.getElementById('media_button').title = "Switch to media mode"
+
+
     }, 700);
   } else {
+
+    document.getElementById("media_toggle").classList.add("selected");
+    document.getElementById("chord_toggle").classList.remove("selected");
+
     chords.style.display = "none"
     transition.style.opacity = "1"
     transition.classList.toggle('media')
@@ -24,8 +33,11 @@ function switchMedia() {
     window.setTimeout(function () {
       transition.style.opacity = "0"
       media.style.display = "flex"
-      document.getElementById('media_button').src = "icons/music-note-list.svg"
-      document.getElementById('media_button').title = "Switch to chord mode"
+      //document.getElementById('media_button').src = "icons/music-note-list.svg"
+      //document.getElementById('media_button').title = "Switch to chord mode"
+
+
+
     }, 700);
   }
 }

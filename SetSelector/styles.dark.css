@@ -19,9 +19,8 @@ body{
 }
 
 .set_delete,
-#blackscreen_button,
-#cast_button,
 #nightmode,
+#edit_lyrics_button,
 #media_button,
 #addToDatabase {
   filter: invert(90%) sepia(9%) saturate(494%) hue-rotate(173deg) brightness(90%) contrast(90%); 
@@ -29,9 +28,8 @@ body{
 }
 
 .set_delete:hover,
-#blackscreen_button:hover,
-#cast_button:hover,
 #nightmode:hover,
+#edit_lyrics_button,
 #media_button:hover,
 #addToDatabase:hover {
   filter: invert(98%) sepia(6%) saturate(443%) hue-rotate(272deg) brightness(117%) contrast(87%);
