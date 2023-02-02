@@ -563,7 +563,7 @@ h1{
 }
 #nextpresentation {
   position: absolute;
-  width: 30%;
+  width: 40%;
   right: 0;
   bottom: 0;
   border-color: rgba(255, 255, 255, 0.38);
@@ -588,6 +588,8 @@ h1{
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  min-height: 35px;
+  height: 3rem;
 }
 #lyric_list_label {
   margin-top:0.5rem; 

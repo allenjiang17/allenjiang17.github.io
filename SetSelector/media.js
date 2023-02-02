@@ -56,9 +56,7 @@ function presentMedia() {
   // browser.fullscreen.autohide
   // premissions.fullscreen.allowed
   presentwindow = windowobj;
-  windowobj.onbeforeunload = function() {
-      //store.dispatch('stoppresent', null);
-  };
+  windowobj.onbeforeunload = presentWindowDestructor;
 
   presentwindow.document.getElementById('displaypresentation_text')
   .innerText =
@@ -66,19 +64,33 @@ function presentMedia() {
   console.log(CURRENT_LYRIC);
 }
 
+function presentWindowDestructor() {
+  console.log('cancel presentation')
+  presentwindow = null;
+}
+
 function setPresLyric(lyric) {
-  try {
-    presentwindow.document.
-        getElementById('displaypresentation_text').innerText = lyric;
-  } catch (error) {
-    console.error(error);
+  if(presentwindow == null) { return; }
+  presentwindow.document.
+      getElementById('displaypresentation_text').innerText = lyric;
+}
+
+function setPresBlack() {
+  if(presentwindow == null) { return; }
+  pres = presentwindow.document.getElementById('displaypresentation_text');
+  if(pres.style.opacity == "1") {
+    pres.style.opacity = "0"
+  } else {
+    pres.style.opacity = "1"
   }
 }
-function setPresBlack() {
-  pres = presentwindow.document.getElementById('displaypresentation_text')
-  if(pres.style.opacity == "1") {
-    pres.style.opacity == "0"
+
+function blackScreen() {
+  const pres1 = document.getElementById('currpresentation_text');
+  if(pres1.style.opacity == '1') {
+    pres1.style.opacity = '0.1';
   } else {
-    pres.style.opacity == "1"
+    pres1.style.opacity = '1';
   }
+  setPresBlack();
 }

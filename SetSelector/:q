@@ -41,57 +41,50 @@ function unselectLyricList() {
 }
 
 function previewLyric(e=this) {
-  let targetElement;
-  const pres = document.getElementById('nextpresentation_text');
+  const targetElement;
   if(typeof(e) == "number") {
     const lyric_list = document.getElementById('lyric_results')
     let current_list = lyric_list.getElementsByTagName("li");
-    targetElement = current_list[e]
+    targetElement = current_list[targetElement]
   } else {
-    targetElement = e.currentTarget;
+    targetElement = e.target;
   }
+  const pres = document.getElementById('nextpresentation_text');
   pres.innerText = targetElement.getAttribute("lyric");
 }
 
 function selectLyric(e=this) {
-  let targetElement;
-  const pres1 = document.getElementById('currpresentation_text');
   if(typeof(e) == "number") {
     const lyric_list = document.getElementById('lyric_results')
-    const current_list = lyric_list.getElementsByTagName("li");
-    targetElement = current_list[e]
+    let current_list = lyric_list.getElementsByTagName("li");
+    let targetElement = current_list[targetElement]
   } else {
-    targetElement = e.currentTarget;
+    let targetElement = e.target;
   }
   unselectLyricList()
+  const pres1 = document.getElementById('currpresentation_text');
   pres1.innerText = targetElement.getAttribute("lyric");
   setPresLyric(targetElement.getAttribute('lyric'));
   targetElement.classList.add("selected");
 
-  CURRENT_LYRIC = Number(targetElement.getAttribute("data-lyric-no"));
+  CURRENT_LYRIC = this.getAttribute("data-lyric-no");
 }
 
+
 function nextLyric() {
-  const lyric_list = document.getElementById('lyric_results')
-  const current_list = lyric_list.getElementsByTagName("li");
   if(CURRENT_LYRIC + 2 > current_list.length) {
   } else {
-    selectLyric(Number(CURRENT_LYRIC) + 1);
+    selectLyric(CURRENT_LYRIC + 1);
   }
-  if(CURRENT_LYRIC + 2 > current_list.length) {
+  if(CURRENT_LYRIC + 3 > current_list.length) {
   } else {
-    previewLyric(Number(CURRENT_LYRIC) + 1);
+    previewLyric(CURRENT_LYRIC + 2);
   }
 }
 
 function previousLyric() {
-  if(Number(CURRENT_LYRIC) == 0) {
-    console.log('Cannot go backwards unless we implement previous song in' +
-      'set list')
-    return;
-  } 
-  previewLyric(Number(CURRENT_LYRIC));
-  selectLyric(Number(CURRENT_LYRIC) - 1);
+  const lyric_list = document.getElementById('lyric_results')
+  let current_list = lyric_list.getElementsByTagName("li");
 }
 
 function selectCurrentLyricFromKeys(targetElement){
@@ -104,13 +97,22 @@ function selectCurrentLyricFromKeys(targetElement){
   CURRENT_LYRIC = targetElement.getAttribute("data-lyric-no");
 }
 
+function blackScreen() {
+  const pres1 = document.getElementById('currpresentation_text');
+  if(pres1.opacity > 0) {
+    pres1.opacity = '0';
+  } else {
+    pres1.opacity = '1';
+  }
+  setPresBlack();
+}
+
 function editLyricsPopUp() {
   document.getElementById("popup-editlyrics").style.display = "block";
   document.getElementById("popup-background").style.display = "block";
   document.getElementById("popup-background").style.zIndex = 12;
   document.getElementById("edit_lyrics_input").value = 
-  document.querySelector("#set_list_items > li[data-song-no='" + 
-    String(CURRENT_SET_SONG_NO) + "']").getAttribute("data-lyrics");
+    document.querySelector("#set_list_items > li[data-song-no='" +  String(CURRENT_SET_SONG_NO) + "']").getAttribute("data-lyrics");
 }
 
 function closeEditLyricsPopUp() {
@@ -120,11 +122,13 @@ function closeEditLyricsPopUp() {
 }
 
 function editLyrics() {
+
   //TODO: make this persist longer in local storage, as refreshing the page will lose this 
   var target_node = document.querySelector("#set_list_items > li[data-song-no='" +  String(CURRENT_SET_SONG_NO) + "']");
   target_node.setAttribute("data-lyrics", document.getElementById("edit_lyrics_input").value);
   clearLyrics();
   selectCurrentSong(target_node);
+
 
   closeEditLyricsPopUp();
 }
