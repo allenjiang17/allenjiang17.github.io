@@ -80,9 +80,12 @@
     <img id="ssm_icon" src="icons/ssm_icon.png">
     <h1>Worship Set Selector</h1>
   </div>
-  <div class="tooltip">
-    <img class="icon_button" id="media_button" src="icons/projector-fill.svg" onclick="switchMedia()">
+  <!-- <div class="tooltip"> -->
+  <img class="icon_button" id="media_button" src="icons/projector-fill.svg" 
+    onclick="switchMedia()" title="Switch to media mode">
+  <!--
     <span class="tooltiptext tttbottom" id="media_button_text">Switch to media mode</span>
+  -->
   </div>
 </div>  
 
@@ -113,13 +116,16 @@
                 <option value="Intercessory">Intercessory</option>
             </select>
             </label>
-            <div class="tooltip">
-                <img class="icon_button" id="addToDatabase" 
-                   src="icons/upload.svg" onclick="editSongLibraryPopUp()">
+            <!-- <div class="tooltip"> -->
+            <img class="icon_button" id="addToDatabase" 
+               src="icons/upload.svg" onclick="editSongLibraryPopUp()"
+               title="Add/remove songs from your personal library">
+                <!--
                 <span class="tooltiptext tttright">
                     Add/remove songs from your personal library
                 </span>
             </div>
+                -->
         </div>
         </div>
         <p id="set_list_label" class = "section_label">Set List</p>
@@ -178,7 +184,7 @@
           <span id="currpresentation_text">
             <!--   Choose a song on <br> the left to begin -->
           </span>
-          <div id="nextpresentation" class="presentation">
+          <div id="nextpresentation" class="presentation" title="Next Slide">
             <span id="nextpresentation_text">
               Next slide goes here
               <!--   Choose a song on <br> the left to begin -->

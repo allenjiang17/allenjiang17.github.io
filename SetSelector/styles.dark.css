@@ -18,6 +18,7 @@ body{
     background-color: var(--bg);
 }
 
+.set_delete,
 #blackscreen_button,
 #cast_button,
 #nightmode,
@@ -27,6 +28,7 @@ body{
   /* svg color change to #BCCCDC */
 }
 
+.set_delete:hover,
 #blackscreen_button:hover,
 #cast_button:hover,
 #nightmode:hover,
@@ -179,22 +181,13 @@ h1{
   color: #E0E0E0;
 }
 
-.set_list_item:hover,
-.set_list_item:hover > .set_delete {
+.set_list_item:hover {
   background: #334E68;
 }
 .lyric_list.selected,
 .lyric_list.selected > .lyric_title,
-.set_list_item.selected > .set_delete,
 .set_list_item.selected {
   background: #102A43;
-}
-
-.set_delete{
-  color: #BCCCDC;
-  border: 0;
-  background-color: var(--layer1);
-  cursor:pointer;
 }
 
 .section_label_top,

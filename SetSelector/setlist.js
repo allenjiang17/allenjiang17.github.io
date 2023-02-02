@@ -55,19 +55,17 @@ function selectCurrentSong(targetElement) {
     unselectSetList();
     unselectSearchList();
 
-    //if (CURRENT_SET_SONG_NO != targetElement.getAttribute('data-song-no')) {
-        CURRENT_SONG_ID = targetElement.getAttribute("data-id");
-        CURRENT_SET_SONG_NO = targetElement.getAttribute("data-song-no");
-        document.getElementById("text_entry").value = targetElement
-            .getAttribute("data-sheet");
-        updateKey();
+    CURRENT_SONG_ID = targetElement.getAttribute("data-id");
+    CURRENT_SET_SONG_NO = targetElement.getAttribute("data-song-no");
+    document.getElementById("text_entry").value = targetElement
+        .getAttribute("data-sheet");
+    updateKey();
 
-        clearLyrics();
-        const lyrics = splitLyrics(targetElement.getAttribute("data-lyrics"));
-        for (let j=0; j<lyrics.length; j++) {
-            addLyricToList(lyrics[j]);
-        }
-    //}
+    clearLyrics();
+    const lyrics = splitLyrics(targetElement.getAttribute("data-lyrics"));
+    for (let j=0; j<lyrics.length; j++) {
+        addLyricToList(lyrics[j]);
+    }
 
     targetElement.classList.add("selected");
 }
