@@ -33,6 +33,11 @@ function switchMedia() {
   }
 }
 
+function toggleFullscreen() {
+  if(presentwindow == null) { presentMedia(); }
+  else {}
+}
+
 function presentMedia() {
   console.log('presenting!')
   let windowobj = window.open("", "worshipwindow", 
@@ -61,15 +66,9 @@ function presentMedia() {
 
 function presentWindowConstructor() {
   presentwindow.document.getElementById('displaypresentation_text')
-<<<<<<< HEAD
     .innerText = document.querySelector("#lyric_results > li[data-lyric-no='" 
       +  String(CURRENT_LYRIC) + "']").getAttribute("lyric");
   if(SCREEN_HIDDEN) {setPresBlack(false)}
-=======
-  .innerText =
-  document.querySelector("#lyric_results > li[data-lyric-no='" +  String(CURRENT_LYRIC) + "']").getAttribute("lyric");
-  setPresBlack();
->>>>>>> 30a4963ce1d13a44aae1980e44f3ea02a434702f
 }
 
 function presentWindowDestructor() {
