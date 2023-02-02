@@ -73,6 +73,7 @@ function selectLyric(e=this) {
 }
 
 function nextLyric() {
+  if(Number(CURRENT_LYRIC) < 0) { return; }
   const lyric_list = document.getElementById('lyric_results')
   const current_list = lyric_list.getElementsByTagName("li");
   if(CURRENT_LYRIC + 2 > current_list.length) {
@@ -86,6 +87,7 @@ function nextLyric() {
 }
 
 function previousLyric() {
+  if(Number(CURRENT_LYRIC) < 0) { return; }
   if(Number(CURRENT_LYRIC) == 0) {
     console.log('Cannot go backwards unless we implement previous song in' +
       'set list')

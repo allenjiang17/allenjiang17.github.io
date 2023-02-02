@@ -23,22 +23,13 @@ function executeKeyStrokes(e) {
           selectCurrentSong(set_list_array[target_index+1]);
           e.preventDefault();
       } 
-  } else if (document.activeElement == 
-    document.getElementById("lyrics_dashboard")){
-    //up arrow
-    if (e.keyCode == "38") {
-//      selectCurrentLyricFromKeys(lyric_list_array[target_index-1]);
-//        e.preventDefault();
-      previousLyric();
-    //down arrow
-    } else if (e.keyCode == "40") {
-//      selectCurrentLyricFromKeys(lyric_list_array[target_index+1]);
-//        e.preventDefault();
-      nextLyric();
-    } 
-
+  } else {
+      if (e.keyCode == "38") { //up arrow
+        previousLyric();
+      } else if (e.keyCode == "40") { //down arrow
+        nextLyric();
+      } 
   }
-  
 }
 
 document.onkeydown = executeKeyStrokes;

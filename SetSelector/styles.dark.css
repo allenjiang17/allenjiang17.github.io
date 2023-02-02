@@ -151,7 +151,11 @@ h1{
   background: var(--layer1);
   color: var(--texthigh);
   border: 0;
+  background: none;
+  border: 1px rgb(140, 138, 138) solid;
+  border-top: none;
   padding: 2em;
+  box-sizing:border-box;
 }
 #text_entry:focus{ outline:none; }
 
