@@ -13,6 +13,7 @@ function splitLyrics(lyrics) {
         var l = lyrics[i].trim()
         var regex = [
             '^\\[.*\\]$',
+            '^AUTHOR:',
             '^TEMPO:',
             '^NOTE',
             '^Verse:',
