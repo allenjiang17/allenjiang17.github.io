@@ -9,3 +9,4 @@ var KEY;
 
 //media
 var presentwindow = null;
+var screenBlack = false;

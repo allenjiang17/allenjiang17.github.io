@@ -46,7 +46,7 @@ function presentMedia() {
 
   windowobj.document.body.innerHTML = `
     <div id="displaypresentation" class='presentation' 
-      style="font-family:Times New Roman, Times, serif;
+      style="font-family:Century Gothic, Helvetica, serif;
       height:100vh;width:100vw;background:black;
       text-align:center;padding-top:6vh;cursor:none;">
       <span id="displaypresentation_text" 
@@ -61,9 +61,15 @@ function presentMedia() {
 
 function presentWindowConstructor() {
   presentwindow.document.getElementById('displaypresentation_text')
+<<<<<<< HEAD
     .innerText = document.querySelector("#lyric_results > li[data-lyric-no='" 
       +  String(CURRENT_LYRIC) + "']").getAttribute("lyric");
   if(SCREEN_HIDDEN) {setPresBlack(false)}
+=======
+  .innerText =
+  document.querySelector("#lyric_results > li[data-lyric-no='" +  String(CURRENT_LYRIC) + "']").getAttribute("lyric");
+  setPresBlack();
+>>>>>>> 30a4963ce1d13a44aae1980e44f3ea02a434702f
 }
 
 function presentWindowDestructor() {
@@ -72,7 +78,7 @@ function presentWindowDestructor() {
 }
 
 function setPresLyric(lyric) {
-  if(presentwindow == null) { return; }
+  if(presentwindow == null) { console.log("No Window"); return; }
   presentwindow.document.
       getElementById('displaypresentation_text').innerText = lyric;
 }
