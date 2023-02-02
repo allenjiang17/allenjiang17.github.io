@@ -251,7 +251,6 @@ h1{
 
 .minimize_button_top:hover {
   color:rgb(50,50,50);
-
 }
 
 #songs_header{
@@ -539,12 +538,12 @@ h1{
 #presentation_header{
   width: 100%
 }
-
 #currpresentation{
   width: 100%;
   position: relative;
   font-size: 1.5rem;
   line-height: 2.25rem;
+  padding-top: 2.25rem;
 }
 .presentation{
   font-family: "Times New Roman", Times, serif;
@@ -553,25 +552,34 @@ h1{
   aspect-ratio: 16 / 9;
   background: black;
   text-align: center;
+/*
   display: table;
+*/
 }
 .presentation > span{
   color: white;
+/*
   display: table-cell;
   vertical-align: middle;
+*/
 }
 #nextpresentation {
   position: absolute;
-  width: 40%;
   right: 0;
   bottom: 0;
   border-color: rgba(255, 255, 255, 0.38);
   border-width: 1px;
   border-style: solid;
-  font-size: 0.5rem;
-  line-height: 0.75rem;
+  width: 40%;
+  font-size: 0.6rem;
+  line-height: 0.9rem;
+  padding-top: 0.9rem;
   opacity: 0.75;
 }
+/*
+ * NOTE: the actual display presentation's styles are hardcoded until I figure
+ * out how to apply a stylesheet to a popup window
+ */
 /* ===========================================================================
  * Begin Right Sidebar
  * ===========================================================================
