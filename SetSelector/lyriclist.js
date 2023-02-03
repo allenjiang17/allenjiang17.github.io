@@ -26,10 +26,14 @@ function addLyricToList(lyric) {
 
 function clearLyrics() {
   let lyric_list = document.getElementById("lyric_results")
-      .getElementsByTagName("li");;
+      .getElementsByTagName("li");
   for (let i=lyric_list.length -1; i >= 0; --i) {
       lyric_list[i].remove()
   }
+}
+
+function getLyricLength() {
+  return(document.getElementById("lyric_results").getElementsByTagName("li").length);
 }
 
 function unselectLyricList() {
@@ -77,10 +81,16 @@ function nextLyric() {
   const lyric_list = document.getElementById('lyric_results')
   const current_list = lyric_list.getElementsByTagName("li");
   if(CURRENT_LYRIC + 2 > current_list.length) {
+    if(Number(CURRENT_SET_SONG_NO) + 1 < getSetLength()) {
+      selectSong(Number(CURRENT_SET_SONG_NO) + 1);
+      selectLyric(0);
+    } else {
+      // previewLyric(none);
+    }
   } else {
     selectLyric(Number(CURRENT_LYRIC) + 1);
   }
-  if(CURRENT_LYRIC + 2 > current_list.length) {
+  if(CURRENT_LYRIC + 2 > current_list.length) { 
   } else {
     previewLyric(Number(CURRENT_LYRIC) + 1);
   }
@@ -89,8 +99,11 @@ function nextLyric() {
 function previousLyric() {
   if(Number(CURRENT_LYRIC) < 0) { return; }
   if(Number(CURRENT_LYRIC) == 0) {
-    console.log('Cannot go backwards unless we implement previous song in' +
-      'set list')
+    if(Number(CURRENT_SET_SONG_NO) > 0) {
+      previewLyric(Number(CURRENT_LYRIC));
+      selectSong(Number(CURRENT_SET_SONG_NO) - 1);
+      selectLyric(getLyricLength() - 1);
+    }
     return;
   } 
   previewLyric(Number(CURRENT_LYRIC));

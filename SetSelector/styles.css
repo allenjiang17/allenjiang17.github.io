@@ -685,6 +685,7 @@ h1{
   overflow:scroll;
   list-style-type: none;
   text-align: left;
+  resize: vertical;
 }
 .lyric_title {
   line-height: 1.2rem;

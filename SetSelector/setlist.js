@@ -32,14 +32,16 @@ function addSongToSet() {
 }
 
 function addSongToSetDblClick(){
-  //basically the same as addFromSearch in searchbar.js, to add it first into the text-entry
+  // basically the same as addFromSearch in searchbar.js, to add it first 
+  // into the text-entry
   CURRENT_SONG_ID = this.getAttribute("data-id");
   document.getElementById("text_entry").value = this.getAttribute("data-sheet");
   document.getElementById("search_bar").value = "";
   filterFunction();
   updateKey();
 
-  //once added to text-entry, use the normal function to add from text-entry into set
+  // once added to text-entry, use the normal function to add from 
+  // text-entry into set
   addSongToSet();
 }
 
@@ -49,6 +51,28 @@ function unselectSetList() {
     for (let i=0; i<list_of_songs.length; i++) {
         list_of_songs[i].classList.remove("selected");
     }
+}
+
+function getSetLength() {
+    return(document.getElementById("set_list_items")
+        .getElementsByTagName("li").length)
+}
+
+function selectSong(e) {
+    let targetElement;
+    if(typeof(e) == "number") {
+        const lyric_list = document.getElementById('set_list_items')
+        let current_list = lyric_list.getElementsByTagName("li");
+        if(e < current_list.length & e >= 0) {
+            targetElement = current_list[e]
+        } else {
+            return;
+        }
+    } else {
+        targetElement = e.currentTarget;
+    }
+    console.log(targetElement);
+    selectCurrentSong(targetElement);
 }
 
 function selectCurrentSong(targetElement) {
@@ -66,7 +90,6 @@ function selectCurrentSong(targetElement) {
     for (let j=0; j<lyrics.length; j++) {
         addLyricToList(lyrics[j]);
     }
-
     targetElement.classList.add("selected");
 }
 

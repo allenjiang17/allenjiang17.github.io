@@ -35,7 +35,7 @@ function switchMedia() {
 
 function toggleFullscreen() {
   if(presentwindow == null) { presentMedia(); }
-  else {}
+  else { presentwindow.close(); }
 }
 
 function presentMedia() {
