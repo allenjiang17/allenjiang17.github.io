@@ -8,4 +8,4 @@ var KEY;
 
 //media
 var presentwindow = null;
-var screenBlack = false;
+var SCREEN_HIDDEN = false;

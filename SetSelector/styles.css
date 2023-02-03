@@ -502,6 +502,14 @@ h1{
   background-color:rgba(50, 50, 50, 0.5);
   z-index:10;
 }
+.popup-background{
+  display:none;
+  position:fixed;
+  width:100vw;
+  height:100vh;
+  background-color:rgba(50, 50, 50, 0.5);
+  z-index:10;
+}
 
 .form_label{
   font-size: 0.8rem;
@@ -681,10 +689,12 @@ h1{
 }
 #lyric_results {
   border: 1px solid #ddd;
-  max-height: 55vh;
+  height: 55vh;
+  max-height: 85vh;
   overflow:scroll;
   list-style-type: none;
   text-align: left;
+  resize: vertical;
 }
 .lyric_title {
   line-height: 1.2rem;

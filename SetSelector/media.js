@@ -16,10 +16,6 @@ function switchMedia() {
     window.setTimeout(function () {
       transition.style.opacity = "0"
       chords.style.display = "block"
-      //document.getElementById('media_button').src = "icons/projector-fill.svg"
-      //document.getElementById('media_button').title = "Switch to media mode"
-
-
     }, 700);
   } else {
 
@@ -33,13 +29,13 @@ function switchMedia() {
     window.setTimeout(function () {
       transition.style.opacity = "0"
       media.style.display = "flex"
-      //document.getElementById('media_button').src = "icons/music-note-list.svg"
-      //document.getElementById('media_button').title = "Switch to chord mode"
-
-
-
     }, 700);
   }
+}
+
+function toggleFullscreen() {
+  if(presentwindow == null) { presentMedia(); }
+  else { presentwindow.close(); }
 }
 
 function presentMedia() {
@@ -57,27 +53,22 @@ function presentMedia() {
     <div id="displaypresentation" class='presentation' 
       style="font-family:Century Gothic, Helvetica, serif;
       height:100vh;width:100vw;background:black;
-      text-align:center;padding-top:6vh;">
+      text-align:center;padding-top:6vh;cursor:none;">
       <span id="displaypresentation_text" 
         style="color:white;font-size:4vh;line-height:6vh;opacity:1;">
       </span>
     </div>
   `
-  // windowobj.document.documentElement.requestFullscreen();
-  //  "menubar=no,toolbar=no,location=no,status=no,resizeable")
-  // On firefox, you need to set some stuff in about:config for these
-  // to work perfectly;
-  //
-  // https://stackoverflow.com/questions/2909645/open-new-popup-window-without-address-bars-in-firefox-ie
-  // browser.fullscreen.autohide
-  // premissions.fullscreen.allowed
   presentwindow = windowobj;
   windowobj.onbeforeunload = presentWindowDestructor;
+  presentWindowConstructor();
+}
 
+function presentWindowConstructor() {
   presentwindow.document.getElementById('displaypresentation_text')
-  .innerText =
-  document.querySelector("#lyric_results > li[data-lyric-no='" +  String(CURRENT_LYRIC) + "']").getAttribute("lyric");
-  setPresBlack();
+    .innerText = document.querySelector("#lyric_results > li[data-lyric-no='" 
+      +  String(CURRENT_LYRIC) + "']").getAttribute("lyric");
+  if(SCREEN_HIDDEN) {setPresBlack(false)}
 }
 
 function presentWindowDestructor() {
@@ -91,34 +82,22 @@ function setPresLyric(lyric) {
       getElementById('displaypresentation_text').innerText = lyric;
 }
 
-//using global variable helps sync the two, making sure they never flip to be opposite each other
-function setPresBlack() {
-  if(presentwindow == null) { console.log("No Window"); return; }
-  let pres = presentwindow.document.getElementById('displaypresentation_text');
-
-  //pop window simply follows the global variable
-  if (screenBlack) {
-    pres.style.opacity = '0';
-
-  } else {
-    pres.style.opacity = '1';
-  }
-
+function setPresBlack(turnon) {
+  if(presentwindow == null) { return; }
+  pres = presentwindow.document.getElementById('displaypresentation_text');
+  if(turnon) { pres.style.opacity = "1" }
+  else { pres.style.opacity = "0" }
 }
 
 function blackScreen() {
-  let pres = document.getElementById('currpresentation_text');
-
-  //toggle to visible or not depending on what it previously was
-  if (!screenBlack) {
-    pres.style.opacity = '0.1';
-    screenBlack = true;
-
+  const pres1 = document.getElementById('currpresentation_text');
+  if(SCREEN_HIDDEN) {
+    pres1.style.opacity = '1';
+    setPresBlack(true);
+    SCREEN_HIDDEN = false;
   } else {
-    pres.style.opacity = '1';
-    screenBlack = false;
+    pres1.style.opacity = '0.2';
+    setPresBlack(false);
+    SCREEN_HIDDEN = true;
   }
-  
-  //toggle big screen to follow
-  setPresBlack();
 }

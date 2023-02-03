@@ -21,15 +21,15 @@
     <ul id="popup-personal_search_results" class="search_results"></ul>
     </div>
     <button class="popup_input" onclick="addSongPopUp()"> Add Song</button>
-    <label for="show_personal_songs" class="form_label"> Show Personal Songs in Search
-        <input id="show_personal_songs" type="checkbox" checked="checked"> <br>
-        </label>
-    <div class="tooltip">
-      <p class="section_label" style="margin-top:2rem">Uploading/Exporting Your Personal Library</p>
-        <span class="tooltiptext" id="personal_library_text"> Your personal library is stored as local history on your browser, which is cleared when your browser history/cache is cleared. <br>
-          If you would like to save your personal library, you can download it as JSON file, or upload one.
-        </span>
-    </div><br>
+    <label for="show_personal_songs" class="form_label"> 
+      Show Personal Songs in Search
+      <input id="show_personal_songs" type="checkbox" checked="checked"> <br>
+    </label>
+    <p class="section_label" style="margin-top:2rem" 
+      title="If you would like to save your personal library, you can download 
+      it as a JSON file, or upload one.">
+      Uploading/Exporting Your Personal Library</p>
+    <br>
     <div class="clickable_link" onclick="downloadPersonalLibrary()" style="margin:0"> 
       <img class="icon_button" src="icons/database-down.svg" onclick="downloadPersonalLibrary()" style="display:inline">
       Save Personal Library as a JSON File
@@ -70,6 +70,8 @@
 </div>
 <div id="popup-background" class="popup-background" onclick="closePopUp()"></div>
 
+<div id="tutorialpopupplaceholder" style="display:none" 
+  class="placeholder"></div>
 <!-- 
 === END POPUP STUFF ===========================================================
 -->
@@ -82,11 +84,11 @@
   </div>
   <!-- <div class="tooltip"> -->
     <div id="chord_toggle" class="toggle selected" onclick="switchMedia()"
-      title="toggle chord/media media">
+      title="toggle chords mode">
       Chords 
     </div>
     <div id="media_toggle" class="toggle" onclick="switchMedia()"
-      title="toggle chord/media media">
+      title="toggle media mode">
       Media
     </div>
   
@@ -191,7 +193,7 @@
               title="Toggle black screen">
             <img class="media_dashboard_button" id="cast_button" 
               src="icons/cast.svg" 
-              onclick="presentMedia()" title="Fullscreen">
+              onclick="toggleFullscreen()" title="Fullscreen">
           </div>
         </div>
         <div id="currpresentation" class="presentation">
@@ -209,7 +211,9 @@
 
       <div id="right_side_bar">
         <div id="lyrics_header">
-          <div></div>
+          <img id="lyric_faq_button" class="icon_button" id="edit_lyrics" 
+            src="icons/question-circle.svg" onclick="opentutorialpopup()"
+            title="Help">
           <div id="lyric_list_label" class="section_label_top">Lyrics</div>
           <img id="edit_lyrics_button" class="icon_button" id="edit_lyrics" 
             src="icons/pencil-square.svg" onclick="editLyricsPopUp()"
@@ -239,6 +243,7 @@
 <script src="keystrokes.js"></script>
 <script src="database_UG.js"></script>
 <script src="database_load.js"></script>
+<script src="components/tutorialpopup.js"></script>
 <script type="module" src="exportset.js"></script>
 
 </body>

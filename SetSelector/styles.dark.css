@@ -18,6 +18,7 @@ body{
     background-color: var(--bg);
 }
 
+#lyric_faq_button,
 .set_delete,
 #nightmode,
 #edit_lyrics_button,
@@ -27,6 +28,7 @@ body{
   /* svg color change to #BCCCDC */
 }
 
+#lyric_faq_button:hover,
 .set_delete:hover,
 #nightmode:hover,
 #edit_lyrics_button,
