@@ -16,9 +16,9 @@ function splitLyrics(lyrics) {
             '^AUTHOR:',
             '^TEMPO:',
             '^NOTE',
-            '^Verse:',
-            '^Chorus:',
-            '^Bridge:'
+            '^Verse.*:',
+            '^Chorus.*:',
+            '^Bridge.*:'
         ]
         var re = new RegExp(regex.join('|'), 'i')
         if(re.test(l)) { l = "" }
