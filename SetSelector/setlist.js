@@ -17,7 +17,7 @@ function addSongToSet() {
 
     newTitle.setAttribute("id", "set_title" + current_list.length);
     newTitle.className = "set_title";
-    newTitle.innerText = DATABASE[CURRENT_SONG_ID].title + " (" + KEY + ")";
+    newTitle.innerText = document.querySelector("#search_results > li[data-id='" +  String(CURRENT_SONG_ID) + "']").firstChild.innerText + " (" + KEY + ")";
 
     newButton.setAttribute("id", "set_button" + current_list.length);
     newButton.setAttribute("src", "icons/x-lg.svg");
