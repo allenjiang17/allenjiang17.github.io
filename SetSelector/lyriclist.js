@@ -16,7 +16,9 @@ function addLyricToList(lyric) {
   newTitle.innerText = lyric;
 
 //  newEntry.addEventListener("click", previewLyric);
-  newEntry.addEventListener("click", selectLyric);
+  newEntry.addEventListener("click", (e) => {
+    selectLyric(e);
+  });
 
   newEntry.appendChild(newTitle);
   lyric_list.append(newEntry);
