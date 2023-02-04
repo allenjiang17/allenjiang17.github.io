@@ -26,9 +26,6 @@ function navtut(n) {
 
 function opentutorialpopup() {
   document.getElementById("tutorialpopupplaceholder").style.display = "block";
-  document.getElementById("tutorialpopupplaceholder").style.height = "100vh";
-  document.getElementById("tutorialpopupplaceholder").style.width = "100vw";
-  document.getElementById("tutorialpopupplaceholder").style.position = "absolute";
   document.getElementById("popupbackgroundtut").style.display = "block";
 }
 function closetutorialpopup() {
