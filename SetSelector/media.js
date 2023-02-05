@@ -55,7 +55,7 @@ function presentMedia() {
       height:100vh;width:100vw;background:black;
       text-align:center;padding-top:6vh;cursor:none;">
       <span id="displaypresentation_text" 
-        style="color:white;font-size:6vh;line-height:8vh;opacity:1;">
+        style="color:white;font-size:6vh;line-height:9vh;opacity:1;">
       </span>
     </div>
   `
@@ -69,6 +69,7 @@ function presentWindowConstructor() {
     .innerText = document.querySelector("#lyric_results > li[data-lyric-no='" 
       +  String(CURRENT_LYRIC) + "']").getAttribute("lyric");
   if(SCREEN_HIDDEN) {setPresBlack(false)}
+  updateFontSize();
 }
 
 function presentWindowDestructor() {
@@ -84,7 +85,7 @@ function setPresLyric(lyric) {
 
 function setPresBlack(turnon) {
   if(presentwindow == null) { return; }
-  pres = presentwindow.document.getElementById('displaypresentation_text');
+  const pres = presentwindow.document.getElementById('displaypresentation_text');
   if(turnon) { pres.style.opacity = "1" }
   else { pres.style.opacity = "0" }
 }
@@ -95,9 +96,36 @@ function blackScreen() {
     pres1.style.opacity = '1';
     setPresBlack(true);
     SCREEN_HIDDEN = false;
+    document.getElementById('blackscreen_button').classList.remove("selected");
   } else {
     pres1.style.opacity = '0.2';
     setPresBlack(false);
     SCREEN_HIDDEN = true;
+    document.getElementById('blackscreen_button').classList.add("selected");
   }
+}
+
+function increaseFontSize() {
+  PRESENTFS = PRESENTFS + 1;
+  updateFontSize();
+}
+
+function decreaseFontSize() {
+  PRESENTFS = PRESENTFS - 1;
+  updateFontSize();
+}
+
+function updateFontSize() {
+  document.getElementById('currpresentation_text').style.fontSize = 
+    PRESENTFS / 4 + 'rem'
+  document.getElementById('currpresentation_text').style.lineHeight = 
+    PRESENTFS * 1.5 / 4 + 'rem'
+  document.getElementById('nextpresentation_text').style.fontSize = 
+    PRESENTFS / 10 + 'rem'
+  document.getElementById('nextpresentation_text').style.lineHeight = 
+    PRESENTFS * 1.5 / 10 + 'rem'
+  if(presentwindow == null) { return; }
+  const pres = presentwindow.document.getElementById('displaypresentation_text');
+  pres.style.fontSize = PRESENTFS + 'vh';
+  pres.style.lineHeight = 1.5 * PRESENTFS + 'vh';
 }
