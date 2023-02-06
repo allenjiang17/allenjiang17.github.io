@@ -26,8 +26,12 @@ function executeKeyStrokes(e) {
   } else {
       if (e.keyCode == "38") { //up arrow
         previousLyric();
+        e.preventDefault();
+
       } else if (e.keyCode == "40") { //down arrow
         nextLyric();
+        e.preventDefault();
+
       } 
   }
 }
