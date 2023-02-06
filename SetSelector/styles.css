@@ -389,7 +389,9 @@ h1{
   width: 1.3rem;
   cursor: pointer;
 }
-
+#blackscreen_button.selected{
+  filter: invert(70%) sepia(0%) saturate(0%) hue-rotate(171deg) brightness(90%) contrast(89%);
+}
 .media_dashboard_button:hover{
   background-color:rgb(224, 197, 153);
   width: 1.3rem;
@@ -727,7 +729,6 @@ h1{
   aspect-ratio: 16 / 9;
   background: black;
 }
-
 .popup-placeholder {
   height: 100vh;
   width: 100vw;
