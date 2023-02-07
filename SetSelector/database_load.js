@@ -23,10 +23,6 @@ function loadCoreDatabase() {
       newTitle.className = "search_list_title";
       newTitle.innerText = DATABASE[i].title;
 
-      //newButton.setAttribute("id", "song-button" + i);
-      //newButton.className = "search_list_button";
-      //newButton.innerText = "+";
-
       newEntry.appendChild(newTitle);
       //newEntry.appendChild(newButton);
       document.getElementById("search_results").appendChild(newEntry);

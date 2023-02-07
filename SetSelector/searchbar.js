@@ -9,27 +9,24 @@ function filterFunction() {
 
     //secret able to search the authors
     if (filter.includes("A:")) {
-    
       filter = filter.slice(2);
       for (i = 0; i < a.length; i++) {
         txtValue = a[i].getAttribute("data-author");
 
         if (filter.length == 0) {
               a[i].style.display = "none";
-    
         } else {  
           if (txtValue.toUpperCase().indexOf(filter) == 0){
             a[i].style.display = "block";
           } else {
             a[i].style.display = "none";
           }
-      }
+        }
       }
       
     } else {
     //search by title
       for (i = 0; i < a.length; i++) {
-      
         txtValue = a[i].firstChild.textContent || a[i].firstChild.innerText;
 
           if (filter.length == 1) {
@@ -42,7 +39,8 @@ function filterFunction() {
               }
           } else {  
               if (txtValue.toUpperCase().indexOf(filter) > -1 &&
-              (a[i].getAttribute("data-tempo").includes(tempo) || tempo == "Any") ) {
+                (a[i].getAttribute("data-tempo").includes(tempo) || 
+                tempo == "Any")) {
                 a[i].style.display = "block";
               } else {
                 a[i].style.display = "none";
@@ -61,16 +59,11 @@ function addFromSearch() {
   //change current ID song
   CURRENT_SONG_ID = this.getAttribute("data-id");
 
-  //change text entry to reflect new song sheets
-  document.getElementById("text_entry").value = this.getAttribute("data-sheet");
+  //set the song
+  selectSong(this);
 
   //add new selected formatting to selected song
   this.classList.add("selected");
-
-  /*NOT USED ANYMORE: empty searchbar
-  document.getElementById("search_bar").value = "";
-  filterFunction();
-  */
  
   updateKey();
 }
@@ -93,8 +86,6 @@ function changeSongsVisibility() {
   } else {
     songs_dashboard.style.display= "none";
     document.getElementById("minimize_button_top").innerText = "+"
-
-
   }
 }
 

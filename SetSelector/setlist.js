@@ -59,20 +59,25 @@ function getSetLength() {
 }
 
 function selectSong(e) {
-    let targetElement;
-    if(typeof(e) == "number") {
-        const lyric_list = document.getElementById('set_list_items')
-        let current_list = lyric_list.getElementsByTagName("li");
-        if(e < current_list.length & e >= 0) {
-            targetElement = current_list[e]
-        } else {
-            return;
-        }
-    } else {
-        targetElement = e.currentTarget;
-    }
-    console.log(targetElement);
-    selectCurrentSong(targetElement);
+  console.log(e);
+  let targetElement;
+  if(typeof(e) == "number") {
+      const lyric_list = document.getElementById('set_list_items')
+      let current_list = lyric_list.getElementsByTagName("li");
+      if(e < current_list.length & e >= 0) {
+          targetElement = current_list[e]
+      } else {
+          return;
+      }
+  } else if(e.hasAttribute('data-sheet')) { 
+    // probably came from searchbar; is an html element
+    if(!e.hasAttribute('data-song-no')) { e.setAttribute("data-song-no", -2); }
+    targetElement = e;
+  } else { // Mouse click event
+      targetElement = e.currentTarget;
+  }
+  console.log(targetElement);
+  selectCurrentSong(targetElement);
 }
 
 function selectCurrentSong(targetElement) {
