@@ -116,14 +116,14 @@ function decreaseFontSize() {
 }
 
 function updateFontSize() {
-  document.getElementById('currpresentation_text').style.fontSize = 
-    PRESENTFS / 4 + 'rem'
-  document.getElementById('currpresentation_text').style.lineHeight = 
-    PRESENTFS * 1.5 / 4 + 'rem'
-  document.getElementById('nextpresentation_text').style.fontSize = 
-    PRESENTFS / 10 + 'rem'
-  document.getElementById('nextpresentation_text').style.lineHeight = 
-    PRESENTFS * 1.5 / 10 + 'rem'
+  document.getElementById('currpresentation').style.fontSize = 
+    PRESENTFS * 0.72 * 0.8 * 0.9 * 9 / 16 + 'vw'
+  document.getElementById('currpresentation').style.lineHeight = 
+    PRESENTFS * 0.72 * 0.8 * 0.9 * 1.5 * 9 / 16 + 'vw'
+  document.getElementById('nextpresentation').style.fontSize = 
+    PRESENTFS * 0.72 * 0.8 * 0.9 * 0.4 * 9 / 16 + 'vw'
+  document.getElementById('nextpresentation').style.lineHeight = 
+    PRESENTFS * 0.72 * 0.8 * 0.9 * 1.5 * 0.4 * 9 / 16 + 'vw'
   if(presentwindow == null) { return; }
   const pres = presentwindow.document.getElementById('displaypresentation_text');
   pres.style.fontSize = PRESENTFS + 'vh';

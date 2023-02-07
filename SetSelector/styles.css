@@ -626,9 +626,9 @@ h1{
 #currpresentation{
   width: 100%;
   position: relative;
-  font-size: 1.5rem;
-  line-height: 2.25rem;
-  padding-top: 2.25rem;
+  font-size: 1.7496vw; /* Multiply all the width percents times the aspect ratio */
+  line-height: 2.6244vw;
+  padding-top: 2.6244vw;
 }
 .presentation{
   font-family: "Century Gothic", Helvetica, serif;
@@ -656,9 +656,9 @@ h1{
   border-width: 1px;
   border-style: solid;
   width: 40%;
-  font-size: 0.6rem;
-  line-height: 0.9rem;
-  padding-top: 0.9rem;
+  font-size: 0.69984vw;
+  line-height: 1.04976vw;
+  padding-top: 1.04976vw;
   opacity: 0.75;
 }
 /*
