@@ -15,7 +15,7 @@ function loadCoreDatabase() {
       newEntry.setAttribute("data-author", DATABASE[i].author);
       newEntry.setAttribute("data-tempo", DATABASE[i].tempo);
       newEntry.setAttribute("data-sheet", DATABASE[i].sheet);
-      newEntry.setAttribute("data-lyrics", remove_chord_lines(DATABASE[i].sheet));
+      newEntry.setAttribute("data-lyrics", DATABASE[i].lyrics);
       newEntry.addEventListener("click", addFromSearch);
       newEntry.addEventListener("dblclick", addSongToSetDblClick);
 
@@ -67,8 +67,7 @@ function loadPersonalDatabase() {
       newEntry.setAttribute("data-author", song_database[i].author);
       newEntry.setAttribute("data-tempo", song_database[i].tempo);
       newEntry.setAttribute("data-sheet", song_database[i].sheet);
-      newEntry.setAttribute("data-lyrics", remove_chord_lines(song_database[i]
-        .sheet));
+      newEntry.setAttribute("data-lyrics", song_database[i].lyrics);
       newEntry.addEventListener("click", addFromSearch);
       newEntry.addEventListener("dblclick", addSongToSetDblClick);
 
@@ -100,17 +99,4 @@ function loadPersonalDatabase() {
     }
   }
 }
-
-function remove_chord_lines(raw_text) {
-    var text = raw_text.split("\n");
-    var newtext = ""
-
-    for (let i=0; i<text.length; i++) {
-        if (!chord_line(text[i])) {
-            newtext = newtext + text[i] + "\n";
-        }
-    }
-    return newtext;
-}
-
 reloadDatabase();

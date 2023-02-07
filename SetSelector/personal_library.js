@@ -27,7 +27,8 @@ function addSongSubmit() {
   song.author = document.getElementById("song_author_input").value;
   song.tempo = document.getElementById("song_tempo_input").value;
   song.sheet = document.getElementById("song_sheet_input").value;
-
+  song.lyrics = remove_chord_lines(song.sheet);
+  
   //check if database exists
   if (localStorage.getItem("song_database") === null) {
       localStorage.setItem("song_database", JSON.stringify([]));

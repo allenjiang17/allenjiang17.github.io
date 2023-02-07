@@ -213,6 +213,18 @@ function chord_line(line) {
 
 }
 
+function remove_chord_lines(raw_text) {
+    var text = raw_text.split("\n");
+    var newtext = ""
+  
+    for (let i=0; i<text.length; i++) {
+        if (!chord_line(text[i])) {
+            newtext = newtext + text[i] + "\n";
+        }
+    }
+    return newtext;
+  }
+
 //sanitizes and determines the integer value mapping of the chord
 //returns a tuple (integer value, chord match)
 function chord_to_val(chord) {
