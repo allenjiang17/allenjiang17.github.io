@@ -1,8 +1,6 @@
 //Main Initialization Sequence
 
-if (localStorage.getItem("song_database") == null ||
-  localStorage.getItem("song_database") == undefined || 
-  localStorage.getItem("song_database").length == 0) {
+if (!("song_database" in localStorage)) {
 
     console.log("No Existing Database, Initializing From Default Database");
     initializeDatabase();
