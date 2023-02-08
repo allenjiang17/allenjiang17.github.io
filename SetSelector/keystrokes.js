@@ -24,14 +24,17 @@ function executeKeyStrokes(e) {
           e.preventDefault();
       } 
   } else {
+      const lyricbox = document.getElementById('lyric_results');
       if (e.keyCode == "38") { //up arrow
-        previousLyric();
+        const lyric = previousLyric();
         e.preventDefault();
-
+        if(lyric.offsetTop + lyric.clientHeight > lyricbox.scrollTop || 
+          lyric.offsetTop + lyric.clientHeight < lyricbox.clientHeight) {
+          lyric.scrollIntoView({behavior: "smooth", block: "center"});
+        }
       } else if (e.keyCode == "40") { //down arrow
         const lyric = nextLyric();
         e.preventDefault();
-        const lyricbox = document.getElementById('lyric_results');
         if(lyric.offsetTop + lyric.clientHeight > lyricbox.clientHeight || 
           lyric.offsetTop + lyric.clientHeight < lyricbox.scrollTop) {
           lyric.scrollIntoView({behavior: "smooth", block: "center"});

@@ -24,6 +24,7 @@ function addLyricToList(lyric) {
   lyric_list.append(newEntry);
 
   makeDraggableList(lyric_list);
+  renumberOnDrag(lyric_list);
 }
 
 function clearLyrics() {
@@ -158,4 +159,16 @@ function editLyrics() {
   selectCurrentSong(target_node);
 
   closeEditLyricsPopUp();
+}
+
+function renumberOnDrag(lyriclist=document.getElementById('lyric_results')) {
+  let items = lyriclist.getElementsByTagName("li")
+  for (let item of items) {
+    item.addEventListener('drop', () => {
+      const ll = lyriclist.getElementsByTagName('li');
+      for (let i = 0; i < ll.length; i++) {
+        ll[i].setAttribute('data-lyric-no', i);
+      }
+    })
+  }
 }
