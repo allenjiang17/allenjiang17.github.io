@@ -22,15 +22,13 @@
     <div id="popup-personal_search_content" class="search_bar_content">
     <ul id="popup-personal_search_results" class="search_results"></ul>
     </div>
-    <button class="popup_input" onclick="addSongPopUp()"> Add Song</button>
-    <label for="show_personal_songs" class="form_label"> 
-      Show Personal Songs in Search
-      <input id="show_personal_songs" type="checkbox" checked="checked"> <br>
-    </label>
+    <button class="dashboard_button" style="width:fit-content; margin-top:1rem;" onclick="addSongPopUp()"> Add Song</button>
+
     <p class="section_label" style="margin-top:2rem" 
       title="If you would like to save your personal library, you can download 
       it as a JSON file, or upload one.">
       Uploading/Exporting Your Personal Library</p>
+    <div class="clickable_link" onclick="resetLocalDatabase()"> Reset to Default SSM Library </div>
     <br>
     <div class="clickable_link" onclick="downloadPersonalLibrary()" style="margin:0"> 
       <img class="icon_button" src="icons/database-down.svg" onclick="downloadPersonalLibrary()" style="display:inline">

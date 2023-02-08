@@ -1,6 +1,7 @@
 function editSongLibraryPopUp(){
   document.getElementById("popup-editlibrary").style.display = "block";
   document.getElementById("popup-background").style.display = "block";
+  
 }
 
 function closeEditSongLibraryPopUp() {
@@ -23,17 +24,14 @@ function addSongSubmit() {
   //TODO check if all fields have valid entries
 
   var song = new Object();
+  song.id = String("p" + localStorage.getItem("no_songs_added")+1);
+  console.log("Adding New Song with ID" + song.id);
+
   song.title = document.getElementById("song_title_input").value;
   song.author = document.getElementById("song_author_input").value;
   song.tempo = document.getElementById("song_tempo_input").value;
   song.sheet = document.getElementById("song_sheet_input").value;
   song.lyrics = remove_chord_lines(song.sheet);
-  
-  //check if database exists
-  if (localStorage.getItem("song_database") === null) {
-      localStorage.setItem("song_database", JSON.stringify([]));
-      console.log("Creating New Personal Song Database");
-  }
 
   var song_database = JSON.parse(localStorage.getItem("song_database"));
   song_database.push(song);
@@ -48,8 +46,8 @@ function addSongSubmit() {
 }
   
 function removePersonalSong() {
-  if (localStorage.getItem("song_database") != null) {
-    let target_title = this.parentNode.firstChild.innerText;
+
+    let target_title = this.parentNode.parentNode.firstChild.innerText;
     console.log(target_title)
 
     let song_database = JSON.parse(localStorage.getItem("song_database"));
@@ -65,6 +63,14 @@ function removePersonalSong() {
           reloadDatabase();
       }
     }
+}
+
+
+
+function resetLocalDatabase(){
+  if (confirm("You will lose all of your edits/added songs and reset the library to the default one. Proceed?")) {
+    initializeDatabase();
+    reloadDatabase();
   }
 }
 

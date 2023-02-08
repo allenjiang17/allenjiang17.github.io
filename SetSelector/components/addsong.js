@@ -31,6 +31,7 @@ function addSongPopUp() {
 
 function closeAddSongPopUp() {
   document.getElementById("popup-addsong").style.display = "none";
+  document.getElementById("popup-background").style.zIndex = 10;
   document.getElementById("popup-background").style.display = "none";
   for (let node of document.getElementsByClassName('popup-placeholder')) 
     node.style.display = "none";
