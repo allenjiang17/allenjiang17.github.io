@@ -112,6 +112,9 @@ h1{
   z-index: 2;
 }
 
+.clickable_link{
+  font-size:0.8rem;
+}
 .clickable_link:hover{
   color:rgb(52, 86, 139);
   text-decoration: underline

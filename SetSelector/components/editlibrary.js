@@ -11,18 +11,21 @@ const editLibrary_html = `
     <p class="section_label" style="margin-top:2rem" 
       title="If you would like to save your personal library, you can download 
       it as a JSON file, or upload one.">
-      Uploading/Exporting Your Personal Library</p>
-    <div class="clickable_link" onclick="resetLocalDatabase()"> Reset to Default SSM Library </div>
+      Advanced Options </p>
+    <div class="clickable_link" onclick="resetLocalDatabase()"> 
+    <img class="icon_button" src="icons/box-arrow-in-down.svg" onclick="resetLocalDatabase()" style="display:inline">
+    Reset to Default SSM Library 
+    </div>
     <br>
     <div class="clickable_link" onclick="downloadPersonalLibrary()" style="margin:0"> 
-      <img class="icon_button" src="icons/database-down.svg" onclick="downloadPersonalLibrary()" style="display:inline">
-      Save Personal Library as a JSON File
+      <img class="icon_button" src="icons/box-arrow-down.svg" onclick="downloadPersonalLibrary()" style="display:inline">
+      Download Current Library (JSON File)
     </div>
     <br>
     <div style="margin:0"> 
       <div class="clickable_link" onclick="readJSONDatabase()" style="display:inline-block"> 
-        <img class="icon_button" src="icons/database-up.svg" onclick="readJSONDatabase()" style="display:inline-block">
-        Upload a Personal Library Database File (JSON) 
+        <img class="icon_button" src="icons/box-arrow-in-up.svg" onclick="readJSONDatabase()" style="display:inline-block">
+        Upload a Library File (JSON)
       </div>
         <p class="small_label" style="margin:0.1rem">This will replace your current library with the uploaded database</p>
         <input id="database_reader" type="file" style="font-size:0.7rem" class="popup_input" accept=".json">

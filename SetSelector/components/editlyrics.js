@@ -3,7 +3,7 @@ const editLyrics_html = `
   <p class="section_label"> Edit Lyrics</p>
   <img class="popup_close" src="icons/x-circle-fill.svg" onclick="closeEditLyricsPopUp()">
   <textarea id="edit_lyrics_input" class="popup_input" placeholder="Use two blank lines to separate verse/chorus/etc."></textarea>
-  <button id="edit_lyrics_submit" clsas="popup_input" onclick="editLyrics()"> Submit Changes (Saved Locally Only)</button>
+  <button id="edit_lyrics_submit" class="popup_input" onclick="editLyrics()"> Submit Changes</button>
 </div>
 `
 
