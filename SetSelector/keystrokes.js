@@ -29,9 +29,13 @@ function executeKeyStrokes(e) {
         e.preventDefault();
 
       } else if (e.keyCode == "40") { //down arrow
-        nextLyric();
+        const lyric = nextLyric();
         e.preventDefault();
-
+        const lyricbox = document.getElementById('lyric_results');
+        if(lyric.offsetTop + lyric.clientHeight > lyricbox.clientHeight || 
+          lyric.offsetTop + lyric.clientHeight < lyricbox.scrollTop) {
+          lyric.scrollIntoView({behavior: "smooth", block: "center"});
+        }
       } 
   }
 }

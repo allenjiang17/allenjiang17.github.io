@@ -76,40 +76,52 @@ function selectLyric(e=this) {
   //targetElement.scrollIntoView();
 
   CURRENT_LYRIC = Number(targetElement.getAttribute("data-lyric-no"));
+  return targetElement;
 }
 
 function nextLyric() {
   if(Number(CURRENT_LYRIC) < 0) { return; }
   const lyric_list = document.getElementById('lyric_results')
   const current_list = lyric_list.getElementsByTagName("li");
+  let lyric;
   if(CURRENT_LYRIC + 2 > current_list.length) {
     if(Number(CURRENT_SET_SONG_NO) + 1 < getSetLength()) {
       selectSong(Number(CURRENT_SET_SONG_NO) + 1);
-      selectLyric(0);
+      lyric = selectLyric(0);
     } else {
       // previewLyric(none);
+      lyric = getCurrentLyric();
     }
   } else {
-    selectLyric(Number(CURRENT_LYRIC) + 1);
+    lyric = selectLyric(Number(CURRENT_LYRIC) + 1);
   }
   if(CURRENT_LYRIC + 2 > current_list.length) { 
   } else {
     previewLyric(Number(CURRENT_LYRIC) + 1);
   }
+  return lyric;
 }
 
 function previousLyric() {
   if(Number(CURRENT_LYRIC) < 0) { return; }
+  let lyric;
   if(Number(CURRENT_LYRIC) == 0) {
     if(Number(CURRENT_SET_SONG_NO) > 0) {
       previewLyric(Number(CURRENT_LYRIC));
       selectSong(Number(CURRENT_SET_SONG_NO) - 1);
-      selectLyric(getLyricLength() - 1);
-    }
-    return;
+      lyric = selectLyric(getLyricLength() - 1);
+    } else { lyric = getCurrentLyric(); }
+    return lyric;
   } 
   previewLyric(Number(CURRENT_LYRIC));
-  selectLyric(Number(CURRENT_LYRIC) - 1);
+  lyric = selectLyric(Number(CURRENT_LYRIC) - 1);
+  return lyric;
+}
+
+function getCurrentLyric() {
+  const lyric_list = document.getElementById('lyric_results')
+  const current_list = lyric_list.getElementsByTagName("li");
+  return current_list[CURRENT_LYRIC];
 }
 
 function selectCurrentLyricFromKeys(targetElement){

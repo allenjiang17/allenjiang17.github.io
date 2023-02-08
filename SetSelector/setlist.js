@@ -76,7 +76,6 @@ function selectSong(e) {
   } else { // Mouse click event
       targetElement = e.currentTarget;
   }
-  console.log(targetElement);
   selectCurrentSong(targetElement);
 }
 
