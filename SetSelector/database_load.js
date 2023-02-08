@@ -1,5 +1,5 @@
 //Main Initialization Sequence
-if (localStorage.getItem("song_database") == null || localStorage.getItem("song_database") == []) {
+if (localStorage.getItem("song_database") == null || localStorage.getItem("song_database") == [] || localStorage.getItem("song_database") == "[]") {
     console.log("No Existing Database, Initializing From Default Database");
     initializeDatabase();
 }
