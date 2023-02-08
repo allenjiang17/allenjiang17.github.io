@@ -1,11 +1,11 @@
 //Main Initialization Sequence
 
-console.log(localStorage.getItem("song_database"));
-console.log("testing");
+if (localStorage.getItem("song_database") == null ||
+  localStorage.getItem("song_database") == undefined || 
+  localStorage.getItem("song_database").length == 0) {
 
-if (!localStorage.getItem("song_database")) {
-  console.log("No Existing Database, Initializing From Default Database");
-  initializeDatabase();
+    console.log("No Existing Database, Initializing From Default Database");
+    initializeDatabase();
 }
 
 loadDatabase();
