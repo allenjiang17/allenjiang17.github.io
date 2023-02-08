@@ -1,9 +1,8 @@
 //Main Initialization Sequence
-if (localStorage.getItem("song_database") === null) {
+if (!localStorage.getItem("song_database")) {
   console.log("No Existing Database, Initializing From Default Database");
   initializeDatabase();
 }
-
 
 loadDatabase();
 
@@ -34,7 +33,6 @@ function initializeDatabase() {
 
 function loadDatabase() {
   let song_database = JSON.parse(localStorage.getItem("song_database"));
-  console.log(song_database);
 
   for (let i = 0; i<song_database.length; i++) {
     let newEntry = document.createElement("li");
