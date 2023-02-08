@@ -67,16 +67,15 @@ function loadDatabase() {
       let newDeleteButton_edit = document.createElement("img");
         newDeleteButton_edit.className = "set_delete";
         newDeleteButton_edit.setAttribute("src", "icons/trash-fill.svg");
-        newDeleteButton_edit.addEventListener("click", removePersonalSong);
+        newDeleteButton_edit.addEventListener("click", removeSongInLibrary);
 
       let newEditButton_edit = document.createElement("img");
         newEditButton_edit.className = "set_delete";
         newEditButton_edit.setAttribute("src", "icons/pencil-square.svg");
-        //TODO: newEditButton_edit.addEventListener("click", );
+        newEditButton_edit.addEventListener("click", editSongPopUp);
 
       newButtonZone_edit.appendChild(newEditButton_edit);
       newButtonZone_edit.appendChild(newDeleteButton_edit);
-
 
       newEntry_edit.appendChild(newTitle_edit);
       newEntry_edit.appendChild(newButtonZone_edit);

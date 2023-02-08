@@ -475,7 +475,7 @@ h1{
    border-radius: 1vw;
 }
 
-#popup-addsong{
+#popup-addsong, #popup-editsong{
    width: 50vw;
    top: 15vh;
    left:25vw;
@@ -518,7 +518,7 @@ h1{
   font-weight:300rem;
 }
 
-#song_sheet_input {
+#song_sheet_input, #edit_song_sheet_input {
   width: 100%;
   height: calc(70vh - 300px);
 }

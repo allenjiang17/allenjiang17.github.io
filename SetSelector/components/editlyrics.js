@@ -22,13 +22,28 @@ function editLyricsPopUp() {
   }
   
   function editLyrics() {
-    //TODO: make this persist longer in local storage, as refreshing the page will lose this 
     var target_node = document.querySelector("#set_list_items > li[data-song-no='" +  String(CURRENT_SET_SONG_NO) + "']");
-    target_node.setAttribute("data-lyrics", document.getElementById("edit_lyrics_input").value);
+    console.log(target_node.getAttribute("data-id"));
+
+    //change in database
+    let song_database = JSON.parse(localStorage.getItem("song_database"));
   
+    for (let i=0; i<song_database.length;i++) {
+      if (song_database[i].id == target_node.getAttribute("data-id")) {
+  
+          let song = song_database[i];
+          song.lyrics = document.getElementById("edit_lyrics_input").value;
+  
+          localStorage.setItem("song_database", JSON.stringify(song_database));
+      }
+    }
+
+    //change current node as well
+    target_node.setAttribute("data-lyrics", document.getElementById("edit_lyrics_input").value);
+
+    reloadDatabase();
     clearLyrics();
     selectCurrentSong(target_node);
-  
     closeEditLyricsPopUp();
   }
 

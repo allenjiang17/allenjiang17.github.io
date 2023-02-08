@@ -1,7 +1,7 @@
 
 const addsong_html = `
 <div id="popup-addsong" class="popup">
-    <p id="popup-title" class="section_label"> Add Song to Local Library</p>
+    <p id="popup-title" class="section_label"> Add Song to Library</p>
     <img class="popup_close" src="icons/x-circle-fill.svg" onclick="closeAddSongPopUp()">
         <label for="song_title_input" class="form_label">Title</label>
         <input type="text" id="song_title_input" name="song_title_input" class="popup_input" required>
