@@ -1,5 +1,5 @@
 
-const addsong = `
+const addsong_html = `
 <div id="popup-addsong" class="popup">
     <p id="popup-title" class="section_label"> Add Song to Local Library</p>
     <img class="popup_close" src="icons/x-circle-fill.svg" onclick="closeAddSongPopUp()">
@@ -21,25 +21,54 @@ const addsong = `
 `
 
 function addSongPopUp() {
-  closePopUp();
-  document.getElementById("popup-addsong").style.display = "block";
-  document.getElementById("popup-background").style.zIndex = 12;
+  closeEditSongLibraryPopUp();
+
   document.getElementById("addsongpopupplaceholder").style.display = "block";
+  document.getElementById("popup-background").style.display = "block";  
+
   document.getElementById("song_sheet_input").value = 
     document.getElementById("text_entry").value;
 }
 
 function closeAddSongPopUp() {
-  document.getElementById("popup-addsong").style.display = "none";
-  document.getElementById("popup-background").style.zIndex = 10;
+  document.getElementById("addsongpopupplaceholder").style.display = "none";
   document.getElementById("popup-background").style.display = "none";
-  for (let node of document.getElementsByClassName('popup-placeholder')) 
-    node.style.display = "none";
+
+  editSongLibraryPopUp();
+
+}
+
+function addSongSubmit() {
+  //TODO check if all fields have valid entries
+
+  var song = new Object();
+  song.id = String("p" + localStorage.getItem("no_songs_added")+1);
+  console.log("Adding New Song with ID" + song.id);
+
+  song.title = document.getElementById("song_title_input").value;
+  song.author = document.getElementById("song_author_input").value;
+  song.tempo = document.getElementById("song_tempo_input").value;
+  song.sheet = document.getElementById("song_sheet_input").value;
+  song.lyrics = remove_chord_lines(song.sheet);
+
+  var song_database = JSON.parse(localStorage.getItem("song_database"));
+  song_database.push(song);
+  localStorage.setItem("song_database", JSON.stringify(song_database));
+  console.log(localStorage.getItem("song_database"));
+
+  //close popup
+  document.getElementById("popup-addsong").style.display = "none";
+  document.getElementById("popup-background").style.display = "none";
+
+  reloadDatabase();
 }
 
 
+
+
+//Initialize Add Song Pop Up into Placeholder in main html
 function reloadAddSong() {
-  document.getElementById("addsongpopupplaceholder").innerHTML = addsong;
+  document.getElementById("addsongpopupplaceholder").innerHTML = addsong_html;
 }
 
 reloadAddSong(); 

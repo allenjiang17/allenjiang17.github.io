@@ -1,7 +1,7 @@
-function editSongLibraryPopUp(){
+/*function editSongLibraryPopUp(){
   document.getElementById("popup-editlibrary").style.display = "block";
   document.getElementById("popup-background").style.display = "block";
-  
+
 }
 
 function closeEditSongLibraryPopUp() {
@@ -101,3 +101,5 @@ function downloadPersonalLibrary(){
     URL.revokeObjectURL(a.href);
   }
 }
+
+*/

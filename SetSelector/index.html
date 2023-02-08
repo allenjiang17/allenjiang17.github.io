@@ -16,45 +16,14 @@
 === POPUP STUFF ===============================================================
 -->
 
-<div id="popup-editlibrary" class="popup">
-    <p class="section_label" style="font-size: 1.3rem"> Personal Song Library</p>
-    <img class="popup_close" src="icons/x-circle-fill.svg" onclick="closeEditSongLibraryPopUp()">
-    <div id="popup-personal_search_content" class="search_bar_content">
-    <ul id="popup-personal_search_results" class="search_results"></ul>
-    </div>
-    <button class="dashboard_button" style="width:fit-content; margin-top:1rem;" onclick="addSongPopUp()"> Add Song</button>
-
-    <p class="section_label" style="margin-top:2rem" 
-      title="If you would like to save your personal library, you can download 
-      it as a JSON file, or upload one.">
-      Uploading/Exporting Your Personal Library</p>
-    <div class="clickable_link" onclick="resetLocalDatabase()"> Reset to Default SSM Library </div>
-    <br>
-    <div class="clickable_link" onclick="downloadPersonalLibrary()" style="margin:0"> 
-      <img class="icon_button" src="icons/database-down.svg" onclick="downloadPersonalLibrary()" style="display:inline">
-      Save Personal Library as a JSON File
-    </div>
-    <br>
-    <div style="margin:0"> 
-      <div class="clickable_link" onclick="readJSONDatabase()" style="display:inline-block"> 
-        <img class="icon_button" src="icons/database-up.svg" onclick="readJSONDatabase()" style="display:inline-block">
-        Upload a Personal Library Database File (JSON) 
-      </div>
-        <p class="small_label" style="margin:0.1rem">This will replace your current library with the uploaded database</p>
-        <input id="database_reader" type="file" style="font-size:0.7rem" class="popup_input" accept=".json">
-    </div> 
-</div>
-<div id="popup-editlyrics" class="popup">
-  <p class="section_label"> Edit Lyrics</p>
-  <img class="popup_close" src="icons/x-circle-fill.svg" onclick="closeEditLyricsPopUp()">
-  <textarea id="edit_lyrics_input" class="popup_input" placeholder="Use two blank lines to separate verse/chorus/etc."></textarea>
-  <button id="edit_lyrics_submit" clsas="popup_input" onclick="editLyrics()"> Submit Changes (Saved Locally Only)</button>
-</div>
-<div id="popup-background" class="popup-background" onclick="closePopUp()"></div>
-
+<div id="popup-background" class="popup-background" onclick="closeAllPopUp()"></div>
+<div id="editlibrarypopupplaceholder" style="display:none" 
+  class="popup-placeholder"></div>
 <div id="addsongpopupplaceholder" style="display:none" 
   class="popup-placeholder"></div>
 <div id="tutorialpopupplaceholder" style="display:none" 
+  class="popup-placeholder"></div>
+  <div id="editlyricspopupplaceholder" style="display:none" 
   class="popup-placeholder"></div>
 <!-- 
 === END POPUP STUFF ===========================================================
@@ -234,11 +203,15 @@
 <script src="functions.js"></script>
 <script src="lyriclist.js"></script>
 <script src="keystrokes.js"></script>
-<script src="database_UG.js"></script>
-<script src="database_load.js"></script>
 <script src="components/tutorialpopup.js"></script>
 <script src="components/addsong.js"></script>
+<script src="components/editlibrary.js"></script>
+<script src="components/editlyrics.js"></script>
 <script type="module" src="exportset.js"></script>
+
+
+<script src="database_UG.js"></script>
+<script src="database_load.js"></script>
 
 </body>
 </html>

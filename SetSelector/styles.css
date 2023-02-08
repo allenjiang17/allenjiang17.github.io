@@ -464,7 +464,7 @@ h1{
  * ===========================================================================
 */
 .popup{
-  display:none;
+  /*display:none;*/
   box-sizing: border-box;
   background-color: white;
   position: fixed;
