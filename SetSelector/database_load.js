@@ -32,25 +32,25 @@ function initializeDatabase() {
 }
 
 function loadDatabase() {
-  let song_database = JSON.parse(localStorage.getItem("song_database"));
+  SONG_DATABASE = JSON.parse(localStorage.getItem("song_database"));
 
-  for (let i = 0; i<song_database.length; i++) {
+  for (let i = 0; i<SONG_DATABASE.length; i++) {
     let newEntry = document.createElement("li");
     let newTitle = document.createElement("div");
 
-      newEntry.setAttribute("id", "song" + song_database[i].id);
+      newEntry.setAttribute("id", "song" + SONG_DATABASE[i].id);
       newEntry.className = "search_list";
-      newEntry.setAttribute("data-id", song_database[i].id);
-      newEntry.setAttribute("data-author", song_database[i].author);
-      newEntry.setAttribute("data-tempo", song_database[i].tempo);
-      newEntry.setAttribute("data-sheet", song_database[i].sheet);
-      newEntry.setAttribute("data-lyrics", song_database[i].lyrics);
+      newEntry.setAttribute("data-id", SONG_DATABASE[i].id);
+      newEntry.setAttribute("data-author", SONG_DATABASE[i].author);
+      newEntry.setAttribute("data-tempo", SONG_DATABASE[i].tempo);
+      newEntry.setAttribute("data-sheet", SONG_DATABASE[i].sheet);
+      newEntry.setAttribute("data-lyrics", SONG_DATABASE[i].lyrics);
       newEntry.addEventListener("click", addFromSearch);
       newEntry.addEventListener("dblclick", addSongToSetDblClick);
 
-      newTitle.setAttribute("id", "song-title" + song_database[i].id);
+      newTitle.setAttribute("id", "song-title" + SONG_DATABASE[i].id);
       newTitle.className = "search_list_title";
-      newTitle.innerText = song_database[i].title;
+      newTitle.innerText = SONG_DATABASE[i].title;
 
       newEntry.appendChild(newTitle);
       document.getElementById("search_results").appendChild(newEntry);
@@ -58,10 +58,14 @@ function loadDatabase() {
       //add to edit library popup search
       let newEntry_edit= document.createElement("li");
       let newTitle_edit = document.createElement("div");
+      newEntry_edit.setAttribute("data-id", SONG_DATABASE[i].id);
+      newEntry_edit.setAttribute("data-author", SONG_DATABASE[i].author);
+      newEntry_edit.setAttribute("data-tempo", SONG_DATABASE[i].tempo);
+      newEntry_edit.setAttribute("data-sheet", SONG_DATABASE[i].sheet);
+      newEntry_edit.setAttribute("data-lyrics", SONG_DATABASE[i].lyrics);
       newEntry_edit.className = "set_list_item";
       newTitle_edit.className = "set_title";
-      newTitle_edit.innerText = innerText = song_database[i].title;
-
+      newTitle_edit.innerText = innerText = SONG_DATABASE[i].title;
 
       let newButtonZone_edit = document.createElement("div");
       let newDeleteButton_edit = document.createElement("img");

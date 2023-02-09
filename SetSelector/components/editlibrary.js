@@ -70,19 +70,13 @@ function editSongLibraryPopUp(){
     document.getElementById("editsongpopupplaceholder").style.display = "block";
     document.getElementById("popup-background").style.display = "block";
 
-    let target_title = this.parentNode.parentNode.firstChild.innerText;
-    let song_database = JSON.parse(localStorage.getItem("song_database"));
-  
-    for (let i=0; i<song_database.length;i++) {
-      if (song_database[i].title == target_title) {
-  
-          let song = song_database[i];         
-          document.getElementById("edit_song_title_input").value = song.title;
-          document.getElementById("edit_song_author_input").value = song.author;
-          document.getElementById("edit_song_tempo_input").value = song.tempo;
-          document.getElementById("edit_song_sheet_input").value = song.sheet;
-      }
-    }
+    let search_id = this.parentNode.parentNode.getAttribute("data-id");
+    let song = SONG_DATABASE.find(s=>s.id == search_id);
+    
+    document.getElementById("edit_song_title_input").value = song.title;
+    document.getElementById("edit_song_author_input").value = song.author;
+    document.getElementById("edit_song_tempo_input").value = song.tempo;
+    document.getElementById("edit_song_sheet_input").value = song.sheet;
   
   }
 
@@ -102,48 +96,28 @@ function editSongLibraryPopUp(){
   function removeSongInLibrary() {
     if (confirm("Remove Song from Library?")) {
 
-      let target_title = this.parentNode.parentNode.firstChild.innerText;
-      console.log(target_title)
+      let search_id = this.parentNode.parentNode.getAttribute("data-id");
+      let song_index = SONG_DATABASE.findIndex(s=>s.id == search_id);
 
-      let song_database = JSON.parse(localStorage.getItem("song_database"));
-
-      for (let i=0; i<song_database.length;i++) {
-        console.log(song_database[i].title);
-
-        if (song_database[i].title == target_title) {
-            song_database.splice(i, 1);
-            localStorage.setItem("song_database", JSON.stringify(song_database));
-            console.log(target_title + " removed");
-
-            reloadDatabase();
-        }
-      }
+      SONG_DATABASE.splice(song_index, 1);
+      
+      localStorage.setItem("song_database", JSON.stringify(SONG_DATABASE));
+      reloadDatabase();
+      
   }
 }
 
-
 function editSongInLibrarySubmit() {
   let target_title = document.getElementById("edit_song_title_input").value;
+  let song = SONG_DATABASE.find(s=>s.title == target_title);
 
-  let song_database = JSON.parse(localStorage.getItem("song_database"));
+  song.author = document.getElementById("edit_song_author_input").value;
+  song.tempo = document.getElementById("edit_song_tempo_input").value;
+  song.sheet = document.getElementById("edit_song_sheet_input").value;
 
-  for (let i=0; i<song_database.length;i++) {
-
-    if (song_database[i].title == target_title) {
-
-        let song = song_database[i];
-        song.author = document.getElementById("edit_song_author_input").value;
-        song.tempo = document.getElementById("edit_song_tempo_input").value;
-        song.sheet = document.getElementById("edit_song_sheet_input").value;
-
-        localStorage.setItem("song_database", JSON.stringify(song_database));
-        reloadDatabase();
-    }
-  }
-
+  localStorage.setItem("song_database", JSON.stringify(SONG_DATABASE));
+  reloadDatabase();
   closeEditSongPopUp();
-
-
 }
 
 function resetLocalDatabase(){

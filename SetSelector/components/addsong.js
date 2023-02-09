@@ -51,10 +51,8 @@ function addSongSubmit() {
   song.sheet = document.getElementById("song_sheet_input").value;
   song.lyrics = remove_chord_lines(song.sheet);
 
-  var song_database = JSON.parse(localStorage.getItem("song_database"));
-  song_database.push(song);
-  localStorage.setItem("song_database", JSON.stringify(song_database));
-  console.log(localStorage.getItem("song_database"));
+  SONG_DATABASE.push(song);
+  localStorage.setItem("song_database", JSON.stringify(SONG_DATABASE));
 
   //close popup
   document.getElementById("popup-addsong").style.display = "none";

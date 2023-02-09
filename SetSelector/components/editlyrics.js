@@ -11,9 +11,15 @@ function editLyricsPopUp() {
     document.getElementById("editlyricspopupplaceholder").style.display = "block";
     document.getElementById("popup-background").style.display = "block";
 
+    let search_id = CURRENT_SONG_ID;
+    let song = SONG_DATABASE.find(s=>s.id == search_id);
+    document.getElementById("edit_lyrics_input").value = song.lyrics;
+
+
+    /*OLD WAY
     document.getElementById("edit_lyrics_input").value = 
     document.querySelector("#set_list_items > li[data-song-no='" + 
-      String(CURRENT_SET_SONG_NO) + "']").getAttribute("data-lyrics");
+      String(CURRENT_SET_SONG_NO) + "']").getAttribute("data-lyrics");*/
   }
   
   function closeEditLyricsPopUp() {
@@ -22,28 +28,26 @@ function editLyricsPopUp() {
   }
   
   function editLyrics() {
-    var target_node = document.querySelector("#set_list_items > li[data-song-no='" +  String(CURRENT_SET_SONG_NO) + "']");
-    console.log(target_node.getAttribute("data-id"));
+    //change lyrics in database
+    let search_id = CURRENT_SONG_ID;
+    let song = SONG_DATABASE.find(s=>s.id == search_id);
+    song.lyrics = document.getElementById("edit_lyrics_input").value;
+    localStorage.setItem("song_database", JSON.stringify(SONG_DATABASE));
 
-    //change in database
-    let song_database = JSON.parse(localStorage.getItem("song_database"));
-  
-    for (let i=0; i<song_database.length;i++) {
-      if (song_database[i].id == target_node.getAttribute("data-id")) {
-  
-          let song = song_database[i];
-          song.lyrics = document.getElementById("edit_lyrics_input").value;
-  
-          localStorage.setItem("song_database", JSON.stringify(song_database));
-      }
-    }
-
-    //change current node as well
-    target_node.setAttribute("data-lyrics", document.getElementById("edit_lyrics_input").value);
-
+    //refresh lyrics and database
     reloadDatabase();
     clearLyrics();
-    selectCurrentSong(target_node);
+
+    //if selected from set list, change lyrics in current node as well (as reload database does not change it)
+    //select the current song as well
+    let target_node = document.querySelector("#set_list_items > li[data-song-no='" + String(CURRENT_SET_SONG_NO) + "']");
+
+    if (target_node !== null) {
+      target_node.setAttribute("data-lyrics", document.getElementById("edit_lyrics_input").value);
+      selectCurrentSong(target_node);
+    }
+
+    //close popup
     closeEditLyricsPopUp();
   }
 
