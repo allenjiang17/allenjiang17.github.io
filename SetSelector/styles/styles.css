@@ -392,6 +392,7 @@ h1{
   width: 1.3rem;
   cursor: pointer;
 }
+#cast_button.selected,
 #blackscreen_button.selected{
   background-color: rgb(234, 207, 163);
 }

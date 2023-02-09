@@ -33,6 +33,10 @@ function switchMedia() {
   }
 }
 
+window.addEventListener("beforeunload", (event) => {
+  if(presentwindow != null) { presentwindow.close(); presentwindow = null; }
+});
+
 function toggleFullscreen() {
   if(presentwindow == null) { presentMedia(); }
   else { presentwindow.close(); }
@@ -70,10 +74,12 @@ function presentWindowConstructor() {
       +  String(CURRENT_LYRIC) + "']").getAttribute("lyric");
   if(SCREEN_HIDDEN) {setPresBlack(false)}
   updateFontSize();
+  document.getElementById('cast_button').classList.add("selected");
 }
 
 function presentWindowDestructor() {
   console.log('cancel presentation')
+  document.getElementById('cast_button').classList.remove("selected");
   presentwindow = null;
 }
 
