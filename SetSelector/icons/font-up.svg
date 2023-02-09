@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="16"
+   height="16"
+   fill="currentColor"
+   class="bi bi-sort-alpha-down"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg828"
+   sodipodi:docname="font-up.svg"
+   inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs832" />
+  <sodipodi:namedview
+     id="namedview830"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="18.834473"
+     inkscape:cx="4.1147954"
+     inkscape:cy="11.707256"
+     inkscape:window-width="1312"
+     inkscape:window-height="847"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg828" />
+  <g
+     id="g1646">
+    <path
+       fill-rule="evenodd"
+       d="M 7.1831981,8.7916135 6.8028862,10.039 H 5.833 L 7.4606984,5.1877492 H 8.5834372 L 10.203857,10.039 H 9.1848394 L 8.8036177,8.7916135 Z M 8.6116421,8.0773915 8.0184284,6.1148731 H 7.9756661 L 7.3824524,8.0773915 Z"
+       id="path914"
+       style="stroke-width:0.909837" />
+    <path
+       d="m 4.5,13.501168 c 0,0.666666 -1,0.666666 -1,0 V 3.7081678 l -1.146,1.147 c -0.4719998,0.472 -1.1799998,-0.236 -0.708,-0.708 l 2,-1.999 0.007,-0.007 c 0.1954018,-0.190538 0.5078931,-0.18786 0.7,0.006 l 2,2 c 0.4719998,0.471333 -0.2350002,1.179333 -0.707,0.708 l -1.146,-1.147 z"
+       id="path916"
+       sodipodi:nodetypes="sscccccccccs" />
+    <path
+       fill-rule="evenodd"
+       d="M 11.206997,9.1122448 10.924442,10.039 h -0.720585 l 1.209311,-3.6042738 h 0.834148 L 13.451219,10.039 H 12.694132 L 12.4109,9.1122448 Z M 12.268271,8.581608 11.827538,7.12354 h -0.03177 l -0.440733,1.458068 z"
+       id="path1450"
+       style="stroke-width:0.67597" />
+  </g>
+</svg>
