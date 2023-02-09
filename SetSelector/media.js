@@ -97,11 +97,13 @@ function blackScreen() {
     setPresBlack(true);
     SCREEN_HIDDEN = false;
     document.getElementById('blackscreen_button').classList.remove("selected");
+    document.getElementById('blackscreen_button').src = "icons/back.svg";
   } else {
     pres1.style.opacity = '0.2';
     setPresBlack(false);
     SCREEN_HIDDEN = true;
     document.getElementById('blackscreen_button').classList.add("selected");
+    document.getElementById('blackscreen_button').src = "icons/back2.svg";
   }
 }
 

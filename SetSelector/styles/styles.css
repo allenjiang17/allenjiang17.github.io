@@ -393,7 +393,7 @@ h1{
   cursor: pointer;
 }
 #blackscreen_button.selected{
-  filter: invert(70%) sepia(0%) saturate(0%) hue-rotate(171deg) brightness(90%) contrast(89%);
+  background-color: rgb(184, 157, 113);
 }
 .media_dashboard_button:hover{
   background-color:rgb(224, 197, 153);
