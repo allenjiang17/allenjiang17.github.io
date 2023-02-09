@@ -9,8 +9,8 @@ function nightmode() {
     const mode2 = document.querySelector("#themetoggle");
     const icon = document.querySelector("#nightmode");
     if (icon.getAttribute('src') == "icons/sun.svg") {
-        mode.href = "styles.dark.css"
-        mode2.href = "styles.dark.css"
+        mode.href = "styles/styles.dark.css"
+        mode2.href = "styles/styles.dark.css"
         icon.src = "icons/moon.svg"
     } else {
         mode.href = ""
