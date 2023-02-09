@@ -108,12 +108,12 @@ function blackScreen() {
 }
 
 function increaseFontSize() {
-  PRESENTFS = PRESENTFS + 1;
+  PRESENTFS = PRESENTFS + 0.5;
   updateFontSize();
 }
 
 function decreaseFontSize() {
-  PRESENTFS = PRESENTFS - 1;
+  PRESENTFS = PRESENTFS - 0.5;
   updateFontSize();
 }
 
