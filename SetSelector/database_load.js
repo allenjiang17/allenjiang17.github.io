@@ -21,7 +21,7 @@ function initializeDatabase() {
     song.author = DATABASE[i].author;
     song.tempo = DATABASE[i].tempo;
     song.sheet = DATABASE[i].sheet;
-    song.lyrics = remove_chord_lines(song.sheet);
+    song.lyrics = DATABASE[i].lyrics;
 
     song_database.push(song);
   }
