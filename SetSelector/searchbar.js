@@ -77,6 +77,7 @@ function shuffle() {
   CURRENT_SONG_ID = e.getAttribute("data-id");
   selectSong(e);
   e.classList.add('selected')
+  e.scrollIntoView({block: 'center', behavior: "smooth"})
   updateKey();
 }
 
