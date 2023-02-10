@@ -23,7 +23,7 @@ body{
 #nightmode,
 #edit_lyrics_button,
 #media_button,
-#addToDatabase {
+.icon_button {
   filter: invert(90%) sepia(9%) saturate(494%) hue-rotate(173deg) brightness(90%) contrast(90%); 
   /* svg color change to #BCCCDC */
 }
@@ -33,7 +33,7 @@ body{
 #nightmode:hover,
 #edit_lyrics_button,
 #media_button:hover,
-#addToDatabase:hover {
+.icon_button:hover {
   filter: invert(98%) sepia(6%) saturate(443%) hue-rotate(272deg) brightness(117%) contrast(87%);
   /* svg color change to white(?) */
 }
