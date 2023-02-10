@@ -91,6 +91,9 @@ function editSongLibraryPopUp(){
   function closeAllPopUp() {
     for (let node of document.getElementsByClassName('popup-placeholder')) 
       node.style.display = "none";
+      document.getElementById("popup-background").style.display = "none";
+
+
   }
 
   function removeSongInLibrary() {
