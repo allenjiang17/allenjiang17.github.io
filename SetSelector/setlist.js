@@ -59,7 +59,6 @@ function getSetLength() {
 }
 
 function selectSong(e) {
-  console.log(e);
   let targetElement;
   if(typeof(e) == "number") {
       const lyric_list = document.getElementById('set_list_items')
@@ -77,6 +76,14 @@ function selectSong(e) {
       targetElement = e.currentTarget;
   }
   selectCurrentSong(targetElement);
+}
+
+function splitScreen() {
+    const text = document.getElementById("text_entry");
+    text.addEventListener("scroll", (event) => {});
+    text.addEventListener("input", (event) => {});
+    // overflow:hidden;
+    // (text.scrollTop + text.offsetHeight) / text.scrollHeight;
 }
 
 function selectCurrentSong(targetElement) {

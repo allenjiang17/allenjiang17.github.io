@@ -287,6 +287,7 @@ h1{
   margin-top:0.3rem;
   color: gray;
   font-weight:900;
+  cursor:pointer;
 }
 
 .minimize_button_top:hover {
