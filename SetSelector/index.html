@@ -83,16 +83,14 @@
                 <option value="Intercessory">Intercessory</option>
             </select>
             </label>
-            <!-- <div class="tooltip"> -->
-            <img class="icon_button" style="width:1.1rem" id="addToDatabase" 
-               src="icons/upload.svg" onclick="editSongLibraryPopUp()"
-               title="Add/remove songs from your personal library">
-                <!--
-                <span class="tooltiptext tttright">
-                    Add/remove songs from your personal library
-                </span>
+            <div>
+              <img class="icon_button" style="width:1.1rem; margin-right:0.5rem" 
+                 id="shuffle" src="icons/shuffle.svg" onclick="shuffle()"
+                 title="Holy Flip">
+              <img class="icon_button" style="width:1.1rem" id="addToDatabase" 
+                 src="icons/upload.svg" onclick="editSongLibraryPopUp()"
+                 title="Add/remove songs from your personal library">
             </div>
-                -->
         </div>
         </div>
         <p id="set_list_label" class = "section_label">Set List</p>
@@ -145,11 +143,11 @@
           <div style="display: inline-block">
             <img class="media_dashboard_button"
               id="fontdecrease_button"
-              src="icons/sort-alpha-down.svg"
+              src="icons/font-down.svg"
               onclick="decreaseFontSize()" title="decrease font size">
             <img class="media_dashboard_button"
               id="fontincrease_button"
-              src="icons/sort-alpha-up.svg"
+              src="icons/font-up.svg"
               onclick="increaseFontSize()" title="increase font size">
             <img class="media_dashboard_button" 
               id="blackscreen_button" 

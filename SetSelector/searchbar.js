@@ -68,12 +68,25 @@ function addFromSearch() {
   updateKey();
 }
 
+function shuffle() {
+  const list_of_songs = document.getElementById("search_results")
+    .getElementsByTagName("li");
+  const e = list_of_songs[Math.floor(Math.random() * list_of_songs.length)]
+  unselectSearchList();
+  unselectSetList();
+  CURRENT_SONG_ID = e.getAttribute("data-id");
+  selectSong(e);
+  e.classList.add('selected')
+  e.scrollIntoView({block: 'center', behavior: "smooth"})
+  updateKey();
+}
+
 function unselectSearchList() {
   var list_of_songs = document.getElementById("search_results")
-  .getElementsByTagName("li");
-for (let i=0; i<list_of_songs.length; i++) {
-  list_of_songs[i].classList.remove("selected");
-}
+    .getElementsByTagName("li");
+  for (let i=0; i<list_of_songs.length; i++) {
+    list_of_songs[i].classList.remove("selected");
+  }
 }
 
 function changeSongsVisibility() {

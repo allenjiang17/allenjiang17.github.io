@@ -33,6 +33,10 @@ function switchMedia() {
   }
 }
 
+window.addEventListener("beforeunload", (event) => {
+  if(presentwindow != null) { presentwindow.close(); presentwindow = null; }
+});
+
 function toggleFullscreen() {
   if(presentwindow == null) { presentMedia(); }
   else { presentwindow.close(); }
@@ -70,10 +74,12 @@ function presentWindowConstructor() {
       +  String(CURRENT_LYRIC) + "']").getAttribute("lyric");
   if(SCREEN_HIDDEN) {setPresBlack(false)}
   updateFontSize();
+  document.getElementById('cast_button').classList.add("selected");
 }
 
 function presentWindowDestructor() {
   console.log('cancel presentation')
+  document.getElementById('cast_button').classList.remove("selected");
   presentwindow = null;
 }
 
@@ -97,21 +103,23 @@ function blackScreen() {
     setPresBlack(true);
     SCREEN_HIDDEN = false;
     document.getElementById('blackscreen_button').classList.remove("selected");
+    document.getElementById('blackscreen_button').src = "icons/back.svg";
   } else {
     pres1.style.opacity = '0.2';
     setPresBlack(false);
     SCREEN_HIDDEN = true;
     document.getElementById('blackscreen_button').classList.add("selected");
+    document.getElementById('blackscreen_button').src = "icons/back2.svg";
   }
 }
 
 function increaseFontSize() {
-  PRESENTFS = PRESENTFS + 1;
+  PRESENTFS = PRESENTFS + 0.5;
   updateFontSize();
 }
 
 function decreaseFontSize() {
-  PRESENTFS = PRESENTFS - 1;
+  PRESENTFS = PRESENTFS - 0.5;
   updateFontSize();
 }
 

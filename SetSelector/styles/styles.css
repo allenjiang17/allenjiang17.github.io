@@ -367,7 +367,7 @@ h1{
   border-radius: 0;
 }
 
-#addToDatabase {
+.icon_button {
   box-sizing: border-box;
   display: inline-block;
   height: 1.2rem;
@@ -392,8 +392,9 @@ h1{
   width: 1.3rem;
   cursor: pointer;
 }
+#cast_button.selected,
 #blackscreen_button.selected{
-  filter: invert(70%) sepia(0%) saturate(0%) hue-rotate(171deg) brightness(90%) contrast(89%);
+  background-color: rgb(234, 207, 163);
 }
 .media_dashboard_button:hover{
   background-color:rgb(224, 197, 153);
