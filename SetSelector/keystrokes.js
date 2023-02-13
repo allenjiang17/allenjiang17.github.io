@@ -1,6 +1,6 @@
 function executeKeyStrokes(e) {
-
-  if (document.activeElement == document.getElementById("set_list")) {
+  const obj = document.activeElement;
+  if (obj == document.getElementById("set_list")) {
 
     var set_list = document.getElementById("set_list_items");
     var set_list_array = [];
@@ -23,7 +23,11 @@ function executeKeyStrokes(e) {
           selectCurrentSong(set_list_array[target_index+1]);
           e.preventDefault();
       } 
+  } else if(obj.tagName.toLowerCase() === 'textarea'){
+    // is a text box
+    return;
   } else {
+    
       const lyricbox = document.getElementById('lyric_results');
       if (e.keyCode == "38") { //up arrow
         const lyric = previousLyric();
