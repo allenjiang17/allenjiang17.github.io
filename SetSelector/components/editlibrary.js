@@ -162,14 +162,13 @@ function downloadPersonalLibrary(){
 
 //Initialize Edit Library Pop Up into Placeholder in main html
 function reloadEditLibrary() {
-    document.getElementById("editlibrarypopupplaceholder").innerHTML = editLibrary_html;
-  }
+    document.getElementById("editlibrarypopupplaceholder")
+      .innerHTML = editLibrary_html;
+}
   
 function reloadEditSong() {
   document.getElementById("editsongpopupplaceholder").innerHTML = editSong_html;
-
-
 }
 
-  reloadEditLibrary(); 
-  reloadEditSong();
+reloadEditLibrary(); 
+reloadEditSong();
