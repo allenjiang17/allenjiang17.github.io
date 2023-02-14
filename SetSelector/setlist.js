@@ -78,14 +78,6 @@ function selectSong(e) {
   selectCurrentSong(targetElement);
 }
 
-function splitScreen() {
-    const text = document.getElementById("text_entry");
-    text.addEventListener("scroll", (event) => {});
-    text.addEventListener("input", (event) => {});
-    // overflow:hidden;
-    // (text.scrollTop + text.offsetHeight) / text.scrollHeight;
-}
-
 function selectCurrentSong(targetElement) {
     unselectSetList();
     unselectSearchList();
@@ -101,6 +93,7 @@ function selectCurrentSong(targetElement) {
     for (let j=0; j<lyrics.length; j++) {
         addLyricToList(lyrics[j]);
     }
+    mirrorLyrics();
     targetElement.classList.add("selected");
 }
 
