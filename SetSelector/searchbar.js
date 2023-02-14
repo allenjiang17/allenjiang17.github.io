@@ -1,3 +1,17 @@
+function initializeTempo() {
+    // <option value="Fast">Fast</option>
+    const list = document.getElementById("search_results");
+    const a = list.getElementsByTagName("li");
+    let tempolist = []
+    for (i = 0; i < a.length; i++) {
+        atempos = a[i].getAttribute("data-tempo");
+        for (j=0; j < atempos.length; j++) {
+            if(!tempolist.includes(atempos[j]) {
+            }
+        }
+    }
+}
+
 function filterFunction() {
     var input, filter, ul, li, a, i;
     input = document.getElementById("search_bar");
