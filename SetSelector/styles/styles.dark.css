@@ -159,6 +159,10 @@ h1{
   padding: 2em;
   box-sizing:border-box;
 }
+#splitscreentext {
+  background: var(--layer1);
+  color: var(--texthigh);
+}
 #text_entry:focus{ outline:none; }
 
 .dashboard_button,

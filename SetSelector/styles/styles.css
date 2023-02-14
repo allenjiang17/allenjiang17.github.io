@@ -751,6 +751,7 @@ h1{
   height: calc(99.4% - 120px);
   width:45%;
   border: 1px;
+  cursor: all-scroll;
 }
 #splitscreentext {
   box-sizing: border-box;
@@ -762,4 +763,6 @@ h1{
   border-radius: 0;
   overflow:hidden;
 }
+#splitscreen:focus,
+#splitscreentext:focus { outline:none; }
 
