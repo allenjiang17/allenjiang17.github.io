@@ -7,6 +7,7 @@ const addsong_html = `
         <input type="text" id="song_title_input" name="song_title_input" class="popup_input" required>
         <label for="song_author_input" class="form_label">Author</label>
         <input type="text" id="song_author_input" name="song_author_input" class="popup_input" required>
+        <!--
         <label for="song_tempo_input" class="form_label">Tempo</label>
         <select id="song_tempo_input" class="popup_input" required>
             <option value="Fast">Fast</option>
@@ -14,8 +15,11 @@ const addsong_html = `
             <option value="Slow">Slow</option>
             <option value="Intercessory">Intercessory</option>
         </select>
+        -->
         <label for="song_sheet_input" class="form_label" required>Chord Sheet</label>
-        <textarea id="song_sheet_input" class="popup_input" placeholder="Use two blank lines to separate verse/chorus/etc."></textarea>
+        <textarea id="song_sheet_input" class="popup_input" 
+        placeholder="Use two blank lines to separate verse/chorus/etc. Use TEMPO: line to designate tempo.">
+        </textarea>
         <button id="song_input_submit" class="popup_input" onclick="addSongSubmit()">Add Song</button>
 </div>
 `
@@ -47,9 +51,9 @@ function addSongSubmit() {
 
   song.title = document.getElementById("song_title_input").value;
   song.author = document.getElementById("song_author_input").value;
-  song.tempo = document.getElementById("song_tempo_input").value;
   song.sheet = document.getElementById("song_sheet_input").value;
   song.lyrics = remove_chord_lines(song.sheet);
+  song.tempo = getTempo(song.lyrics);
 
   SONG_DATABASE.push(song);
   localStorage.setItem("song_database", JSON.stringify(SONG_DATABASE));

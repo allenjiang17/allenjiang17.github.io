@@ -5,8 +5,7 @@ function getTempo(lyrics) {
         let l = lyrics[i].trim();
         if(re.test(l)) {
             l = l.replace(re, "");
-            l = l.split(',');
-            return l.map(e => {return e.trim();});
+            return l;
         }
     }
 }

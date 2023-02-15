@@ -7,6 +7,7 @@ if (localStorage.getItem("song_database") == null || localStorage.getItem("song_
 loadDatabase();
 initializeTempo();
 
+
 /**FUNCTIONS */
 
 //initializes the local storage database using the core/default database in the project folder
