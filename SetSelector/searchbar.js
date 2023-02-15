@@ -97,7 +97,13 @@ function addFromSearch() {
 function shuffle() {
   const list_of_songs = document.getElementById("search_results")
     .getElementsByTagName("li");
-  const e = list_of_songs[Math.floor(Math.random() * list_of_songs.length)]
+  let newlist = []
+  for(let i=0; i < list_of_songs.length; i++) {
+    if(window.getComputedStyle(list_of_songs[i], null).display == "block") {
+      newlist.push(list_of_songs[i]);
+    }
+  }
+  const e = newlist[Math.floor(Math.random() * newlist.length)]
   unselectSearchList();
   unselectSetList();
   CURRENT_SONG_ID = e.getAttribute("data-id");
