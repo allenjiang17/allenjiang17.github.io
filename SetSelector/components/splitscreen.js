@@ -12,8 +12,11 @@ function splitscreen() {
 }
 
 function mirrorLyrics() {
-  document.getElementById("splitscreentext").value = 
-      document.getElementById("text_entry").value;
+  let text = document.getElementById("text_entry").value;
+  for (let i=0; i < 40; i++) {
+    text = text + "\n";
+  }
+  document.getElementById("splitscreentext").value = text; 
   mirrorScroll();
 }
 
