@@ -3,7 +3,7 @@ if (localStorage.getItem("song_database") == null || localStorage.getItem("song_
     console.log("No Existing Database, Initializing From Default Database");
     initializeDatabase();
 } else {
-  if (localStorage.getItem("version_date" != VERSION_DATE)) {
+  if (localStorage.getItem("version_date") != VERSION_DATE) {
     console.log("Merging Databases");
     mergeDatabase();
   }
