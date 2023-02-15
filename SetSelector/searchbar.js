@@ -1,15 +1,27 @@
 function initializeTempo() {
-    // <option value="Fast">Fast</option>
-    const list = document.getElementById("search_results");
-    const a = list.getElementsByTagName("li");
-    let tempolist = []
-    for (i = 0; i < a.length; i++) {
-        atempos = a[i].getAttribute("data-tempo");
-        for (j=0; j < atempos.length; j++) {
-            if(!tempolist.includes(atempos[j]) {
-            }
-        }
+  const list = document.getElementById("search_results");
+  const a = list.getElementsByTagName("li");
+  let tempolist = []
+  for (i = 0; i < a.length; i++) {
+    let atempos = a[i].getAttribute("data-tempo");
+    if(atempos.length > 100) {continue;}
+    atempos = atempos.split(/\s*[,\s]\s*/i);
+    for (j=0; j < atempos.length; j++) {
+      let temp = atempos[j].replace(",", "").replace('.', '')
+          .trim().toLowerCase();
+      if(temp.length > 20 | temp.length < 1) {continue;}
+      if(!tempolist.includes(temp)) {
+        tempolist.push(temp);
+      }
     }
+  }
+  const temposelect = document.getElementById('tempo_options');
+  for(i=0; i < tempolist.length; i++) {
+    let opt = document.createElement('option')
+    opt.text = tempolist[i];
+    opt.value = tempolist[i];
+    temposelect.appendChild(opt);
+  }
 }
 
 function filterFunction() {
@@ -19,7 +31,7 @@ function filterFunction() {
     list = document.getElementById("search_results");
     a = list.getElementsByTagName("li");
 
-    var tempo = document.getElementById("tempo_options").value;
+    var tempo = document.getElementById("tempo_options").value.toLowerCase();
 
     //secret able to search the authors
     if (filter.includes("A:")) {
@@ -45,16 +57,16 @@ function filterFunction() {
 
           if (filter.length == 1) {
               if (txtValue.toUpperCase().indexOf(filter) == 0 &&
-                ((a[i].getAttribute("data-tempo").includes(tempo) || 
-                tempo == "Any") )) {
+                ((a[i].getAttribute("data-tempo").toLowerCase().includes(tempo) || 
+                tempo == "any") )) {
                 a[i].style.display = "block";
               } else {
                 a[i].style.display = "none";
               }
           } else {  
               if (txtValue.toUpperCase().indexOf(filter) > -1 &&
-                (a[i].getAttribute("data-tempo").includes(tempo) || 
-                tempo == "Any")) {
+                (a[i].getAttribute("data-tempo").toLowerCase().includes(tempo) || 
+                tempo == "any")) {
                 a[i].style.display = "block";
               } else {
                 a[i].style.display = "none";
@@ -103,6 +115,7 @@ function unselectSearchList() {
   }
 }
 
+/*
 function changeSongsVisibility() {
   
   var songs_dashboard = document.getElementById("songs_dashboard");
@@ -116,9 +129,6 @@ function changeSongsVisibility() {
   }
 }
 
-
-
-/*
 function hideChords() {
 
   var button = document.getElementById("hideChords");

@@ -5,6 +5,7 @@ if (localStorage.getItem("song_database") == null || localStorage.getItem("song_
 }
 
 loadDatabase();
+initializeTempo();
 
 /**FUNCTIONS */
 
