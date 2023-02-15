@@ -31,7 +31,7 @@ function addSongPopUp() {
   document.getElementById("popup-background").style.display = "block";  
 
   document.getElementById("song_sheet_input").value = 
-    document.getElementById("text_entry").value;
+      document.getElementById("text_entry").value;
 }
 
 function closeAddSongPopUp() {

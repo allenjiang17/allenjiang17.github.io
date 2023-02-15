@@ -70,6 +70,7 @@ function loadDatabase() {
       newTitle_edit.innerText = innerText = SONG_DATABASE[i].title;
 
       let newButtonZone_edit = document.createElement("div");
+      newButtonZone_edit.style.marginRight = "10px";
       let newDeleteButton_edit = document.createElement("img");
         newDeleteButton_edit.className = "set_delete";
         newDeleteButton_edit.setAttribute("src", "icons/trash-fill.svg");
