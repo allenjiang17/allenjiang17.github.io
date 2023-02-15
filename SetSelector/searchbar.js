@@ -1,5 +1,5 @@
 function initializeTempo() {
-  const list = document.getElementById("search_results");
+  const list = document.getElementById("main_search_results");
   const a = list.getElementsByTagName("li");
   let tempolist = []
   for (i = 0; i < a.length; i++) {
@@ -23,29 +23,38 @@ function initializeTempo() {
     temposelect.appendChild(opt);
   }
 }
+function mainSearch() {
+  var tempo = document.getElementById("tempo_options").value.toLowerCase();
+  filterFunction("main_search_bar", "main_search_results", tempo);
+}
 
-function filterFunction() {
-    var input, filter, ul, li, a, i;
-    input = document.getElementById("search_bar");
-    filter = input.value.toUpperCase();
-    list = document.getElementById("search_results");
+function mobileSearch() {
+
+}
+
+function editLibrarySearch() {
+  filterFunction("library_search_bar", "popup-personal_search_results", "any");
+
+}
+
+function filterFunction(input_id, list_id, filter) {
+    var input = document.getElementById(input_id).value.toUpperCase();
+    list = document.getElementById(list_id);
     a = list.getElementsByTagName("li");
 
-    var tempo = document.getElementById("tempo_options").value.toLowerCase();
-
     //secret able to search the authors
-    if (filter.includes("A:")) {
-      filter = filter.slice(2);
+    if (input.includes("A:")) {
+      input = input.slice(2);
       for (i = 0; i < a.length; i++) {
         txtValue = a[i].getAttribute("data-author");
 
-        if (filter.length == 0) {
-              a[i].style.display = "none";
+        if (input.length == 0) {
+              a[i].classList.add("hidden");
         } else {  
-          if (txtValue.toUpperCase().indexOf(filter) == 0){
-            a[i].style.display = "block";
+          if (txtValue.toUpperCase().indexOf(input) == 0){
+            a[i].classList.remove("hidden");
           } else {
-            a[i].style.display = "none";
+            a[i].classList.add("hidden");
           }
         }
       }
@@ -55,21 +64,21 @@ function filterFunction() {
       for (i = 0; i < a.length; i++) {
         txtValue = a[i].firstChild.textContent || a[i].firstChild.innerText;
 
-          if (filter.length == 1) {
-              if (txtValue.toUpperCase().indexOf(filter) == 0 &&
-                ((a[i].getAttribute("data-tempo").toLowerCase().includes(tempo) || 
-                tempo == "any") )) {
-                a[i].style.display = "block";
-              } else {
-                a[i].style.display = "none";
+          if (input.length == 1) {
+              if (txtValue.toUpperCase().indexOf(input) == 0 &&
+                ((a[i].getAttribute("data-tempo").toLowerCase().includes(filter) || 
+                filter == "any") )) {
+                  a[i].classList.remove("hidden");
+                } else {
+                a[i].classList.add("hidden");
               }
           } else {  
-              if (txtValue.toUpperCase().indexOf(filter) > -1 &&
-                (a[i].getAttribute("data-tempo").toLowerCase().includes(tempo) || 
-                tempo == "any")) {
-                a[i].style.display = "block";
-              } else {
-                a[i].style.display = "none";
+              if (txtValue.toUpperCase().indexOf(input) > -1 &&
+                (a[i].getAttribute("data-tempo").toLowerCase().includes(filter) || 
+                filter == "any")) {
+                  a[i].classList.remove("hidden");
+                } else {
+                a[i].classList.add("hidden");
               }
             }
         
@@ -95,7 +104,7 @@ function addFromSearch() {
 }
 
 function shuffle() {
-  const list_of_songs = document.getElementById("search_results")
+  const list_of_songs = document.getElementById("main_search_results")
     .getElementsByTagName("li");
   let newlist = []
   for(let i=0; i < list_of_songs.length; i++) {
@@ -114,7 +123,7 @@ function shuffle() {
 }
 
 function unselectSearchList() {
-  var list_of_songs = document.getElementById("search_results")
+  var list_of_songs = document.getElementById("main_search_results")
     .getElementsByTagName("li");
   for (let i=0; i<list_of_songs.length; i++) {
     list_of_songs[i].classList.remove("selected");

@@ -48,16 +48,16 @@ function mergeDatabase(){
   for (let i=0; i<DATABASE.length; i++) { 
     var replace_index = song_database.findIndex(song => song.id == DATABASE[i].id);
 
-    if (replace_index == -1 ) {
-      var song = new Object();
-      song.id = DATABASE[i].id;
-      song.title = DATABASE[i].title;
-      song.author = DATABASE[i].author;
-      song.tempo = DATABASE[i].tempo;
-      song.sheet = DATABASE[i].sheet;
-      song.lyrics = DATABASE[i].lyrics;
+    if (replace_index == -1 ) {      
+      var new_song = new Object();
+      new_song.id = DATABASE[i].id;
+      new_song.title = DATABASE[i].title;
+      new_song.author = DATABASE[i].author;
+      new_song.tempo = DATABASE[i].tempo;
+      new_song.sheet = DATABASE[i].sheet;
+      new_song.lyrics = DATABASE[i].lyrics;
 
-      song_database.push(song);
+      song_database.push(new_song);
     } else {
       song_database[replace_index] = DATABASE[i];
     }
@@ -88,7 +88,7 @@ function loadDatabase() {
       newTitle.innerText = SONG_DATABASE[i].title;
 
       newEntry.appendChild(newTitle);
-      document.getElementById("search_results").appendChild(newEntry);
+      document.getElementById("main_search_results").appendChild(newEntry);
 
       //add to edit library popup search
       let newEntry_edit= document.createElement("li");
@@ -141,7 +141,7 @@ function removeChildren(target) {
 }
 
 function dumpDatabase() {
-  removeChildren(document.getElementById("search_results"));
+  removeChildren(document.getElementById("main_search_results"));
   removeChildren(document.getElementById("popup-personal_search_results"));
 }
 

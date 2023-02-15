@@ -11,13 +11,13 @@ function addSongToSet() {
     newEntry.setAttribute("data-id", CURRENT_SONG_ID);
     newEntry.setAttribute("data-key", KEY);
     newEntry.setAttribute("data-sheet", document.getElementById("text_entry").value);
-    newEntry.setAttribute("data-lyrics", document.querySelector("#search_results > li[data-id='" +  String(CURRENT_SONG_ID) + "']").getAttribute("data-lyrics"));
+    newEntry.setAttribute("data-lyrics", document.querySelector("#main_search_results > li[data-id='" +  String(CURRENT_SONG_ID) + "']").getAttribute("data-lyrics"));
     newEntry.className = "set_list_item";
     newEntry.addEventListener("click", selectCurrentSongFromClick);
 
     newTitle.setAttribute("id", "set_title" + current_list.length);
     newTitle.className = "set_title";
-    newTitle.innerText = document.querySelector("#search_results > li[data-id='" +  String(CURRENT_SONG_ID) + "']").firstChild.innerText + " (" + KEY + ")";
+    newTitle.innerText = document.querySelector("#main_search_results > li[data-id='" +  String(CURRENT_SONG_ID) + "']").firstChild.innerText + " (" + KEY + ")";
 
     newButton.setAttribute("id", "set_button" + current_list.length);
     newButton.setAttribute("src", "icons/x-lg.svg");
@@ -36,8 +36,8 @@ function addSongToSetDblClick(){
   // into the text-entry
   CURRENT_SONG_ID = this.getAttribute("data-id");
   document.getElementById("text_entry").value = this.getAttribute("data-sheet");
-  document.getElementById("search_bar").value = "";
-  filterFunction();
+  document.getElementById("main_search_bar").value = "";
+  mainSearch(); //refresh search results
   updateKey();
 
   // once added to text-entry, use the normal function to add from 

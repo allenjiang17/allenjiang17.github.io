@@ -4,6 +4,8 @@ const editLibrary_html = `
     <p class="section_label" style="font-size: 1.3rem"> Song Library</p>
     <img class="popup_close" src="icons/x-circle-fill.svg" onclick="closeEditSongLibraryPopUp()">
     <div id="popup-personal_search_content" class="search_bar_content">
+    <input type="text" placeholder="Search.." id="library_search_bar" class="search_bar" 
+    onkeyup="editLibrarySearch()">
     <ul id="popup-personal_search_results" class="search_results"></ul>
     </div>
     <button class="dashboard_button" style="width:fit-content; margin-top:1rem;" onclick="addSongPopUp()"> Add Song</button>

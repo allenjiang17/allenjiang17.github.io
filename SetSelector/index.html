@@ -15,7 +15,6 @@
 <!-- 
 === POPUP STUFF ===============================================================
 -->
-
 <div id="popup-background" class="popup-background" onclick="closeAllPopUp()"></div>
 <div id="editlibrarypopupplaceholder" style="display:none" 
   class="popup-placeholder"></div>
@@ -38,6 +37,7 @@
     <h1>Worship Set Selector</h1>
   </div>
   <!-- <div class="tooltip"> -->
+  <div id="chord_media_toggle">
     <div id="chord_toggle" class="toggle selected" onclick="switchMedia()"
       title="toggle chords mode">
       Chords 
@@ -46,6 +46,7 @@
       title="toggle media mode">
       Media
     </div>
+  </div>
   
   <!--<img class="icon_button" id="media_button" src="icons/projector-fill.svg" 
     onclick="switchMedia()">-->
@@ -68,14 +69,14 @@
         </div>
         <div id="songs_dashboard">
         <div id="search_bar_content" class="search_bar_content">
-            <input type="text" placeholder="Search.." id="search_bar" 
-              onkeyup="filterFunction()">
-            <ul id="search_results" class="search_results"></ul>
+            <input type="text" placeholder="Search.." id="main_search_bar" class="search_bar"
+              onkeyup="mainSearch()">
+            <ul id="main_search_results" class="search_results"></ul>
         </div>
         <div id="tempo_dashboard">
             <label id="tempo_label" class="small_label">Tempo:
             <select name="tempo_options" id="tempo_options" 
-                onchange="filterFunction()">
+                onchange="mainSearch()">
                 <option value="Any">Any</option>
                 <!-- Remaining options are dynamically added in searchbar.js -->
             </select>
@@ -212,8 +213,10 @@
 <script type="module" src="exportset.js"></script>
 
 
+<script src="mobile.js"></script>
 <script src="database.js"></script>
 <script src="database_load.js"></script>
+
 
 </body>
 </html>
