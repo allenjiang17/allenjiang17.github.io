@@ -44,19 +44,17 @@ function updateKey() {
     if (key_natures[KEY_INDEX]) {
         KEY = chord_vals[0][KEY_INDEX];
         document.getElementById("key_display").innerText = KEY;
-    
     } else {
         KEY = chord_vals[1][KEY_INDEX];
         document.getElementById("key_display").innerText = KEY;
-
     }   
 }
 
 function transposeText(num_steps) {
     let text = document.getElementById("text_entry").value;
     document.getElementById("text_entry").value = transpose(text, num_steps);
+    mirrorLyrics();
     updateKey();
-
 }
 
 function determine_key(raw_text) {

@@ -75,12 +75,9 @@
         <div id="tempo_dashboard">
             <label id="tempo_label" class="small_label">Tempo:
             <select name="tempo_options" id="tempo_options" 
-              onchange="filterFunction()">
+                onchange="filterFunction()">
                 <option value="Any">Any</option>
-                <option value="Fast">Fast</option>
-                <option value="Medium">Medium</option>
-                <option value="Slow">Slow</option>
-                <option value="Intercessory">Intercessory</option>
+                <!-- Remaining options are dynamically added in searchbar.js -->
             </select>
             </label>
             <div>
@@ -88,7 +85,7 @@
                  id="shuffle" src="icons/shuffle.svg" onclick="shuffle()"
                  title="Holy Flip">
               <img class="icon_button" style="width:1.1rem" id="addToDatabase" 
-                 src="icons/upload.svg" onclick="editSongLibraryPopUp()"
+                 src="icons/library.svg" onclick="editSongLibraryPopUp()"
                  title="Add/remove songs from your personal library">
             </div>
         </div>
@@ -127,9 +124,14 @@
                   class="transpose_button" title="Increase key">
                 <img id="button_minus" src="icons/caret-down-fill.svg" 
                   class="transpose_button" title="Decrease key">
+                <img id="splitscreen_button" 
+                  src="icons/layout-sidebar-inset-reverse.svg" 
+                  class="transpose_button" title="Split screen"
+                  onclick="splitscreen()">
             </div>
         </div>
         <textarea id="text_entry" placeholder="Chord Sheets Here"></textarea>
+        <div id="splitscreen" style="visibility:hidden;"></div>
     </div>
     
 
@@ -202,6 +204,7 @@
 <script src="functions.js"></script>
 <script src="lyriclist.js"></script>
 <script src="keystrokes.js"></script>
+<script src="components/splitscreen.js"></script>
 <script src="components/tutorialpopup.js"></script>
 <script src="components/addsong.js"></script>
 <script src="components/editlibrary.js"></script>

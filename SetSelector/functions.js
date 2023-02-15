@@ -1,4 +1,15 @@
-
+function getTempo(lyrics) {
+    lyrics = lyrics.split('\n');
+    for (let i=0; i < lyrics.length; i++) {
+        let re = new RegExp('^tempo.*:', 'i');
+        let l = lyrics[i].trim();
+        if(re.test(l)) {
+            l = l.replace(re, "");
+            return l;
+        }
+    }
+}
+    
 /* Splits lyrics string into multiple chunks based on newlines
  *
  * @return list of strings

@@ -14,3 +14,6 @@ var KEY;
 var presentwindow = null;
 var SCREEN_HIDDEN = false;
 var PRESENTFS = 6; // font size in vh
+
+
+// DATABASE variable is set in the database.js file

@@ -59,7 +59,6 @@ function getSetLength() {
 }
 
 function selectSong(e) {
-  console.log(e);
   let targetElement;
   if(typeof(e) == "number") {
       const lyric_list = document.getElementById('set_list_items')
@@ -94,6 +93,7 @@ function selectCurrentSong(targetElement) {
     for (let j=0; j<lyrics.length; j++) {
         addLyricToList(lyrics[j]);
     }
+    mirrorLyrics();
     targetElement.classList.add("selected");
 }
 
