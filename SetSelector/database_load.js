@@ -2,6 +2,11 @@
 if (localStorage.getItem("song_database") == null || localStorage.getItem("song_database") == [] || localStorage.getItem("song_database") == "[]") {
     console.log("No Existing Database, Initializing From Default Database");
     initializeDatabase();
+} else {
+  if (localStorage.getItem("version_date" != VERSION_DATE)) {
+    console.log("Merging Databases");
+    mergeDatabase();
+  }
 }
 
 loadDatabase();
@@ -16,7 +21,7 @@ function initializeDatabase() {
 
   for (let i=0; i<DATABASE.length; i++) {    
     var song = new Object();
-    song.id = String("d" + i); //d for default
+    song.id = DATABASE[i].id;
     song.title = DATABASE[i].title;
     song.author = DATABASE[i].author;
     song.tempo = DATABASE[i].tempo;
@@ -29,8 +34,36 @@ function initializeDatabase() {
 
   //set an additional counter for new songs added with "p" personal tag
   localStorage.setItem("no_songs_added", 0);
+
+  //set last modified date
+  localStorage.setItem("version_date", VERSION_DATE);
 }
 
+/**merge as of now spares the personal songs on the local storage, but resets all default database songs to the database */
+function mergeDatabase(){
+  var song_database = JSON.parse(localStorage.getItem("song_database"));
+
+  for (let i=0; i<DATABASE.length; i++) { 
+    var replace_index = song_database.findIndex(song => song.id == DATABASE[i].id);
+
+    if (replace_index == -1 ) {
+      var song = new Object();
+      song.id = DATABASE[i].id;
+      song.title = DATABASE[i].title;
+      song.author = DATABASE[i].author;
+      song.tempo = DATABASE[i].tempo;
+      song.sheet = DATABASE[i].sheet;
+      song.lyrics = DATABASE[i].lyrics;
+
+      song_database.push(song);
+    } else {
+      song_database[replace_index] = DATABASE[i];
+    }
+  }
+
+  localStorage.setItem("song_database", JSON.stringify(song_database));
+  localStorage.setItem("version_date", VERSION_DATE);
+}
 function loadDatabase() {
   SONG_DATABASE = JSON.parse(localStorage.getItem("song_database"));
 
