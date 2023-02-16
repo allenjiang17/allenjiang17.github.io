@@ -14,11 +14,11 @@ Index code:
 11 = G#/Ab  - Ab preferred
 */
 
-const chord_vals = [["A","A#","B","C","C#","D","D#","E","F","F#","G","G#"],
+var chord_vals = [["A","A#","B","C","C#","D","D#","E","F","F#","G","G#"],
               ["A","Bb","B","C","Db","D","Eb","E","F","Gb","G","Ab"]];
 
 //true = sharp; false = flat
-const key_natures = {0: true,
+var key_natures = {0: true,
                1: false,
                2: true,
                3: true,
@@ -43,20 +43,32 @@ function updateKey() {
     KEY_INDEX = determine_key(text);
     let key_display_name;
 
+    console.log("stop1")
+
     if (MOBILE) {
         key_display_name = "mobile_key_display";
     } else {
         key_display_name = "key_display";
     }
 
+    console.log("stop2")
+
+
     //update key on html
     if (key_natures[KEY_INDEX]) {
         KEY = chord_vals[0][KEY_INDEX];
         document.getElementById(key_display_name).innerText = KEY;
+        console.log("stopkey1")
+
     } else {
         KEY = chord_vals[1][KEY_INDEX];
         document.getElementById(key_display_name).innerText = KEY;
+        console.log("stopkey2")
+
     }   
+
+    console.log("stop3")
+
 }
 
 function transposeText(num_steps) {
