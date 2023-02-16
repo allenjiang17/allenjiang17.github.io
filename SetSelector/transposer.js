@@ -39,7 +39,10 @@ document.getElementById("mobile_button_plus").addEventListener("click", function
 document.getElementById("mobile_button_minus").addEventListener("click", function(){transposeText(-1)});
 
 function updateKey() {
+    console.log("stop");
     let text = document.getElementById("text_entry").value;
+
+    console.log("stop0.5");
     KEY_INDEX = determine_key(text);
     let key_display_name;
 
