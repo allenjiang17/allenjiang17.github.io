@@ -106,12 +106,12 @@ function addFromSearch() {
 
 function addFromSearchMobile() {
   CURRENT_SONG_ID = this.getAttribute("data-id");
-  selectSong(this);
+  document.getElementById("text_entry").value = this.getAttribute("data-sheet");
   updateKey();
 
   document.getElementById("mobile_search_bar").value = "";
-
   list = document.getElementById("mobile_search_results").getElementsByTagName("li");
+  
   for (let i=0; i<list.length;i++) {
     list[i].classList.add("hidden");
   }

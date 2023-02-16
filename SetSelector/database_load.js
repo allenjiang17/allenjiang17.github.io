@@ -154,7 +154,7 @@ function loadDatabaseMobile() {
       newEntry.appendChild(newTitle);
       newEntry.classList.add("hidden");
       document.getElementById("mobile_search_results").appendChild(newEntry);
-
+      
   }
 
 }

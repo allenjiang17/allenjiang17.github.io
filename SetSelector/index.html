@@ -7,27 +7,44 @@
 <link rel="stylesheet" href="styles/styles.css" id="themedefault">
 <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="styles/styles.dark.css" id="themeos">
 <link rel="stylesheet" href="" id="themetoggle">
+<link rel="stylesheet" href="" id="thememobile">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 </style>
 </head>
 <body>
+
+<!--Mobile Stuff-->
+  <div id="mobile_header" class="hidden">
+    <div id="mobile_bar">
+      <img id="mobile_ssm_icon" src="icons/ssm_icon.png">
+      <div style="display:flex; width: 80%; align-items: center; justify-content:space-between">
+        <input type="text" placeholder="Search.." id="mobile_search_bar">
+        <img src="icons/search.svg" onclick="mobileSearch()" class="icon_button" style="height: 2.1rem; padding:0.5em; margin-left:0.1rem; margin-right:0.1rem; background-color:rgb(200,200,200);">
+      </div>
+      <img src="icons/list.svg" class="icon_button" style="height: 2.1rem; padding:0.5em; margin-left:0.1rem;">
+    </div>
+    <ul id="mobile_search_results"></ul>
+    </div>
+    
+    <div id="mobile_dashboard" class="dashboard hidden">
+      <span class="dashboard_button"  onclick="addSongToSet()" style="font-size:2vh;border-radius:2vh"
+        title="Add song to set with key/chord/lyric changes">
+        Add to Set
+      </span>
+      <div id="transpose_dashboard">
+          <img id="button_plus" src="icons/caret-up-fill.svg" 
+            class="transpose_button" title="Increase key" style="margin:0">
+          <div id="key_display" class="key_display" style="margin:0; text-align:center;">?</div>
+    
+          <img id="button_minus" src="icons/caret-down-fill.svg" 
+            class="transpose_button" title="Decrease key" style="margin:0">
+      </div>
+    </div>
+    
 <!-- 
 === POPUP STUFF ===============================================================
 -->
-
-<div id="mobile_bar" class="hidden">
-  <img id="mobile_ssm_icon" src="icons/ssm_icon.png">
-  <div id="mobile_search_bar_content" class="search_bar_content" style="display:inline-block; width:90%;">
-    <div style="display:flex; align-items: center; background-color: white; justify-content:space-between">
-      <input type="text" placeholder="Search.." id="mobile_search_bar">
-      <img src="icons/search.svg" onclick="mobileSearch()" class="icon_button" style="height: 2.1rem; padding:0.5em; margin-left:0.1rem; margin-right:0.1rem; background-color:rgb(200,200,200);">
-    </div>
-    <ul id="mobile_search_results" class="search_results"></ul>
-  </div>
-  <img src="icons/list.svg" class="icon_button" style="height: 2.1rem; padding:0.5em; margin-left:0.1rem;">
-</div>
-
 <div id="popup-background" class="popup-background" onclick="closeAllPopUp()"></div>
 <div id="editlibrarypopupplaceholder" style="display:none" 
   class="popup-placeholder"></div>
@@ -126,7 +143,7 @@
     </div>
 
     <div id="chord_display" style="display:block">
-        <div class="dashboard">
+        <div id="chord_display_dashboard" class="dashboard">
             <span class="dashboard_button" onclick="addSongToSet()" 
               title="Add song to set with key/chord/lyric changes">
               Add to Set
@@ -210,6 +227,9 @@
 
 <script src="global_variables.js"></script>
 <script src="transposer.js"></script>
+
+<script src="mobile.js"></script>
+
 <script src="searchbar.js"></script>
 <script src="setlist.js"></script>
 <script src="nightmode.js"></script>
@@ -226,7 +246,6 @@
 <script type="module" src="exportset.js"></script>
 
 
-<script src="mobile.js"></script>
 <script src="database.js"></script>
 <script src="database_load.js"></script>
 

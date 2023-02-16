@@ -1,0 +1,74 @@
+#header, #chord_media_toggle, #side_bar, #chord_display_dashboard, #nightmode{
+    display:none;
+}
+
+#wrapper{
+    width:90vw;
+}
+#chord_display{
+    width:100%;
+    margin-top:3rem;
+}
+
+#text_entry{
+    height:calc(100vh - 3.5rem);
+}
+
+#mobile_dashboard{
+    position: fixed; 
+    bottom:10vh; 
+    left: 10vw; 
+    z-index:10; 
+    width:80vw; 
+    border-radius:2rem;
+}
+
+#mobile_ssm_icon{
+    box-sizing: border-box;
+    display: inline-block;
+    height: 1.9rem;
+    margin-right: 1rem;
+  }
+  
+
+#mobile_search_results{
+    margin: 0;
+    background-color: #f6f6f6;
+    overflow: auto;
+    border: 1px solid #ddd; 
+    max-height:35vh;
+}
+
+
+#mobile_header{
+    position: fixed;
+    top:0;
+    left:5vw;
+    right:5vw;
+    z-index:10;
+  }
+  #mobile_header.hidden{
+    display:none;
+  
+  }
+  #mobile_bar{
+    box-sizing: border-box;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding:0.2rem;
+    background-color: white;
+  }
+
+  #mobile_search_bar{
+    box-sizing: border-box;
+    width:100%;
+    font-size:1rem;
+    padding: 0.5em;
+    border: none;
+  }
+  
+  #mobile_dashboard.hidden{
+    display:none;
+  }
