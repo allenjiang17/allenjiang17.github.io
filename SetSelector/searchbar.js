@@ -29,6 +29,7 @@ function mainSearch() {
 }
 
 function mobileSearch() {
+  filterFunction("mobile_search_bar", "mobile_search_results", "any");
 
 }
 
@@ -101,6 +102,20 @@ function addFromSearch() {
   this.classList.add("selected");
  
   updateKey();
+}
+
+function addFromSearchMobile() {
+  CURRENT_SONG_ID = this.getAttribute("data-id");
+  selectSong(this);
+  updateKey();
+
+  document.getElementById("mobile_search_bar").value = "";
+
+  list = document.getElementById("mobile_search_results").getElementsByTagName("li");
+  for (let i=0; i<list.length;i++) {
+    list[i].classList.add("hidden");
+  }
+
 }
 
 function shuffle() {

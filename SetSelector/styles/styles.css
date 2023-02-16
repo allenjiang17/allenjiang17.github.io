@@ -8,7 +8,7 @@ body{
 .svg_icon {
 }
 
-#ssm_icon{
+#ssm_icon, #mobile_ssm_icon{
   box-sizing: border-box;
   display: inline-block;
   height: 1.9rem;
@@ -22,7 +22,6 @@ body{
   margin-left: 1rem;
   cursor: pointer;
 }
-
 
 .toggle{
   position:absolute; 
@@ -83,6 +82,20 @@ body{
   margin-right: 6%;
 }
 
+#mobile_bar{
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding:0.2rem;
+  margin-left:5vw;
+  margin-right:5vw;
+}
+
+#mobile_bar.hidden{
+  display:none;
+}
+
+
 h1{
   display: inline-block;
   margin: 0;
@@ -135,6 +148,15 @@ h1{
 .search_bar {
   box-sizing: border-box;
   width: 100%;
+  font-size:1rem;
+  padding: 0.5em;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#mobile_search_bar{
+  box-sizing: border-box;
+  width:100%;
   font-size:1rem;
   padding: 0.5em;
   border: none;

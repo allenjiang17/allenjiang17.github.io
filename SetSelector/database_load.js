@@ -9,8 +9,12 @@ if (localStorage.getItem("song_database") == null || localStorage.getItem("song_
   }
 }
 
-loadDatabase();
-initializeTempo();
+if (checkMobile()) {
+  loadDatabaseMobile();
+} else {
+  loadDatabase();
+  initializeTempo();
+}
 
 
 /**FUNCTIONS */
@@ -126,6 +130,34 @@ function loadDatabase() {
 
 }
 
+
+function loadDatabaseMobile() {
+  SONG_DATABASE = JSON.parse(localStorage.getItem("song_database"));
+
+  for (let i = 0; i<SONG_DATABASE.length; i++) {
+    let newEntry = document.createElement("li");
+    let newTitle = document.createElement("div");
+
+      newEntry.setAttribute("id", "song" + SONG_DATABASE[i].id);
+      newEntry.classList.add("search_list");
+      newEntry.setAttribute("data-id", SONG_DATABASE[i].id);
+      newEntry.setAttribute("data-author", SONG_DATABASE[i].author);
+      newEntry.setAttribute("data-tempo", SONG_DATABASE[i].tempo);
+      newEntry.setAttribute("data-sheet", SONG_DATABASE[i].sheet);
+      newEntry.setAttribute("data-lyrics", SONG_DATABASE[i].lyrics);
+      newEntry.addEventListener("click", addFromSearchMobile);
+
+      newTitle.setAttribute("id", "song-title" + SONG_DATABASE[i].id);
+      newTitle.className = "search_list_title";
+      newTitle.innerText = SONG_DATABASE[i].title;
+
+      newEntry.appendChild(newTitle);
+      newEntry.classList.add("hidden");
+      document.getElementById("mobile_search_results").appendChild(newEntry);
+
+  }
+
+}
 
 function reloadDatabase() {
   dumpDatabase();
