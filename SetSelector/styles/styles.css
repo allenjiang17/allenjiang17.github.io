@@ -1,14 +1,11 @@
 /**FOR MOBILE
+*/
 #mobile_header.hidden{
   display:none;
-
 }
-
 #mobile_dashboard.hidden{
   display:none;
 }
-*/
-
 
 body{
     /*background-image:url(background_board.jpeg);*/
