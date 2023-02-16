@@ -16,7 +16,7 @@ var SCREEN_HIDDEN = false;
 var PRESENTFS = 6; // font size in vh
 
 //mobile
-var MOBILE = false;
+var MOBILE;
 
 
 // DATABASE variable is set in the database.js file

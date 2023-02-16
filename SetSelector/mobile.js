@@ -1,6 +1,6 @@
 
-
-if (checkMobile()) {
+checkMobile();
+if (MOBILE) {
 
     console.log("mobile detected")
     const mode = document.querySelector("#thememobile");
