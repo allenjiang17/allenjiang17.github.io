@@ -107,9 +107,7 @@ function addFromSearch() {
 function addFromSearchMobile() {
   CURRENT_SONG_ID = this.getAttribute("data-id");
   document.getElementById("text_entry").value = this.getAttribute("data-sheet");
-  console.log("does this work?")
-  updateKey();
-  console.log("what about now?");
+  //updateKey(); //mobile fails to recognize and enter into this function for some reason
 
   document.getElementById("mobile_search_bar").value = "";
   list = document.getElementById("mobile_search_results").getElementsByTagName("li");

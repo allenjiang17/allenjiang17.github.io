@@ -39,14 +39,9 @@ document.getElementById("mobile_button_plus").addEventListener("click", function
 document.getElementById("mobile_button_minus").addEventListener("click", function(){transposeText(-1)});
 
 function updateKey() {
-    console.log("stop");
     let text = document.getElementById("text_entry").value;
-
-    console.log("stop0.5");
     KEY_INDEX = determine_key(text);
     let key_display_name;
-
-    console.log("stop1")
 
     if (MOBILE) {
         key_display_name = "mobile_key_display";
@@ -54,24 +49,16 @@ function updateKey() {
         key_display_name = "key_display";
     }
 
-    console.log("stop2")
-
-
     //update key on html
     if (key_natures[KEY_INDEX]) {
         KEY = chord_vals[0][KEY_INDEX];
         document.getElementById(key_display_name).innerText = KEY;
-        console.log("stopkey1")
 
     } else {
         KEY = chord_vals[1][KEY_INDEX];
         document.getElementById(key_display_name).innerText = KEY;
-        console.log("stopkey2")
 
     }   
-
-    console.log("stop3")
-
 }
 
 function transposeText(num_steps) {
