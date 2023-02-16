@@ -46,21 +46,21 @@ h1{
   color: #F5F5F5;
 }
 
-#search_results {
+#main_search_results {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0.1em;
   padding-bottom: 0.1em;
 }
 
-#search_bar {
+#main_search_bar {
   background-color: var(--layer05);
   color: var(--texthigh);
   border-width: 0 0 1 0;
   border-color: var(--textlow)
 }
 
-#search_bar:focus {outline: 3px solid #BCCCDC;}
+#main_search_bar:focus {outline: 3px solid #BCCCDC;}
 
 #lyric_results,
 .search_bar_content {
