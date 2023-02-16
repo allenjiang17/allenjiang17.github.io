@@ -35,18 +35,27 @@ document.getElementById("text_entry").addEventListener("input", updateKey);
 document.getElementById("button_plus").addEventListener("click", function(){transposeText(+1)});
 document.getElementById("button_minus").addEventListener("click", function(){transposeText(-1)});
 
+document.getElementById("mobile_button_plus").addEventListener("click", function(){transposeText(+1)});
+document.getElementById("mobile_button_minus").addEventListener("click", function(){transposeText(-1)});
 
 function updateKey() {
     let text = document.getElementById("text_entry").value;
     KEY_INDEX = determine_key(text);
+    let key_display_name;
+
+    if (MOBILE) {
+        key_display_name = "mobile_key_display";
+    } else {
+        key_display_name = "key_display";
+    }
 
     //update key on html
     if (key_natures[KEY_INDEX]) {
         KEY = chord_vals[0][KEY_INDEX];
-        document.getElementById("key_display").innerText = KEY;
+        document.getElementById(key_display_name).innerText = KEY;
     } else {
         KEY = chord_vals[1][KEY_INDEX];
-        document.getElementById("key_display").innerText = KEY;
+        document.getElementById(key_display_name).innerText = KEY;
     }   
 }
 

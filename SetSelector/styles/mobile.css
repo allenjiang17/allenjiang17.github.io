@@ -16,7 +16,7 @@
 
 #mobile_dashboard{
     position: fixed; 
-    bottom:10vh; 
+    bottom:5vh; 
     left: 10vw; 
     z-index:10; 
     width:80vw; 
