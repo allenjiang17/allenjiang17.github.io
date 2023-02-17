@@ -126,13 +126,14 @@ function saveSong(song) {
   if(localdb == "[]" | localdb == null) {
     localdb = [];
   }
-  let ind = localdb.find(s => s.id == song.id) 
-  if (ind != -1 & typeof(ind) !== "undefined") {
+  let ind = localdb.findIndex(s => s.id == song.id) 
+  if (ind != -1 && typeof(ind) !== "undefined") {
     localdb[ind] = song;
   } else {
     localdb.push(song);
   }
-  console.log("New song id: " + song.id);
+  console.log("Edit song id: " + song.id);
+  console.log("Edit song title: " + song.title);
   localStorage.setItem("song_database", JSON.stringify(localdb));
 }
 
