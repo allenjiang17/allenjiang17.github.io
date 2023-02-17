@@ -23,8 +23,8 @@ function mirrorLyrics() {
 function mirrorScroll() {
   const text = document.getElementById("text_entry")
   document.getElementById("splitscreentext").scrollTop = 
-      text.scrollTop + text.offsetHeight - 25;
-  // 25 px overlap between the two
+      text.scrollTop + text.offsetHeight - 40;
+  // 40 px overlap between the two
   // divide by text.scrollHeight is font size is different to get a percentage
 }
 

@@ -51,3 +51,11 @@ function splitLyrics(lyrics) {
 
 function datasheet2lyrics(ds) {
 }
+
+function removeChildren(target) {
+  var child = target.lastElementChild;
+  while(child) {
+    target.removeChild(child);
+    child = target.lastElementChild;
+  }
+}

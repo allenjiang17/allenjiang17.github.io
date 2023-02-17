@@ -1,4 +1,3 @@
-
 const editLibrary_html = `
 <div id="popup-editlibrary" class="popup">
     <p class="section_label" style="font-size: 1.3rem"> Song Library</p>
@@ -61,6 +60,8 @@ const editSong_html = `
 function editSongLibraryPopUp(){
   document.getElementById("editlibrarypopupplaceholder").style.display = "block";
   document.getElementById("popup-background").style.display = "block";  
+  console.log('Reminder that shift-click "Download Current Library" will ' + 
+    'download a dev library file.' )
 }
   
 function closeEditSongLibraryPopUp() {
@@ -96,36 +97,68 @@ function closeAllPopUp() {
 }
 
 function removeSongInLibrary() {
-  if (confirm("Remove Song from Library?")) {
-
-    let search_id = this.parentNode.parentNode.getAttribute("data-id");
-    let song_index = SONG_DATABASE.findIndex(s=>s.id == search_id);
-
-    SONG_DATABASE.splice(song_index, 1);
-    
-    localStorage.setItem("song_database", JSON.stringify(SONG_DATABASE));
-    reloadDatabase();
+  let search_id = this.parentNode.parentNode.getAttribute("data-id");
+  if (search_id.startsWith('p')) {
+    // TODO right now it only removes personal songs but not global songs;
+    if (confirm("Remove Song from Library?")) {
+      let localdb = JSON.parse(localStorage.getItem("song_database"));
+      let song_index = localdb.findIndex(s=>s.id == search_id);
+      localdb.splice(song_index, 1);
+      localStorage.setItem("song_database", JSON.stringify(localdb));
+      reloadDatabase();
+    }
   }
+}
+
+function copySong(val, by="id") {
+  if(by == 'id') {
+    let origsong = SONG_DATABASE.find(s => s.id == val);
+    return JSON.parse(JSON.stringify(origsong));
+  } else if(by == "title") {
+    let origsong = SONG_DATABASE.find(s => s.title == val);
+    return JSON.parse(JSON.stringify(origsong));
+  }
+  return null;
+}
+
+function saveSong(song) {
+  let localdb = JSON.parse(localStorage.getItem("song_database"));
+  if(localdb == "[]" | localdb == null) {
+    localdb = [];
+  }
+  let ind = localdb.find(s => s.id == song.id) 
+  if (ind != -1 & typeof(ind) !== "undefined") {
+    localdb[ind] = song;
+  } else {
+    localdb.push(song);
+  }
+  console.log("New song id: " + song.id);
+  localStorage.setItem("song_database", JSON.stringify(localdb));
 }
 
 function editSongInLibrarySubmit() {
   let target_title = document.getElementById("edit_song_title_input").value;
-  let song = SONG_DATABASE.find(s=>s.title == target_title);
+  let song = copySong(target_title, "title");
+  // make deep copy of the global database song
 
   song.author = document.getElementById("edit_song_author_input").value;
   song.sheet = document.getElementById("edit_song_sheet_input").value;
   song.lyrics = remove_chord_lines(song.sheet);
   song.tempo = getTempo(song.lyrics)
-  console.log(song.tempo)
 
-  localStorage.setItem("song_database", JSON.stringify(SONG_DATABASE));
+  saveSong(song);
+
   reloadDatabase();
   closeEditSongPopUp();
 }
 
 function resetLocalDatabase(){
-  if (confirm("You will lose all of your edits/added songs and reset the library to the default ssm library. Proceed?")) {
-    initializeDatabase();
+  let e = editedCount();
+  let p = personalCount();
+  if (confirm("You will lose " + p + " personal songs and " + e + 
+    " edits by resetting the " + 
+    "library to the default ssm library. Proceed?")) {
+    localStorage.removeItem("song_database");
     reloadDatabase();
   }
 }
@@ -137,7 +170,18 @@ function readJSONDatabase() {
 }
 
 function downloadPersonalLibrary(){
-  if (localStorage.getItem("song_database") != null) {
+  if(window.event.shiftKey) {
+    const a = document.createElement('a');
+    const file = new Blob(["DATABASE=", JSON.stringify(SONG_DATABASE, null, 2)], 
+        {type: "application/json"});
+    // TODO rename all of the personal songs to database songs
+    a.href= URL.createObjectURL(file);
+    a.download = "database.js";
+    a.click();
+    URL.revokeObjectURL(a.href);
+    return;
+  }
+  else if (localStorage.getItem("song_database") != null) {
 
     var today = new Date();
     var date = String(today.getMonth() + 1).padStart(2, '0') + 
@@ -147,7 +191,7 @@ function downloadPersonalLibrary(){
 
     const a = document.createElement('a');
     const file = new Blob([localStorage.getItem("song_database")], 
-      {type: "application/json"});
+        {type: "application/json"});
     
     a.href= URL.createObjectURL(file);
     a.download = write_name;

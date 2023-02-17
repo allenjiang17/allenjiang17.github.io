@@ -53,6 +53,7 @@ h1{
   padding-bottom: 0.1em;
 }
 
+#library_search_bar,
 #main_search_bar {
   background-color: var(--layer05);
   color: var(--texthigh);

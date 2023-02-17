@@ -39,14 +39,13 @@ function closeAddSongPopUp() {
   document.getElementById("popup-background").style.display = "none";
 
   editSongLibraryPopUp();
-
 }
 
 function addSongSubmit() {
   //TODO check if all fields have valid entries
 
-  var song = new Object();
-  song.id = String("p" + localStorage.getItem("no_songs_added")+1);
+  let song = new Object();
+  song.id = String("p" + personalCount());
   console.log("Adding New Song with ID" + song.id);
 
   song.title = document.getElementById("song_title_input").value;
@@ -56,7 +55,7 @@ function addSongSubmit() {
   song.tempo = getTempo(song.lyrics);
 
   SONG_DATABASE.push(song);
-  localStorage.setItem("song_database", JSON.stringify(SONG_DATABASE));
+  saveSong(song);
 
   //close popup
   document.getElementById("popup-addsong").style.display = "none";

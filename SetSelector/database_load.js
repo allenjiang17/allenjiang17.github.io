@@ -1,13 +1,4 @@
-//Main Initialization Sequence
-if (localStorage.getItem("song_database") == null || localStorage.getItem("song_database") == [] || localStorage.getItem("song_database") == "[]") {
-    console.log("No Existing Database, Initializing From Default Database");
-    initializeDatabase();
-} else {
-  if (localStorage.getItem("version_date") != VERSION_DATE) {
-    console.log("Merging Databases");
-    mergeDatabase();
-  }
-}
+// Main Initialization Sequence
 
 if (checkMobile()) {
   loadDatabaseMobile();
@@ -19,61 +10,84 @@ if (checkMobile()) {
 
 /**FUNCTIONS */
 
-//initializes the local storage database using the core/default database in the project folder
-//var DATABASE imported from previous javascript, as a JSON hack
-function initializeDatabase() {
-    //init local database
-    var song_database = [];
-
-  for (let i=0; i<DATABASE.length; i++) {    
-    var song = new Object();
-    song.id = DATABASE[i].id;
-    song.title = DATABASE[i].title;
-    song.author = DATABASE[i].author;
-    song.tempo = DATABASE[i].tempo;
-    song.sheet = DATABASE[i].sheet;
-    song.lyrics = DATABASE[i].lyrics;
-
-    song_database.push(song);
-  }
-  localStorage.setItem("song_database", JSON.stringify(song_database));
-
-  //set an additional counter for new songs added with "p" personal tag
-  localStorage.setItem("no_songs_added", 0);
-
-  //set last modified date
-  localStorage.setItem("version_date", VERSION_DATE);
+function personalCount() {
+  let count = 0;
+  let localdb = JSON.parse(localStorage.getItem("song_database"));
+  if (localdb == null | localdb == "[]" | !localdb) {return 0;}
+  localdb.forEach((song, i) => {
+    if(song.id.startsWith('p')) { count++; }
+  });
+  return count;
 }
 
-/**merge as of now spares the personal songs on the local storage, but resets all default database songs to the database */
-function mergeDatabase(){
-  var song_database = JSON.parse(localStorage.getItem("song_database"));
+function editedCount() {
+  let count = 0;
+  let localdb = JSON.parse(localStorage.getItem("song_database"));
+  if (localdb == null | localdb == "[]" | !localdb) {return 0;}
+  localdb.forEach((song, i) => {
+    if(song.id.startsWith('d')) { count++; }
+  });
+  return count;
+}
 
-  for (let i=0; i<DATABASE.length; i++) { 
-    var replace_index = song_database.findIndex(song => song.id == DATABASE[i].id);
-
-    if (replace_index == -1 ) {      
-      var new_song = new Object();
-      new_song.id = DATABASE[i].id;
-      new_song.title = DATABASE[i].title;
-      new_song.author = DATABASE[i].author;
-      new_song.tempo = DATABASE[i].tempo;
-      new_song.sheet = DATABASE[i].sheet;
-      new_song.lyrics = DATABASE[i].lyrics;
-
-      song_database.push(new_song);
-    } else {
-      song_database[replace_index] = DATABASE[i];
+/**
+ * Removes global songs from the local database
+ */
+function databaseVersionClean() {
+  let localdb = JSON.parse(localStorage.getItem("song_database"));
+  if(localdb == null) { return; }
+  if(localdb == '[]') { localdb = []; }
+  let nlocaldb = []
+  if(localdb.length > 170) {
+    console.log(localdb.length);
+    localdb.forEach((song, i) => {
+      if(song.id.startsWith('p')) {
+        nlocaldb.push(song)
+      }
+    })
+    if(confirm("Removing " + (localdb.length - nlocaldb.length) + 
+      "songs from the local database. This should be a one-time change as we " +
+      "change the way personal/database songs are stored on your browser. You may " +
+      "lose some of the edits you've made to the default song database. Proceed?"
+    )) {
+      localStorage.setItem("song_database", JSON.stringify(nlocaldb));
     }
   }
-
-  localStorage.setItem("song_database", JSON.stringify(song_database));
-  localStorage.setItem("version_date", VERSION_DATE);
 }
-function loadDatabase() {
-  SONG_DATABASE = JSON.parse(localStorage.getItem("song_database"));
 
-  for (let i = 0; i<SONG_DATABASE.length; i++) {
+function alphabetizeDatabase(db) {
+  return db.sort((a, b) => a.title.localeCompare(b.title));
+}
+
+/**
+ * Merges the local database (local songs plus edited songs) with the global
+ * database.
+ */
+function mergeDatabase() {
+  databaseVersionClean();
+  SONG_DATABASE = JSON.parse(localStorage.getItem("song_database"));
+  if(SONG_DATABASE == null) {SONG_DATABASE = DATABASE; return;}
+
+  for (let i=0; i < DATABASE.length; i++) { // DATABASE is the global db
+    let replace_index = SONG_DATABASE
+        .findIndex(song => song.id == DATABASE[i].id); // match songs by id
+    if (replace_index == -1 ) {      
+      let globalsong = new Object();
+      globalsong.id = DATABASE[i].id;
+      globalsong.title = DATABASE[i].title;
+      globalsong.author = DATABASE[i].author;
+      globalsong.tempo = DATABASE[i].tempo;
+      globalsong.sheet = DATABASE[i].sheet;
+      globalsong.lyrics = DATABASE[i].lyrics;
+      SONG_DATABASE.push(globalsong);
+    }
+  }
+  SONG_DATABASE = alphabetizeDatabase(SONG_DATABASE);
+}
+
+function loadDatabase() {
+  mergeDatabase();
+  for (let i = 0; i < SONG_DATABASE.length; i++) {
     let newEntry = document.createElement("li");
     let newTitle = document.createElement("div");
 
@@ -127,13 +141,11 @@ function loadDatabase() {
       document.getElementById("popup-personal_search_results")
           .appendChild(newEntry_edit);
     }
-
 }
 
 
 function loadDatabaseMobile() {
-  SONG_DATABASE = JSON.parse(localStorage.getItem("song_database"));
-
+  mergeDatabase();
   for (let i = 0; i<SONG_DATABASE.length; i++) {
     let newEntry = document.createElement("li");
     let newTitle = document.createElement("div");
@@ -154,75 +166,16 @@ function loadDatabaseMobile() {
       newEntry.appendChild(newTitle);
       newEntry.classList.add("hidden");
       document.getElementById("mobile_search_results").appendChild(newEntry);
-      
   }
-
 }
 
 function reloadDatabase() {
   dumpDatabase();
   loadDatabase();
-}
-
-function removeChildren(target) {
-  var child = target.lastElementChild;
-  while(child) {
-    target.removeChild(child);
-    child = target.lastElementChild;
-  }
+  document.getElementById("text_entry").value = ""; // Clear song selection
 }
 
 function dumpDatabase() {
   removeChildren(document.getElementById("main_search_results"));
   removeChildren(document.getElementById("popup-personal_search_results"));
 }
-
-/*
-function loadPersonalDatabase() {
-  //access user's personal song storage
-  if (localStorage.getItem("song_database") != null) {
-    let song_database = JSON.parse(localStorage.getItem("song_database"));
-
-    for (let i = 0; i<song_database.length; i++) {
-      let newEntry = document.createElement("li");
-      let newTitle = document.createElement("div");
-
-      newEntry.setAttribute("id", "song" + i + DATABASE.length);
-      newEntry.className = "search_list";
-      newEntry.setAttribute("data-id", i + DATABASE.length);
-      newEntry.setAttribute("data-author", song_database[i].author);
-      newEntry.setAttribute("data-tempo", song_database[i].tempo);
-      newEntry.setAttribute("data-sheet", song_database[i].sheet);
-      newEntry.setAttribute("data-lyrics", song_database[i].lyrics);
-      newEntry.addEventListener("click", addFromSearch);
-      newEntry.addEventListener("dblclick", addSongToSetDblClick);
-
-      newTitle.setAttribute("id", "song-title" + i + DATABASE.length);
-      newTitle.className = "search_list_title";
-      newTitle.innerText = song_database[i].title;
-
-      newEntry.appendChild(newTitle);
-      document.getElementById("search_results").appendChild(newEntry);
-
-      //add to personal library results
-
-      let newEntry_personal= document.createElement("li");
-      let newTitle_personal = document.createElement("div");
-      newEntry_personal.className = "set_list_item";
-      newTitle_personal.className = "set_title";
-      newTitle_personal.innerText = innerText = song_database[i].title;
-
-      let newButton_personal = document.createElement("img");
-      newButton_personal.className = "set_delete";
-      newButton_personal.setAttribute("src", "icons/trash-fill.svg");
-      newButton_personal.addEventListener("click", removePersonalSong);
-
-      newEntry_personal.appendChild(newTitle_personal);
-      newEntry_personal.appendChild(newButton_personal);
-
-      document.getElementById("popup-personal_search_results")
-          .appendChild(newEntry_personal);
-    }
-  }
-}
-*/
