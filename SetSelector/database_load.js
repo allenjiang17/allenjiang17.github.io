@@ -46,9 +46,9 @@ function databaseVersionClean() {
       }
     })
     if(confirm("Removing " + (localdb.length - nlocaldb.length) + 
-      "songs from the local database. This should be a one-time change as we " +
-      "change the way personal/database songs are stored on your browser. You may " +
-      "lose some of the edits you've made to the default song database. Proceed?"
+    " songs from the local database. This should be a one-time change as we " +
+    "change the way personal/database songs are stored on your browser. You may " +
+    "lose some of the edits you've made to the default song database. Proceed?"
     )) {
       localStorage.setItem("song_database", JSON.stringify(nlocaldb));
     }

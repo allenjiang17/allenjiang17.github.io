@@ -1,5 +1,5 @@
 const splitscreenwindow = `
-  <textarea id="splitscreentext" readonly></textarea>
+  <textarea id="splitscreentext" readonly spellcheck="false"></textarea>
 `
 
 function splitscreen() {
