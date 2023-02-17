@@ -170,11 +170,30 @@ function readJSONDatabase() {
 }
 
 function downloadPersonalLibrary(){
-  if(window.event.shiftKey) {
+  if(window.event.shiftKey) { // dev library download
     const a = document.createElement('a');
-    const file = new Blob(["DATABASE=", JSON.stringify(SONG_DATABASE, null, 2)], 
+    let ndb = [];
+    console.log("Writing " + personalCount() + " new songs and editing " +
+      editedCount() + " existing songs to a global database.js file."
+    )
+    let maxD = 0;
+    SONG_DATABASE.forEach((song) => {
+      if(song.id.startsWith("d")) {
+        ndb.push(song);
+        if(Number(song.id.replace("d", "")) > maxD) {
+          maxD = Number(song.id.replace("d", ""));
+    }}});
+    maxD++;
+    SONG_DATABASE.forEach((song) => {
+      if(song.id.startsWith('p')) {
+        song.id = "d" + maxD;
+        console.log("Writing " + song.title + " as d" + maxD);
+        ndb.push(song);
+        maxD++;
+    }});
+    
+    const file = new Blob(["DATABASE=", JSON.stringify(ndb, null, 2)], 
         {type: "application/json"});
-    // TODO rename all of the personal songs to database songs
     a.href= URL.createObjectURL(file);
     a.download = "database.js";
     a.click();
@@ -182,7 +201,6 @@ function downloadPersonalLibrary(){
     return;
   }
   else if (localStorage.getItem("song_database") != null) {
-
     var today = new Date();
     var date = String(today.getMonth() + 1).padStart(2, '0') + 
       String(today.getDate()).padStart(2, '0') + 

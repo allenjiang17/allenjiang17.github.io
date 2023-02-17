@@ -58,6 +58,9 @@ function databaseVersionClean() {
 function alphabetizeDatabase(db) {
   return db.sort((a, b) => a.title.localeCompare(b.title));
 }
+function idSortDatabase(db) {
+  return db.sort((a, b) => a.id.localeCompare(b.id));
+}
 
 /**
  * Merges the local database (local songs plus edited songs) with the global
