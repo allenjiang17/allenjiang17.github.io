@@ -18,8 +18,7 @@ const addsong_html = `
         -->
         <label for="song_sheet_input" class="form_label" required>Chord Sheet</label>
         <textarea id="song_sheet_input" class="popup_input" 
-        placeholder="Use two blank lines to separate verse/chorus/etc. Use TEMPO: line to designate tempo.">
-        </textarea>
+        placeholder="Use two blank lines to separate verse/chorus/etc. Use TEMPO: line to designate tempo."></textarea>
         <button id="song_input_submit" class="popup_input" onclick="addSongSubmit()">Add Song</button>
 </div>
 `
@@ -42,7 +41,10 @@ function closeAddSongPopUp() {
 }
 
 function addSongSubmit() {
-  //TODO check if all fields have valid entries
+  if(document.getElementById("song_title_input").value.trim() == "") {
+    alert("Please use a valid title.");
+    return;
+  }
 
   let song = new Object();
   song.id = String("p" + personalCount());
@@ -57,9 +59,10 @@ function addSongSubmit() {
   SONG_DATABASE.push(song);
   saveSong(song);
 
-  //close popup
-  document.getElementById("popup-addsong").style.display = "none";
-  document.getElementById("popup-background").style.display = "none";
+  closeAddSongPopUp();
+  document.getElementById("song_title_input").value = "";
+  document.getElementById("song_author_input").value = "";
+  document.getElementById("song_sheet_input").value = "";
 
   reloadDatabase();
 }
