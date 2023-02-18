@@ -145,10 +145,16 @@
 
     <div id="chord_display" style="display:block">
         <div id="chord_display_dashboard" class="dashboard">
-            <span class="dashboard_button" onclick="addSongToSet()" 
-              title="Add song to set with key/chord/lyric changes">
-              Add to Set
-            </span>
+            <div>
+              <span class="dashboard_button" onclick="addSongToSet()" 
+                title="Add song to set with key/chord/lyric changes">
+                Add to Set
+              </span>
+              <span class="dashboard_button" onclick="editSongShortcut()"
+                title="Save any key/chord/lyric changes to your personal library">
+                Save to Library
+              </span>
+            </div>
             <div id="transpose_dashboard">
                 <div id="key_label" class="key_label"> Current Key: </div>
                 <div id="key_display" class="key_display">?</div>

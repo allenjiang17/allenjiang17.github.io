@@ -61,19 +61,29 @@ const downloadToTextFile = (content, filename, contentType) => {
  * returns remaining unprinted lines
  */
 function printPage(songlines, doc) {
-  doc.text(songlines.slice(0, 68).join('\n'), 10, 10)
-  if(songlines.length > 69) {
-    let tmp = songlines.slice(0, 136);
-    if(tmp.every(line => line.length < 44)) { 
+  let tmp = songlines;
+  while(tmp[0].trim() == "") { tmp.shift(); }
+  doc.text(tmp.slice(0, 68).join('\n'), 15, 15)
+  if(tmp.length > 69) {
+    tmp = tmp.slice(0, 136);
+    if(tmp.every(line => line.length < 45)) { 
       // All lines fit in one column
-      doc.text(songlines.slice(68, 136).join('\n'), 110, 10)
-      if(songlines.length > 136) {
-        doc.addPage()
-        return songlines.slice(136);
+      doc.text(tmp.slice(68, 136).join('\n'), 110, 15)
+      if(tmp.length > 136) {
+        tmp = tmp.slice(136);
+        while(tmp[0].trim() == "") { tmp.shift(); }
+        if(tmp.length > 0) { 
+          doc.addPage()
+          return tmp;
+        }
       }
     } else {
-      doc.addPage()
-      return songlines.slice(68);
+      tmp = tmp.slice(68);
+      while(tmp[0].trim() == "") { tmp.shift(); }
+      if(tmp.length > 0) { 
+        doc.addPage()
+        return tmp;
+      }
     }
   }
   return [];

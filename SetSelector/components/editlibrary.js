@@ -137,6 +137,17 @@ function saveSong(song) {
   localStorage.setItem("song_database", JSON.stringify(localdb));
 }
 
+function editSongShortcut() {
+  if (CURRENT_SONG_ID == -1) { return; }
+  let song = copySong(CURRENT_SONG_ID, 'id');
+  document.getElementById("editsongpopupplaceholder").style.display = "block";
+  document.getElementById("popup-background").style.display = "block";
+  document.getElementById("edit_song_title_input").value = song.title;
+  document.getElementById("edit_song_author_input").value = song.author;
+  document.getElementById("edit_song_sheet_input").value = 
+      document.getElementById("text_entry").value;
+}
+
 function editSongInLibrarySubmit() {
   let target_title = document.getElementById("edit_song_title_input").value;
   let song = copySong(target_title, "title");
