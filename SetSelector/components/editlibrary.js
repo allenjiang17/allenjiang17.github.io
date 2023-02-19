@@ -104,7 +104,7 @@ function removeSongInLibrary() {
       let localdb = JSON.parse(localStorage.getItem("song_database"));
       let song_index = localdb.findIndex(s=>s.id == search_id);
       localdb.splice(song_index, 1);
-      localStorage.setItem("song_database", JSON.stringify(localdb));
+      localStorage.setItem("song_database", JSON.stringify(localdb, null, 2));
       reloadDatabase();
     }
   }
@@ -134,7 +134,7 @@ function saveSong(song) {
   }
   console.log("Edit song id: " + song.id);
   console.log("Edit song title: " + song.title);
-  localStorage.setItem("song_database", JSON.stringify(localdb));
+  localStorage.setItem("song_database", JSON.stringify(localdb, null, 2));
 }
 
 function editSongShortcut() {
@@ -176,6 +176,7 @@ function resetLocalDatabase(){
 }
 
 function readJSONDatabase() {
+  // TODO merge databases and not just replace
   var db = document.getElementById("database_reader").files[0].text();
   db.then(db=>localStorage.setItem("song_database", db));
   reloadDatabase();
