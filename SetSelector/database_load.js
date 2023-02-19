@@ -146,7 +146,6 @@ function loadDatabase() {
     }
 }
 
-
 function loadDatabaseMobile() {
   mergeDatabase();
   for (let i = 0; i<SONG_DATABASE.length; i++) {
@@ -176,6 +175,7 @@ function reloadDatabase() {
   dumpDatabase();
   loadDatabase();
   document.getElementById("text_entry").value = ""; // Clear song selection
+  document.getElementById("splitscreentext").value = ""; // Clear song selection
 }
 
 function dumpDatabase() {

@@ -162,6 +162,7 @@ function editSongInLibrarySubmit() {
 
   reloadDatabase();
   closeEditSongPopUp();
+  selectSearchSong(song.id);
 }
 
 function resetLocalDatabase(){

@@ -87,6 +87,25 @@ function filterFunction(input_id, list_id, filter) {
     }
 }
 
+function selectSearchSong(id) {
+  unselectSearchList();
+  unselectSetList();
+  CURRENT_SONG_ID = id;
+  const songs = document.getElementById("main_search_results")
+    .getElementsByTagName("li");
+  let song = null; 
+  for(const s of songs) {
+    if(s.getAttribute('data-id') == id) {
+      song = s;
+    }
+  }
+  if(song !== null) {
+    selectSong(song);
+    song.classList.add('selected');
+  }
+  updateKey();
+}
+
 function addFromSearch() {
   //remove selected formatting from previous song
   unselectSearchList();
