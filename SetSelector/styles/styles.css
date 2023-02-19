@@ -179,7 +179,7 @@ h1{
 
 .lyric_list,
 .search_list {
-  width:100%;
+  width:calc(100% - 0.8em);
   margin: 0;
   padding: 0.4em;
   padding-top:0.7em;
@@ -212,13 +212,6 @@ h1{
 .search_list.hidden {
   display:none;
 }
-
-
-/*
-.lyric_list:hover > .lyric_title,
-.search_list:hover > .search_list_title{
-}
-*/
 
 
 
