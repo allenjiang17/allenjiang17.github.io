@@ -142,13 +142,13 @@ function transpose(raw_text, num_steps) {
                 new_line = new_line.replace(chord, new_chord.toLowerCase());
             }
             //corrections
-            new_line = new_line.replaceAll(/(?<![A-Za-z])a/gm,"A");
-            new_line = new_line.replaceAll(/(?<![A-Za-z])b/gm,"B");
-            new_line = new_line.replaceAll(/(?<![A-Za-z])c/gm,"C");
-            new_line = new_line.replaceAll(/(?<![A-Za-z])d/gm,"D");
-            new_line = new_line.replaceAll(/(?<![A-Za-z])e/gm,"E");
-            new_line = new_line.replaceAll(/(?<![A-Za-z])f/gm,"F");
-            new_line = new_line.replaceAll(/(?<![A-Za-z])g/gm,"G");
+            new_line = new_line.replaceAll(/\ba/gm,"A");
+            new_line = new_line.replaceAll(/\bb/gm,"B");
+            new_line = new_line.replaceAll(/\bc/gm,"C");
+            new_line = new_line.replaceAll(/\bd/gm,"D");
+            new_line = new_line.replaceAll(/\be/gm,"E");
+            new_line = new_line.replaceAll(/\bf/gm,"F");
+            new_line = new_line.replaceAll(/\bg/gm,"G");
             new_text = new_text + new_line + "\n";
         } else {
             new_text = new_text + text[i] + "\n";
