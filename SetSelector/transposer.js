@@ -210,6 +210,7 @@ function chord_line(line) {
     const excluded_characters = ["h","i","j","k","l","n","o","p","q","r","s","t","u","v","x","y","z"];
     const chord_characters = ["#", "7", "/"];
     line = line.replace("maj", ""); // edge case with single fmaj7 chord
+    line = line.replace("sus", ""); // edge case with single fmaj7 chord
 
     var upper_count = 0;
     var lower_count = 0;
