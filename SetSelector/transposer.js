@@ -53,11 +53,9 @@ function updateKey() {
     if (key_natures[KEY_INDEX]) {
         KEY = chord_vals[0][KEY_INDEX];
         document.getElementById(key_display_name).innerText = KEY;
-
     } else {
         KEY = chord_vals[1][KEY_INDEX];
         document.getElementById(key_display_name).innerText = KEY;
-
     }   
 }
 
@@ -94,13 +92,25 @@ function determine_key(raw_text) {
             if (chords.length != 0) {
                 total_chords.push(chords);
             }
-
-            
         }
     }
     return infer_key(total_chords);
-
 }
+
+function transposenumber(raw_text, key) {
+  const text = raw_text.split("\n");
+  let new_text = "";
+  for (let i=0; i<text.length; i++) {
+    if(!chord_line(text[i])) { 
+      new_text = new_text + text[i] + "\n";
+      continue; 
+    }
+    let chord = "";
+    let new_line = text[i];
+  }
+  return new_text.trim();
+}
+
 function transpose(raw_text, num_steps) {    
 
     var text = raw_text.split("\n");
@@ -119,12 +129,10 @@ function transpose(raw_text, num_steps) {
                     chord = chord.concat(text[i][j]);
                 } else {
                     if (chord.length != 0) {
-
                         var new_chord = transpose_chord(chord, num_steps); 
                         //to lower case prevents repeat replacing later on
                         new_line = new_line.replace(chord, new_chord.toLowerCase());
                         chord = "";
-
                     }
                 }
             }
@@ -133,7 +141,6 @@ function transpose(raw_text, num_steps) {
                 var new_chord = transpose_chord(chord, num_steps); 
                 new_line = new_line.replace(chord, new_chord.toLowerCase());
             }
-
             //corrections
             new_line = new_line.replaceAll(/(?<![A-Za-z])a/gm,"A");
             new_line = new_line.replaceAll(/(?<![A-Za-z])b/gm,"B");
@@ -142,26 +149,12 @@ function transpose(raw_text, num_steps) {
             new_line = new_line.replaceAll(/(?<![A-Za-z])e/gm,"E");
             new_line = new_line.replaceAll(/(?<![A-Za-z])f/gm,"F");
             new_line = new_line.replaceAll(/(?<![A-Za-z])g/gm,"G");
-
-            /*
-            new_line = new_line.toUpperCase();
-            new_line = new_line.replaceAll("M","m");
-            new_line = new_line.replaceAll("AB","Ab");
-            new_line = new_line.replaceAll("BB","Bb");
-            new_line = new_line.replaceAll("DB","Db");
-            new_line = new_line.replaceAll("EB","Eb");
-            new_line = new_line.replaceAll("GB","Gb");
-            */
-
             new_text = new_text + new_line + "\n";
-
         } else {
             new_text = new_text + text[i] + "\n";
         }
     }
-
-    //TODO: remove last newline
-    return new_text
+    return new_text.trim()
 }
 
 //determines whether a line of text is a chord line or not
