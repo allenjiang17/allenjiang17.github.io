@@ -37,7 +37,7 @@ const editLibrary_html = `
 
 const editSong_html = `
 <div id="popup-editsong" class="popup">
-    <p id="popup-title" class="section_label"> Edit Song </p>
+    <p id="popup-title" class="section_label"> Edit Song in Library </p>
     <img class="popup_close" src="icons/x-circle-fill.svg" onclick="closeEditSongPopUp()">
         <label for="edit_song_title_input" class="form_label">Title</label>
         <input type="text" id="edit_song_title_input" name="song_title_input" disabled="disabled" class="popup_input" required>
