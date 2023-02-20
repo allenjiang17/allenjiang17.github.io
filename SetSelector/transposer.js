@@ -142,6 +142,12 @@ function transposenumber(raw_text) {
       let new_chord = chord2number(chord, key); 
       new_line = new_line.replace(chord, new_chord);
     }
+    new_line.replace("I/III", "I6"); // first inversion
+    new_line.replace("I/V", "I6/4"); // second inversion
+    new_line.replace("IV/VI", "IV6"); // first inversion
+    new_line.replace("IV/I", "IV6/4"); // second inversion
+    new_line.replace("V/VII", "V6"); // first inversion
+    new_line.replace("V/II", "V6/4"); // second inversion
     new_text = new_text + new_line + "\n";
   }
   return new_text.trim();
@@ -323,12 +329,6 @@ function chord2number(input_chord, origkey) {
     numeral = numeral.toLowerCase();
   }
   input_chord = input_chord.replace(chord_match, numeral);
-  input_chord.replace("I/III", "I6"); // first inversion
-  input_chord.replace("I/V", "I6/4"); // second inversion
-  input_chord.replace("IV/VI", "IV6"); // first inversion
-  input_chord.replace("IV/I", "IV6/4"); // second inversion
-  input_chord.replace("V/VII", "V6"); // first inversion
-  input_chord.replace("V/II", "V6/4"); // second inversion
   return input_chord;
 }
 
