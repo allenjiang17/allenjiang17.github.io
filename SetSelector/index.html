@@ -3,7 +3,7 @@
 <head>
 <title>Set Selector</title>
 <link rel="icon" type="image/x-icon" href="icons/ssm_icon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <link rel="stylesheet" href="styles/styles.css" id="themedefault">
 <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="styles/styles.dark.css" id="themeos">
 <link rel="stylesheet" href="" id="themetoggle">
@@ -19,8 +19,8 @@
     <div id="mobile_bar">
       <img id="mobile_ssm_icon" src="icons/ssm_icon.png">
       <div style="display:flex; width: 80%; align-items: center; justify-content:space-between">
-        <input type="text" placeholder="Search.." id="mobile_search_bar">
-        <img src="icons/search.svg" onclick="mobileSearch()" class="icon_button" style="height: 2.1rem; padding:0.5em; margin-left:0.1rem; margin-right:0.1rem; background-color:rgb(200,200,200);">
+        <input type="text" placeholder="Search.." id="mobile_search_bar" oninput="mobileSearch()">
+        <!--<img src="icons/search.svg" onclick="mobileSearch()" class="icon_button" style="height: 2.1rem; padding:0.5em; margin-left:0.1rem; margin-right:0.1rem; background-color:rgb(200,200,200);">-->
       </div>
       <img src="icons/list.svg" class="icon_button" style="height: 2.1rem; padding:0.5em; margin-left:0.1rem;">
     </div>
@@ -28,7 +28,7 @@
     </div>
     
     <div id="mobile_dashboard" class="dashboard hidden">
-      <span class="dashboard_button"  onclick="addSongToSet()" style="font-size:2vh;border-radius:2vh"
+    <span class="dashboard_button"  onclick="addSongToSet()" style="font-size:2vh;border-radius:2vh"
         title="Add song to set with key/chord/lyric changes">
         Add to Set
       </span>
@@ -101,7 +101,7 @@
         <div id="songs_dashboard">
         <div id="search_bar_content" class="search_bar_content">
             <input type="text" placeholder="Search.." id="main_search_bar" class="search_bar"
-              onkeyup="mainSearch()">
+              oninput="mainSearch()">
             <ul id="main_search_results" class="search_results"></ul>
         </div>
         <div id="tempo_dashboard">
