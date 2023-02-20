@@ -176,6 +176,7 @@ function reloadDatabase() {
   loadDatabase();
   document.getElementById("text_entry").value = ""; // Clear song selection
   document.getElementById("splitscreentext").value = ""; // Clear song selection
+  document.getElementById("tempo_options").selectedIndex = 0; // Clear tempo select
 }
 
 function dumpDatabase() {

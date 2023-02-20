@@ -30,7 +30,7 @@ function addSongPopUp() {
   document.getElementById("popup-background").style.display = "block";  
 
   document.getElementById("song_sheet_input").value = 
-      document.getElementById("text_entry").value;
+      document.getElementById("text_entry").value.trim();
 }
 
 function closeAddSongPopUp() {
@@ -48,7 +48,7 @@ function addSongSubmit() {
 
   let song = new Object();
   song.id = String("p" + personalCount());
-  console.log("Adding New Song with ID" + song.id);
+  console.log("Adding New Song with id: " + song.id);
 
   song.title = document.getElementById("song_title_input").value;
   song.author = document.getElementById("song_author_input").value;

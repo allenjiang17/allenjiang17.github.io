@@ -1,4 +1,3 @@
-
 function switchMedia() {
   const chords = document.getElementById("chord_display")
   const media = document.getElementById("media_display")
