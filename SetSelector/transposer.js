@@ -17,6 +17,13 @@ Index code:
 var chord_vals = [["A","A#","B","C","C#","D","D#","E","F","F#","G","G#"],
               ["A","Bb","B","C","Db","D","Eb","E","F","Gb","G","Ab"]];
 
+var intervalNumerals = {
+  0: 'I', 1: 'bII', 2: 'II', 3: 'bIII', 4: 'III', 5: 'IV', 6: 'bV', 7: 'V', 
+  8: 'bVI', 9: 'VI', 10: 'bVII', 11: 'VII',
+  '-11': 'bII', '-10': 'II', '-9': 'bIII', '-8': 'III', '-7': 'IV', '-6': 'bV', 
+  '-5': 'V', '-4': 'bVI', '-3': 'VI', '-2': 'bVII', '-1': 'VII',
+}
+
 //true = sharp; false = flat
 var key_natures = {0: true,
                1: false,
@@ -31,12 +38,19 @@ var key_natures = {0: true,
                10: true,
                11: false};
 
-document.getElementById("text_entry").addEventListener("input", updateKey);
-document.getElementById("button_plus").addEventListener("click", function(){transposeText(+1)});
-document.getElementById("button_minus").addEventListener("click", function(){transposeText(-1)});
+document.getElementById("key_display")
+    .addEventListener("click", function(){transposeText("n")})
+document.getElementById("text_entry")
+    .addEventListener("input", updateKey);
+document.getElementById("button_plus")
+    .addEventListener("click", function(){transposeText(+1)});
+document.getElementById("button_minus")
+    .addEventListener("click", function(){transposeText(-1)});
 
-document.getElementById("mobile_button_plus").addEventListener("click", function(){transposeText(+1)});
-document.getElementById("mobile_button_minus").addEventListener("click", function(){transposeText(-1)});
+document.getElementById("mobile_button_plus")
+    .addEventListener("click", function(){transposeText(+1)});
+document.getElementById("mobile_button_minus")
+    .addEventListener("click", function(){transposeText(-1)});
 
 function updateKey() {
     let text = document.getElementById("text_entry").value;
@@ -61,9 +75,14 @@ function updateKey() {
 
 function transposeText(num_steps) {
     let text = document.getElementById("text_entry").value;
-    document.getElementById("text_entry").value = transpose(text, num_steps);
-    mirrorLyrics();
-    updateKey();
+    if(isNaN(num_steps) && num_steps == "n") {
+      document.getElementById("text_entry").value = transposenumber(text);
+      mirrorLyrics();
+    } else {
+      document.getElementById("text_entry").value = transpose(text, num_steps);
+      mirrorLyrics();
+      updateKey();
+    }
 }
 
 function determine_key(raw_text) {
@@ -97,7 +116,8 @@ function determine_key(raw_text) {
     return infer_key(total_chords);
 }
 
-function transposenumber(raw_text, key) {
+function transposenumber(raw_text) {
+  let key = determine_key(raw_text);
   const text = raw_text.split("\n");
   let new_text = "";
   for (let i=0; i<text.length; i++) {
@@ -107,6 +127,22 @@ function transposenumber(raw_text, key) {
     }
     let chord = "";
     let new_line = text[i];
+    for (let j=0; j<text[i].length; j++) {
+      if ((/[a-zA-Z1-9#]/).test(text[i][j])) {
+        chord = chord.concat(text[i][j]);
+      } else {
+        if (chord.length != 0) {
+          let new_chord = chord2number(chord, key); 
+          new_line = new_line.replace(chord, new_chord);
+          chord = "";
+        }
+      }
+    }
+    if (chord.length != 0) {
+      let new_chord = chord2number(chord, key); 
+      new_line = new_line.replace(chord, new_chord);
+    }
+    new_text = new_text + new_line + "\n";
   }
   return new_text.trim();
 }
@@ -249,7 +285,6 @@ function chord_to_val(chord) {
                 max_chord_length = chord_vals[1][i].length;
                 chord_match = chord_vals[1][i];
                 val = i;
-
             }  
         }
     }
@@ -277,20 +312,19 @@ function val_transpose(val, num_steps) {
     return new_val;
 }
 
-/*
-function transpose_chord(input_chord, num_steps) {
-    if (input_chord.includes("/")) {
-        var split_chords = input_chord.split("/");
-        return (transpose_chord_piece(split_chords[0], num_steps) + "/" + transpose_chord_piece(split_chords[1], num_steps));
-
-    } else {
-        return (transpose_chord_piece(input_chord, num_steps));
-    }
-
+function chord2number(input_chord, origkey) {
+  const chord_match_array = chord_to_val(input_chord);
+  const val = chord_match_array[0];
+  const chord_match = chord_match_array[1];
+  let numeral = intervalNumerals[val - origkey]
+  input_chord = input_chord.replace(/maj/i, "");
+  if(input_chord.includes("m")) {
+    input_chord = input_chord.replace("m", "");
+    numeral = numeral.toLowerCase();
+  }
+  return input_chord.replace(chord_match, numeral);
 }
-*/
 
-//transposes chord using input chord and number of steps
 function transpose_chord(input_chord, num_steps) {
 
     var chord_match_array = chord_to_val(input_chord);
@@ -309,7 +343,6 @@ function transpose_chord(input_chord, num_steps) {
         return input_chord.replace(chord_match, chord_vals[0][new_val]);
     } else {
         return input_chord.replace(chord_match, chord_vals[1][new_val]);
-
     }
 }
 
@@ -319,12 +352,14 @@ function counter(input_array) {
 
     for (let i=0; i<input_array.length; i++) {
         //check if input is already in the return array
-        if (!(JSON.stringify(return_array).includes(JSON.stringify(input_array[i])))) { 
+        if (!(JSON.stringify(return_array)
+          .includes(JSON.stringify(input_array[i])))) { 
             
             var count = 0;
 
             for (let j=0; j<input_array.length; j++) {
-                if (JSON.stringify(input_array[i]) == JSON.stringify(input_array[j])) {
+                if (JSON.stringify(input_array[i]) == 
+                  JSON.stringify(input_array[j])) {
                     count++;
                 }                
             }
