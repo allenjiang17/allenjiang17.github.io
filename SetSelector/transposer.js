@@ -322,7 +322,14 @@ function chord2number(input_chord, origkey) {
     input_chord = input_chord.replace("m", "");
     numeral = numeral.toLowerCase();
   }
-  return input_chord.replace(chord_match, numeral);
+  input_chord = input_chord.replace(chord_match, numeral);
+  input_chord.replace("I/III", "I6"); // first inversion
+  input_chord.replace("I/V", "I6/4"); // second inversion
+  input_chord.replace("IV/VI", "IV6"); // first inversion
+  input_chord.replace("IV/I", "IV6/4"); // second inversion
+  input_chord.replace("V/VII", "V6"); // first inversion
+  input_chord.replace("V/II", "V6/4"); // second inversion
+  return input_chord;
 }
 
 function transpose_chord(input_chord, num_steps) {
