@@ -1,4 +1,3 @@
-
 function addLyricToList(lyric) {
   const lyric_list = document.getElementById('lyric_results')
   let current_list = lyric_list.getElementsByTagName("li");
@@ -16,9 +15,7 @@ function addLyricToList(lyric) {
   newTitle.innerText = lyric;
 
 //  newEntry.addEventListener("click", previewLyric);
-  newEntry.addEventListener("click", (e) => {
-    selectLyric(e);
-  });
+  newEntry.addEventListener("click", selectLyric);
 
   newEntry.appendChild(newTitle);
   lyric_list.append(newEntry);
@@ -63,9 +60,9 @@ function previewLyric(e=this) {
 function selectLyric(e=this) {
   let targetElement;
   const pres1 = document.getElementById('currpresentation_text');
+  const lyric_list = document.getElementById('lyric_results')
+  const current_list = lyric_list.getElementsByTagName("li");
   if(typeof(e) == "number") {
-    const lyric_list = document.getElementById('lyric_results')
-    const current_list = lyric_list.getElementsByTagName("li");
     targetElement = current_list[e]
   } else {
     targetElement = e.currentTarget;
@@ -77,6 +74,9 @@ function selectLyric(e=this) {
   //targetElement.scrollIntoView();
 
   CURRENT_LYRIC = Number(targetElement.getAttribute("data-lyric-no"));
+  if(CURRENT_LYRIC + 1 < current_list.length) {
+    previewLyric(Number(CURRENT_LYRIC) + 1);
+  } else { previewLyric(CURRENT_LYRIC); }
   return targetElement;
 }
 
