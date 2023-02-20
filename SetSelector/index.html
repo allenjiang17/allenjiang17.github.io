@@ -19,8 +19,8 @@
     <div id="mobile_bar">
       <img id="mobile_ssm_icon" src="icons/ssm_icon.png">
       <div style="display:flex; width: 80%; align-items: center; justify-content:space-between">
-        <input type="text" placeholder="Search.." id="mobile_search_bar">
-        <img src="icons/search.svg" onclick="mobileSearch()" class="icon_button" style="height: 2.1rem; padding:0.5em; margin-left:0.1rem; margin-right:0.1rem; background-color:rgb(200,200,200);">
+        <input type="text" placeholder="Search.." id="mobile_search_bar" oninput="mobileSearch()">
+        <!--<img src="icons/search.svg" onclick="mobileSearch()" class="icon_button" style="height: 2.1rem; padding:0.5em; margin-left:0.1rem; margin-right:0.1rem; background-color:rgb(200,200,200);">-->
       </div>
       <img src="icons/list.svg" class="icon_button" style="height: 2.1rem; padding:0.5em; margin-left:0.1rem;">
     </div>
@@ -101,7 +101,7 @@
         <div id="songs_dashboard">
         <div id="search_bar_content" class="search_bar_content">
             <input type="text" placeholder="Search.." id="main_search_bar" class="search_bar"
-              onkeyup="mainSearch()">
+              oninput="mainSearch()">
             <ul id="main_search_results" class="search_results"></ul>
         </div>
         <div id="tempo_dashboard">
