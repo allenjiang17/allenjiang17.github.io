@@ -126,14 +126,8 @@
         <div id="set_list" tabindex="0">
             <ul id="set_list_items"></ul>
         </div>
-        <p id="export_label" class = "section_label"> Export Set</p>
-
-        <select name="export_select" id="export_select" style="display:inline-block">
-            <option value="pdf">PDF</option>
-            <option value="ppt">Powerpoint (Media Slides)</option>
-            <option value="text">Plain Text</option>
-        </select>
-        <button style="display:inline-block" id="export_button">Download</button>
+        <div id="export">
+        </div>
     </div>          
 
     <div id="transition_display">
@@ -230,11 +224,24 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.11.0/dist/pptxgen.bundle.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="
+  https://cdn.jsdelivr.net/npm/pptxgenjs@3.11.0/dist/pptxgen.bundle.js
+"></script>
+<script src="
+  https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js
+"></script>
+<script src="
+  https://unpkg.com/docx@7.1.0/build/index.js
+"></script>
 
 <script src="global_variables.js"></script>
 <script src="transposer.js"></script>
+<script src="components/export.js"></script>
+<script src="components/splitscreen.js"></script>
+<script src="components/tutorialpopup.js"></script>
+<script src="components/addsong.js"></script>
+<script src="components/editlibrary.js"></script>
+<script src="components/editlyrics.js"></script>
 
 <script src="mobile.js"></script>
 
@@ -246,11 +253,6 @@
 <script src="functions.js"></script>
 <script src="lyriclist.js"></script>
 <script src="keystrokes.js"></script>
-<script src="components/splitscreen.js"></script>
-<script src="components/tutorialpopup.js"></script>
-<script src="components/addsong.js"></script>
-<script src="components/editlibrary.js"></script>
-<script src="components/editlyrics.js"></script>
 <script type="module" src="exportset.js"></script>
 
 
