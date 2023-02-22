@@ -198,6 +198,7 @@ function loadSet() {
     newEntry.setAttribute("data-key", s['data-key']);
     newEntry.setAttribute("data-sheet", s['data-sheet']);
     newEntry.setAttribute("data-lyrics", s['data-lyrics']);
+    newEntry.setAttribute("title", s['title']);
     newEntry.className = "set_list_item";
     newEntry.addEventListener("click", selectCurrentSongFromClick);
 
@@ -229,7 +230,8 @@ function saveSet() {
     song['data-key'] = s.getAttribute('data-key');
     song['data-sheet'] = s.getAttribute('data-sheet');
     song['data-lyrics'] = s.getAttribute('data-lyrics');
-    song['title'] = s.getAttribute('title');
+    song['title'] = s.firstChild.innerText;
+    console.log(s.firstChild)
     songs.push(song);
   }
   setLocalSet(songs);
