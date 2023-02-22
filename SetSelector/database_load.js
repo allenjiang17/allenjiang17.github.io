@@ -50,7 +50,7 @@ function databaseVersionClean() {
     "change the way personal/database songs are stored on your browser. You may " +
     "lose some of the edits you've made to the default song database. Proceed?"
     )) {
-      localStorage.setItem("song_database", JSON.stringify(nlocaldb));
+      localStorage.setItem("song_database", JSON.stringify(nlocaldb, null, 2));
     }
   }
 }
@@ -174,9 +174,9 @@ function loadDatabaseMobile() {
 function reloadDatabase() {
   dumpDatabase();
   loadDatabase();
-  document.getElementById("text_entry").value = ""; // Clear song selection
-  document.getElementById("splitscreentext").value = ""; // Clear song selection
-  document.getElementById("tempo_options").selectedIndex = 0; // Clear tempo select
+  document.getElementById("text_entry").value = "";
+  document.getElementById("splitscreentext").value = ""; 
+  document.getElementById("tempo_options").selectedIndex = 0;
 }
 
 function dumpDatabase() {

@@ -1,3 +1,10 @@
+// Initialization
+
+loadSet();
+
+
+// Functions
+
 function addSongToSet() {
     var set_list = document.getElementById("set_list_items");
     var current_list = set_list.getElementsByTagName("li");
@@ -11,13 +18,20 @@ function addSongToSet() {
     newEntry.setAttribute("data-id", CURRENT_SONG_ID);
     newEntry.setAttribute("data-key", KEY);
     newEntry.setAttribute("data-sheet", document.getElementById("text_entry").value);
-    newEntry.setAttribute("data-lyrics", document.querySelector("#main_search_results > li[data-id='" +  String(CURRENT_SONG_ID) + "']").getAttribute("data-lyrics"));
+    newEntry.setAttribute("data-lyrics", document
+      .querySelector("#main_search_results > li[data-id='" + 
+        String(CURRENT_SONG_ID) + "']").getAttribute("data-lyrics"));
+    newEntry.setAttribute("title", document
+      .querySelector("#main_search_results > li[data-id='" +
+      String(CURRENT_SONG_ID) + "']").firstChild.innerText);
     newEntry.className = "set_list_item";
     newEntry.addEventListener("click", selectCurrentSongFromClick);
 
     newTitle.setAttribute("id", "set_title" + current_list.length);
     newTitle.className = "set_title";
-    newTitle.innerText = document.querySelector("#main_search_results > li[data-id='" +  String(CURRENT_SONG_ID) + "']").firstChild.innerText + " (" + KEY + ")";
+    newTitle.innerText = document
+      .querySelector("#main_search_results > li[data-id='" + 
+        String(CURRENT_SONG_ID) + "']").firstChild.innerText + " (" + KEY + ")";
 
     newButton.setAttribute("id", "set_button" + current_list.length);
     newButton.setAttribute("src", "icons/x-lg.svg");
@@ -29,6 +43,7 @@ function addSongToSet() {
     set_list.append(newEntry);
 
     makeDraggableList();
+    saveSet();
 }
 
 function addSongToSetDblClick(){
@@ -103,7 +118,8 @@ function selectCurrentSongFromClick() {
 }
     
 function deleteSetSong() {
-    this.parentElement.remove();
+  this.parentElement.remove();
+  saveSet();
 }
 
 //from: https://code-boxx.com/drag-drop-sortable-list-javascript/
@@ -163,4 +179,68 @@ function makeDraggableList(set_list=document.getElementById('set_list_items')) {
         }
       };
     }
+}
+
+function loadSet() {
+  const set = getLocalSet();
+  const set_list = document.getElementById('set_list_items')
+  set.forEach((s, i) => {
+    let newEntry = document.createElement("li");
+    let newTitle = document.createElement("div");
+    let newButton = document.createElement("img");
+
+    let cll = s['data-song-no'];
+    let csi = s['data-id'];
+
+    newEntry.setAttribute("id", "set_item" + cll);
+    newEntry.setAttribute("data-song-no", cll);
+    newEntry.setAttribute("data-id", csi);
+    newEntry.setAttribute("data-key", s['data-key']);
+    newEntry.setAttribute("data-sheet", s['data-sheet']);
+    newEntry.setAttribute("data-lyrics", s['data-lyrics']);
+    newEntry.className = "set_list_item";
+    newEntry.addEventListener("click", selectCurrentSongFromClick);
+
+    newTitle.setAttribute("id", "set_title" + cll);
+    newTitle.className = "set_title";
+    newTitle.innerText = s['title'] + " (" + 
+        s['data-key'] + ")";
+
+    newButton.setAttribute("id", "set_button" + cll);
+    newButton.setAttribute("src", "icons/x-lg.svg");
+    newButton.className = "set_delete";
+    newButton.addEventListener("click", deleteSetSong);
+
+    newEntry.appendChild(newTitle);
+    newEntry.appendChild(newButton);
+    set_list.append(newEntry);
+  });
+  makeDraggableList();
+}
+
+function saveSet() {
+  const setlist = document.getElementById('set_list_items')
+      .getElementsByTagName("li");
+  let songs = [];
+  for (const s of setlist) {
+    let song = {};
+    song['data-song-no'] = s.getAttribute('data-song-no');
+    song['data-id'] = s.getAttribute('data-id');
+    song['data-key'] = s.getAttribute('data-key');
+    song['data-sheet'] = s.getAttribute('data-sheet');
+    song['data-lyrics'] = s.getAttribute('data-lyrics');
+    song['title'] = s.getAttribute('title');
+    songs.push(song);
+  }
+  setLocalSet(songs);
+}
+
+function getLocalSet() {
+  let set = JSON.parse(localStorage.getItem("setlist"));
+  if(set == null | set == "[]") {return [];}
+  return set;
+}
+
+function setLocalSet(songs) {
+  localStorage.setItem("setlist", JSON.stringify(songs, null, 2));
 }
