@@ -230,8 +230,7 @@ function saveSet() {
     song['data-key'] = s.getAttribute('data-key');
     song['data-sheet'] = s.getAttribute('data-sheet');
     song['data-lyrics'] = s.getAttribute('data-lyrics');
-    song['title'] = s.firstChild.innerText;
-    console.log(s.firstChild)
+    song['title'] = s.getAttribute('title');
     songs.push(song);
   }
   setLocalSet(songs);
