@@ -6,7 +6,8 @@ const exporthtml = `
       <option value="ppt">Powerpoint (Media Slides)</option>
       <option value="text">Plain Text</option>
   </select>
-  <button style="display:inline-block" id="export_button">Download</button>
+  <!--<p-button id="export_button" label="Download" title="Download"></p-button>-->
+  <button id="export_button" title="Download">Download</button>
 `
 
 
