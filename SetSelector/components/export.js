@@ -157,7 +157,7 @@ function downloadDocx(content, filename) {
     }
     for(const line of song) {
       paragraphlist.push(new docx.Paragraph({children: [ 
-        new docx.TextRun({text: line, font: "Lucida Sans Typewriter"}), 
+        new docx.TextRun({text: line, font: "Courier New"}), 
       ],}))
     }
   });
