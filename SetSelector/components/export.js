@@ -104,7 +104,9 @@ function downloadSetJson(fname) {
 
 function dropSetEnter(e) {
   e.preventDefault();
-  document.getElementById('dropfile').style.display="block";
+  if(e.dataTransfer.types.indexOf('Files') != -1) {
+    document.getElementById('dropfile').style.display="block";
+  }
 }
 
 function dropSetLeave(e) {
