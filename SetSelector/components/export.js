@@ -28,14 +28,7 @@ document.addEventListener("dragover", function(event) {
 window.addEventListener("drop", dropSetJsonFile);
 window.addEventListener("dragenter", dropSetEnter);
 document.addEventListener("mouseout", dropSetLeave);
-
 document.getElementById('dropfile').addEventListener("drop", dropSetJsonFile);
-document.getElementById('dropfile')
-    .addEventListener("dragenter", function(e) {console.log('enter')});
-document.getElementById('dropfile')
-    .addEventListener("dragleave", function(e) {console.log('leave')});
-
-
 
 
 // Functions
@@ -136,17 +129,14 @@ function dropSetJsonFile(e) {
   document.getElementById('dropfile').style.display="none";
   if (e.dataTransfer.items) {
     // Use DataTransferItemList interface to access the file(s)
-    [...e.dataTransfer.items].forEach((item, i) => {
-      // If dropped items aren't files, reject them
+    for(item of [...e.dataTransfer.items]) {
       if (item.kind === "file") {
         processFile(item.getAsFile());
+        break;
       }
-    });
+    }
   } else {
-    // Use DataTransfer interface to access the file(s)
-    [...e.dataTransfer.files].forEach((file, i) => {
-      processFile(item.getAsFile());
-    });
+    processFile(e.dataTransfer.files[0].getAsFile());
   }
 }
 

@@ -25,7 +25,7 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="29.845909"
-     inkscape:cx="9.0297132"
+     inkscape:cx="9.0297133"
      inkscape:cy="9.4317784"
      inkscape:window-width="1312"
      inkscape:window-height="847"
@@ -41,5 +41,5 @@
      d="m 7.5580337,8.1189184 c 0.195364,-0.1958584 0.512636,-0.1958584 0.708,0 l 2.0000003,2.0000006 c 0.472,0.472 -0.236,1.18 -0.7080003,0.708 l -1.146,-1.1470005 v 5.7698205 c 0,0.666667 -1,0.666667 -1,0 V 9.6799185 l -1.146,1.1470005 c -0.472,0.472 -1.18,-0.236 -0.708,-0.708 z"
      id="path824"
      sodipodi:nodetypes="ccsccssccsc"
-     style="fill:#00880b;fill-opacity:1" />
+     style="fill:#00880b;fill-opacity:0.75" />
 </svg>
