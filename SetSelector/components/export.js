@@ -11,6 +11,7 @@ const exporthtml = `
   <button id="export_button" title="Download">Download</button>
   <div id="dropfile" 
     style="position:fixed; width:100%;height:100%;background-color:rgba(0,0,0,0.2);display:none;z-index:5;top:0;left:0;">
+    <img src="../icons/cloud-arrow-up.svg" style="position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:50px;height:50px;"/>
   </div>
 `
 
