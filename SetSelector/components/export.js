@@ -5,9 +5,13 @@ const exporthtml = `
       <option value="pdf">PDF</option>
       <option value="ppt">Powerpoint (Media Slides)</option>
       <option value="text">Plain Text</option>
+      <option value="set">SSM set</option>
   </select>
   <!--<p-button id="export_button" label="Download" title="Download"></p-button>-->
   <button id="export_button" title="Download">Download</button>
+  <div id="dropfile" 
+    style="position:fixed; width:100%;height:100%;background-color:rgba(0,0,0,0.2);display:none;z-index:5;top:0;left:0;">
+  </div>
 `
 
 
@@ -16,11 +20,24 @@ const exporthtml = `
 document.getElementById("export").innerHTML = exporthtml;
 document.getElementById("export_button").addEventListener("click", downloadSet);
 
+document.addEventListener("dragover", function(event) {
+  event.preventDefault();
+});
+
+window.addEventListener("drop", dropSetJsonFile);
+window.addEventListener("dragenter", dropSetEnter);
+document.addEventListener("mouseout", dropSetLeave);
+
+document.getElementById('dropfile').addEventListener("drop", dropSetJsonFile);
+document.getElementById('dropfile')
+    .addEventListener("dragenter", function(e) {console.log('enter')});
+document.getElementById('dropfile')
+    .addEventListener("dragleave", function(e) {console.log('leave')});
+
 
 
 
 // Functions
-
 
 function downloadSet() {
     var set_list = document.querySelector('#set_list_items');
@@ -61,8 +78,77 @@ function downloadSet() {
             songstringlist[i] = list_of_songs[i].getAttribute("data-sheet")
         }
         downloadDocx(songstringlist, write_name + '.docx')
+    } else if (dtype == "set") {
+      downloadSetJson(write_name);
     }
 }
+
+function downloadSetJson(fname) {
+  const a = document.createElement('a');
+  const setlist = document.getElementById('set_list_items')
+      .getElementsByTagName("li");
+  let songs = [];
+  for (const s of setlist) {
+    let song = {};
+    song['data-song-no'] = s.getAttribute('data-song-no');
+    song['data-id'] = s.getAttribute('data-id');
+    song['data-key'] = s.getAttribute('data-key');
+    song['data-sheet'] = s.getAttribute('data-sheet');
+    song['data-lyrics'] = s.getAttribute('data-lyrics');
+    song['title'] = s.getAttribute('title');
+    songs.push(song);
+  }
+  songs = JSON.stringify(songs, null, 2);
+    
+  const file = new Blob([songs], {type: "application/json"});
+  a.href= URL.createObjectURL(file);
+  a.download = fname + ".ssmset";
+  a.click();
+
+  URL.revokeObjectURL(a.href);
+}
+
+function dropSetEnter(e) {
+  e.preventDefault();
+  document.getElementById('dropfile').style.display="block";
+}
+
+function dropSetLeave(e) {
+  e.preventDefault();
+  document.getElementById('dropfile').style.display="none";
+}
+
+async function processFile(f) {
+  console.log(`load file: ${f.name}`);
+  if(!f.name.endsWith(".ssmset")) {
+    alert("File not recognized. Load a set by dragging" + 
+      " a .ssmset file into the website.")
+    return;
+  }
+  const text = await f.text();
+  removeChildren(document.getElementById('set_list_items'));
+  loadSet(JSON.parse(text));
+}
+
+function dropSetJsonFile(e) {
+  e.preventDefault();
+  document.getElementById('dropfile').style.display="none";
+  if (e.dataTransfer.items) {
+    // Use DataTransferItemList interface to access the file(s)
+    [...e.dataTransfer.items].forEach((item, i) => {
+      // If dropped items aren't files, reject them
+      if (item.kind === "file") {
+        processFile(item.getAsFile());
+      }
+    });
+  } else {
+    // Use DataTransfer interface to access the file(s)
+    [...e.dataTransfer.files].forEach((file, i) => {
+      processFile(item.getAsFile());
+    });
+  }
+}
+
 //from https://robkendal.co.uk/blog/2020-04-17-saving-text-to-client-side-file-using-vanilla-js
 const downloadToTextFile = (content, filename, contentType) => {
     const a = document.createElement('a');

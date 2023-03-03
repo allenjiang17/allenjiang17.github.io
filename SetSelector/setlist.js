@@ -181,8 +181,10 @@ function makeDraggableList(set_list=document.getElementById('set_list_items')) {
     }
 }
 
-function loadSet() {
-  const set = getLocalSet();
+function loadSet(set=null) {
+  if(set == null) {
+    set = getLocalSet();
+  }
   const set_list = document.getElementById('set_list_items')
   set.forEach((s, i) => {
     let newEntry = document.createElement("li");

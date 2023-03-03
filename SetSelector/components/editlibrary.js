@@ -43,15 +43,6 @@ const editSong_html = `
         <input type="text" id="edit_song_title_input" name="song_title_input" disabled="disabled" class="popup_input" required>
         <label for="edit_song_author_input" class="form_label">Author</label>
         <input type="text" id="edit_song_author_input" name="song_author_input" class="popup_input" required>
-        <!--
-        <label for="edit_song_tempo_input" class="form_label">Tempo</label>
-        <select id="edit_song_tempo_input" class="popup_input" required>
-            <option value="Fast">Fast</option>
-            <option value="Medium">Medium</option>
-            <option value="Slow">Slow</option>
-            <option value="Intercessory">Intercessory</option>
-        </select>
-        -->
         <label for="edit_song_sheet_input" class="form_label" required>Chord Sheet</label>
         <textarea id="edit_song_sheet_input" class="popup_input" placeholder="Use two blank lines to separate verse/chorus/etc."></textarea>
         <button id="song_input_submit" class="popup_input" onclick="editSongInLibrarySubmit()"> Submit </button>
@@ -213,8 +204,7 @@ function downloadPersonalLibrary(){
     a.click();
     URL.revokeObjectURL(a.href);
     return;
-  }
-  else if (localStorage.getItem("song_database") != null) {
+  } else if (localStorage.getItem("song_database") != null) {
     var today = new Date();
     var date = String(today.getMonth() + 1).padStart(2, '0') + 
       String(today.getDate()).padStart(2, '0') + 

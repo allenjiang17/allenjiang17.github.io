@@ -1,42 +1,34 @@
-const tutorialpopup = `
-  <div class="popup-background" id="popupbackgroundtut"
-    onclick="closetutorialpopup()"></div>
-  <!--
-  <div class="tutorialpanel" id="tutorialpanel1">
-    <div class="tutorialnav"></div>
-  </div>
-  <div class="tutorialpanel" id="tutorialpanel2">
-    <div class="tutorialnav"></div>
-  </div>
-  <div class="tutorialpanel" id="tutorialpanel3">
-    <div class="tutorialnav"></div>
-  </div>
-  -->
-`
+class TutorialPopup extends HTMLElement {
+  constructor() { super(); }
 
-const tutorialnav = `
-`
+  render() {
+    this.innerHTML = `
+      <popup-background></popup-background>
+      <panel-one></panel-one>
+      <panel-two></panel-two>
+      <panel-three></panel-three>
+    `;
+    let bkgd = this.getElementsByTagName("popup-background").item(0);
+    let p1 = this.getElementsByTagName("panel-one").item(0);
+    let p2 = this.getElementsByTagName("panel-two").item(0);
+    let p3 = this.getElementsByTagName("panel-three").item(0);
+    this.bkgd.addEventListener("click", hide.bind(this));
+  }
 
-function navtut(n) {
-  tempid = "tutorialpanel" + n;
-  for (let node of document.getElementsByClassName('tutorialpanel')) 
-    node.style.display = "none";
-  document.getElementById(tempid).style.display = "block";
+  connectedCallback() {
+    if(!this.rendered) {
+      this.render();
+      this.rendered = true;
+    }
+  }
+
+  hide() {
+    if(this.style.display == "none") {
+      this.style.display == "block";
+    } else {
+      this.style.display == "none";
+    }
+  }
 }
 
-function opentutorialpopup() {
-  document.getElementById("tutorialpopupplaceholder").style.display = "block";
-  document.getElementById("popupbackgroundtut").style.display = "block";
-}
-function closetutorialpopup() {
-  document.getElementById("tutorialpopupplaceholder").style.display = "none";
-}
-
-
-function reloadTut() {
-  document.getElementById("tutorialpopupplaceholder").innerHTML = tutorialpopup;
-  for (let node of document.getElementsByClassName('tutorialnav')) 
-    node.innerHTML = tutorialnav;
-}
-
-reloadTut(); 
+customElements.define("t-popup", TutorialPopup);

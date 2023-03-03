@@ -39,7 +39,6 @@
             style="margin:0; text-align:center;">?</div>
           <img id="mobile_button_plus" src="icons/caret-up-fill.svg" 
             class="transpose_button" title="Increase key"  style="margin:0">
-    
       </div>
     </div>
     
@@ -53,9 +52,9 @@
   class="popup-placeholder"></div>
 <div id="tutorialpopupplaceholder" style="display:none" 
   class="popup-placeholder"></div>
-  <div id="editlyricspopupplaceholder" style="display:none" 
+<div id="editlyricspopupplaceholder" style="display:none" 
   class="popup-placeholder"></div>
-  <div id="editsongpopupplaceholder" style="display:none" 
+<div id="editsongpopupplaceholder" style="display:none" 
   class="popup-placeholder"></div>
 <!-- 
 === END POPUP STUFF ===========================================================
@@ -106,11 +105,16 @@
         </div>
         <div id="tempo_dashboard">
             <label id="tempo_label" class="small_label">Tempo:
+
             <select name="tempo_options" id="tempo_options" 
                 onchange="mainSearch()">
                 <option value="Any">Any</option>
-                <!-- Remaining options are dynamically added in searchbar.js -->
             </select>
+
+            <!--
+            <drop-down></drop-down>
+            -->
+
             </label>
             <div>
               <img class="icon_button" style="width:1.1rem; margin-right:0.5rem" 
@@ -243,6 +247,7 @@
 <script src="components/addsong.js"></script>
 <script src="components/editlibrary.js"></script>
 <script src="components/editlyrics.js"></script>
+<script src="components/dropDown.js"></script>
 
 <script src="mobile.js"></script>
 
