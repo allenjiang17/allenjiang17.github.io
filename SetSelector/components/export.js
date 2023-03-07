@@ -214,13 +214,13 @@ const downloadToPPT = (content, filename) => {
                 align: "center", 
                 color: "FFFFFF", 
                 fontFace: "Georgia",
-                fontSize: 30,
-                lineSpacing: 50,
+                fontSize: 24,
+                lineSpacing: 48,
                 // Default 16x9 size is 10 x 5.625 in
-                x: 1, // slide width minus text width divided by 2
-                y: 1,
-                h: 3.625,
-                w: 8,
+                x: 0.75, // slide width minus text width divided by 2
+                y: 0.75,
+                h: 4.125,
+                w: 8.5,
             });
         }
     }
