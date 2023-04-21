@@ -50,12 +50,12 @@ function presentMedia() {
     <link rel="stylesheet" type="text/css" href="presentation.css">
   `
   windowobj.document.getElementsByTagName("body")[0].style = 
-      "padding:0;margin:0;"
+      "padding:0;margin:0;overflow:hidden;"
 
   windowobj.document.body.innerHTML = `
     <div id="displaypresentation" class='presentation' 
       style="font-family:Century Gothic, Helvetica, serif;
-      height:100vh;width:100vw;background:black;
+      height:100vh;width:100vw;background:black;overflow:hidden;
       text-align:center;padding-top:6vh;cursor:none;">
       <span id="displaypresentation_text" 
         style="color:white;font-size:6vh;line-height:9vh;opacity:1;">
