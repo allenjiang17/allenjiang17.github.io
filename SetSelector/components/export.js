@@ -214,8 +214,8 @@ const downloadToPPT = (content, filename) => {
                 align: "center", 
                 color: "FFFFFF", 
                 fontFace: "Georgia",
-                fontSize: 24,
-                lineSpacing: 48,
+                fontSize: 30,
+                lineSpacing: 45,
                 // Default 16x9 size is 10 x 5.625 in
                 x: 0.75, // slide width minus text width divided by 2
                 y: 0.75,
