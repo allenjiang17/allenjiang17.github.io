@@ -1,0 +1,138 @@
+body{
+  /*background-image:url(background_board.jpeg);*/
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  margin:0;
+}
+
+#ssm_icon{
+  box-sizing: border-box;
+  display: inline-block;
+  height: 1.9rem;
+  margin-right: 1rem;
+}
+
+#header{
+  justify-content: space-between;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  height: 3.5rem;
+  padding-left: 0.6%;
+  padding-right:0.6%;
+  padding-top:2.5rem;
+  padding-bottom:2rem;
+  margin-left: 5%;
+  margin-right: 6%;
+}
+
+h1{
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-size: 1.9rem;
+  font-weight: 2000;
+  color: rgb(50, 50, 50);
+}
+
+#wrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 90%;
+  /*height: 92%;*/
+  position: relative;
+}
+
+#side_bar{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.6%;
+  width: 20%;
+}
+
+#chord_display{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.6%;
+  width: 80%;
+  display: block;
+  position:relative;
+  z-index: 2;
+}
+
+.section_label{
+  font-size: 1.1rem;
+  font-weight: 450;
+  color: black;
+}
+
+.section_label_top{
+  margin-top: 0.3rem;
+}
+
+
+
+
+
+
+.search_bar {
+  box-sizing: border-box;
+  width: 100%;
+  font-size:1rem;
+  padding: 0.5em;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+.search_bar:focus {outline: 3px solid #ddd;}
+
+.search_bar_content {
+  background-color: #f6f6f6;
+  overflow: auto;
+  border: 1px solid #ddd;
+  max-height: 35vh;
+  transition: all 0.7s ease-in-out 0s;
+}
+
+.search_results{
+  padding: 0.1em;
+  margin: 0em;
+}
+
+
+.lyric_list,
+.search_list {
+  width:calc(100% - 0.8em);
+  margin: 0;
+  padding: 0.4em;
+  padding-top:0.7em;
+  padding-bottom:0.7em;
+  display:block;
+}
+
+.lyric_title,
+.search_list_title{
+  width:100%;
+  display:inline-block;
+  font-size: 0.8rem;
+  font-weight:400px;
+  color:black;
+}
+
+.lyric_list:hover,
+.search_list:hover {
+  background-color: Gainsboro;
+}
+
+.search_list.selected{
+  background-color: gray;
+}
+
+.search_list.selected > .search_list_title{
+  color: white;
+}
+
+.search_list.hidden {
+  display:none;
+}
