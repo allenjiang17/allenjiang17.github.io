@@ -2,5 +2,8 @@
   "dependencies": {
     "@vercel/edge-config": "^0.2.1",
     "@vercel/postgres": "^0.3.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
   }
 }
