@@ -20,7 +20,7 @@ export default {
                     technologies: "Next.js React Tailwind Vercel MongoDB",
                     github_link: 'https://github.com/allenjiang17/ssm_songbook',
                     live_link: 'https://ssm-songbook.vercel.app/',
-                    screenshot: "./assets/songbook.png"
+                    screenshot: "src/assets/songbook.png"
                 },
                 project2: {
                     title: "Chess",
@@ -28,7 +28,15 @@ export default {
                     technologies: "React Tailwind Python",
                     github_link: 'https://github.com/allenjiang17/chess_react',
                     live_link:'https://allenjiang17.github.io/chess_react/',
-                    screenshot: './assets/chess.png'
+                    screenshot: 'src/assets/chess.png'
+                },
+                project3: {
+                    title: "Star Explorer",
+                    content: "Star explorer is a 3D simulation of the night sky rendered using Three.js. You can observe the stars, planets, moon and Sun at any latitude and longitude on Earth, at any given time point. Star coordinates are referenced from the Yale Bright Star Catalog (1950), and planetary position data is obtained using the JPL Horizons API  ",
+                    technologies: "Three.js React Tailwind Vercel Vite",
+                    github_link: 'https://github.com/allenjiang17/star_explorer',
+                    live_link:'https://star-explorer.vercel.app',
+                    screenshot: 'src/assets/star_explorer.png'
                 }
             }
         }
@@ -56,16 +64,18 @@ export default {
         <!--TODO: make this better using v-for -->
         <ProjectCard :title="projects.project1.title" :content="projects.project1.content" :technologies="projects.project1.technologies" :github_link="projects.project1.github_link" :live_link="projects.project1.live_link" :screenshot="projects.project1.screenshot"/>
         <ProjectCard :title="projects.project2.title" :content="projects.project2.content" :technologies="projects.project2.technologies" :github_link="projects.project2.github_link" :live_link="projects.project2.live_link" :screenshot="projects.project2.screenshot"/>
+        <ProjectCard :title="projects.project3.title" :content="projects.project3.content" :technologies="projects.project3.technologies" :github_link="projects.project3.github_link" :live_link="projects.project3.live_link" :screenshot="projects.project3.screenshot"/>
+
     </div>
 
     <div id="resume_page" v-if="page == 'resume'">        
-        <img id="resume" src="./assets/resume_allenjiang_2023.png"/>
+        <img id="resume" src="src/assets/resume_allenjiang_2023.png"/>
         <Download/>
     </div>
 
     <div id="about_page" v-if="page == 'about'">
         <div id="about_wrapper">
-        <img id="profile" src="./assets/profile.jpg"/>
+        <img id="profile" src="src/assets/profile.jpg"/>
         <div>
             <div id="blurb_title">  a little bit about me</div>
             <div id="blurb">

@@ -6,11 +6,13 @@
   
   <script>
 
+  import pdf_url from '../assets/resume_allenjiang_2023.pdf'
+
   export default {
 
     methods: {
       downloadFile() {
-        const fileUrl = 'src/assets/resume_allenjiang_2023.pdf';
+        const fileUrl = pdf_url;
   
         // Create a temporary link element
         const link = document.createElement('a');

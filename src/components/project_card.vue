@@ -2,10 +2,19 @@
 
 import Button from './button.vue'
 import Title from './project_title.vue'
+import github_icon from './icons/Octicons-mark-github.svg'
+import eye_icon from './icons/eye-fill.svg'
 
 export default{    
+
     components: {Button, Title},
-    props:['title', 'screenshot', 'content', 'technologies','github_link','live_link']
+    props:['title', 'screenshot', 'content', 'technologies','github_link','live_link'],
+    data() {
+        return {
+            github: github_icon,
+            view: eye_icon
+        }
+    }
 
 }
 
@@ -18,10 +27,10 @@ export default{
             <div id="content">{{content}}</div>
             <div id="technologies">Skills: {{technologies }}</div>
             <div class = "button">
-                <Button text="View Code on Gitub" :link="github_link"/>
+                <Button :icon="github" text="View Code on Github" :link="github_link"/>
             </div>
             <div class = "button">
-                <Button text="View Live" :link="live_link"/>
+                <Button :icon="view" text="View Live" :link="live_link"/>
             </div>
 
         </div>

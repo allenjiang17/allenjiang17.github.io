@@ -9,7 +9,10 @@ export default {
 <template>
     <a :href="link">
     <button id="button">
-        {{text}}
+        <div id="container">
+            <img id="icon" :src="icon"/>
+            {{text}}
+        </div>
     </button>
     </a>
     
@@ -32,6 +35,17 @@ export default {
     background-color: gray;
 
 
+}
+
+#container{
+    display:flex;
+    
+}
+#icon{
+    display:inline-block;
+    width:1rem;
+    filter:invert();
+    margin-right:0.3rem;
 }
 
 </style>
